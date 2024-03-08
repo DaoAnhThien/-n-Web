@@ -1,158 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
-    <style>
+<style>
+    .logo {
+        width: 150px;
+        display: inline-block;
+        margin-top: 20px;
+        margin-left: 25px;
+    }
 
-        .logo{
-            width: 150px;
-            display: inline-block;
-            margin-top: 20px;
-            margin-left: 25px;
-        }
-        .searcharea{
-            margin-top: -150px;
-        }
-        .searchbox{
-            margin-left: 60%;
-            padding-left: 10%;
-            height: 30px;
-            background-color:#12372A;
-            color:yellow; 
-        }
-        ::placeholder{
-                color:yellow; 
-        }
-        .btn{
-            height: 35px;
-            width: 35px;
-        }
-        .account{
-            color: #12372A;
-            margin: 10px 30px
-        }
-        ul.menu{
-            list-style-type: none; 
-            margin-left: 300px;
-            margin-top: 80px;
-            padding: 0;
-            overflow: hidden;
-        }
-        ul.menu li{
-            float: center; 
-            display: inline; 
-            padding: 60px;  
-            font-weight: 300;
-            color: yellow;
+    .searcharea {
+        margin-top: -150px;
+    }
 
-        }
-        .line1{
-            height: 5px;
-            background-color: #12372A;
-        }
+    .searchbox {
+        margin-left: 60%;
+        padding-left: 5%;
+        height: 30px;
+        background-color: #ffffff;
+        color: #12372A;
+    }
 
-        .slides{
-            width:100%;
-        }
-        .next-right{
-            border-radius: 50%;
-            font-weight: 300;
-            position: absolute;
-            margin-top: 220px;
-            margin-left: -120px;
-            width: 100px;
-            height: 100px;
-            background-color: initial;
-            color: yellow;
-        }
+    ::placeholder {
+        text-align: right;
+        margin-right: 10%;
+        color: #12372A;
+    }
+
+    .btn {
+        height: 35px;
+        width: 35px;
+    }
+
+    .account {
+        color: #12372A;
+        margin: 10px 15px
+    }
+
+    ul.menu {
+        list-style-type: none;
+        margin-left: 300px;
+        margin-top: 80px;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    ul.menu li {
+        float: center;
+        display: inline;
+        padding: 60px;
+        font-weight: 300;
+        color: yellow;
+
+    }
+
+    .menu a {
+        text-decoration: none;
+    }
+
+    .line1 {
+        height: 5px;
+        background-color: #12372A;
+        text-decoration: none;
+    }
+
+    .slides {
+        width: 100%;
+    }
+
+    .next-right {
+        border-radius: 50%;
+        font-weight: 300;
+        position: absolute;
+        margin-top: 220px;
+        margin-left: -120px;
+        width: 100px;
+        height: 100px;
+        background-color: initial;
+        color: #adbc9f;
+    }
 
 
-        .center-menu h1{
-            color:#12372A;
-            margin-left: 45%;
-            padding-top: 20px;
-            padding-bottom: 20px;
-        }
-        .center-menu2{
-            width: 100%;
-            height: 600px;
-            border-spacing: 20px;
-        }
-        .mon1{
-            width: 40%;
-            height: 600px;
-            background-image: url("/image/3cadf0e66f6db32eedeecf320e61c5bf.ico");
-            
-        }
-        .mon2{
-            width: 20%;
-            height: 300px;
-            background-image: url("/image/3cadf0e66f6db32eedeecf320e61c5bf.ico");
-            
-        }
-        .mon3{
-           width: 20%;
-            height: 300px;
-            background-image: url("/image/3cadf0e66f6db32eedeecf320e61c5bf.ico");
-            
-        }
-        .mon4{
-            width: 20%;
-            height: 300px;
-            background-image: url("/image/3cadf0e66f6db32eedeecf320e61c5bf.ico");
-            
-        }
-        .mon5{
-            width: 20%;
-            height: 300px;
-            background-image: url("/image/3cadf0e66f6db32eedeecf320e61c5bf.ico");
-            
-        }
-        
+    .center-menu h1 {
+        color: #12372A;
+        margin-left: 45%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
 
-        .bottom-menu h1{
-            color:#12372A;
-            margin-left: 45%;
-            padding-top: 20px;
-            padding-bottom: 20px;
-        }
-        .bottom-menu2{
-            width: 100%;
-            height: 600px;
-            border-spacing: 20px;
-        }
-        .mon6{
-            width: 20%;
-            height: 100px;
-            background-image: url("/image/3cadf0e66f6db32eedeecf320e61c5bf.ico");
-        }
-        .mon7{
-            width: 20%;
-            height: 100px;
-            background-image: url("/image/3cadf0e66f6db32eedeecf320e61c5bf.ico");
-        }
-        .mon8{
-            width: 20%;
-            height: 100px;
-            background-image: url("/image/3cadf0e66f6db32eedeecf320e61c5bf.ico");
-        }
-        .mon9{
-            width: 20%;
-            height: 100px;
-            background-image: url("/image/3cadf0e66f6db32eedeecf320e61c5bf.ico");
-        }
+    .center-menu2 {
+        width: 100%;
+        height: 600px;
+        border-spacing: 20px;
+    }
 
-        .line2{
-            height: 5px;
-            background-color: #12372A;
-        }
+    .mon1 {
+        width: 40%;
+        height: 600px;
+        background-image: url("/image/salmon-518032.jpg");
 
-        .bottom h1{
-            color:#12372A;
-            margin-left: 5%;
-            padding-top: 20px;
-            padding-bottom: 20px;
+    }
 
-        }
-    </style>
+    .mon2 {
+        width: 20%;
+        height: 300px;
+        background-image: url("/image/salmon-518032.jpg");
+
+    }
+
+    .mon3 {
+        width: 20%;
+        height: 300px;
+        background-image: url("/image/3cadf0e66f6db32eedeecf320e61c5bf.ico");
+
+    }
+
+    .mon4 {
+        width: 20%;
+        height: 300px;
+        background-image: url("/image/3cadf0e66f6db32eedeecf320e61c5bf.ico");
+
+    }
+
+    .mon5 {
+        width: 20%;
+        height: 300px;
+        background-image: url("/image/3cadf0e66f6db32eedeecf320e61c5bf.ico");
+
+    }
+
+
+    .bottom-menu h1 {
+        color: #12372A;
+        margin-left: 45%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .bottom-menu2 {
+        width: 100%;
+        height: 600px;
+        border-spacing: 20px;
+    }
+
+    .mon6 {
+        width: 20%;
+        height: 100px;
+        background-image: url("/image/3cadf0e66f6db32eedeecf320e61c5bf.ico");
+    }
+
+    .mon7 {
+        width: 20%;
+        height: 100px;
+        background-image: url("/image/3cadf0e66f6db32eedeecf320e61c5bf.ico");
+    }
+
+    .mon8 {
+        width: 20%;
+        height: 100px;
+        background-image: url("/image/3cadf0e66f6db32eedeecf320e61c5bf.ico");
+    }
+
+    .mon9 {
+        width: 20%;
+        height: 100px;
+        background-image: url("/image/3cadf0e66f6db32eedeecf320e61c5bf.ico");
+    }
+
+    .line2 {
+        height: 5px;
+        background-color: #12372A;
+    }
+
+    .bottom h1 {
+        color: #12372A;
+        margin-right: 40%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+
+    }
+
+    .bottom p {
+        font-size: 20px;
+    }
+
+    .bottom i {
+        font-size: large;
+    }
+</style>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -160,47 +195,49 @@
     <link rel="shortcut icon" type="image/png" href="/image/pngtree-hat-cook-icon-vector-png-image_2924609.ico">
     <!-- Add icon library -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
+
 <body>
-    <div class = "header">
-    <nav>
-        <img src="/image/pngtree-cooking-logo-png-image_8466882.png" class="logo"> 
-        <div class = "searcharea">
-            <input type="text" name="search" class="searchbox" placeholder="Tìm kiếm ở đây!">
-            <button class="btn"><i class="fa fa-search"></i></button>
-            <b class="account">       Tài khoản</b>
-            <button class="btn"><i class="fa fa-user"></i></button>
-        </div>
-        
-        <ul class = "menu">
-            <li><a href="#" style="color: #12372A"> CÔNG THỨC</a></li>
-            <li><a href="#" style="color: #12372A"> MẸO VẶT</a></li>
-            <li><a href="#" style="color: #12372A"> LIÊN HỆ</a></li>
-            <li><a href="#" style="color: #12372A"> GÓP Ý</a></li>
-        </ul>
-    </nav>
+    <div class="header">
+        <nav>
+            <img src="/image/pngtree-cooking-logo-png-image_8466882.png" class="logo">
+            <div class="searcharea">
+                <input type="text" name="search" class="searchbox" placeholder="Tìm kiếm ở đây!">
+                <a href=""><i class='bx bx-search-alt-2' style='color:#436850; font-size: 25px;'></i></a>
+                <b class="account"> Tài khoản</b>
+                <a href=""><i class='bx bx-user' style='color:#436850; font-size: 25px;'></i></a>
+            </div>
+
+            <ul class="menu">
+                <li><a href="#" style="color: #12372A"> CÔNG THỨC</a></li>
+                <li><a href="#" style="color: #12372A"> MẸO VẶT</a></li>
+                <li><a href="#" style="color: #12372A"> LIÊN HỆ</a></li>
+                <li><a href="#" style="color: #12372A"> GÓP Ý</a></li>
+            </ul>
+        </nav>
     </div>
     <hr class="line1">
     <div class="slideshow">
         <img class="slides" src="/image/429959565_2219920005018901_8338190442272490508_n.jpg">
-        <button class="next-right" >&#10095;</button>
+        <button class="next-right">&#10095;</button>
     </div>
-    
+
     <div class="center-menu">
         <h1>MÓN ĂN NỔI BẬT</h1>
         <table class="center-menu2">
             <tr>
-                <th class="mon1"colspan="2" rowspan="2"><a href="#" style="color: #12372A"> MÓN 1 </a> </th>
+                <th class="mon1" colspan="2" rowspan="2"></th>
                 <th class="mon2"><a href="#" style="color: #12372A"> MÓN 2 </a></th>
                 <th class="mon3"> <a href="#" style="color: #12372A"> MÓN 3 </a> </th>
             </tr>
-            
+
             <tr>
                 <th class="mon4"> <a href="#" style="color: #12372A"> MÓN 4 </a> </th>
                 <th class="mon5"> <a href="#" style="color: #12372A"> MÓN 5 </a> </th>
             </tr>
-    
-    
+
+
         </table>
 
     </div>
@@ -219,8 +256,12 @@
     <hr class="line2">
     <div class="bottom">
         <h1>
-            ádsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+            Liên hệ
         </h1>
-    </div>
+        <p>Lớp NT208.O23</p>
+        <i class='bx bxl-facebook-circle' style="font-size: 25px; color: #12372A;"></i>
+        <i class='bx bxl-instagram' style="font-size: 25px; color: #12372A"></i>
+        <i class='bx bxl-github' style="font-size: 25px; color: #12372A;"></i>
 </body>
+
 </html>
