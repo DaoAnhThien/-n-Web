@@ -64,6 +64,13 @@ h5:hover > a,
 h6:hover > a {
   color: inherit;
 }
+
+.card a:hover {
+  text-decoration: underline;
+}
+.card1 a:hover {
+  text-decoration: underline;
+}
 p,
 .slider-txt span,
 .slider-txt p,
@@ -995,8 +1002,7 @@ ul.inner-dropdown.list-unstyled:before {
 .recipy-style2 {
   margin-bottom: 30px;
 }
-.recipy-style2 {
-}
+
 .recipy-style2 img {
   width: 100%;
 }
@@ -1041,12 +1047,13 @@ monan-title {
   justify-content: center;
   display: flex;
 }
+
 .card-container {
   width: 100%;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 20px;
+  margin-top: 50px;
   background-color: #fffbf5;
 }
 .card {
