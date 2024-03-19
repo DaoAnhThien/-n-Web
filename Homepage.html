@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Homepage</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link rel="stylesheet" href="color.css">
+    <link rel="stylesheet" href="Homepage.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+
+    <div class="header">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg">
+                <div class="logo">
+                    <a class="navbar-brand" href="javascript:void(0)">
+                        <img src="logo1.png" alt="">
+                    </a>
+                </div>
+                <div class="navbar-toggler active">
+                    <span></span><span></span><span></span>
+                </div>
+                <div class="nav-menu active">
+
+                    <div class="navbar-close">
+                        <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                    </div>
+
+                    <nav class="main-menu">
+                        <ul>
+                            <li class="home-drop" onclick="submenu(0)"><a href="javascript:void(0)"
+                                    id="home-click">Trang Chủ </a>
+                            <li class="home-drop" onclick="submenu(1)"><a href="javascript:void(0)"
+                                    class="home-click">Công thức</a>
+                                <ul class="home-page-2">
+                                    <li><a href="khai_vi.html">Khai vị
+                                        </a></li>
+                                    <li><a href="do_an_sang.html">Đồ ăn sáng
+                                        </a></li>
+                                    <li><a href="thuc-uong.html">Thức uống </a></li>
+                                    <li><a href="mon_chinh.html">Món chính</a></li>
+                                    <li><a href="trang_mieng.html">Tráng miệng</a></li>
+                                </ul>
+                            </li>
+                            <li class="home-drop" onclick="submenu(2)"><a href="javascript:void(0)"
+                                    class="home-click">Kĩ thuật chế biếns</a>
+                                <ul class="home-page-2">
+                                    <li><a href="kho.html"> Kho</a></li>
+                                    <li><a href="nuong.html"> Nướng</a></li>
+                                    <li><a href="hap.html"> Hấp </a></li>
+                                    <li><a href="xao.html"> Xào </a></li>
+                                    <li><a href="chien.html"> Chiên</a></li>
+                                </ul>
+                            </li>
+
+                            <li><a href="meo_vat.html">Mẹo vặt</a></li>
+                            <li><a href="about_us.html">About Us</a></li>
+                        </ul>
+
+                    </nav>
+                </div>
+                <div class="site-menu-wrapper ml-auto collapse navbar-collapse">
+                    <ul class="navbar-nav ml-auto">
+                        <li><a href="index.html">Trang chủ</a></li>
+                        <li class="nav-item dropdown position-relative">
+                            <a class="nav-link" href="javascript:void(0)" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Công thức
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="khai_vi.html">Khai vị
+                                    </a></li>
+                                <li><a class="dropdown-item" href="do_an_sang.html">Đồ ăn sáng</a></li>
+                                <li><a class="dropdown-item" href="thuc_uong.html">Thức uống
+                                    </a></li>
+                                <li><a class="dropdown-item" href="mon_chinh.html">Món chính</a></li>
+                                <li><a class="dropdown-item" href="trang_mieng.html">Tráng miệng</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown position-relative">
+                            <a class="nav-link" href="javascript:void(0)" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Kĩ thuật chế biến
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="kho.html"> Kho</a></li>
+                                <li><a class="dropdown-item" href="nuong.html">Nướng</a></li>
+                                <li><a class="dropdown-item" href="hap.html"> Hấp</a>
+                                </li>
+                                <li><a class="dropdown-item" href="xao.html"> Xào</a>
+                                </li>
+                                <li><a class="dropdown-item" href="chien.html"> Chiên</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li><a href="meo_vat.html" title="">Mẹo vặt</a></li>
+                        <li><a href="about_us.html" title="">About Us</a></li>
+
+                    </ul>
+                    <div class="site-menu-btns d-flex">
+                        <div class="search-box">
+                            <input class="search-input" type="text" placeholder="Search...">
+                            <i class='bx bx-search-alt-2'></i>
+                            <div><a class="theme-btn-secondary" href="login.html" title="">Login</a>
+                            </div>
+                        </div>
+
+                    </div>
+            </nav>
+        </div>
+    </div>
+
+    <div class="slideshow-container">
+
+        <div class="mySlides">
+            <img src="image/spring-roll-6760871_1920.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <img src="image/tradition-2148092_1920.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <img src="image/salmon-518032.jpg" style="width:100%">
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+
+    </div>
+    <script src="index.js"></script>
+
+    <div class="card-container">
+        <div class="card">
+            <img
+                src="https://assets.bonappetit.com/photos/65e6018dc8e41ef80c42673e/16:9/w_640,c_limit/20240118-0424-DIS-478.jpg">
+            <div class="card-content">
+                <h3>Pantry Ostro</h3>
+                <p>
+                    Staring down a bare pantry and fridge?
+                </p>
+                <a href="" class="btn">Read More</a>
+            </div>
+        </div>
+        <div class="card1">
+            <img
+                src="https://assets.bonappetit.com/photos/65e602cfab2dec7b920687be/16:9/w_640,c_limit/20240118-0424-DIS-507.jpg">
+            <div class="card-content">
+                <h3>Gochujang-Butter-Braised Tofu </h3>
+                <p>
+                    This deeply savory main is so easy and lightning fast, it gets dinner on the table in less than the
+                    time it takes to make rice.
+                </p>
+                <a href="" class="btn">Read More</a>
+            </div>
+        </div>
+        <div class="card">
+            <img
+                src="https://assets.bonappetit.com/photos/65ca6bc164786bb14f43d34d/16:9/w_640,c_limit/20240130-WEB-0241.jpg">
+            <div class="card-content">
+                <h3>Ginger Fried Rice</h3>
+                <p>
+                    You don't need a lot of ingredients. Just ginger.
+                </p>
+                <a href="" class="btn">Read More</a>
+            </div>
+        </div>
+        <div class="card">
+            <img
+                src="https://assets.bonappetit.com/photos/5b1596b74495717c782297db/16:9/w_640,c_limit/salted-watermelon-margarita.jpg">
+            <div class="card-content">
+                <h3>23 Tequila Drinks to Get the Party Partying</h3>
+                <p>
+                    From a smoky grapefruit punch to a tangy hibiscus spritz, our best tequila cocktails turn things up
+                </p>
+                <a href="" class="btn">Read More</a>
+            </div>
+        </div>
+        <div class="card1">
+            <img
+                src="https://assets.bonappetit.com/photos/65e0a9c569e1528b9bd1ceea/16:9/w_640,c_limit/20240215-WEB-0629.jpg">
+            <div class="card-content">
+                <h3>Sheet-Pan Halloumi and More Recipes We Made This Week</h3>
+                <p>
+                    Like omelet roll-ups and red curry rice cakes.
+                </p>
+                <a href="" class="btn">Read More</a>
+            </div>
+        </div>
+        <div class="card">
+            <img
+                src="https://assets.bonappetit.com/photos/6488c77dee399ec121b43195/16:9/w_640,c_limit/20230530-ITS-24599-LEDE.jpg">
+            <div class="card-content">
+                <h3>A Better Aperol Cocktail</h3>
+                <p>
+                    What’s the Naked and Famous? A Better Aperol Cocktail
+                </p>
+                <a href="" class="btn">Read More</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-meovat">
+        <div class="container-meovat-title">
+            <h2>COONGKING TIPS & TECHIQUES</h2>
+            <p style="text-align: center;">Level up your kitchen skills</p>
+        </div>
+        <div class="container-meovat-list">
+            <div class="container-meovat-1">
+                <div class="container-meovat-2">
+                    <a href="6Skillslambep.html"><img class="image" src="image/6skillslambep/bokho.png" alt="Bò kho"></a>
+                </div>
+                <div>
+                    <a href="6Skillslambep.html">
+                        <div>
+                            <h3>6 skills để làm món ngon </h3>
+                            <p>Chỉ cần nắm vững những kỹ năng này, trình nấu nướng của bạn sẽ được nâng cấp, dù thực tế
+                                bạn không quá thích vào bếp hay nấu ăn giỏi.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="container-meovat-1">
+                <div class="container-meovat-2">
+                    <a href="10bikipchonthucphamtuoi.html"><img class="image" src="image/10bikipchonthucphamtuoi/trungga.jpg" alt="Trừng gà"></a>
+                </div>
+                <div>
+                    <a href="">
+                        <div>
+                            <h3>10 bí kíp chọn thực phẩm tươi ngon</h3>
+                            <p>Với 10 mẹo nhận biết dưới đây, bạn dễ dàng loại bỏ những loại thực phẩm không an toàn.
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="container-meovat-1">
+                <div class="container-meovat-2">
+                    <a href=""><img class="image" src="image/lamsachamdunnuoc/1.jpg " alt="Các công cụ để vệ sinh ấm đun nước"></a>
+                </div>
+                <div>
+                    <a href="">
+                        <div>
+                            <h3>Cách làm sạch ấm đun nước điện</h3>
+                            <p>Tần suất làm sạch sẽ phụ thuộc vào tần suất sử dụng ấm đun nước của bạn. Bên ngoài nên
+                                được lau để loại bỏ các vết ố và bắn tung tóe ít nhất một lần một tuần. </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="container-meovat-1">
+                <div class="container-meovat-2">
+                    <a href=""><img class="image" src="image/9meocooking/meo3-6308-1506331373.jpg" alt="Chanh vàng"></a>
+                </div>
+                <div>
+                    <a href="">
+                        <div>
+                            <h3>9 mẹo nấu ăn hữu ích bạn có thể học lỏm từ đầu bếp nhà hàng</h3>
+                            <p>Cắt lát chanh càng mỏng, bạn sẽ được lát chanh càng chua. </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="container-meovat-1">
+                <div class="container-meovat-2">
+                    <a href=""><img class="image"
+                            src="image/6luuychonguoimoibatdau/MCIM02007674_FR10-KL-L1-6CookingTips-Prep.webp"
+                            alt="Recipes"></a>
+                </div>
+                <div>
+                    <a href="">
+                        <div>
+                            <h3>6 lưu ý nấu ăn đơn giản </h3>
+                            <p>Cho người đầu bếp mới bắt đầu, 6 sai lầm nấu ăn phổ biến mà mọi người thường mắc phải và
+                                cách mà bạn có thể tránh chúng. </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="container-meovat-1">
+                <div class="container-meovat-2">
+                    <a href=""><img class="image"
+                            src="image/Nauanvoingucoc/MCIM02007768_FR14-KL-R2-CookingWithGrains-Spelt.webp"
+                            alt="Lúa mì nâu (spelt)"></a>
+                </div>
+                <div>
+                    <a href="">
+                        <div>
+                            <h3>Hướng dẫn nấu ăn cùng các loại ngũ cốc</h3>
+                            <p>Nếu bạn đang muốn bổ sung thêm nhiều ngũ cốc nguyên cám vào chế độ ăn uống thì bạn có thể
+                                tìm hiểu hướng dẫn nấu ăn với ngũ cốc đơn giản này </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="container-meovat-1">
+                <div class="container-meovat-2">
+                    <a href=""><img class="image" src="image/4meobienthitdaithanhthitmem/1.jpg"
+                            alt="Thịt ngâm rượu sake"></a>
+                </div>
+                <div>
+                    <a href="">
+                        <div>
+                            <h3>Bốn mẹo biến thịt dai thành mềm mại</h3>
+                            <p>Những thủ thuật này được các đầu bếp có thâm niên đúc kết ra, có thể chữa thịt dai trở
+                                nên mềm mại, ngon tuyệt. </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="container-meovat-1">
+                <div class="container-meovat-2">
+                    <a href=""><img class="image" src="image/MeonaucomvachaoSGP/3.jpg" alt="Cháo"></a>
+                </div>
+                <div>
+                    <a href="">
+                        <div>
+                            <h3>Công thức nấu cơm và cháo ngon của đầu bếp Singapore</h3>
+                            <p>Cho gạo đã vo sạch vào tủ lạnh để qua đêm sẽ giúp nấu cơm hoặc cháo đỡ dính và nhanh hơn.
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="address">
+            <h2>Contact</h2>
+            <p>Trường Đại học Công nghệ Thông tin</p>
+            <p>Địa chỉ: Đường Hàn Thuyên, khu phố 6 P, Thủ Đức, Thành phố Hồ Chí Minh</p>
+            <p>Số điện thoại: 028 3725 2002</p>
+            <p>Email: Nhom14cooking@gmail.com</p>
+        </div>
+        <div class="aboutus">
+
+            <h2>About us</h2>
+            <p1>Chào mừng đến với nhóm 14 Cooking!</p1>
+            <p>Nhóm 14 Cooking là một đội ngũ đam mê ẩm thực, nơi chúng tôi chia sẻ và khám phá nhiều hương vị mới
+                mẻ từ
+                khắp nơi trên thế giới. Chúng tôi tin rằng việc nấu ăn không chỉ là một cách để thư giãn và tạo ra
+                những
+                món ngon, mà còn là một hành trình văn hóa, kết nối con người và tạo ra những kỷ niệm đáng nhớ.</p>
+        </div>
+        <div class="social">
+            <h2>Follow us</h2><br>
+            <h3>Lớp NT208.O23</h3><br>
+            <i class='bx bxl-facebook-circle'></i>
+            <i class='bx bxl-github'></i>
+            <i class='bx bxl-gmail'></i>
+        </div>
+    </div>
+</body>
+
+</html>
