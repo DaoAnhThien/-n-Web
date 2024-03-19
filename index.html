@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>14Cooking</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Stylesheets -->
+	<link rel="stylesheet" href="bootstrap.min.css">
+	<link rel="stylesheet" href="color.css">
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<!-- Header -->
+	<!-- Search box -->
+	<header class="style1">
+			<div class="search">
+					<form action="" class ="search-box">
+						<input type="text" placeholder="Tìm công thức ...." name="q">
+						<button type="submit"><img src="image/search.png"></button>
+					</form>
+				</div>
+		<div class="container">
+			<nav class="navbar navbar-expand-lg">
+				<div class="logo">
+					<a class="navbar-brand" href="javascript:void(0)">
+						<img src="image/logo1.png" alt="">
+					</a>
+				</div>
+				<div class="navbar-toggler active">
+					<span></span><span></span><span></span>
+				</div>
+				<div class="nav-menu active">
+					<!-- navbar-close -->
+					<div class="navbar-close">
+						<div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+					</div>
+					<!-- main menu -->
+					<nav class="main-menu">
+						<ul>
+							<li class="home-drop" onclick="submenu(0)"><a href="javascript:void(0)" id="home-click">Trang Chủ </a>
+							<li class="home-drop" onclick="submenu(1)"><a href="javascript:void(0)" class="home-click">Công thức</a>
+								<ul class="home-page-2">
+									<li><a href="khai_vi.html">Khai vị
+										</a></li>
+									<li><a href="do_an_sang.html">Đồ ăn sáng
+										</a></li>
+									<li><a href="thuc-uong.html">Thức uống </a></li>
+									<li><a href="mon_chinh.html">Món chính</a></li>
+									<li><a href="trang_mieng.html">Tráng miệng</a></li>
+								</ul>
+							</li>
+							<li class="home-drop" onclick="submenu(2)"><a href="javascript:void(0)" class="home-click">Kĩ thuật chế biếns</a>
+								<ul class="home-page-2">
+									<li><a href="kho.html"> Kho</a></li>
+									<li><a href="nuong.html"> Nướng</a></li>
+									<li><a href="hap.html"> Hấp </a></li>
+									<li><a href="xao.html"> Xào </a></li>
+									<li><a href="chien.html"> Chiên</a></li>
+								</ul>
+							</li>
+
+							<li><a href="meo_vat.html">Mẹo vặt</a></li>
+							<li><a href="about_us.html">About Us</a></li>
+						</ul>
+						
+					</nav>
+				</div>
+				<div class="site-menu-wrapper ml-auto collapse navbar-collapse">
+					<ul class="navbar-nav ml-auto">
+						<li><a href="index.html">Trang chủ</a></li>
+						<li class="nav-item dropdown position-relative">
+							<a class="nav-link" href="javascript:void(0)" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								Công thức
+							</a>
+							<ul class="dropdown-menu dropdown-menu-dark">
+								<li><a class="dropdown-item" href="khai_vi.html">Khai vị
+									</a></li>
+								<li><a class="dropdown-item" href="do_an_sang.html">Đồ ăn sáng</a></li>
+								<li><a class="dropdown-item" href="thuc_uong.html">Thức uống
+									</a></li>
+								<li><a class="dropdown-item" href="mon_chinh.html">Món chính</a></li>
+								<li><a class="dropdown-item" href="trang_mieng.html">Tráng miệng</a></li>
+							</ul>
+						</li>
+						<li class="nav-item dropdown position-relative">
+							<a class="nav-link" href="javascript:void(0)" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+								Kĩ thuật chế biến
+							</a>
+							<ul class="dropdown-menu dropdown-menu-dark">
+								<li><a class="dropdown-item" href="kho.html"> Kho</a></li>
+								<li><a class="dropdown-item" href="nuong.html">Nướng</a></li>
+								<li><a class="dropdown-item" href="hap.html"> Hấp</a>
+								</li>
+								<li><a class="dropdown-item" href="xao.html"> Xào</a>
+								</li>
+								<li><a class="dropdown-item" href="chien.html"> Chiên</a>
+								</li>
+							</ul>
+						</li>
+
+						<li><a href="meo_vat.html" title="">Mẹo vặt</a></li>
+						<li><a href="about_us.html" title="">About Us</a></li>
+
+					</ul>
+					<div class="site-menu-btns d-flex">
+						<div><a class="theme-btn-secondary" href="login.html" title="">Login</a>
+						</div>
+				</div>
+			</nav>
+		</div>
+	</header>
+	<section class="position-relative top-banner bg-gray">
+		<div class="top-banner-content text-center">
+			<div class="baner-name">
+				<h2 class="fs-50 text-uppercase">Mẹo vặt</h2>
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb justify-content-center p-0 mb-0">
+						<li class="breadcrumb-item text-gray fs-18 fm-arimo"><a href="index.html">Trang chủ</a></li>
+						<li class="breadcrumb-item active text-theme fs-18 fm-arimo"><a href="javascript:void(0)">Mẹo vặt</a></li>
+					</ol>
+				</nav>
+			</div>
+		</div>
+	</section>
+	<!-- <Tip and trick > -->
+	<section class="tip container">
+		<div class="section-title">
+			<h2>Cooking </h2>
+			<p>Mẹo, thủ thuật và kĩ thuật</p>
+		</div>
+
+		<div class="tip-cards column">
+			<a href="#" class="card">
+				<img src="image_tips/6skillslambep/bokho.png" alt="" >
+				<h5> 6 Skills để làm món ngon</h5>	
+				<div class="des-row">	
+					<p>Chỉ cần nắm vững những kĩ năng này, trình nấu nướng của bạn sẽ được nâng cấp, dù thực tế bạn không quá thích vào bếp hay nấu ăn giỏi</p>
+				</div>
+			</a>
+			<a href="#" class="card">
+				<img src="image_tips/10bikipchonthucphamtuoi/trungga.jpg" alt="" >
+				<h5> 10 bí kíp chọn thực phẩm tươi ngon </h5>	
+				<div class="des-row">	
+					<p>Với 10 mẹo nhận biết dưới đây, bạn dễ dàng loại bỏ những loại thực phẩm không an toàn</p>
+				</div>
+			</a>
+			<a href="#" class="card">
+				<img src="image_tips/lamsachamdunnuoc/1.jpg" alt="" >
+				<h5>Cách làm sạch ấm đun nước điện</h5>	
+				<div class="des-row">	
+					<p>Tần suất làm sạch sẽ phụ thuộc vào tần suất sử dụng ấm nước của bạn.Bên ngoài nên được lau loại bỏ các vết ố và bẩn tung tóe ít nhất một lần một tuần</p>
+				</div>
+			</a>
+			<a href="#" class="card">
+				<img src="image_tips/9meocooking/meo3-6308-1506331373.jpg" alt="" >
+				<h5> 9 mẹo nấu ăn hữu ích bạn có thể học lỏm từ đầu bếp nhà hàng</h5>	
+				<div class="des-row">	
+					<p>Cắt lát chanh càng mỏng, bạn sẽ cắt được lát chanh càng chua</p>
+				</div>
+			</a>
+			<a href="#" class="card">
+				<img src="image_tips/6luuychonguoimoibatdau/MCIM02007674_FR10-KL-L1-6CookingTips-Prep.img" alt="" >
+				<h5> 6 lưu ý nấu ăn đơn giản  </h5>	
+				<div class="des-row">	
+					<p>Cho người đầu bếp mới bắt đầu, 6 sai lầm nấu ăn phổ biến mà mọi người thường mắc phải và cách mà bạn có thể tránh chúng</p>
+				</div>
+			</a>
+			<a href="#" class="card">
+				<img src="image_tips/Nauanvoingucoc/MCIM02007763_FR14-KL-L1-CookingWithGrains-Amaranth.webp" alt="" >
+				<h5> Hướng dẫn nấu ăn cùng các loại ngũ cốc</h5>	
+				<div class="des-row">	
+					<p>Nếu bạn muốn bổ sung thêm nhiều ngũ cốc nguyên cám vào chế độ ăn uống thì bạn có thể tìm hiểu hướng dẫn nấu ăn với ngũ cốc đơn giản này</p>
+				</div>
+			</a>
+			<a href="#" class="card">
+				<img src="image_tips/4meobienthitdaithanhthitmem/1.jpg" alt="" >
+				<h5> 4 mẹo biến thịt dai thành mềm mại </h5>	
+				<div class="des-row">	
+					<p>Những thủ thuật này được các đầu bếp có thâm niên đúc kết ra, có thể chữa thịt dai trở nên mềm mại, ngon tuyệt</p>
+				</div>
+			</a>
+			<a href="#" class="card">
+				<img src="image_tips/MeonaucomvachaoSGP/3.jpg" alt="" >
+				<h5> Công thức nấu ăn và cháo ngon của đầu bếp Singapore </h5>	
+				<div class="des-row">	
+					<p>Cho gạo đã vo sạch để qua đêm sẽ giúp nấu cơm hoặc cháo đỡ dính và nhanh hơn</p>
+				</div>
+			</a>
+		</div>
+	</section>
+	
+    <div class="footer">
+        <div class="address">
+            <h2>Contact</h2>
+            <p>Trường Đại học Công nghệ Thông tin</p><br>
+            <p>Địa chỉ: Đường Hàn Thuyên, khu phố 6 P, Thủ Đức, Thành phố Hồ Chí Minh</p><br>
+            <p>Số điện thoại: 028 3725 2002</p><br>
+            <p>Email: Nhom14cooking@gmail.com</p><br>
+        </div>
+        <div class="aboutus">
+
+            <h2>About us</h2>
+            <p1>Chào mừng đến với nhóm 14 Cooking!</p1>
+            <p>Nhóm 14 Cooking là một đội ngũ đam mê ẩm thực, nơi chúng tôi chia sẻ và khám phá nhiều hương vị mới
+                mẻ từ
+                khắp nơi trên thế giới. Chúng tôi tin rằng việc nấu ăn không chỉ là một cách để thư giãn và tạo ra
+                những
+                món ngon, mà còn là một hành trình văn hóa, kết nối con người và tạo ra những kỷ niệm đáng nhớ.</p>
+        </div>
+        <div class="social">
+            <h2>Follow us</h2><br>
+            <h3>Lớp NT208.O23</h3><br>
+            <i class='bx bxl-facebook-circle'></i>
+            <i class='bx bxl-github'></i>
+            <i class='bx bxl-gmail'></i>
+        </div>
+    </div>
+</body>
+</html>
