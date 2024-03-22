@@ -64,13 +64,6 @@ h5:hover > a,
 h6:hover > a {
   color: inherit;
 }
-
-.card a:hover {
-  text-decoration: underline;
-}
-.card1 a:hover {
-  text-decoration: underline;
-}
 p,
 .slider-txt span,
 .slider-txt p,
@@ -1002,7 +995,6 @@ ul.inner-dropdown.list-unstyled:before {
 .recipy-style2 {
   margin-bottom: 30px;
 }
-
 .recipy-style2 img {
   width: 100%;
 }
@@ -1047,13 +1039,12 @@ monan-title {
   justify-content: center;
   display: flex;
 }
-
 .card-container {
   width: 100%;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 50px;
+  margin-top: 20px;
   background-color: #fffbf5;
 }
 .card {
@@ -1298,6 +1289,38 @@ div.scroll-container {
     font-size: 11px;
   }
 }
+
+/*container homnayangi*/
+
+div.scroll-container {
+  padding: 0;
+ /* background-color: white;
+  display :flex;
+  white-space: nowrap;
+  padding: 0px;
+  align-items: center;*/
+}
+.image-items{
+  width: 150px;
+  padding:0;
+  margin-left: -50px;
+  height: 300px;
+}
+.imageslick{
+  width: 480px;
+  height :300px;
+
+}
+.imageslick img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  
+}
+
+
+
 .container-meovat {
   font-family: arial;
   /* background-color: #ffffcc; */
@@ -1317,30 +1340,35 @@ div.scroll-container {
   font-size: 150%;
   margin-top: 20px;
   margin-bottom: 0px;
+  clear: both;
 }
 .container-meovat-title {
   width: 100%;
 }
 .container-meovat-list {
   width: 100%;
-  overflow: auto;
   margin-top: 20px;
   margin-left: 0px;
   margin-right: 20px;
   padding: 0;
+  display: flex; /* Sử dụng flexbox */
+  flex-wrap: wrap; /* Cho phép các phần tử con tự động xuống dòng khi không đủ không gian */
+  justify-content: space-between;  display: flex; /* Sử dụng flexbox */
 }
+
 .container-meovat-1 {
-  width: calc(25% - 20px);
-  float: left;
-  margin: 10px 10px;
-  height: 400px;
+  width: 23%; /* Điều chỉnh lại kích thước để có ít đường biên hơn */
+  margin: 10px 0; /* Điều chỉnh lề để không cần lề bên trái và phải */
 }
 .container-meovat-1 a {
   text-decoration: none;
   color: black;
+  display: block;
+  clear: both;
 }
 .container-meovat-1 h3:hover {
   text-decoration: underline;
+  color: #41c466;
 }
 .container-meovat-1-2 {
   height: 50%;
@@ -1406,4 +1434,9 @@ div.scroll-container {
 }
 .social i:hover {
   color: #41c466;
+}
+.header{
+  background-image: url(image/mazaa-pattern.png);
+  background-size: cover; 
+  background-position: center; 
 }
