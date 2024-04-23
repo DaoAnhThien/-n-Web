@@ -8,6 +8,6 @@ Các chức năng của trang Web:
 - Tìm kiếm các mẹo làm bếp bằng searchbox.
 - Đăng nhập để có thể lưu các công thức, mẹo bếp yêu thích.
 - Các trang menu chứa các món ăn được chia theo từng chủ đề.
-- Tạo Chatbox để làm các món ăn từ nguyên liệu có sẵn.
+- Tạo công thức nấu ăn để làm các món ăn từ nguyên liệu qua hình ảnh có sẵn.
 - Góp ý, đóng góp thông qua form có sẵn từ trang web.
   
