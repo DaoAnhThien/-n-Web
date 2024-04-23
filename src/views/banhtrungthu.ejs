@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>BÁNH NƯỚNG VÀ BÁNH DẺO</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/color.css">
+    <link rel="stylesheet" href="/css/Homepage.css">
+    <link rel="stylesheet" href="/css/burntchesecakememchay.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <div class="header">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg">
+                <div class="logo">
+                    <a class="navbar-brand" href="javascript:void(0)">
+                        <img src="/image/logo1.png" alt="">
+                    </a>
+                </div>
+                <div class="navbar-toggler active">
+                    <span></span><span></span><span></span>
+                </div>
+                <div class="nav-menu active">
+
+                    <div class="navbar-close">
+                        <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                    </div>
+
+                    <nav class="main-menu">
+                        <ul>
+                            <li class="home-drop" onclick="submenu(0)"><a href="javascript:void(0)"
+                                    id="home-click">Trang Chủ </a>
+                            <li class="home-drop" onclick="submenu(1)"><a href="javascript:void(0)"
+                                    class="home-click">Công thức</a>
+                                <ul class="home-page-2">
+                                    <li><a href="">Khai vị
+                                        </a></li>
+                                    <li><a href="/MonAn/Bua-Sang">Đồ ăn sáng
+                                        </a></li>
+                                    <li><a href="">Thức uống </a></li>
+                                    <li><a href="/MonAn/Bua-Trua"> Đồ ăn trưa</a></li>
+                                    <li><a href="">Tráng miệng</a></li>
+                                </ul>
+                            </li>
+                            <li class="home-drop" onclick="submenu(2)"><a href="javascript:void(0)"
+                                    class="home-click">Kĩ thuật chế biếns</a>
+                                <ul class="home-page-2">
+                                    <li><a href="kho.html"> Kho</a></li>
+                                    <li><a href="nuong.html"> Nướng</a></li>
+                                    <li><a href="hap.html"> Hấp </a></li>
+                                    <li><a href="xao.html"> Xào </a></li>
+                                    <li><a href="chien.html"> Chiên</a></li>
+                                </ul>
+                            </li>
+
+                            <li><a href="/MeoVat">Mẹo vặt</a></li>
+                            <li><a href="about_us.html">About Us</a></li>
+                        </ul>
+
+                    </nav>
+                </div>
+                <div class="site-menu-wrapper ml-auto collapse navbar-collapse">
+                    <ul class="navbar-nav ml-auto">
+                        <li><a href="/">Trang chủ</a></li>
+                        <li class="nav-item dropdown position-relative">
+                            <a class="nav-link" href="javascript:void(0)" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Công thức
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="khai_vi.html">Khai vị
+                                    </a></li>
+                                <li><a class="dropdown-item" href="/MonAn/Bua-Sang">Đồ ăn sáng</a></li>
+                                <li><a class="dropdown-item" href="thuc_uong.html">Thức uống
+                                    </a></li>
+                                <li><a class="dropdown-item" href="/MonAn/Bua-Trua">Đồ ăn trưa</a></li>
+                                <li><a class="dropdown-item" href="trang_mieng.html">Tráng miệng</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown position-relative">
+                            <a class="nav-link" href="javascript:void(0)" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Kĩ thuật chế biến
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="kho.html"> Kho</a></li>
+                                <li><a class="dropdown-item" href="nuong.html">Nướng</a></li>
+                                <li><a class="dropdown-item" href="hap.html"> Hấp</a>
+                                </li>
+                                <li><a class="dropdown-item" href="xao.html"> Xào</a>
+                                </li>
+                                <li><a class="dropdown-item" href="chien.html"> Chiên</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li><a href="/MeoVat" title="">Mẹo vặt</a></li>
+                        <li><a href="about_us.html" title="">About Us</a></li>
+
+                    </ul>
+                    <div class="site-menu-btns d-flex">
+                        <div class="search-box">
+                            <input class="search-input" type="text" placeholder="Search...">
+                            <i class='bx bx-search-alt-2'></i>
+                            <div><a class="theme-btn-secondary" href="/Login" title="">Login</a>
+                            </div>
+                        </div>
+
+                    </div>
+            </nav>
+        </div>
+    </div>
+    <div class="container-food">
+        <div class="container-food-2">
+            <div class="container-food-2-block1">
+                <div class="container-food-2-block1-1">
+                    <div class="container-food-2-block1-1-header">
+                        <div class="navigation">
+                            <ul>
+                                <li><a href="/">Trang chủ</a></li>
+                                <li><span>></span></li>
+                                <li><a href="/Monan/Bua-sang">Công thức</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h1 style="margin-top: 0;">TỔNG HỢP CÁCH LÀM BÁNH TRUNG THU: BÁNH NƯỚNG VÀ BÁNH DẺO (A-Z) </h1>
+                    <img class="image" src="https://statics.vinpearl.com/banh-trung-thu-chay-1_1687421324.jpg">
+                    <p>
+                        Còn chưa tới Rằm tháng Bảy mà vì không khí tự làm bánh nướng, bánh dẻo năm nay quá rộn ràng
+                        nên cảm giác như Tết Trung Thu đã gần lắm rồi. Ngồi điểm lại cũng thấy Savoury Days đã có hơn
+                        20 bài viết về chủ đề bánh trung thu, nên mình viết bài này để tổng hợp tất cả các bài viết hiện
+                        có tại
+                        SD về cách làm bánh trung thu, bao gồm cách làm cụ thể, các thất bại thường gặp và cách giải
+                        quyết, các ghi chú
+                        để tránh thất bại… để các bạn tham khảo được tiện hơn (nếu không cần xem các phần giới thiệu cụ
+                        thể, bạn có thể
+                        tham khảo trực tiếp mục lục tổng hợp link các bài viết về cách làm bánh trung thu ở cuối bài
+                        viết này nhé).
+                    </p>
+                    <h2>Bánh trung thu đậm vị Việt Nam</h2>
+                    <h3>Nguyên liệu</h3>
+                    <ul>
+                        <li>
+                            <h4>Chuẩn bị</h4>
+                        </li>
+                        <li>– <b>Làm trứng muối</b> thời gian muối tối thiểu 20 – 30 ngày. Có thể muối nhiều trứng trong
+                            một lần.
+                            Sau khi trứng đủ chín, đập lấy lòng đỏ và xử lí trứng như cách làm trứng muối trong bài viết
+                            này.
+                            Lòng đỏ này có thể bảo quản đông lạnh trong nhiều tuần. Rã đông trong ngăn mát tủ lạnh và
+                            dùng bình thường.</li>
+                        <img class="image"
+                            src="https://cdn.tgdd.vn/2020/07/CookRecipe/Avatar/trung-muoi-uot-thumbnail.jpg">
+                        <li><b>Làm rượu Mai Quế Lộ</b>: rượu Mai Quế Lộ làm cho nhân thập cẩm thơm ngon hơn nhiều, thời
+                            gian ngâm rượu
+                            tối thiểu là 2 – 3 tuần, nhưng càng để lâu rượu càng ngon hơn.</li>
+
+                        <li><b>Nấu nước đường bánh nướng</b>: cần chuẩn bị trước khi làm bánh tối thiểu 10 – 14 ngày,
+                            nước đường
+                            càng để lâu sẽ cho vỏ bánh có màu càng sậm đẹp, vỏ mềm dẻo dễ cán, vị sau khi nướng cũng
+                            ngon hơn.</li>
+                        <li><b> Mua khuôn bánh và các dụng cụ khác</b>: Khoảng 2 – 2.5 tháng trước Trung thu tầm ở Việt
+                            Nam bắt đầu có nhiều địa chỉ bán khuôn.
+                            Nên mua từ thời điểm này vì có nhiều lựa chọn mẫu mã đẹp và giá cũng rẻ hơn so với tầm sát
+                            trung thu.</li>
+                    </ul>
+                    <h3>A. Bánh nướng</h3>
+                    <h4>Nhân bánh:</h4>
+                    <ul>
+                        <li>Nhân đậu xanh</li>
+                        <li>Nhân sen nhuyễn</li>
+                        <li>Nhân đậu đỏ</li>
+                        <li>Nhân trà xanh (biến tấu từ nhân đậu xanh)</li>
+                        <li>Nhân thập cẩm</li>
+                        <li>Nhân mè đen</li>
+                        <li>Nhân sầu riêng</li>
+                        <li>Nhân sữa dừa</li>
+                        <li>Nhân chanh leo</li>
+                    </ul>
+                    <p>Trong số các loại nhân trên, nhân đậu xanh là loại nhân nhuyễn cơ bản nhất. Cách sên nhân đậu
+                        xanh có thể áp
+                        dụng tương tự cho nhiều loại nhân nhuyễn khác như sen, đậu đỏ… Ngoài ra, với “nền” là nhân đậu
+                        xanh, các bạn có thể
+                        pha thêm các loại mùi vị như trà xanh, lá dứa, chocolate… hoặc các loại hạt (dưa, bí, vừng) để
+                        tạo ra các loại nhân mới.</p>
+                    <p>Thời gian sên nhân trung bình khoảng 1 – 2 giờ đồng hồ (không tính thời gian nấu/ hấp và xay).
+                        Mặc dù có một số cách sên khác
+                        dùng lò vi sóng hoặc trộn thêm bột… giúp rút ngắn thời gian này. Nhưng theo kinh nghiệm của các
+                        bậc tiền bối làm nghề lâu năm
+                        với bánh trung thu thì sên nhân càng kĩ sẽ giúp cho nhân để được càng lâu (có thể để cả chục
+                        ngày mà không hỏng).</p>
+                    <h4>Làm vỏ bánh, nướng, bảo quản:</h4>
+                    <p>1. Cách làm bánh nướng với công thức vỏ bánh cơ bản, cách đóng bánh, quết trứng mặt bánh được
+                        viết trong bài cách làm bánh nướng trung thu.
+                        Trong bài viết mình cũng có hướng dẫn cách điều chỉnh công thức để có vỏ bánh mềm hay khô giòn
+                        như ý muốn.</p>
+
+                    <p>2. Một số vấn đề thường gặp với vỏ bánh nướng là:
+                    <ul>
+                        <li>Vỏ bánh quá cứng và không mềm được</li>
+                        <li>Vỏ bánh bị mất nét trong hoặc sau khi nướng</li>
+                        <li>Vỏ bánh không giữ được màu (nếu dùng màu tự nhiên)</li>
+                        <li>Vỏ bánh bị rạn, vỡ</li>
+                        <li>Vỏ bánh quá cứng và không mềm được</li>
+                    </ul>
+                    </p>
+                    <img class="image"
+                        src="https://cdn.tgdd.vn/Files/2022/08/18/1456969/6-cach-lam-banh-trung-thu-nhan-trung-muoi-de-lam-tai-nha-202208180023402298.jpg">
+
+
+                    <h3>B. Bánh dẻo</h3>
+                    <img class="image"
+                        src="https://i-giadinh.vnecdn.net/2022/09/06/Buoc-6-Thanh-pham-1-9352-1662455241.jpg">
+                    <p>Hiện tại đã có cách làm bánh dẻo lai giữa bánh dẻo truyền thống và bánh dẻo da tuyết của
+                        Singapore. Bánh làm theo cách này có mùi vị dẻo dai giống như
+                        bánh dẻo truyền thống nhưng không quá ngọt như bánh truyền thống, và phải bảo quản lạnh giống
+                        bánh của Singapore.</p>
+                    <p>Đa phần các loại nhân bánh nướng đều có thể dùng làm nhân bánh dẻo, nên với phần nhân, các bạn
+                        xem trong mục bánh nướng nhé.</p>
+                    <h4>Nguyên liệu</h4>
+                    <ul>
+                        <li>300g đường trắng (đường tinh luyện)</li>
+                        <li>5ml nước cốt chanh</li>
+                        <li>300ml nước</li>
+                        <li>392ml nước đường bánh dẻo</li>
+                        <li>6ml nước hoa bưởi</li>
+                        <li>180g đậu xanh cà vỏ</li>
+                        <li>70-80ml dầu dừa hoặc dầu ăn</li>
+                        <li>9g bột mì đa dụng</li>
+                        <li>200g bột bánh dẻo Bắc (bột nếp rang)</li>
+                    </ul>
+                    <h5>Phần vỏ bánh</h5>
+                    <p>1.Đun sôi 150ml nước cùng 150gr đường, đun đến khi đường tan ra thì tắt bếp. Cho nước đường ra
+                        tô, sau đó cho từ từ bột
+                        bánh dẻo vào nước đường rồi dùng dụng cụ đánh trứng để trộn bột cho hòa quyện.</p>
+                    <p>2. Đến khi bột mịn và dẻo là đạt, dùng màng bọc thực phẩm bao lại và để bột nghỉ trong vòng 30
+                        phút.</p>
+                    <p>3. Phủ một ít bột bánh dư lên thớt và cho bột dẻo lên trên. Dùng tay nhào kỹ cho đến khi bột
+                        thành khối dẻo mịn và không còn dính tay là được.</p>
+                    <h5>Phần nhân bánh</h5>
+                    <p>1.Cho 50gr lạp xưởng cắt hạt lựu, 50gr chà bông, 80g hạt điều đã xay nhỏ, 70g mứt bí đao, 30g mè
+                        trắng, lá chanh cắt nhỏ, 30gr mỡ đường vào tô sạch và trộn đều.</p>
+                    <p>2.Tiếp theo cho vào 40gr nước đường bánh nướng để tạo độ ngọt cho nhân và 10gr rượu mai quế lộ
+                        rồi trộn đều. Sau đó, cho từ từ 20gr bột bánh dẻo để tạo độ kết dính cho nhân</p>
+
+                    <img class="image"
+                        src="https://media1.nguoiduatin.vn/media/ha-thi-kim-dung/2019/09/04/cach-lam-banh-trung-thu-deo-6.jpg">
+                    <h4>Tạo thân và thành phẩm</h4>
+                    <p>Trộn đều hỗn hợp nước đường, nước hoa bưởi, rồi thêm từ từ bột bánh dẻo và khuấy nhanh tay. Tiếp
+                        đó, xoa 1 lớp bột mỏng lên bột và nhào đều tay cho đến khi bột dẻo và mịn là đạt.
+                        Sau đó, bạn dùng màng bọc thực phẩm bao lại và ủ trong vòng 30 phút.</p>
+                    <p>Cuối cùng, bạn lấy bột ra nhào lại một lần nữa rồi chia bột thành các phần bằng nhau.</p>
+                    <p>Bạn lấy một phần bột dùng chày cán bột thành hình tròn sao cho phần mép mỏng hơn phía trong. Cho
+                        phần nhân vào giữa vừa bọc vỏ vừa miết chặt sao cho vỏ bao sát nhân.
+                        Sau đó, dính các mép bột vào với nhau và vê bột 2 - 3 vòng.</p>
+                    <p>Thêm một chút dầu ăn hoặc bột mì vào khuôn, sau đó cho bột vào dùng tay ấn nhẹ nhàng để bột dàn
+                        đều trong khuôn. Đặt bánh xuống mặt phẳng dùng tay nhấn mạnh tay cầm để lấy ra khỏi khuôn.</p>
+                    <img class="image" src="https://cdn.tgdd.vn/2020/08/CookProduct/1260-1200x676-54.jpg">
+                </div>
+            </div>
+            <div class="container-food-2-block2">
+                <div class="scrolling-block">
+                    <div>
+                        <h2>Món ăn nổi bật </h2>
+                    </div>
+                    <div class="container-food-2-block2-1">
+                        <a href="/Monan/Banh-bao"><img class="image"
+                                src="https://cdn.tgdd.vn/Files/2019/09/28/1202682/cach-lam-banh-bao-nhan-thit-thom-ngon-bang-bot-mi-tai-nha-202206041025434861.jpg"
+                                alt="bánh bao" style="height: 130px;"></a>
+                    </div>
+                    <div class="container-food-2-block2-1">
+                        <a href="/Monan/Banh-bao">
+                            <div>
+                                <h3>Bánh Bao nhân thịt chuẩn vị.</h3>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="container-food-2-block2-1">
+                        <a href="/Monan/yen-mach-sua-chua"><img class="image"
+                                src="https://cdn-img.thethao247.vn/storage/files/linhseo/2022/01/11/hoa-qua-dam-yen-mach-2-1-1641910509.jpg"
+                                alt="yenmachsuachua" style="height: 130px;"></a>
+                    </div>
+                    <div class="container-food-2-block2-1">
+                        <a href="/Monan/yen-mach-sua-chua">
+                            <div>
+                                <h3>Yến mạch sữa chua healthy </h3>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="container-food-2-block2-1">
+                        <a href="/Monan/burnt-cheese-cake-mem-chay"><img class="image"
+                                src="https://jajabakes.com/wp-content/uploads/2020/06/basque-burnt-cheesecake-4-720x720.jpg"
+                                alt="chesecake" style="height: 130px;"></a>
+                    </div>
+                    <div class="container-food-2-block2-1">
+                        <a href="/Monan/burnt-cheese-cake-mem-chay">
+                            <div>
+                                <h3>Burnt chesecake mềm chảy</h3>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="container-food-2-block2-1">
+                        <a href="/Monan/Bun-ca"><img class="image" class="image"
+                                src="https://static.vinwonders.com/production/bun-ca-ha-noi-banner.jpg" alt="bunca"
+                                style="height: 130px;"></a>
+                    </div>
+                    <div class="container-food-2-block2-1">
+                        <a href="/Monan/Bun-ca">
+                            <div>
+                                <h3>Bún cá Hà Nội</h3>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="container-food-2-block2-1">
+                        <a href="/Monan/chan-ga-sa-ot"><img class="image"
+                                src="https://cdn.mediamart.vn/images/news/chia-s-cach-lam-chan-ga-st-thai-chua-cay-ngon-bt-bi_6c5c7afe.jpg"
+                                alt="changasaot" style="height: 130px;"></a>
+                    </div>
+                    <div class="container-food-2-block2-1">
+                        <a href="/Monan/chan-ga-sa-ot">
+                            <div>
+                                <h3>Chân gà sả ớt</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="address">
+            <h2>Contact</h2>
+            <p>Trường Đại học Công nghệ Thông tin</p>
+            <p>Địa chỉ: Đường Hàn Thuyên, khu phố 6 P, Thủ Đức, Thành phố Hồ Chí Minh</p>
+            <p>Số điện thoại: 028 3725 2002</p>
+            <p>Email: Nhom14cooking@gmail.com</p>
+        </div>
+        <div class="aboutus">
+
+            <h2>About us</h2>
+            <p1>Chào mừng đến với nhóm 14 Cooking!</p1>
+            <p>Nhóm 14 Cooking là một đội ngũ đam mê ẩm thực, nơi chúng tôi chia sẻ và khám phá nhiều hương vị mới
+                mẻ từ
+                khắp nơi trên thế giới. Chúng tôi tin rằng việc nấu ăn không chỉ là một cách để thư giãn và tạo ra
+                những
+                món ngon, mà còn là một hành trình văn hóa, kết nối con người và tạo ra những kỷ niệm đáng nhớ.</p>
+        </div>
+        <div class="social">
+            <h2>Follow us</h2><br>
+            <h3>Lớp NT208.O23</h3><br>
+            <i class='bx bxl-facebook-circle'></i>
+            <i class='bx bxl-github'></i>
+            <i class='bx bxl-gmail'></i>
+        </div>
+    </div>
+</body>
+
+</html>
