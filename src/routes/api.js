@@ -7,5 +7,4 @@ const {HandleForgotPassword} = require('../controllers/apiController');
 router.post('/Login',HandleLogin);
 router.post('/Register',HandleRegister);
 router.post('/ForgotPassword',HandleForgotPassword);
-
 module.exports = router; 

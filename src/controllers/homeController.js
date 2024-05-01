@@ -1,4 +1,5 @@
 const axios = require('axios');
+const {isLogging} = require('../models/User');
 const getHomepage = (req,res) =>{
   const loggedIn = req.session.user ? true : false;
   if (loggedIn) {
@@ -218,9 +219,21 @@ const postLogin = async (req,res) => {
     res.status(500).send('Đăng nhập không thành công. Vui lòng thử lại sau.');
 }
 }
+const getLogout = async (req,res) => {
+  try {
+    let isLogged = await isLogging(req);
+    if (isLogged === false) {
+      return res.status(400).send({message: "You are not logged in."});
+    }
+    req.session.user = null;
+    res.redirect('/');
+  } catch (error) {
+    return res.status(500).send({error: "Server Error"});
+  }
+}
 module.exports = {
     getHomepage,getLogin,getMeoVat,
     get4meobienthitdaithanhthitmem,get6luuychonguoimoibatdau,get6Skillslambep,get10bikipchonthucphamtuoi,getCachlamsangamdunnuocdien,getNauanvoingucoc,
     getBuaSang,getBuaTrua,getbanhbao,getbanhtrungthu,getbunca,getburntcheesecakememchay,getchangasaot,getyenmachsuachua,getRegister,getProfile,
-    postRegister, postLogin 
+    postRegister, postLogin, getLogout
 }

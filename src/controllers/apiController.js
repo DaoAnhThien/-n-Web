@@ -3,6 +3,7 @@ const { createUser } = require('../models/User');
 const { findUserByUsernameAndPassword } = require('../models/User');
 const {generateAuthToken} = require('../models/User')
 const {findUserByUsername} = require('../models/User')
+const {isLogging} = require('../models/User')
 
 
 const HandleRegister = async (req, res) => {
@@ -49,9 +50,10 @@ const HandleLogin = async (req, res) => {
 
 
 
-const HandleForgotPassword = (req,res) => {
+const HandleForgotPassword = async (req,res) => {
 
 }
+
 module.exports = {
     HandleRegister, HandleLogin, HandleForgotPassword
 }
