@@ -79,9 +79,17 @@ const findUserByUsernameAndPassword = (username, password) => {
         });
     });
 };
+const isLogging = async (req) => {
+    if (req.session && req.session.user) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 module.exports = {
     createUser,
     findUserByUsernameAndPassword,
     generateAuthToken,
-    findUserByUsername
+    findUserByUsername,
+    isLogging
 };
