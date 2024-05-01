@@ -11,34 +11,22 @@
 
 <body>
     <div class="wrapper">
-        <form action="">
+        <form action="/Register" method="post" >
             <h1>Register</h1>
             <div class="inputbox">
-                <input type="text" placeholder="Name" required>
+                <input type="text" placeholder="Username" id="Username" name="Username" required>
                 <i class='bx bxs-user'></i>
             </div>
             <div class="inputbox">
-                <input type="text" placeholder="Email" required>
-                <i class='bx bxs-envelope'></i>
-            </div>
-            <div class="inputbox">
-                <input type="text" placeholder="Phone" required>
-                <i class='bx bxs-phone'></i>
-            </div>
-            <div class="inputbox">
-                <input type="text" placeholder="Username" required>
-                <i class='bx bxs-user'></i>
-            </div>
-            <div class="inputbox">
-                <input type="password" placeholder="Password" required>
+                <input type="password" placeholder="Password" id="Password" name="Password" required>
                 <i class='bx bxs-lock-alt'></i>
             </div>
             <div class="inputbox">
-                <input type="password" placeholder="Retype Password" required>
+                <input type="password" placeholder="Retype Password" id="Retype Password" name="RetypePassword" required>
                 <i class='bx bxs-lock-alt'></i>
             </div>
             
-            <button class="btn" type="submit"><a href="#">Register</a></button>
+            <button class="btn" type="submit">Register</a></button>
             <div class="register-link">
                 <p>You already have an account? <a href="/login">Login now</a></p>
 
