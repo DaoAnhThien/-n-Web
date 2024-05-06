@@ -83,6 +83,7 @@
     "mysql2": "^3.9.3",
     "named-placeholders": "^1.1.3",
     "negotiator": "^0.6.3",
+    "nodemailer": "^6.9.13",
     "nopt": "^1.0.10",
     "normalize-path": "^3.0.0",
     "object-inspect": "^1.13.1",

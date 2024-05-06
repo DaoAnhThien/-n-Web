@@ -15,6 +15,9 @@ const getLogin = (req,res) => {
 const getRegister = (req,res) => {
   res.render('SignUp.ejs');
 }
+const getForgotPassword = (req,res) => {
+  res.render('Forgotpassword.ejs')
+}
 const getMeoVat = (req,res) => {
   const loggedIn = req.session.user ? true : false;
   if (loggedIn) {
@@ -235,5 +238,5 @@ module.exports = {
     getHomepage,getLogin,getMeoVat,
     get4meobienthitdaithanhthitmem,get6luuychonguoimoibatdau,get6Skillslambep,get10bikipchonthucphamtuoi,getCachlamsangamdunnuocdien,getNauanvoingucoc,
     getBuaSang,getBuaTrua,getbanhbao,getbanhtrungthu,getbunca,getburntcheesecakememchay,getchangasaot,getyenmachsuachua,getRegister,getProfile,
-    postRegister, postLogin, getLogout
+    postRegister, postLogin, getLogout, getForgotPassword
 }
