@@ -21,6 +21,7 @@ const {getyenmachsuachua} = require('../controllers/homeController');
 const {postRegister} = require('../controllers/homeController');
 const {postLogin} = require('../controllers/homeController');
 const {getLogout} = require('../controllers/homeController');
+const {getForgotPassword} = require('../controllers/homeController');
 const route = require('color-convert/route');
 const router = express.Router();
 
@@ -37,12 +38,14 @@ const checkLoggedIn = (req, res, next) => {
 router.get('/',checkLoggedIn,getHomepage);
 
 router.get('/Login',getLogin);
-
 router.post('/Login',postLogin);
 
 router.get('/Register',getRegister);
 router.post('/Register/',postRegister);
+
 router.get('/Logout',getLogout);
+
+router.get('/ForgotPassword',getForgotPassword);
 router.get('/Profile',getProfile);
 
 // Trang meo
