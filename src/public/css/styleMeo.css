@@ -17,6 +17,11 @@
 /*****************************
 	General Styling
 ******************************/
+.header {
+  display: flex;
+  color: #333333;
+  width: 100%;
+}
 body {
   font-family: "Rokkitt", serif;
   overflow-x: hidden;
@@ -544,4 +549,8 @@ ul.inner-dropdown.list-unstyled:before {
 .footer{
   width : 100%;
   margin: 0px 0px;
+}
+.card-img-top{
+  max-width: 700px;
+  max-height: 500px;
 }
