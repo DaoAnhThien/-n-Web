@@ -18,8 +18,6 @@ const {getbunca} = require('../controllers/homeController');
 const {getburntcheesecakememchay} = require('../controllers/homeController');
 const {getchangasaot} = require('../controllers/homeController');
 const {getyenmachsuachua} = require('../controllers/homeController');
-const {postRegister} = require('../controllers/homeController');
-const {postLogin} = require('../controllers/homeController');
 const {getLogout} = require('../controllers/homeController');
 const {getForgotPassword} = require('../controllers/homeController');
 const route = require('color-convert/route');
@@ -38,10 +36,10 @@ const checkLoggedIn = (req, res, next) => {
 router.get('/',checkLoggedIn,getHomepage);
 
 router.get('/Login',getLogin);
-router.post('/Login',postLogin);
+
 
 router.get('/Register',getRegister);
-router.post('/Register/',postRegister);
+
 
 router.get('/Logout',getLogout);
 
