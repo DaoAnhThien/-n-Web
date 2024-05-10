@@ -23,6 +23,7 @@ const {getForgotPassword} = require('../controllers/homeController');
 const {getMeo} = require('../controllers/homeController');
 const {getMonansang} = require('../controllers/homeController');
 const {getMonantrua} = require('../controllers/homeController');
+const {getSearch} = require('../controllers/homeController');
 const route = require('color-convert/route');
 const router = express.Router();
 
@@ -73,5 +74,7 @@ router.get('/BuaSang/yen-mach-sua-chua', getyenmachsuachua);
 
 router.get('/BuaSang/:SLUG',getMonansang);
 router.get('/BuaTrua/:SLUG',getMonantrua);
+
+router.get('/search', getSearch); 
 
 module.exports = router; 

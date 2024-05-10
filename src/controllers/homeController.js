@@ -335,9 +335,28 @@ const getLogout = async (req,res) => {
     return res.status(500).send({error: "Server Error"});
   }
 }
+const getSearch = (request, response) => {
+
+  const query = request.query.q;
+
+  var sql = '';
+
+  if (query != '') {
+      sql = `SELECT * FROM meo WHERE NAME LIKE '%${query}%'`;
+  }
+  else {
+      sql = `SELECT * FROM meo ORDER BY ID`;
+  }
+
+  connection.query(sql, (error, results) => {
+      if (error) throw error;
+      response.send(results);
+  });
+
+};
 module.exports = {
     getHomepage,getLogin,getMeoVat,getMeo,getMonansang,getMonantrua,
     get4meobienthitdaithanhthitmem,get6luuychonguoimoibatdau,get6Skillslambep,get10bikipchonthucphamtuoi,getCachlamsangamdunnuocdien,getNauanvoingucoc,
     getBuaSang,getBuaTrua,getbanhbao,getbanhtrungthu,getbunca,getburntcheesecakememchay,getchangasaot,getyenmachsuachua,getRegister,getProfile,
-     getLogout, getForgotPassword
+     getLogout, getForgotPassword, getSearch
 }
