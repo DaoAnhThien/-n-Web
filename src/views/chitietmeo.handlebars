@@ -7,7 +7,7 @@
                         <div class="navigation">
                             <ul>
                                 <li><a href="/">Trang chủ</a></li>
-                                <li><span>></span></li>
+                                <li><span></span></li>
                                 <li><a href="/MeoVat">Mẹo Vặt</a></li>
                             </ul>
                         </div>
@@ -20,30 +20,36 @@
                     <p>
                         {{this.ct1}}
                     </p>
+                    {{#if this.IMAGE1}}
                     <img class="image" src="{{this.IMAGE1}}" alt="Ức gà">
-
+                    {{/if}}
                     <h2>{{this.muc2}}</h2>
                     <p>{{this.ct2}}
                     </p>
+                    {{#if this.IMAGE2}}
                     <img class="image" src="{{this.IMAGE2}}" alt="Thịt heo - bò">
-        
+                    {{/if}}
                     <h2>{{this.muc3}}</h2>
-                    <img class="image" src="{{this.IMAGE3}}" alt="Cá sống">
                     <p>{{this.ct3}}.</p>
+                    {{#if this.IMAGE3}}
+                    <img class="image" src="{{this.IMAGE3}}" alt="Cá sống">
+                    {{/if}}
                     <h2>{{this.muc4}}</h2>
                     <p>{{this.ct4}}</p>
+                    {{#if this.IMAGE4}}
                     <img class="image" src="{{this.IMAGE4}}" alt="Trứng gà">
+                    {{/if}}
                     <h2>{{this.muc5}}</h2>
-                    <img class="image" src="{{this.IMAGE5}}" alt="Cà chua">
                     <p>{{this.ct5}}</p>
+                    {{#if this.IMAGE5}}
+                    <img class="image" src="{{this.IMAGE5}}" alt="Cà chua">
+                    {{/if}}
                     <h2>{{this.muc6}}</h2>
                     <p>{{this.ct6}}
                     </p>
+                    {{#if this.IMAGE6}}
                     <img class="image" src="{{this.IMAGE6}}" alt="Rau thơm">
-                    <div class="tacgia">
-                        <h2>Vy Trang</h2>
-                        <p>(Theo <span><i>Brightside</i></span>)</p>
-                    </div>
+                    {{/if}}
                 </div>
             </div>
             <div class="container-skills-2-block2">

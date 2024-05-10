@@ -1,0 +1,30 @@
+<body>
+<div class="section-title">
+			<h2>Bữa sáng</h2>
+</div>
+
+<div class="mt-4">
+    <div class="row">
+
+    {{#each user}}
+     <div class="col-sm-6 col-lg-4" style="margin: 10px 0px;">
+         <div class="card card-course-item" style="height: 600px;">
+            <a href="/BuaSang/{{this.SLUG}}">
+            <img class="card-img-top" style="height: 300px;" src="{{this.IMAGE}}" alt="{{this.name}}">
+            </a>
+            <div class="card-body">
+                  <a href="/BuaSang/{{this.SLUG}}">
+                  <h5 class="card-title">{{this.NAME}}</h5>
+                  </a>
+                <p class="card-text">{{this.INTRODUCE}}.</p>
+                <div class="heart"></div>
+                <div class="animation-heart"></div>
+                <script src="/src/public/js/app.js"></script>
+            </div>
+            </div>
+     </div>
+    {{/each}}
+
+    </div>
+</div>
+</body>
