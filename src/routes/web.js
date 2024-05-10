@@ -21,6 +21,8 @@ const {getyenmachsuachua} = require('../controllers/homeController');
 const {getLogout} = require('../controllers/homeController');
 const {getForgotPassword} = require('../controllers/homeController');
 const {getMeo} = require('../controllers/homeController');
+const {getMonansang} = require('../controllers/homeController');
+const {getMonantrua} = require('../controllers/homeController');
 const route = require('color-convert/route');
 const router = express.Router();
 
@@ -47,7 +49,7 @@ router.get('/Logout',getLogout);
 router.get('/ForgotPassword',getForgotPassword);
 router.get('/Profile',getProfile);
 
-
+router.get('/MeoVat',getMeoVat);
 // Trang chi tiet meo
 router.get('/MeoVat/4-meo-bien-thit-dai-thanh-thit-mem', get4meobienthitdaithanhthitmem); 
 router.get('/MeoVat/6-luu-y-cho-nguoi-moi-bat-dau', get6luuychonguoimoibatdau);
@@ -57,17 +59,21 @@ router.get('/MeoVat/Cach-lam-sang-am-dun-nuoc-dien', getCachlamsangamdunnuocdien
 router.get('/MeoVat/Nau-an-voi-ngu-coc', getNauanvoingucoc); 
 
 // Trang meo
-router.get('/MeoVat',getMeoVat);
+
 router.get('/MeoVat/:SLUG',getMeo);
-// Trang mon an
-router.get('/MonAn/Bua-Sang',getBuaSang);
-router.get('/MonAn/Bua-Trua',getBuaTrua);
+
+
+router.get('/BuaSang',getBuaSang);
+router.get('/BuaTrua',getBuaTrua);
 // Trang chi tiet mon an
-router.get('/MonAn/Banh-bao', getbanhbao); 
-router.get('/MonAn/Banh-trung-thu', getbanhtrungthu); 
-router.get('/MonAn/Bun-ca', getbunca);
-router.get('/MonAn/burnt-cheese-cake-mem-chay', getburntcheesecakememchay);
-router.get('/MonAn/chan-ga-sa-ot', getchangasaot);
-router.get('/MonAn/yen-mach-sua-chua', getyenmachsuachua);
+router.get('/BuaSang/Banh-bao', getbanhbao); 
+router.get('/BuaTrua/Banh-trung-thu', getbanhtrungthu); 
+router.get('/BuaSang/Bun-ca', getbunca);
+router.get('/BuaTrua/burnt-cheese-cake-mem-chay', getburntcheesecakememchay);
+router.get('/BuaTrua/chan-ga-sa-ot', getchangasaot);
+router.get('/BuaSang/yen-mach-sua-chua', getyenmachsuachua);
+
+router.get('/BuaSang/:SLUG',getMonansang);
+router.get('/BuaTrua/:SLUG',getMonantrua);
 
 module.exports = router; 

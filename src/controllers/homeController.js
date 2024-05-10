@@ -150,74 +150,180 @@ const getNauanvoingucoc = (req,res) => {
 }
 const getBuaSang = (req,res) => {
   const loggedIn = req.session.user ? true : false;
-  if (loggedIn) {
-    const username = req.session.user.username
-    res.render('BuaSang', { loggedIn: true, username: username });
-} else {
-    res.render('BuaSang', { loggedIn: false,username: null });
+  let user = [];
+  let img = [];
+  connection.connect((err)=>{
+    if(err){
+      console.error('Error connecting to MySQL database' +err.stack)
+      return;
+    }
+    console.log('Connect to database succesfully!');
+    connection.query(
+    'SELECT * from bua_sang',
+    function (err,result,fields){
+      user=result;
+      if (err) {
+        console.error('Error executing query: ' + err.stack);
+        return;
+      }
+      console.log(">>>result= ", img);
+      if (loggedIn) {
+        const username = req.session.user.username
+        res.render('buasang.handlebars', {user, loggedIn: true, username: username });
+    } else {
+        res.render('buasang.handlebars',{user,loggedIn: false,username: null });
+    }
+    }
+    );
+  })
 }
-}
-const getBuaTrua = (req,res) => {
+
+
+const getMonansang = (req,res,next) => {
   const loggedIn = req.session.user ? true : false;
-  if (loggedIn) {
-    const username = req.session.user.username
-    res.render('BuaTrua', { loggedIn: true, username: username });
-} else {
-    res.render('BuaTrua', { loggedIn: false,username: null });
+  const slug=req.params.SLUG;
+  let user = [];
+  let img = [];
+  connection.connect((err)=>{
+    if(err){
+      console.error('Error connecting to MySQL database' +err.stack)
+      return;
+    }
+    console.log('Connect to database succesfully!');
+    connection.query(
+    'SELECT * from bua_sang Where SLUG=?', [slug],
+    function (err,result,fields){
+      let id=result.ID;
+      'SELECT * from image_ctmeo where ID_CTMEO=?',[id],
+      function (err,result,fields){
+            img=result;
+      }
+      user=result;
+      if (err) {
+        console.error('Error executing query: ' + err.stack);
+        return;
+      }
+      console.log(">>>result= ", user)
+      if (loggedIn) {
+        const username = req.session.user.username
+        res.render('chitietmonan.handlebars', {user, loggedIn: true, username: username });
+    } else {
+        res.render('chitietmonan.handlebars',{user,loggedIn: false,username: null });
+    }
+    }
+    );
+  })
 }
+
+
+const getBuaTrua = (req,res) => {
+  let user = [];
+  let img = [];
+  connection.connect((err)=>{
+    if(err){
+      console.error('Error connecting to MySQL database' +err.stack)
+      return;
+    }
+    console.log('Connect to database succesfully!');
+    connection.query(
+    'SELECT * from bua_trua',
+    function (err,result,fields){
+      user=result;
+      if (err) {
+        console.error('Error executing query: ' + err.stack);
+        return;
+      }
+      console.log(">>>result= ", img);
+      const loggedIn = req.session.user ? true : false;
+      if (loggedIn) {
+        const username = req.session.user.username
+        res.render('buatrua.handlebars', { user,loggedIn: true, username: username });
+    } else {
+        res.render('buatrua.handlebars', {user, loggedIn: false,username: null });
+    }
+    }
+    );
+  })
 }
+const getMonantrua = (req,res) =>{
+  const loggedIn = req.session.user ? true : false;
+  const slug=req.params.SLUG;
+  let user = [];
+  connection.connect((err)=>{
+    if(err){
+      console.error('Error connecting to MySQL database' +err.stack)
+      return;
+    }
+    console.log('Connect to database succesfully!');
+    connection.query(
+    'SELECT * from bua_trua Where SLUG=?', [slug],
+    function (err,result,fields){
+      user = result;
+      console.log(">>>result= ", user);
+      if (loggedIn) {
+        const username = req.session.user.username
+        res.render('chitietmonan.handlebars', { user,loggedIn: true, username: username });
+    } else {
+        res.render('chitietmonan.handlebars', {user, loggedIn: false,username: null });
+    }
+    }
+    );
+  })
+     
+}
+
 const getbanhbao = (req,res) => {
   const loggedIn = req.session.user ? true : false;
   if (loggedIn) {
     const username = req.session.user.username
-    res.render('banhbao', { loggedIn: true, username: username });
+    res.render('banhbao.ejs', { loggedIn: true, username: username });
 } else {
-    res.render('banhbao', { loggedIn: false,username: null });
+    res.render('banhbao.ejs', { loggedIn: false,username: null });
 }
 }
 const getbanhtrungthu = (req,res) => {
   const loggedIn = req.session.user ? true : false;
   if (loggedIn) {
     const username = req.session.user.username
-    res.render('banhtrungthu', { loggedIn: true, username: username });
+    res.render('banhtrungthu.ejs', { loggedIn: true, username: username });
 } else {
-    res.render('banhtrungthu', { loggedIn: false,username: null });
+    res.render('banhtrungthu.ejs', { loggedIn: false,username: null });
 }
 }
 const getbunca = (req,res) => {
   const loggedIn = req.session.user ? true : false;
   if (loggedIn) {
     const username = req.session.user.username
-    res.render('bunca', { loggedIn: true, username: username });
+    res.render('bunca.ejs', { loggedIn: true, username: username });
 } else {
-    res.render('bunca', { loggedIn: false,username: null });
+    res.render('bunca.ejs', { loggedIn: false,username: null });
 }
 }
 const getburntcheesecakememchay = (req,res) => {
   const loggedIn = req.session.user ? true : false;
   if (loggedIn) {
     const username = req.session.user.username
-    res.render('burntcheesecakememchay', { loggedIn: true, username: username });
+    res.render('burntcheesecakememchay.ejs', { loggedIn: true, username: username });
 } else {
-    res.render('burntcheesecakememchay', { loggedIn: false,username: null });
+    res.render('burntcheesecakememchay.ejs', { loggedIn: false,username: null });
 }
 }
 const getchangasaot = (req,res) => {
   const loggedIn = req.session.user ? true : false;
   if (loggedIn) {
     const username = req.session.user.username
-    res.render('changasaot', { loggedIn: true, username: username });
+    res.render('changasaot.ejs', { loggedIn: true, username: username });
 } else {
-    res.render('changasaot', { loggedIn: false,username: null });
+    res.render('changasaot.ejs', { loggedIn: false,username: null });
 }
 }
 const getyenmachsuachua = (req,res) => {
   const loggedIn = req.session.user ? true : false;
   if (loggedIn) {
     const username = req.session.user.username
-    res.render('yenmachsuachua', { loggedIn: true, username: username });
+    res.render('yenmachsuachua.ejs', { loggedIn: true, username: username });
 } else {
-    res.render('yenmachsuachua', { loggedIn: false,username: null });
+    res.render('yenmachsuachua.ejs', { loggedIn: false,username: null });
 }
 }
 
@@ -234,7 +340,7 @@ const getLogout = async (req,res) => {
   }
 }
 module.exports = {
-    getHomepage,getLogin,getMeoVat,getMeo,
+    getHomepage,getLogin,getMeoVat,getMeo,getMonansang,getMonantrua,
     get4meobienthitdaithanhthitmem,get6luuychonguoimoibatdau,get6Skillslambep,get10bikipchonthucphamtuoi,getCachlamsangamdunnuocdien,getNauanvoingucoc,
     getBuaSang,getBuaTrua,getbanhbao,getbanhtrungthu,getbunca,getburntcheesecakememchay,getchangasaot,getyenmachsuachua,getRegister,getProfile,
      getLogout, getForgotPassword
