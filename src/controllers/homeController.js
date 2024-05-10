@@ -1,12 +1,13 @@
 const axios = require('axios');
+const connection = require('../config/database');
 const {isLogging} = require('../models/User');
 const getHomepage = (req,res) =>{
   const loggedIn = req.session.user ? true : false;
   if (loggedIn) {
     const username = req.session.user.username
-    res.render('Homepage', { loggedIn: true, username: username });
+    res.render('Homepage.ejs', { loggedIn: true, username: username });
 } else {
-    res.render('Homepage', { loggedIn: false,username: null });
+    res.render('Homepage.ejs', { loggedIn: false,username: null });
 }
 }
 const getLogin = (req,res) => {
@@ -18,14 +19,71 @@ const getRegister = (req,res) => {
 const getForgotPassword = (req,res) => {
   res.render('Forgotpassword.ejs')
 }
-const getMeoVat = (req,res) => {
+const getMeoVat = (req,res,next) => {
   const loggedIn = req.session.user ? true : false;
-  if (loggedIn) {
-    const username = req.session.user.username
-    res.render('trangmeo', { loggedIn: true, username: username });
-} else {
-    res.render('trangmeo', { loggedIn: false,username: null });
+  let user = [];
+  connection.connect((err) => {
+      if (err) {
+        console.error('Error connecting to MySQL database: ' + err.stack);
+        return;
+      }
+      console.log('Connected to MySQL database!');
+      //Thực hiện truy vấn sau khi kết nối đã thành công
+      connection.query(
+        'SELECT * From meo',
+        function (err, result, fields) {
+          user = result;
+          if (err) {
+            console.error('Error executing query: ' + err.stack);
+            return;
+          }
+          console.log(">>>result= ", user);
+          //res.render('meovat.handlebars',{user})
+          if (loggedIn) {
+            const username = req.session.user.username
+            res.render('meovat.handlebars', {user, loggedIn: true, username: username });
+        } else {
+            res.render('meovat.handlebars',{user,loggedIn: false,username: null });
+        }
+        }
+      );
+    })
+   
 }
+const getMeo = (req,res,next) => {
+  const loggedIn = req.session.user ? true : false;
+  const slug=req.params.SLUG;
+  let user = [];
+  let img = [];
+  connection.connect((err)=>{
+    if(err){
+      console.error('Error connecting to MySQL database' +err.stack)
+      return;
+    }
+    console.log('Connect to database succesfully!');
+    connection.query(
+    'SELECT * from chi_tiet_meo Where SLUG=?', [slug],
+    function (err,result,fields){
+      let id=result.ID;
+      'SELECT * from image_ctmeo where ID_CTMEO=?',[id],
+      function (err,result,fields){
+            img=result;
+      }
+      user=result;
+      if (err) {
+        console.error('Error executing query: ' + err.stack);
+        return;
+      }
+      console.log(">>>result= ", user;
+      if (loggedIn) {
+        const username = req.session.user.username
+        res.render('chitietmeo.handlebars', {user, loggedIn: true, username: username });
+    } else {
+        res.render('chitietmeo.handlebars',{user,loggedIn: false,username: null });
+    }
+    }
+    );
+  })
 }
 const getProfile = (req,res) => {
   const loggedIn = req.session.user ? true : false;
@@ -40,45 +98,45 @@ const get4meobienthitdaithanhthitmem = (req,res) => {
   const loggedIn = req.session.user ? true : false;
   if (loggedIn) {
     const username = req.session.user.username
-    res.render('4meobienthitdaithanhthitmem', { loggedIn: true, username: username });
+    res.render('4meobienthitdaithanhthitmem.ejs', { loggedIn: true, username: username });
 } else {
-    res.render('4meobienthitdaithanhthitmem', { loggedIn: false,username: null });
+    res.render('4meobienthitdaithanhthitmem.ejs', { loggedIn: false,username: null });
 }
 }
 const get6luuychonguoimoibatdau = (req,res) => {
   const loggedIn = req.session.user ? true : false;
   if (loggedIn) {
     const username = req.session.user.username
-    res.render('6luuychonguoimoibatdau', { loggedIn: true, username: username });
+    res.render('6luuychonguoimoibatdau.ejs', { loggedIn: true, username: username });
 } else {
-    res.render('6luuychonguoimoibatdau', { loggedIn: false,username: null });
+    res.render('6luuychonguoimoibatdau.ejs', { loggedIn: false,username: null });
 }
 }
 const get6Skillslambep = (req,res) => {
   const loggedIn = req.session.user ? true : false;
   if (loggedIn) {
     const username = req.session.user.username
-    res.render('6Skillslambep', { loggedIn: true, username: username });
+    res.render('6Skillslambep.ejs', { loggedIn: true, username: username });
 } else {
-    res.render('6Skillslambep', { loggedIn: false,username: null });
+    res.render('6Skillslambep.ejs', { loggedIn: false,username: null });
 }
 }
 const get10bikipchonthucphamtuoi = (req,res) => {
   const loggedIn = req.session.user ? true : false;
   if (loggedIn) {
     const username = req.session.user.username
-    res.render('10bikipchonthucphamtuoi', { loggedIn: true, username: username });
+    res.render('10bikipchonthucphamtuoi.ejs', { loggedIn: true, username: username });
 } else {
-    res.render('10bikipchonthucphamtuoi', { loggedIn: false,username: null });
+    res.render('10bikipchonthucphamtuoi.ejs', { loggedIn: false,username: null });
 }
 }
 const getCachlamsangamdunnuocdien = (req,res) => {
   const loggedIn = req.session.user ? true : false;
   if (loggedIn) {
     const username = req.session.user.username
-    res.render('Cachlamsangamdunnuocdien', { loggedIn: true, username: username });
+    res.render('Cachlamsangamdunnuocdien.ejs', { loggedIn: true, username: username });
 } else {
-    res.render('Cachlamsangamdunnuocdien', { loggedIn: false,username: null });
+    res.render('Cachlamsangamdunnuocdien.ejs', { loggedIn: false,username: null });
 }
 }
 const getNauanvoingucoc = (req,res) => {
@@ -176,7 +234,7 @@ const getLogout = async (req,res) => {
   }
 }
 module.exports = {
-    getHomepage,getLogin,getMeoVat,
+    getHomepage,getLogin,getMeoVat,getMeo,
     get4meobienthitdaithanhthitmem,get6luuychonguoimoibatdau,get6Skillslambep,get10bikipchonthucphamtuoi,getCachlamsangamdunnuocdien,getNauanvoingucoc,
     getBuaSang,getBuaTrua,getbanhbao,getbanhtrungthu,getbunca,getburntcheesecakememchay,getchangasaot,getyenmachsuachua,getRegister,getProfile,
      getLogout, getForgotPassword

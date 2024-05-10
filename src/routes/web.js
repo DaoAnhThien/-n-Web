@@ -20,6 +20,7 @@ const {getchangasaot} = require('../controllers/homeController');
 const {getyenmachsuachua} = require('../controllers/homeController');
 const {getLogout} = require('../controllers/homeController');
 const {getForgotPassword} = require('../controllers/homeController');
+const {getMeo} = require('../controllers/homeController');
 const route = require('color-convert/route');
 const router = express.Router();
 
@@ -48,6 +49,7 @@ router.get('/Profile',getProfile);
 
 // Trang meo
 router.get('/MeoVat',getMeoVat);
+router.get('/MeoVat/:SLUG',getMeo);
 // Trang chi tiet meo
 router.get('/MeoVat/4-meo-bien-thit-dai-thanh-thit-mem', get4meobienthitdaithanhthitmem); 
 router.get('/MeoVat/6-luu-y-cho-nguoi-moi-bat-dau', get6luuychonguoimoibatdau);
