@@ -7,7 +7,8 @@ const {isLogging} = require('../models/User')
 const { findUserByEmail } = require('../models/User');
 const {saveConfirmationCode} = require('../models/User');
 const {sendConfirmationEmail,updateUserPassword,findUserByIdInConfirmationCode } = require('../models/User');
-
+const {FavouriteTrick} = require('../models/User');
+const {FavouriteFood} = require('../models/User');
 
 const isValidPassword = (password) => {
     // Kiểm tra mật khẩu có đủ mạnh không (ít nhất 8 ký tự, có ký tự chữ hoa, chữ thường, và ký tự đặc biệt)
@@ -142,9 +143,47 @@ const HandleForgotPasswordConfirm = async (req, res) => {
         return res.status(500).json({ error: 'Internal server error' });
     }
 }
-
+const HandleFavouriteTrick = async (req, res) => {
+    if (req.session && req.session.user) { 
+        try {
+            const userID = req.session.user.userId;
+            let trickID = req.body.ID_CTMEO;
+            let slug = req.body.SLUG;
+            let image = req.body.IMAGE;
+            await FavouriteTrick(userID, trickID, slug, image);
+            
+            // Phản hồi thành công
+            return res.status(200).json({ message: 'Favorite trick was implemented successfully' });
+        } catch (error) {
+            console.error('Error in HandleFavouriteTrick:', error);
+            return res.status(500).json({ error: 'Internal server error' });
+        }
+    } else {
+        // Phản hồi khi người dùng chưa đăng nhập
+        return res.status(401).json({ error: 'You must be logged in to perform this action' });
+    }
+};
+const HandleFavouriteFood = async (req, res) => {
+    if (req.session && req.session.user) { 
+        try {
+            const userID = req.session.user.userId;
+            let foodID = req.body.ID_CTMA;
+            let slug = req.body.SLUG;
+            let image = req.body.IMAGE;
+            await FavouriteFood(userID, foodID, slug, image);
+            
+            // Phản hồi thành công
+            return res.status(200).json({ message: 'Favorite foodID was implemented successfully' });
+        } catch (error) {
+            console.error('Error in HandleFavouriteFood:', error);
+            return res.status(500).json({ error: 'Internal server error' });
+        }
+    } else {
+        // Phản hồi khi người dùng chưa đăng nhập
+        return res.status(401).json({ error: 'You must be logged in to perform this action' });
+    }
 
 
 module.exports = {
-    HandleRegister, HandleLogin, HandleForgotPassword, HandleForgotPasswordConfirm
+    HandleRegister, HandleLogin, HandleForgotPassword, HandleForgotPasswordConfirm, HandleFavouriteTrick,HandleFavouriteFood
 }

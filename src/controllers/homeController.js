@@ -89,9 +89,9 @@ const getProfile = (req,res) => {
   const loggedIn = req.session.user ? true : false;
   if (loggedIn) {
     const username = req.session.user.username
-    res.render('Userpage', { loggedIn: true, username: username });
+    res.render('Userpage.ejs', { loggedIn: true, username: username });
 } else {
-    res.render('Userpage', { loggedIn: false,username: null });
+    res.render('Userpage.ejs', { loggedIn: false,username: null });
 }
 }
 const get4meobienthitdaithanhthitmem = (req,res) => {
@@ -214,6 +214,7 @@ const getMonansang = (req,res,next) => {
 }
 const getBuaTrua = (req,res) => {
   const loggedIn = req.session.user ? true : false;
+
   let user = [];
   let img = [];
   connection.connect((err)=>{
@@ -242,6 +243,34 @@ const getBuaTrua = (req,res) => {
     );
   })
 }
+
+// const getMonantrua = (req,res) =>{
+//   const loggedIn = req.session.user ? true : false;
+//   const slug=req.params.SLUG;
+//   let user = [];
+
+//   connection.connect((err)=>{
+//     if(err){
+//       console.error('Error connecting to MySQL database' +err.stack)
+//       return;
+//     }
+//     console.log('Connect to database succesfully!');
+//     connection.query(
+//     'SELECT * from bua_trua Where SLUG=?', [slug],
+//     function (err,result,fields){
+//       user = result;
+//       console.log(">>>result= ", user);
+//       if (loggedIn) {
+//         const username = req.session.user.username
+//         res.render('chitietmonan.handlebars', { user,loggedIn: true, username: username });
+//     } else {
+//         res.render('chitietmonan.handlebars', {user, loggedIn: false,username: null });
+//     }
+//     }
+//     );
+//   })
+
+// }
 const getMonantrua = (req,res) =>{
   const loggedIn = req.session.user ? true : false;
   const slug=req.params.SLUG;
@@ -266,8 +295,9 @@ const getMonantrua = (req,res) =>{
     }
     );
   })
-
+     
 }
+
 const getbanhbao = (req,res) => {
   const loggedIn = req.session.user ? true : false;
   if (loggedIn) {
