@@ -74,7 +74,7 @@ const getMeo = (req,res,next) => {
         console.error('Error executing query: ' + err.stack);
         return;
       }
-      console.log(">>>result= ", user;
+      console.log(">>>result= ", user)
       if (loggedIn) {
         const username = req.session.user.username
         res.render('chitietmeo.handlebars', {user, loggedIn: true, username: username });
@@ -89,9 +89,9 @@ const getProfile = (req,res) => {
   const loggedIn = req.session.user ? true : false;
   if (loggedIn) {
     const username = req.session.user.username
-    res.render('Userpage', { loggedIn: true, username: username });
+    res.render('Userpage.ejs', { loggedIn: true, username: username });
 } else {
-    res.render('Userpage', { loggedIn: false,username: null });
+    res.render('Userpage.ejs', { loggedIn: false,username: null });
 }
 }
 const get4meobienthitdaithanhthitmem = (req,res) => {
@@ -143,9 +143,9 @@ const getNauanvoingucoc = (req,res) => {
   const loggedIn = req.session.user ? true : false;
   if (loggedIn) {
     const username = req.session.user.username
-    res.render('Nauanvoingucoc', { loggedIn: true, username: username });
+    res.render('Nauanvoingucoc.ejs', { loggedIn: true, username: username });
 } else {
-    res.render('Nauanvoingucoc', { loggedIn: false,username: null });
+    res.render('Nauanvoingucoc.ejs', { loggedIn: false,username: null });
 }
 }
 const getBuaSang = (req,res) => {

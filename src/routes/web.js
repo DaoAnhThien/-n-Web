@@ -47,9 +47,7 @@ router.get('/Logout',getLogout);
 router.get('/ForgotPassword',getForgotPassword);
 router.get('/Profile',getProfile);
 
-// Trang meo
-router.get('/MeoVat',getMeoVat);
-router.get('/MeoVat/:SLUG',getMeo);
+
 // Trang chi tiet meo
 router.get('/MeoVat/4-meo-bien-thit-dai-thanh-thit-mem', get4meobienthitdaithanhthitmem); 
 router.get('/MeoVat/6-luu-y-cho-nguoi-moi-bat-dau', get6luuychonguoimoibatdau);
@@ -57,6 +55,10 @@ router.get('/MeoVat/6-Skills-lam-bep', get6Skillslambep);
 router.get('/MeoVat/10-bi-kip-chon-thuc-pham-tuoi', get10bikipchonthucphamtuoi); 
 router.get('/MeoVat/Cach-lam-sang-am-dun-nuoc-dien', getCachlamsangamdunnuocdien);
 router.get('/MeoVat/Nau-an-voi-ngu-coc', getNauanvoingucoc); 
+
+// Trang meo
+router.get('/MeoVat',getMeoVat);
+router.get('/MeoVat/:SLUG',getMeo);
 // Trang mon an
 router.get('/MonAn/Bua-Sang',getBuaSang);
 router.get('/MonAn/Bua-Trua',getBuaTrua);
