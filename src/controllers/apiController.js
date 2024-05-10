@@ -183,7 +183,7 @@ const HandleFavouriteFood = async (req, res) => {
         return res.status(401).json({ error: 'You must be logged in to perform this action' });
     }
 
-
+}
 module.exports = {
     HandleRegister, HandleLogin, HandleForgotPassword, HandleForgotPasswordConfirm, HandleFavouriteTrick,HandleFavouriteFood
 }
