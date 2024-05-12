@@ -13,7 +13,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
-    <body>
+<body>
     <div class="header">
         <div class="container">
             <nav class="navbar navbar-expand-lg">
@@ -107,8 +107,27 @@
                         <div class="search-box">
                             <input class="search-input" type="text" placeholder="Search...">
                             <i class='bx bx-search-alt-2'></i>
-                            <div><a class="theme-btn-secondary" href="/Login" title="">Login</a>
-                            </div>
+                            <% if (username) { %>
+                                <!-- Nếu đã đăng nhập, hiển thị username -->
+                                <div class="site-menu-wrapper ml-auto collapse navbar-collapse">
+                                    <ul class="navbar-nav ml-auto">
+                                        <li class="nav-item dropdown position-relative" style="margin: 0 0;">
+                                            <a class="nav-link" href="javascript:void(0)" role="button" data-bs-toggle="dropdown"
+                                                aria-expanded="false">
+                                                <%= username %>!
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-dark">
+                                                <li><a class="dropdown-item" href="/Profile"> Profile</a></li>
+                                                <li><a class="dropdown-item" href="/Logout">Logout</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            <% } else { %>
+                                <!-- Nếu chưa đăng nhập, hiển thị nút login -->
+                                <div><a class="theme-btn-secondary" href="/Login" title="">Login</a>
+                                </div>
+                            <% } %>
                         </div>
 
                     </div>

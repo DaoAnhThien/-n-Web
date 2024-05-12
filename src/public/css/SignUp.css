@@ -15,7 +15,7 @@
   }
   .wrapper {
     width: 500px;
-    height: 700px;
+    height: auto;
     color: #0000;
     background-color: transparent;
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -62,7 +62,7 @@
     display: flex;
     justify-content: space-between;
     font-size: 15px;
-    margin: -15px 0 15px;
+    margin: -10px 0 15px;
     color: #ffff;
   }
   
