@@ -8,15 +8,19 @@
     {{#each user}}
      <div class="col-sm-6 col-lg-4">
          <div class="card card-course-item">
-            <a href="/buatrua/{{this.SLUG}}">
+            <a href="/BuaTrua/{{this.SLUG}}">
             <img class="card-img-top" src="{{this.IMAGE}}" alt="{{this.name}}">
             </a>
             <div class="card-body">
-                  <a href="/buatrua/{{this.SLUG}}">
+                  <a href="/BuaTrua/{{this.SLUG}}">
                   <h5 class="card-title">{{this.NAME}}</h5>
                   </a>
                 
                 <p class="card-text">{{this.TITLE}}.</p>
+                <div class="blockheart">
+                <div class="heart"></div>
+                <div class="animation-heart"></div>
+                </div>
             </div>
             </div>
      </div>

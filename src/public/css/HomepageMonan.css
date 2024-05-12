@@ -995,8 +995,6 @@ ul.inner-dropdown.list-unstyled:before {
 .recipy-style2 {
   margin-bottom: 30px;
 }
-.recipy-style2 {
-}
 .recipy-style2 img {
   width: 100%;
 }
@@ -1047,15 +1045,15 @@ monan-title {
   justify-content: center;
   flex-wrap: wrap;
   margin-top: 20px;
-}
-.cover{
-  padding-right: 25px;
-  padding-bottom: 25px;
+  background-color: #fffbf5;
 }
 .card {
   width: 350px;
   height: 500px;
+  border-radius: 20px;
   overflow: hidden;
+  padding-right: 20px;
+  background-color: antiquewhite;
   object-fit: cover;
 }
 .card1 {
@@ -1063,7 +1061,8 @@ monan-title {
   height: 500px;
   border-radius: 20px;
   overflow: hidden;
-  padding-right: 5px;
+  padding-right: 20px;
+  background-color: antiquewhite;
   object-fit: cover;
 }
 
@@ -1399,8 +1398,12 @@ div.scroll-container {
 .social i:hover {
   color: #41c466;
 }
-
-.midcontent {
-  padding-left: 10%;
-  padding-right: 10%;
+.header,.footer{
+  background-image: url(/image/mazaa-pattern.png);
+  background-size: cover; 
+  background-position: center; 
+}
+.footer{
+  width : 100%;
+  margin: 0px 0px;
 }
