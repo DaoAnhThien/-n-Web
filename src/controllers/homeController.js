@@ -358,5 +358,5 @@ module.exports = {
     getHomepage,getLogin,getMeoVat,getMeo,getMonansang,getMonantrua,
     get4meobienthitdaithanhthitmem,get6luuychonguoimoibatdau,get6Skillslambep,get10bikipchonthucphamtuoi,getCachlamsangamdunnuocdien,getNauanvoingucoc,
     getBuaSang,getBuaTrua,getbanhbao,getbanhtrungthu,getbunca,getburntcheesecakememchay,getchangasaot,getyenmachsuachua,getRegister,getProfile,
-     getLogout, getForgotPassword, getSearch
+    getLogout, getForgotPassword, getSearch
 }
