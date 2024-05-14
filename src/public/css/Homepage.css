@@ -1065,11 +1065,28 @@ monan-title {
   background-color: antiquewhite;
   object-fit: cover;
 }
-
 .btn {
   border-radius: 10px;
   padding: 5px;
 }
+@media only screen and (max-width: 46.125em) {
+  .card {
+  width: 350px;
+  height: 350px;
+  border-radius: 20px;
+  overflow: hidden;
+  padding-right: 20px;
+  background-color: #FFFFDD;
+  object-fit: cover;
+  }
+  .card1 {
+    display: none;
+  }
+}
+
+
+
+
 .slides {
   width: 100%;
   height: auto;
@@ -1316,8 +1333,23 @@ div.scroll-container {
   height: 100%;
   object-fit: cover;
   border-radius: 12px;
-  
 }
+
+@media only screen and (max-width: 46.125em) {
+  .image-items{
+    width: 50%;
+    padding:0;
+    margin-left: -50px;
+    height: 270px;
+  }
+  .imageslick{
+    width: 100%;
+    height :270px;
+  }
+  
+
+}
+
 
 
 
@@ -1379,6 +1411,27 @@ div.scroll-container {
   background-size: cover;
   background-position: center;
 }
+@media only screen and (max-width: 46.125em) {
+  .container-meovat {
+    margin-top: 30px;
+    padding: 0px;
+    width: 100%;
+  }
+  .container-meovat-1 {
+    width: 50%;
+    margin: 10px 0; 
+  }
+  .container-meovat-list{
+    margin-right: 0px;
+  }
+  .image{
+    height: 150px;
+  }
+}
+
+
+
+
 
 .footer {
   position: absolute;
@@ -1503,3 +1556,165 @@ div.scroll-container {
   font-weight: bold;
   transition: all 0.3s ease;
 }
+@media only screen and (max-width: 46.125em) {
+  .aboutus{ 
+    display: none;
+  }
+  .block1 h2 {
+    color: #12372a;
+    margin-left: 15%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 200%;
+  }
+  .social {
+    margin: 10px;
+    width: 45%;
+    align-items: center;
+    text-align: center;
+    border-left: 0px solid #41c466;
+  }
+  .social .i{
+    display: inline;
+    padding: 3px;
+  }
+  .address{
+    width: 45%;
+  }
+}
+.search-box1{
+  display: none;
+}
+.header1{
+  display: none;
+}
+.dropdown0 {
+  display: none;
+}
+@media only screen and (max-width: 46.125em) {
+  .header {
+    display: none;
+  }
+  .header1{
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    background-color: white;
+    position: relative;
+  }
+  .header1 .a{
+    background-color: white;
+  }
+  .active {
+    background-color: white;
+    width: 50%;
+    height: 30%;
+  }
+  
+  .header1 #myLinks {
+    display: none;
+    background-color: #666;
+    width: 50%;
+  }
+  
+  .header1 a {
+    color: black;
+    padding: 10px 10px;
+    text-decoration: none;
+    font-size: 17px;
+    display: block;
+  }
+  
+  .header1 a.icon {
+    background: #546b5b;
+    display: block;
+    position: absolute;
+    right: 30px;
+    top: 150px;
+    width: 50px;
+    height: 50px;
+  }
+  
+  .dropbtn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 25px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    width: 400px;
+  }
+  .dropbtn1 {
+    background-color: #4CAF50;
+    color: white;
+    padding: 25px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    width: 400px;
+  }
+  .dropbtn2 {
+    background-color: #4CAF50;
+    color: white;
+    padding: 25px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    width: 400px;
+  }
+  .dropbtn3 {
+    background-color: grey;
+    color: white;
+    padding: 25px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    width: 400px;
+  }
+  .dropdown0 {
+    display: none;
+  }
+  .dropdown input{
+    width: 400px;
+    border-radius: 5px;
+  }
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {
+  background-color: #f1f1f1;
+  color: green;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+  
+  .dropdown:hover .dropbtn1 {
+    background-color: #3e8e41;
+  }
+  .dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+  }
+  .dropdown:hover .dropbtn2 {
+    background-color: #3e8e41;
+  }
+  .dropdown:hover .dropbtn3 {
+    background-color: #524C42;
+  }
+  
+}
+

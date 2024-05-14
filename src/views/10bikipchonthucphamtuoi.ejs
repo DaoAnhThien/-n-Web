@@ -134,6 +134,71 @@
             </nav>
         </div>
     </div>
+
+    <div class="header1">
+        <a class="active"><img src="/image/logo1.png" alt=""></a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()" id="navbtn">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+    <div class="dropdown0" id="myLinks">
+        <div class="dropdown">
+            <button class="dropbtn3">
+              <a href="/"> </a>Trang chủ</button>
+        </div>
+        <div class="dropdown">
+          <button class="dropbtn">Công thức</button>
+          <div class="dropdown-content">
+          <a href="/MonAn/Bua-Sang">Đồ ăn sáng</a>
+          <a href="/MonAn/Bua-Trua">Đồ ăn trưa</a>
+          <a href="#">Tráng miệng</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropbtn1">Kỹ thuật chế biến</button>
+          <div class="dropdown-content">
+          <a href="kho.html">Kho</a>
+          <a href="nuong.html">Nướng</a>
+          <a href="xao.html">Xào</a>
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropbtn2"> <a  href="/MeoVat"> </a>Mẹo vặt</button>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn3">
+              <a href="/Login"> </a>Login</button>
+        </div>
+        <div class="dropdown">
+            <input type="text" placeholder="Search.." name="search">
+            <button type="submit" class="searchbtn" style="width: 200px; height: 50px;">Search</button>
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn3" onclick="myFunction1()" >X</button>
+        </div>
+    </div>
+
+
+    <script>
+        function myFunction() {
+          var x = document.getElementById("myLinks");
+          if (x.style.display = "none") {
+            x.style.display = "block";
+          } 
+          else {
+            x.style.display = "none";
+          }
+        }  
+        function myFunction1() {
+          var x = document.getElementById("myLinks");
+          if (x.style.display = "block") {
+            x.style.display = "none";
+          } 
+        }   
+    </script>
+
+
+
     <div class="container-skills">
         <div class="container-skills-2">
             <div class="container-skills-2-block1">
@@ -297,13 +362,56 @@
             </div>
         </div>
     </div>
+
+    <div className="App" style="font-family: sans-serif;
+    text-align: center;">
+        <h1>Contact Me Here</h1>
+        
+        <div>
+          <form className="form" style="display: flex;
+          flex-direction: column;
+          padding-left: 25%;" action ="https://sheetdb.io/api/v1/ihsyigi3s3hjt" method="POST" id="sheetdb-form">
+            <input placeholder="Your Name" name="data[Name]" type="text" style="height: 50px; width: 75%;
+            margin-top: 20px;
+            border-radius: 10px;
+            padding: 5px;"/>
+            <input placeholder="Your Email" name="data[Email]" type="text" style="height: 50px; width: 75%;
+            margin-top: 20px;
+            border-radius: 10px;
+            padding: 5px;" />
+            <input placeholder="Your Message" name="data[Message]" type="text" style="height: 50px; width: 75%;
+            margin-top: 20px;
+            border-radius: 10px;
+            padding: 5px;" />
+          </form>
+          <button name="btnSubmit" type="submit" style="height: 50px; width: 30%;
+            margin-top: 20px;
+            border-radius: 10px;
+            padding: 5px;">Submit</button>
+          <script>
+            var form = document.getElementById('sheetdb-form');
+            form.addEventListener("submit", e => {
+              e.preventDefault();
+              fetch(form.action, {
+                  method : "POST",
+                  body: new FormData(document.getElementById("sheetdb-form")),
+              }).then(
+                  response => response.json()
+              ).then((html) => {
+                // you can put any JS code here
+              });
+            });
+          </script>
+        </div>
+      </div>
+
     <div class="footer">
         <div class="address">
             <h2>Contact</h2>
             <p>Trường Đại học Công nghệ Thông tin</p>
             <p>Địa chỉ: Đường Hàn Thuyên, khu phố 6 P, Thủ Đức, Thành phố Hồ Chí Minh</p>
             <p>Số điện thoại: 028 3725 2002</p>
-            <p>Email: Nhom14cooking@gmail.com</p>
+           
         </div>
         <div class="aboutus">
 
