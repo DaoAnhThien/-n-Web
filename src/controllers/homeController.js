@@ -20,6 +20,7 @@ const getForgotPassword = (req,res) => {
   res.render('Forgotpassword.ejs')
 }
 const getMeoVat = (req,res,next) => {
+  const currentTitle = 'Mẹo Vặt';
   const loggedIn = req.session.user ? true : false;
   let user = [];
   connection.connect((err) => {
@@ -41,9 +42,9 @@ const getMeoVat = (req,res,next) => {
           //res.render('meovat.handlebars',{user})
           if (loggedIn) {
             const username = req.session.user.username
-            res.render('meovat.handlebars', {user, loggedIn: true, username: username });
+            res.render('meovat.handlebars', {user, loggedIn: true, username: username,currentTitle });
         } else {
-            res.render('meovat.handlebars',{user,loggedIn: false,username: null });
+            res.render('meovat.handlebars',{user,loggedIn: false,username: null,currentTitle });
         }
         }
       );
@@ -85,15 +86,66 @@ const getMeo = (req,res,next) => {
     );
   })
 }
-const getProfile = (req,res) => {
+const getProfile = (req, res) => {
+  const currentTitle = 'Trang Cá Nhân';
   const loggedIn = req.session.user ? true : false;
   if (loggedIn) {
-    const username = req.session.user.username
-    res.render('Userpage.ejs', { loggedIn: true, username: username });
-} else {
-    res.render('Userpage.ejs', { loggedIn: false,username: null });
-}
-}
+      const username = req.session.user.username;
+
+      connection.connect((err) => {
+          if (err) {
+              console.error('Error connecting to database: ' + err.stack);
+              return;
+          }
+          console.log('Connect to database successfully!');
+
+          let userData = {};
+          let userFavouriteMeo = [];
+          let userFavouriteMonAnBuoiSang = [];
+          let userFavouriteMonAnBuoiTrua = [];
+
+          connection.query('SELECT * FROM user WHERE USERNAME = ?', [username], (err, result) => {
+              if (err) {
+                  console.error('Error executing query: ' + err.stack);
+                  return;
+              }
+
+              userData = result;
+              connection.query('SELECT * FROM yeu_thich_meo WHERE ID_USER = ?', [req.session.user.userId], (err, result) => {
+                  if (err) {
+                      console.error('Error executing query: ' + err.stack);
+                      return;
+                  }
+                  userFavouriteMeo = result;
+          connection.query('SELECT * FROM yeu_thich_mon_an_buoi_sang WHERE ID_USER = ?', [req.session.user.userId], (err, result) => {
+                  if (err) {
+                      console.error('Error executing query: ' + err.stack);
+                      return;
+                  }
+                  userFavouriteMonAnBuoiSang = result;
+
+          connection.query('SELECT * FROM yeu_thich_mon_an_buoi_trua WHERE ID_USER = ?', [req.session.user.userId], (err, result) => {
+            if (err) {
+                console.error('Error executing query: ' + err.stack);
+                return;
+            }
+            userFavouriteMonAnBuoiTrua = result;
+
+                  if (loggedIn) {
+                      res.render('Userpage.handlebars', { userData, userFavouriteMeo,userFavouriteMonAnBuoiSang,userFavouriteMonAnBuoiTrua, loggedIn: true, username, currentTitle });
+                  } else {
+                      res.render('Userpage.handlebars', { userData, userFavouriteMeo,userFavouriteMonAnBuoiSang,userFavouriteMonAnBuoiTrua, loggedIn: false, username: null, currentTitle });
+                  }
+              });
+            });
+          });
+        });
+      });
+  } else {
+      res.render('Userpage.handlebars', { userData: {}, userFavouriteMeo: [], loggedIn: false, username: null, currentTitle });
+  }};
+
+
 const get4meobienthitdaithanhthitmem = (req,res) => {
   const loggedIn = req.session.user ? true : false;
   if (loggedIn) {
@@ -148,34 +200,35 @@ const getNauanvoingucoc = (req,res) => {
     res.render('Nauanvoingucoc.ejs', { loggedIn: false,username: null });
 }
 }
-const getBuaSang = (req,res) => {
+const getBuaSang = (req, res) => {
+  const currentTitle = 'Đồ Ăn Sáng';
   const loggedIn = req.session.user ? true : false;
   let user = [];
   let img = [];
-  connection.connect((err)=>{
-    if(err){
-      console.error('Error connecting to MySQL database' +err.stack)
+
+  connection.connect((err) => {
+    if (err) {
+      console.error('Error connecting to MySQL database' + err.stack)
       return;
     }
     console.log('Connect to database succesfully!');
-    connection.query(
-    'SELECT * from bua_sang',
-    function (err,result,fields){
-      user=result;
+
+    connection.query('SELECT * from bua_sang', function (err, result, fields) {
+      user = result;
       if (err) {
         console.error('Error executing query: ' + err.stack);
         return;
       }
       console.log(">>>result= ", img);
+
       if (loggedIn) {
         const username = req.session.user.username
-        res.render('buasang.handlebars', {user, loggedIn: true, username: username });
-    } else {
-        res.render('buasang.handlebars',{user,loggedIn: false,username: null });
-    }
-    }
-    );
-  })
+        res.render('buasang.handlebars', { user, loggedIn: true, username, currentTitle });
+      } else {
+        res.render('buasang.handlebars', { user, loggedIn: false, username: null, currentTitle });
+      }
+    });
+  });
 }
 
 
@@ -208,6 +261,7 @@ const getMonansang = (req,res,next) => {
 
 
 const getBuaTrua = (req,res) => {
+  const currentTitle = 'Đồ Ăn Trưa';
   let user = [];
   let img = [];
   connection.connect((err)=>{
@@ -228,9 +282,9 @@ const getBuaTrua = (req,res) => {
       const loggedIn = req.session.user ? true : false;
       if (loggedIn) {
         const username = req.session.user.username
-        res.render('buatrua.handlebars', { user,loggedIn: true, username: username });
+        res.render('buatrua.handlebars', { user,loggedIn: true, username: username,currentTitle });
     } else {
-        res.render('buatrua.handlebars', {user, loggedIn: false,username: null });
+        res.render('buatrua.handlebars', {user, loggedIn: false,username: null,currentTitle });
     }
     }
     );
