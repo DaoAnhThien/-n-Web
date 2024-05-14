@@ -244,6 +244,129 @@ const findUserByIdInConfirmationCode = (UserID) => {
         });
     });
 }
+const FavouriteTrick = (ID_USER, NAME, SLUG, IMAGE) => {
+    return new Promise((resolve, reject) => {
+        // Kiểm tra trick đã tồn tại trong yêu thích hay chưa
+        const existQuery = "SELECT * FROM yeu_thich_meo WHERE ID_USER = ? AND NAME = ? AND SLUG = ? AND IMAGE = ?";
+        connection.query(existQuery, [ID_USER, NAME, SLUG, IMAGE], (existErr, existResults) => {
+            if (existErr) {
+                return reject(existErr); 
+            }
+            // Nếu trick đã tồn tại, xóa nó ra khỏi yêu thích
+            if (existResults.length > 0) {
+                const deleteQuery = "DELETE FROM yeu_thich_meo WHERE ID_USER = ? AND NAME = ? AND SLUG = ? AND IMAGE = ?";
+                connection.query(deleteQuery, [ID_USER, NAME, SLUG, IMAGE], (deleteErr, deleteResults) => {
+                    if (deleteErr) {
+                        return reject(deleteErr);
+                    }
+                    resolve({ result: deleteResults });
+                });
+            } else {
+                // Nếu trick chưa tồn tại, thêm vào yêu thích
+                const insertQuery = "INSERT INTO yeu_thich_meo (ID_USER, NAME, SLUG, IMAGE) VALUES (?, ?, ?, ?)";
+                connection.query(insertQuery, [ID_USER, NAME, SLUG, IMAGE], (insertErr, insertResults) => {
+                    if (insertErr) {
+                        return reject(insertErr);
+                    }
+                    resolve({ result: insertResults });
+                });
+            }
+        });
+    });
+};
+const FavouriteFoodBreak = (ID_USER, NAME, SLUG, IMAGE) => {
+    return new Promise((resolve, reject) => {
+        // Kiểm tra món ăn đã tồn tại trong yêu thích hay chưa
+        const existQuery = "SELECT * FROM yeu_thich_mon_an_buoi_sang WHERE ID_USER = ? AND NAME = ? AND SLUG = ? AND IMAGE = ?";
+        connection.query(existQuery, [ID_USER, NAME, SLUG, IMAGE], (existErr, existResults) => {
+            if (existErr) {
+                return reject(existErr); 
+            }
+            // Nếu món ăn đã tồn tại, xóa nó ra khỏi yêu thích
+            if (existResults.length > 0) {
+                const deleteQuery = "DELETE FROM yeu_thich_mon_an_buoi_sang WHERE ID_USER = ? AND NAME = ? AND SLUG = ? AND IMAGE = ?";
+                connection.query(deleteQuery, [ID_USER, NAME, SLUG, IMAGE], (deleteErr, deleteResults) => {
+                    if (deleteErr) {
+                        return reject(deleteErr);
+                    }
+                    resolve({ result: deleteResults });
+                });
+            } else {
+                // Nếu món ăn chưa tồn tại, thêm vào yêu thích
+                const insertQuery = "INSERT INTO yeu_thich_mon_an_buoi_sang (ID_USER, NAME, SLUG, IMAGE) VALUES (?, ?, ?, ?)";
+                connection.query(insertQuery, [ID_USER, NAME, SLUG, IMAGE], (insertErr, insertResults) => {
+                    if (insertErr) {
+                        return reject(insertErr);
+                    }
+                    resolve({ result: insertResults });
+                });
+            }
+        });
+    });
+};
+const FavouriteFoodLunch = (ID_USER, NAME, SLUG, IMAGE) => {
+    return new Promise((resolve, reject) => {
+        // Kiểm tra món ăn đã tồn tại trong yêu thích hay chưa
+        const existQuery = "SELECT * FROM yeu_thich_mon_an_buoi_trua WHERE ID_USER = ? AND NAME = ? AND SLUG = ? AND IMAGE = ?";
+        connection.query(existQuery, [ID_USER, NAME, SLUG, IMAGE], (existErr, existResults) => {
+            if (existErr) {
+                return reject(existErr); 
+            }
+            // Nếu món ăn đã tồn tại, xóa nó ra khỏi yêu thích
+            if (existResults.length > 0) {
+                const deleteQuery = "DELETE FROM yeu_thich_mon_an_buoi_trua WHERE ID_USER = ? AND NAME = ? AND SLUG = ? AND IMAGE = ?";
+                connection.query(deleteQuery, [ID_USER, NAME, SLUG, IMAGE], (deleteErr, deleteResults) => {
+                    if (deleteErr) {
+                        return reject(deleteErr);
+                    }
+                    resolve({ result: deleteResults });
+                });
+            } else {
+                // Nếu món ăn chưa tồn tại, thêm vào yêu thích
+                const insertQuery = "INSERT INTO yeu_thich_mon_an_buoi_trua (ID_USER, NAME, SLUG, IMAGE) VALUES (?, ?, ?, ?)";
+                connection.query(insertQuery, [ID_USER, NAME, SLUG, IMAGE], (insertErr, insertResults) => {
+                    if (insertErr) {
+                        return reject(insertErr);
+                    }
+                    resolve({ result: insertResults });
+                });
+            }
+        });
+    });
+};
+const getFavouriteTrick = (ID_USER) => {
+    return new Promise((resolve, reject) => {
+        const selectQuery = "SELECT * FROM yeu_thich_meo WHERE ID_USER = ?";
+        connection.query(selectQuery, [ID_USER], (error, results) => {
+            if (error) {
+                return reject(error);
+            }
+            resolve(results);
+        });
+    });
+};
+const getFavouriteFoodBreak = (ID_USER) => {
+    return new Promise((resolve, reject) => {
+        const selectQuery = "SELECT * FROM yeu_thich_mon_an_buoi_sang WHERE ID_USER = ?";
+        connection.query(selectQuery, [ID_USER], (error, results) => {
+            if (error) {
+                return reject(error);
+            }
+            resolve(results);
+        });
+    });
+};
+const getFavouriteFoodLunch = (ID_USER) => {
+    return new Promise((resolve, reject) => {
+        const selectQuery = "SELECT * FROM yeu_thich_mon_an_buoi_trua WHERE ID_USER = ?";
+        connection.query(selectQuery, [ID_USER], (error, results) => {
+            if (error) {
+                return reject(error);
+            }
+            resolve(results);
+        });
+    });
+};
 module.exports = {
     createUser,
     findUserByUsernameAndPassword,
@@ -251,5 +374,11 @@ module.exports = {
     findUserByUsername,
     isLogging,
     findUserByEmail,saveConfirmationCode,sendConfirmationEmail,findUserByIdInConfirmationCode,
-    updateUserPassword
+    updateUserPassword,
+    FavouriteTrick,
+    FavouriteFoodBreak,
+    FavouriteFoodLunch,
+    getFavouriteTrick,
+    getFavouriteFoodBreak,
+    getFavouriteFoodLunch
 };

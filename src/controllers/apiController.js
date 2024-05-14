@@ -7,8 +7,12 @@ const {isLogging} = require('../models/User')
 const { findUserByEmail } = require('../models/User');
 const {saveConfirmationCode} = require('../models/User');
 const {sendConfirmationEmail,updateUserPassword,findUserByIdInConfirmationCode } = require('../models/User');
-
-
+const {FavouriteTrick} = require('../models/User');
+const {FavouriteFoodBreak} = require('../models/User');
+const {FavouriteFoodLunch} = require('../models/User');
+const {getFavouriteTrick} = require('../models/User');
+const {getFavouriteFoodBreak} = require('../models/User');
+const {getFavouriteFoodLunch} = require('../models/User');
 const isValidPassword = (password) => {
     // Kiểm tra mật khẩu có đủ mạnh không (ít nhất 8 ký tự, có ký tự chữ hoa, chữ thường, và ký tự đặc biệt)
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[.,;'@!%*?&])[A-Za-z\d.,;'@!%*?&]{8,24}$/;
@@ -142,9 +146,108 @@ const HandleForgotPasswordConfirm = async (req, res) => {
         return res.status(500).json({ error: 'Internal server error' });
     }
 }
-
-
-
+const HandleFavouriteTrick = async (req, res) => {
+    if (req.session && req.session.user) { 
+        try {
+            const userID = req.session.user.userId;
+            let trickNAME = req.body.NAME;
+            let slug = req.body.SLUG;
+            let image = req.body.IMAGE;
+            await FavouriteTrick(userID, trickNAME, slug, image);
+            
+            // Phản hồi thành công
+            return res.status(200).json({ message: 'Favorite trick was implemented successfully' });
+        } catch (error) {
+            console.error('Error in HandleFavouriteTrick:', error);
+            return res.status(500).json({ error: 'Internal server error' });
+        }
+    } else {
+        // Phản hồi khi người dùng chưa đăng nhập
+        return res.status(401).json({ error: 'You must be logged in to perform this action' });
+    }
+};
+const HandleFavouriteFoodBreak = async (req, res) => {
+    if (req.session && req.session.user) { 
+        try {
+            const userID = req.session.user.userId;
+            let foodNAME = req.body.NAME;
+            let slug = req.body.SLUG;
+            let image = req.body.IMAGE;
+            await FavouriteFoodBreak(userID, foodNAME, slug, image);
+            
+            // Phản hồi thành công
+            return res.status(200).json({ message: 'Favorite foodID was implemented successfully' });
+        } catch (error) {
+            console.error('Error in HandleFavouriteFood:', error);
+            return res.status(500).json({ error: 'Internal server error' });
+        }
+    } else {
+        // Phản hồi khi người dùng chưa đăng nhập
+        return res.status(401).json({ error: 'You must be logged in to perform this action' });
+    }
+};
+const HandleFavouriteFoodLunch = async (req, res) => {
+    if (req.session && req.session.user) { 
+        try {
+            const userID = req.session.user.userId;
+            let foodNAME = req.body.NAME;
+            let slug = req.body.SLUG;
+            let image = req.body.IMAGE;
+            await FavouriteFoodLunch(userID, foodNAME, slug, image);
+            
+            // Phản hồi thành công
+            return res.status(200).json({ message: 'Favorite foodID was implemented successfully' });
+        } catch (error) {
+            console.error('Error in HandleFavouriteFood:', error);
+            return res.status(500).json({ error: 'Internal server error' });
+        }
+    } else {
+        // Phản hồi khi người dùng chưa đăng nhập
+        return res.status(401).json({ error: 'You must be logged in to perform this action' });
+    }
+};
+const HandleGetFavouriteTrick = async (req, res) => {
+    if (req.session && req.session.user) { 
+        try {
+            const userID = req.session.user.userId;
+            const favouriteTricks = await getFavouriteTrick(userID);
+            return res.status(200).json(favouriteTricks);
+        } catch (error) {
+            console.error('Error in HandleGetFavouriteTrick:', error);
+            return res.status(500).json({ error: 'Internal server error' });
+        }
+    } else {
+        return res.status(401).json({ error: 'You must be logged in to perform this action' });
+    }
+};
+const HandleGetFavouriteFoodBreak = async (req, res) => {
+    if (req.session && req.session.user) { 
+        try {
+            const userID = req.session.user.userId;
+            const favouriteFoodBreak = await getFavouriteFoodBreak(userID);
+            return res.status(200).json(favouriteFoodBreak);
+        } catch (error) {
+            console.error('Error in HandleGetFavouriteFood:', error);
+            return res.status(500).json({ error: 'Internal server error' });
+        }
+    } else {
+        return res.status(401).json({ error: 'You must be logged in to perform this action' });
+    }
+};
+const HandleGetFavouriteFoodLunch = async (req, res) => {
+    if (req.session && req.session.user) { 
+        try {
+            const userID = req.session.user.userId;
+            const favouriteFoodLunch = await getFavouriteFoodLunch(userID);
+            return res.status(200).json(favouriteFoodLunch);
+        } catch (error) {
+            console.error('Error in HandleGetFavouriteFood:', error);
+            return res.status(500).json({ error: 'Internal server error' });
+        }
+    } else {
+        return res.status(401).json({ error: 'You must be logged in to perform this action' });
+    }
+};
 module.exports = {
-    HandleRegister, HandleLogin, HandleForgotPassword, HandleForgotPasswordConfirm
+    HandleRegister, HandleLogin, HandleForgotPassword, HandleForgotPasswordConfirm, HandleFavouriteTrick,HandleFavouriteFoodBreak,HandleFavouriteFoodLunch,HandleGetFavouriteTrick,HandleGetFavouriteFoodBreak,HandleGetFavouriteFoodLunch
 }

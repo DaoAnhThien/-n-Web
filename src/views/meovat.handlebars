@@ -4,29 +4,23 @@
 		</div>
 <div class="mt-4">
     <div class="row">
-       
-   
     {{#each user}}
-     <div class="col-sm-6 col-lg-4">
-         <div class="card card-course-item">
+<div class="col-sm-6 col-lg-4">
+    <div class="card card-course-item" data-slug="{{this.SLUG}}" data-name="{{this.NAME}}" data-image="{{this.IMAGE}}">
+        <a href="/MeoVat/{{this.SLUG}}">
+            <img class="card-img-top" src="{{this.IMAGE}}" alt="{{this.NAME}}">
+        </a>
+        <div class="card-body">
             <a href="/MeoVat/{{this.SLUG}}">
-            <img class="card-img-top" src="{{this.IMAGE}}" alt="{{this.name}}">
+                <h5 class="card-title">{{this.NAME}}</h5>
             </a>
-            <div class="card-body">
-                  <a href="/MeoVat/{{this.SLUG}}">
-                  <h5 class="card-title">{{this.NAME}}</h5>
-                  </a>
-                
-                <p class="card-text">{{this.NOI_DUNG}}.</p>
-                <div class="blockheart">
+            <p class="card-text">{{this.NOI_DUNG}}.</p>
+            <div class="blockheart" data-slug="{{this.SLUG}}" data-name="{{this.NAME}}" data-image="{{this.IMAGE}}">
                 <div class="heart"></div>
                 <div class="animation-heart"></div>
-                </div>
             </div>
-            </div>
-     </div>
-    {{/each}}
-
-
+        </div>
     </div>
 </div>
+{{/each}}
+   <script src="/js/favourite-trick.js"></script>
