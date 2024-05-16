@@ -57,5 +57,8 @@
     font-weight: bold;
     transition: all 0.3s ease;
   }
-  
-  
+h3{
+  text-align: center;
+  margin: 20px;
+  font-size: 50px;
+}
