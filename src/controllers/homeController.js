@@ -90,60 +90,93 @@ const getProfile = (req, res) => {
   const currentTitle = 'Trang Cá Nhân';
   const loggedIn = req.session.user ? true : false;
   if (loggedIn) {
-      const username = req.session.user.username;
+    const username = req.session.user.username;
 
-      connection.connect((err) => {
+    connection.connect((err) => {
+      if (err) {
+        console.error('Error connecting to database: ' + err.stack);
+        return;
+      }
+      console.log('Connect to database successfully!');
+
+      let userData = {};
+      let userFavouriteMeo = [];
+      let userFavouriteMonAnBuoiSang = [];
+      let userFavouriteMonAnBuoiTrua = [];
+      let loveCount = 0;
+
+      connection.query('SELECT * FROM user WHERE USERNAME = ?', [username], (err, result) => {
+        if (err) {
+          console.error('Error executing query: ' + err.stack);
+          return;
+        }
+
+        userData = result;
+        connection.query('SELECT * FROM yeu_thich_meo WHERE ID_USER = ?', [req.session.user.userId], (err, result) => {
           if (err) {
-              console.error('Error connecting to database: ' + err.stack);
-              return;
+            console.error('Error executing query: ' + err.stack);
+            return;
           }
-          console.log('Connect to database successfully!');
+          userFavouriteMeo = result;
+          loveCount += result.length;
 
-          let userData = {};
-          let userFavouriteMeo = [];
-          let userFavouriteMonAnBuoiSang = [];
-          let userFavouriteMonAnBuoiTrua = [];
-
-          connection.query('SELECT * FROM user WHERE USERNAME = ?', [username], (err, result) => {
-              if (err) {
-                  console.error('Error executing query: ' + err.stack);
-                  return;
-              }
-
-              userData = result;
-              connection.query('SELECT * FROM yeu_thich_meo WHERE ID_USER = ?', [req.session.user.userId], (err, result) => {
-                  if (err) {
-                      console.error('Error executing query: ' + err.stack);
-                      return;
-                  }
-                  userFavouriteMeo = result;
           connection.query('SELECT * FROM yeu_thich_mon_an_buoi_sang WHERE ID_USER = ?', [req.session.user.userId], (err, result) => {
-                  if (err) {
-                      console.error('Error executing query: ' + err.stack);
-                      return;
-                  }
-                  userFavouriteMonAnBuoiSang = result;
-
-          connection.query('SELECT * FROM yeu_thich_mon_an_buoi_trua WHERE ID_USER = ?', [req.session.user.userId], (err, result) => {
             if (err) {
+              console.error('Error executing query: ' + err.stack);
+              return;
+            }
+            userFavouriteMonAnBuoiSang = result;
+            loveCount += result.length;
+
+            connection.query('SELECT * FROM yeu_thich_mon_an_buoi_trua WHERE ID_USER = ?', [req.session.user.userId], (err, result) => {
+              if (err) {
                 console.error('Error executing query: ' + err.stack);
                 return;
-            }
-            userFavouriteMonAnBuoiTrua = result;
-
-                  if (loggedIn) {
-                      res.render('Userpage.handlebars', { userData, userFavouriteMeo,userFavouriteMonAnBuoiSang,userFavouriteMonAnBuoiTrua, loggedIn: true, username, currentTitle });
-                  } else {
-                      res.render('Userpage.handlebars', { userData, userFavouriteMeo,userFavouriteMonAnBuoiSang,userFavouriteMonAnBuoiTrua, loggedIn: false, username: null, currentTitle });
-                  }
-              });
+              }
+              userFavouriteMonAnBuoiTrua = result;
+              loveCount += result.length;
+              if (loggedIn) {
+                res.render('Userpage.handlebars', {
+                  userData,
+                  userFavouriteMeo,
+                  userFavouriteMonAnBuoiSang,
+                  userFavouriteMonAnBuoiTrua,
+                  loggedIn: true,
+                  username,
+                  currentTitle,
+                  love: loveCount
+                });
+              } else {
+                res.render('Userpage.handlebars', {
+                  userData,
+                  userFavouriteMeo,
+                  userFavouriteMonAnBuoiSang,
+                  userFavouriteMonAnBuoiTrua,
+                  loggedIn: false,
+                  username: null,
+                  currentTitle,
+                  love: 0
+                });
+              }
             });
           });
         });
       });
+    });
   } else {
-      res.render('Userpage.handlebars', { userData: {}, userFavouriteMeo: [], loggedIn: false, username: null, currentTitle });
-  }};
+    res.render('Userpage.handlebars', {
+      userData: {},
+      userFavouriteMeo: [],
+      userFavouriteMonAnBuoiSang: [],
+      userFavouriteMonAnBuoiTrua: [],
+      loggedIn: false,
+      username: null,
+      currentTitle,
+      love: 0
+    });
+  }
+};
+
 
 
 const get4meobienthitdaithanhthitmem = (req,res) => {

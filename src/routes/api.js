@@ -10,6 +10,7 @@ const {HandleFavouriteFoodLunch} = require('../controllers/apiController');
 const {HandleGetFavouriteTrick} = require('../controllers/apiController');
 const {HandleGetFavouriteFoodBreak} = require('../controllers/apiController');
 const {HandleGetFavouriteFoodLunch} = require('../controllers/apiController');
+const {HandleUpdateProfile}  = require('../controllers/apiController');
 
 router.post('/Login',HandleLogin);
 router.post('/Register',HandleRegister);
@@ -21,4 +22,5 @@ router.post('/FavouriteFoodLunch',HandleFavouriteFoodLunch);
 router.get('/GetFavouriteTrick',HandleGetFavouriteTrick);
 router.get('/GetFavouriteFoodBreak',HandleGetFavouriteFoodBreak);
 router.get('/GetFavouriteFoodLunch',HandleGetFavouriteFoodLunch);
+router.post('/UpdateProfile',HandleUpdateProfile);
 module.exports = router; 
