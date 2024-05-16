@@ -11,6 +11,11 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link rel="stylesheet" href="/css/Homepage.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+        #results {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -196,9 +201,7 @@
           } 
         }   
     </script>
-
-
-    
+    <div id="wr">
     <div class="slideshow-container">
 
         <div class="mySlides">
@@ -210,7 +213,7 @@
         </div>
 
         <div class="mySlides">
-            <img src="ghttps://thanhnien.mediacdn.vn/uploaded/minhnguyet/2017_02_06/lamdep6_ESKS.jpg?width=500" style="width:100%">
+            <img src="https://www3.nhk.or.jp/nhkworld/en/radio/cooking/update/meal_180126_l.jpg" style="width:100%">
         </div>
 
         <a class="prev" onclick="plusSlides(-1)">❮</a>
@@ -420,12 +423,16 @@
         <div class="scroll-container">
             <div class="image-items">
                 <div class="imageslick">
-                    <a href="/BuaSang/com-tam"><img src="https://cafebiz.cafebizcdn.vn/162123310254002176/2022/12/7/com-tam-suon-bi-cha-trung-anh-hoa-quynh-nguyen-1670317945936565526419-1670385940206-16703859407121546487016-1670395722685-16703957227611562343004.jpg" alt="abc"></a>
+                    <a href="/BuaSang/com-tam"><img
+                            src="https://cafebiz.cafebizcdn.vn/162123310254002176/2022/12/7/com-tam-suon-bi-cha-trung-anh-hoa-quynh-nguyen-1670317945936565526419-1670385940206-16703859407121546487016-1670395722685-16703957227611562343004.jpg"
+                            alt="abc"></a>
                 </div>
             </div>
             <div class="image-items">
                 <div class="imageslick">
-                    <a href="/BuaTrua/sup-miso"><img src="https://www3.nhk.or.jp/nhkworld/en/radio/cooking/update/meal_180126_l.jpg" alt="abc"></a>
+                    <a href="/BuaTrua/sup-miso"><img
+                            src="https://www3.nhk.or.jp/nhkworld/en/radio/cooking/update/meal_180126_l.jpg"
+                            alt="abc"></a>
                 </div>
             </div>
             <div class="image-items">
@@ -440,17 +447,23 @@
             </div>
             <div class="image-items">
                 <div class="imageslick">
-                    <a href="/BuaTrua/ca-ri-ga"><img src="https://assets.bonappetit.com/photos/57ae0a62f1c801a1038bcf17/16:9/w_640,c_limit/thai-chicken-curry.jpg" alt="abc"></a>
+                    <a href="/BuaTrua/sup-miso"><img
+                            src="https://www3.nhk.or.jp/nhkworld/en/radio/cooking/update/meal_180126_l.jpg"
+                            alt="abc"></a>
                 </div>
             </div>
             <div class="image-items">
                 <div class="imageslick">
-                    <a href="/BuaSang/com-tam"><img src="https://cafebiz.cafebizcdn.vn/162123310254002176/2022/12/7/com-tam-suon-bi-cha-trung-anh-hoa-quynh-nguyen-1670317945936565526419-1670385940206-16703859407121546487016-1670395722685-16703957227611562343004.jpg" alt="abc"></a>
+                    <a href="/BuaTrua/ca-ri-ga"><img
+                            src="https://assets.bonappetit.com/photos/57ae0a62f1c801a1038bcf17/16:9/w_640,c_limit/thai-chicken-curry.jpg"
+                            alt="abc"></a>
                 </div>
             </div>
             <div class="image-items">
                 <div class="imageslick">
-                    <a href="/BuaTrua/sup-miso"><img src="https://www3.nhk.or.jp/nhkworld/en/radio/cooking/update/meal_180126_l.jpg" alt="abc"></a>
+                    <a href="/BuaSang/com-tam"><img
+                            src="https://cafebiz.cafebizcdn.vn/162123310254002176/2022/12/7/com-tam-suon-bi-cha-trung-anh-hoa-quynh-nguyen-1670317945936565526419-1670385940206-16703859407121546487016-1670395722685-16703957227611562343004.jpg"
+                            alt="abc"></a>
                 </div>
             </div>
             <div class="image-items">
@@ -471,39 +484,35 @@
         </div>
         <div style="clear: both;"></div>
     </div>
-
+</div>
     
     <div id="results"></div>
     <script type="text/javascript">
-
         const searchInput = document.querySelector('#search');
-    
         const results_body = document.querySelector('#results');
-    
+        document.getElementById('search').addEventListener('input', () => {
+            document.getElementById('wr').style.display = 'none';
+            document.getElementById('results').style.display = 'block';
+        });
         load_data();
-    
         function load_data(query = '') {
             const request = new XMLHttpRequest();
-    
             request.open('GET', `/search?q=${query}`);
-    
             request.onload = () => {
-    
                 const results = JSON.parse(request.responseText);
-    
                 let html = '';
-    
                 if (results.length > 0) {
                     results.forEach(result => {
                         html += `
-                        <div class="results-card">
-                            <div class="img">
-                                <img src="" alt="">
+                        <div class="newsItem">
+                            <div class="newsImage">
+                                <img src="`+ result.IMAGE + `" alt="">
                             </div>
-                            <div class="content">
-                                <h4>`+ result.NAME + `</h4>
-                                
-                                <a href="`+ result.URL + `" target="_blank">Read More</a>
+                            <div class="newsContent">
+                    
+                                <h2>`+ result.NAME + `</h2>
+                                <p>`+ result.NOI_DUNG + `</p>
+                                <a href="`+ result.LINK + `" target="_blank">Read More</a>
                             </div>
                         </div>
                     `;
@@ -514,65 +523,17 @@
                     <h2>No Data Found</h2>         
                 `;
                 }
-    
                 results_body.innerHTML = html;
-    
             };
-    
             request.send();
         }
-    
         searchInput.addEventListener('input', () => {
-    
             const query = searchInput.value;
-    
             load_data(query);
-    
         });
-    
     </script>
 
-<div className="App" style="font-family: sans-serif;
-text-align: center;">
-    <h1>Contact Me Here</h1>
-    
-    <div>
-      <form className="form" style="display: flex;
-      flex-direction: column;
-      padding-left: 25%;" action ="https://sheetdb.io/api/v1/ihsyigi3s3hjt" method="POST" id="sheetdb-form">
-        <input placeholder="Your Name" name="data[Name]" type="text" style="height: 50px; width: 75%;
-        margin-top: 20px;
-        border-radius: 10px;
-        padding: 5px;"/>
-        <input placeholder="Your Email" name="data[Email]" type="text" style="height: 50px; width: 75%;
-        margin-top: 20px;
-        border-radius: 10px;
-        padding: 5px;" />
-        <input placeholder="Your Message" name="data[Message]" type="text" style="height: 50px; width: 75%;
-        margin-top: 20px;
-        border-radius: 10px;
-        padding: 5px;" />
-      </form>
-      <button name="btnSubmit" type="submit" style="height: 50px; width: 30%;
-        margin-top: 20px;
-        border-radius: 10px;
-        padding: 5px;">Submit</button>
-      <script>
-        var form = document.getElementById('sheetdb-form');
-        form.addEventListener("submit", e => {
-          e.preventDefault();
-          fetch(form.action, {
-              method : "POST",
-              body: new FormData(document.getElementById("sheetdb-form")),
-          }).then(
-              response => response.json()
-          ).then((html) => {
-            // you can put any JS code here
-          });
-        });
-      </script>
-    </div>
-  </div>
+
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
