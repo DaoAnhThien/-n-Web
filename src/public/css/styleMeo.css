@@ -545,3 +545,29 @@ ul.inner-dropdown.list-unstyled:before {
   width : 100%;
   margin: 0px 0px;
 }
+@media only screen and (max-width: 46.125em) {
+  .aboutus{ 
+    display: none;
+  }
+  .block1 h2 {
+    color: #12372a;
+    margin-left: 15%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 200%;
+  }
+  .social {
+    margin: 10px;
+    width: 45%;
+    align-items: center;
+    text-align: center;
+    border-left: 0px solid #41c466;
+  }
+  .social .i{
+    display: inline;
+    padding: 3px;
+  }
+  .address{
+    width: 45%;
+  }
+}

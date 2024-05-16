@@ -91,3 +91,60 @@ m{
   color:darkred;
   text-decoration-line: underline;
 }
+@media only screen and (max-width: 46.125em) {
+  .container-food-2-block2{ 
+    display: none;
+  }
+  .container-food{
+    width: 100%;
+  }
+  .container-food h1{
+    width: 100%;
+  }
+  .container-food h2{
+    font-size: 150%;
+    margin-top: 20px;
+    margin-bottom: 0px;
+  }
+  .container-food-2{
+    margin-left: 0;
+    padding: 0px;
+    display: flex; /* Sử dụng flexbox */
+    flex-wrap: wrap; /* Cho phép các phần tử con tự động xuống dòng khi không đủ không gian */
+    justify-content: space-between;
+  }
+  .container-food-2-block1{
+    width: 100%;
+  }
+  
+  
+  .image {
+    width: 100%; 
+    height: 400px; 
+    background-size: cover; 
+    background-position: center; 
+    margin-bottom: 20px;
+  }
+  .container-food-2-block1-1-header{
+    height: auto;
+  }
+  .navigation {
+    display: flex;
+  }
+  .navigation  ul {
+    list-style: none;
+    display: flex;
+    align-items: center; /* căn dọc giữa */
+    color: black;
+  }
+  .navigation  ul li:not(:last-child) {
+    margin-right: 10px; /* Khoảng cách giữa các mục */
+  }
+  .navigation  ul li a:hover{
+    color: #41c466;
+  }
+  .scrolling-block {
+      top: 0;
+  }
+  
+}
