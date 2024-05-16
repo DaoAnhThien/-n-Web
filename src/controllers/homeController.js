@@ -89,9 +89,9 @@ const getProfile = (req, res) => {
   const loggedIn = req.session.user ? true : false;
   if (loggedIn) {
     const username = req.session.user.username
-    res.render('Userpage', { loggedIn: true, username: username });
+    res.render('Userpage.ejs', { loggedIn: true, username: username });
   } else {
-    res.render('Userpage', { loggedIn: false, username: null });
+    res.render('Userpage.ejs', { loggedIn: false, username: null });
   }
 }
 const get4meobienthitdaithanhthitmem = (req, res) => {
@@ -214,6 +214,7 @@ const getMonansang = (req, res, next) => {
 }
 const getBuaTrua = (req, res) => {
   const loggedIn = req.session.user ? true : false;
+
   let user = [];
   let img = [];
   connection.connect((err) => {

@@ -42,7 +42,7 @@
             const username = document.getElementById('Username').value;
             try {
                 // Gửi yêu cầu đăng nhập tới API /v1/Login
-                const LoginResponse = await axios.post('http://localhost:3000/v1/Login', { Username: username, Password: password });
+                const LoginResponse = await axios.post('http://localhost:8886/v1/Login', { Username: username, Password: password });
                 // Kiểm tra mã trạng thái của phản hồi từ API
                 if (LoginResponse.status === 200) {
                     window.location.href = '/';

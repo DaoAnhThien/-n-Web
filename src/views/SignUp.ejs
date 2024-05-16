@@ -60,7 +60,7 @@
                 }
             try {
                 // Gửi yêu cầu đăng ký tới API /v1/Register
-                const registerResponse = await axios.post('http://localhost:3000/v1/Register', { Username: username, Password: password , RetypePassword: confirmPassword });
+                const registerResponse = await axios.post('http://localhost:8886/v1/Register', { Username: username, Password: password , RetypePassword: confirmPassword });
                 // Kiểm tra mã trạng thái của phản hồi từ API
                 if (registerResponse.status === 200) {
                     window.location.href = '/';
