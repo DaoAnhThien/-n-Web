@@ -9,6 +9,7 @@ const {saveConfirmationCode} = require('../models/User');
 const {sendConfirmationEmail,updateUserPassword,findUserByIdInConfirmationCode } = require('../models/User');
 const {FavouriteTrick} = require('../models/User');
 const {FavouriteFood} = require('../models/User');
+const {UpdateProfile, getUserById, comparePasswords } = require('../models/User'); 
 
 const isValidPassword = (password) => {
     // Kiểm tra mật khẩu có đủ mạnh không (ít nhất 8 ký tự, có ký tự chữ hoa, chữ thường, và ký tự đặc biệt)
@@ -147,10 +148,10 @@ const HandleFavouriteTrick = async (req, res) => {
     if (req.session && req.session.user) { 
         try {
             const userID = req.session.user.userId;
-            let trickID = req.body.ID_CTMEO;
+            let trickNAME = req.body.NAME;
             let slug = req.body.SLUG;
             let image = req.body.IMAGE;
-            await FavouriteTrick(userID, trickID, slug, image);
+            await FavouriteTrick(userID, trickNAME, slug, image);
             
             // Phản hồi thành công
             return res.status(200).json({ message: 'Favorite trick was implemented successfully' });
@@ -163,14 +164,14 @@ const HandleFavouriteTrick = async (req, res) => {
         return res.status(401).json({ error: 'You must be logged in to perform this action' });
     }
 };
-const HandleFavouriteFood = async (req, res) => {
+const HandleFavouriteFoodBreak = async (req, res) => {
     if (req.session && req.session.user) { 
         try {
             const userID = req.session.user.userId;
-            let foodID = req.body.ID_CTMA;
+            let foodNAME = req.body.NAME;
             let slug = req.body.SLUG;
             let image = req.body.IMAGE;
-            await FavouriteFood(userID, foodID, slug, image);
+            await FavouriteFoodBreak(userID, foodNAME, slug, image);
             
             // Phản hồi thành công
             return res.status(200).json({ message: 'Favorite foodID was implemented successfully' });
@@ -182,8 +183,99 @@ const HandleFavouriteFood = async (req, res) => {
         // Phản hồi khi người dùng chưa đăng nhập
         return res.status(401).json({ error: 'You must be logged in to perform this action' });
     }
+};
+const HandleFavouriteFoodLunch = async (req, res) => {
+    if (req.session && req.session.user) { 
+        try {
+            const userID = req.session.user.userId;
+            let foodNAME = req.body.NAME;
+            let slug = req.body.SLUG;
+            let image = req.body.IMAGE;
+            await FavouriteFoodLunch(userID, foodNAME, slug, image);
+            
+            // Phản hồi thành công
+            return res.status(200).json({ message: 'Favorite foodID was implemented successfully' });
+        } catch (error) {
+            console.error('Error in HandleFavouriteFood:', error);
+            return res.status(500).json({ error: 'Internal server error' });
+        }
+    } else {
+        // Phản hồi khi người dùng chưa đăng nhập
+        return res.status(401).json({ error: 'You must be logged in to perform this action' });
+    }
+};
+const HandleGetFavouriteTrick = async (req, res) => {
+    if (req.session && req.session.user) { 
+        try {
+            const userID = req.session.user.userId;
+            const favouriteTricks = await getFavouriteTrick(userID);
+            return res.status(200).json(favouriteTricks);
+        } catch (error) {
+            console.error('Error in HandleGetFavouriteTrick:', error);
+            return res.status(500).json({ error: 'Internal server error' });
+        }
+    } else {
+        return res.status(401).json({ error: 'You must be logged in to perform this action' });
+    }
+};
+const HandleGetFavouriteFoodBreak = async (req, res) => {
+    if (req.session && req.session.user) { 
+        try {
+            const userID = req.session.user.userId;
+            const favouriteFoodBreak = await getFavouriteFoodBreak(userID);
+            return res.status(200).json(favouriteFoodBreak);
+        } catch (error) {
+            console.error('Error in HandleGetFavouriteFood:', error);
+            return res.status(500).json({ error: 'Internal server error' });
+        }
+    } else {
+        return res.status(401).json({ error: 'You must be logged in to perform this action' });
+    }
+};
+const HandleGetFavouriteFoodLunch = async (req, res) => {
+    if (req.session && req.session.user) { 
+        try {
+            const userID = req.session.user.userId;
+            const favouriteFoodLunch = await getFavouriteFoodLunch(userID);
+            return res.status(200).json(favouriteFoodLunch);
+        } catch (error) {
+            console.error('Error in HandleGetFavouriteFood:', error);
+            return res.status(500).json({ error: 'Internal server error' });
+        }
+    } else {
+        return res.status(401).json({ error: 'You must be logged in to perform this action' });
+    }
+};
+const HandleUpdateProfile = async (req, res) => {
+    try {
+        const { name, email, phone, newPassword, currentPassword } = req.body;
+        const userID = req.session.user.userId;
+        const user = await getUserById(userID);
 
-}
+        const isPasswordCorrect = await comparePasswords(currentPassword, user.PASSWORD);
+        if (!isPasswordCorrect) {
+            return res.status(401).json({ success: false, message: 'Incorrect current password' });
+        }
+
+        await UpdateProfile(userID, name, email, phone, newPassword);
+
+        return res.status(200).json({ message: 'Profile updated successfully' });
+
+    } catch (error) {
+        console.error('Error in HandleUpdateProfile:', error);
+        return res.status(500).json({ error: 'Internal server error' });
+    }
+};
 module.exports = {
-    HandleRegister, HandleLogin, HandleForgotPassword, HandleForgotPasswordConfirm, HandleFavouriteTrick,HandleFavouriteFood
+  HandleRegister, 
+    HandleLogin, 
+    HandleForgotPassword, 
+    HandleForgotPasswordConfirm, 
+    HandleFavouriteTrick,
+    HandleFavouriteFoodBreak,
+    HandleFavouriteFoodLunch,
+    HandleGetFavouriteTrick,
+    HandleGetFavouriteFoodBreak,
+    HandleGetFavouriteFoodLunch,
+    HandleUpdateProfile
 }
