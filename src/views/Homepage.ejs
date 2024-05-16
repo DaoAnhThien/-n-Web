@@ -54,16 +54,7 @@
                                     <li><a href="">Tráng miệng</a></li>
                                 </ul>
                             </li>
-                            <li class="home-drop" onclick="submenu(2)"><a href="javascript:void(0)"
-                                    class="home-click">Kĩ thuật chế biếns</a>
-                                <ul class="home-page-2">
-                                    <li><a href="kho.html"> Kho</a></li>
-                                    <li><a href="nuong.html"> Nướng</a></li>
-                                    <li><a href="hap.html"> Hấp </a></li>
-                                    <li><a href="xao.html"> Xào </a></li>
-                                    <li><a href="chien.html"> Chiên</a></li>
-                                </ul>
-                            </li>
+
 
                             <li><a href="/MeoVat">Mẹo vặt</a></li>
                             <li><a href="about_us.html">About Us</a></li>
@@ -87,22 +78,6 @@
                                     </a></li>
                                 <li><a class="dropdown-item" href="/BuaTrua">Đồ ăn trưa</a></li>
                                 <li><a class="dropdown-item" href="trang_mieng.html">Tráng miệng</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown position-relative">
-                            <a class="nav-link" href="javascript:void(0)" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Kĩ thuật chế biến
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-dark">
-                                <li><a class="dropdown-item" href="kho.html"> Kho</a></li>
-                                <li><a class="dropdown-item" href="nuong.html">Nướng</a></li>
-                                <li><a class="dropdown-item" href="hap.html"> Hấp</a>
-                                </li>
-                                <li><a class="dropdown-item" href="xao.html"> Xào</a>
-                                </li>
-                                <li><a class="dropdown-item" href="chien.html"> Chiên</a>
-                                </li>
                             </ul>
                         </li>
 
@@ -156,19 +131,12 @@
         <div class="dropdown">
             <button class="dropbtn">Công thức</button>
             <div class="dropdown-content">
-                <a href="/MonAn/Bua-Sang">Đồ ăn sáng</a>
-                <a href="/MonAn/Bua-Trua">Đồ ăn trưa</a>
+                <a href="/BuaSang">Đồ ăn sáng</a>
+                <a href="/BuaTrua">Đồ ăn trưa</a>
                 <a href="#">Tráng miệng</a>
             </div>
         </div>
-        <div class="dropdown">
-            <button class="dropbtn1">Kỹ thuật chế biến</button>
-            <div class="dropdown-content">
-                <a href="kho.html">Kho</a>
-                <a href="nuong.html">Nướng</a>
-                <a href="xao.html">Xào</a>
-            </div>
-        </div>
+
         <div class="dropdown">
             <button class="dropbtn2"> <a href="/MeoVat"> </a>Mẹo vặt</button>
         </div>
@@ -177,7 +145,7 @@
                 <a href="/Login"> </a>Login</button>
         </div>
         <div class="dropdown">
-            <input type="text" placeholder="Search.." name="search">
+            <input type="text" placeholder="Search.." name="search" id="search">
             <button type="submit" class="searchbtn" style="width: 200px; height: 50px;">Search</button>
         </div>
         <div class="dropdown">
@@ -204,29 +172,11 @@
         }   
     </script>
     <div id="wr">
-        <div class="slideshow-container">
-
-            <div class="mySlides">
-                <img src="https://image.cooky.vn/recipe/g5/48168/s640/recipe48168-cook-step5-636966598039294676.jpg"
-                    style="width:100%">
-            </div>
-
-            <div class="mySlides">
-                <img src="/image/tradition-2148092_1920.jpg" style="width:100% ;">
-            </div>
-
-            <div class="mySlides">
-                <img src="ghttps://thanhnien.mediacdn.vn/uploaded/minhnguyet/2017_02_06/lamdep6_ESKS.jpg?width=500"
-                    style="width:100%">
-            </div>
-
-            <a class="prev" onclick="plusSlides(-1)">❮</a>
-            <a class="next" onclick="plusSlides(1)">❯</a>
-
+        <div class="vd">
+            <video autoplay muted loop id="myVideo">
+                <source src="/image/vdfoodfin.mp4" type="video/mp4">
+            </video>
         </div>
-        <script src="/js/monan.js"></script>
-
-
         <div class="card-container">
             <div class="card">
                 <img src="https://cdn.tgdd.vn/2021/01/CookRecipe/Avatar/banhhoichaolong.jpg">
