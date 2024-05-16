@@ -13,7 +13,10 @@ const {FavouriteFoodLunch} = require('../models/User');
 const {getFavouriteTrick} = require('../models/User');
 const {getFavouriteFoodBreak} = require('../models/User');
 const {getFavouriteFoodLunch} = require('../models/User');
-const {UpdateProfile, getUserById, comparePasswords } = require('../models/User'); 
+const {UpdateProfile} = require('../models/User'); 
+const {getUserById} = require('../models/User');
+const {comparePasswords} = require('../models/User');
+const {UpdatePassword} = require('../models/User');
 const isValidPassword = (password) => {
     // Kiểm tra mật khẩu có đủ mạnh không (ít nhất 8 ký tự, có ký tự chữ hoa, chữ thường, và ký tự đặc biệt)
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[.,;'@!%*?&])[A-Za-z\d.,;'@!%*?&]{8,24}$/;
@@ -251,24 +254,40 @@ const HandleGetFavouriteFoodLunch = async (req, res) => {
 };
 const HandleUpdateProfile = async (req, res) => {
     try {
-        const { name, email, phone, newPassword, currentPassword } = req.body;
-        const userID = req.session.user.userId;
+        const { name, email, phone } = req.body;
+        const userID = req.session.user.userId; 
+        await UpdateProfile(userID, name, email, phone);
+        return res.status(200).json({ message: 'Profile updated successfully' });
+    } catch (error) {
+        console.error('Error in HandleUpdateProfile:', error);
+        return res.status(500).json({ error: 'Internal server error' });
+    }
+};
+const HandleUpdatePassword = async (req, res) => {
+    try {
+        const { currentPassword, newPassword } = req.body;
+        const userID = req.session.user.userId; // Ensure req.session.user.userId is valid
         const user = await getUserById(userID);
+
+        if (!user) {
+            return res.status(404).json({ success: false, message: 'User not found' });
+        }
 
         const isPasswordCorrect = await comparePasswords(currentPassword, user.PASSWORD);
         if (!isPasswordCorrect) {
             return res.status(401).json({ success: false, message: 'Incorrect current password' });
         }
 
-        await UpdateProfile(userID, name, email, phone, newPassword);
+        await UpdatePassword(userID, newPassword);
 
-        return res.status(200).json({ message: 'Profile updated successfully' });
-
+        return res.status(200).json({ success: true, message: 'Password updated successfully' });
     } catch (error) {
-        console.error('Error in HandleUpdateProfile:', error);
+        console.error('Error in HandleUpdatePassword:', error);
         return res.status(500).json({ error: 'Internal server error' });
     }
 };
+    
+
 module.exports = {
     HandleRegister, 
     HandleLogin, 
@@ -280,5 +299,6 @@ module.exports = {
     HandleGetFavouriteTrick,
     HandleGetFavouriteFoodBreak,
     HandleGetFavouriteFoodLunch,
-    HandleUpdateProfile
+    HandleUpdateProfile,
+    HandleUpdatePassword
 }

@@ -19,9 +19,9 @@ function updateProfile(username) {
   const email = document.getElementById(`edit-email-${username}`).value;
   const phone = document.getElementById(`edit-phone-${username}`).value;
 
-  const data = { username, name, email, phone };
+  const data = { name, email, phone };
 
-  fetch('http://localhost:3000/v1/UpdateProfile', {
+  fetch('http://localhost:3000/v1/UpdateProfile', {  // Ensure the endpoint matches the server setup
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -30,7 +30,7 @@ function updateProfile(username) {
   })
   .then(response => response.json())
   .then(data => {
-    if (data.success) {
+    if (data.message === 'Profile updated successfully') {
       alert('Cập nhật thông tin thành công!');
       document.getElementById(`user-info-${username}`).querySelector('#name').innerText = name;
       document.getElementById(`user-info-${username}`).querySelector('#email').innerText = email;
@@ -46,6 +46,7 @@ function updateProfile(username) {
 }
 
 function updatePassword(username) {
+  const currentPassword = document.getElementById(`current-password-${username}`).value;
   const newPassword = document.getElementById(`edit-password-${username}`).value;
   const confirmPassword = document.getElementById(`confirm-password-${username}`).value;
 
@@ -54,7 +55,7 @@ function updatePassword(username) {
     return;
   }
 
-  const data = { username, newPassword };
+  const data = { username, currentPassword, newPassword };
 
   fetch('http://localhost:3000/v1/UpdatePassword', {
     method: 'POST',
@@ -67,6 +68,7 @@ function updatePassword(username) {
   .then(data => {
     if (data.success) {
       alert('Cập nhật mật khẩu thành công!');
+      document.getElementById(`current-password-${username}`).value = '';
       document.getElementById(`edit-password-${username}`).value = '';
       document.getElementById(`confirm-password-${username}`).value = '';
       document.getElementById(`password-fields-${username}`).style.display = 'none';
@@ -76,6 +78,7 @@ function updatePassword(username) {
   })
   .catch(error => console.error('Lỗi:', error));
 }
+
 
 function cancelEditProfile(username) {
   const editFields = document.getElementById(`edit-fields-${username}`);

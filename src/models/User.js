@@ -367,34 +367,43 @@ const getFavouriteFoodLunch = (ID_USER) => {
         });
     });
 };
-const UpdateProfile = async (userId, name, email, phone, newPassword) => {
-    return new Promise(async (resolve, reject) => {
+const UpdateProfile = async (userId, name, email, phone) => {
+    return new Promise((resolve, reject) => {
         try {
-            let query = 'UPDATE user SET NAME = ?, EMAIL = ?, SDT = ?';
-            let values = [name, email, phone];
-
-            if (newPassword) {
-                const hashedPassword = await bcrypt.hash(newPassword, 10);
-                query += ', PASSWORD = ?';
-                values.push(hashedPassword);
-            }
-
-            query += ' WHERE ID = ?';
-            values.push(userId);
+            const query = 'UPDATE user SET NAME = ?, EMAIL = ?, SDT = ? WHERE ID = ?';
+            const values = [name, email, phone, userId];
 
             connection.query(query, values, (err, result) => {
                 if (err) {
-                    return reject(err);
+                    return reject(err); 
                 }
-                resolve(result);
+                resolve(result); 
             });
         } catch (error) {
-            reject(error);
+            reject(error); 
         }
     });
 };
+
 const comparePasswords = async (password, hashedPassword) => {
     return await bcrypt.compare(password, hashedPassword);
+};
+const updatePassword = async (userId, newPassword) => {
+    return new Promise((resolve, reject) => {
+        bcrypt.hash(newPassword, salt, (err, hashedPassword) => {
+            if (err) {
+                reject(err);
+            } else {
+                const query = 'UPDATE user SET PASSWORD = ? WHERE ID = ?';
+                connection.query(query, [hashedPassword, userId], (error, result) => {
+                    if (error) {
+                        reject(error);
+                    }
+                    resolve(result);
+                });
+            }
+        });
+    });
 };
 const getUserById = (userId) => {
     return new Promise((resolve, reject) => {
@@ -408,6 +417,23 @@ const getUserById = (userId) => {
                 } else {
                     resolve(results[0]); 
                 }
+            }
+        });
+    });
+};
+const UpdatePassword = async (userId, newPassword) => {
+    return new Promise((resolve, reject) => {
+        bcrypt.hash(newPassword, salt, (err, hashedPassword) => {
+            if (err) {
+                reject(err);
+            } else {
+                const query = 'UPDATE user SET PASSWORD = ? WHERE ID = ?';
+                connection.query(query, [hashedPassword, userId], (error, result) => {
+                    if (error) {
+                        reject(error);
+                    }
+                    resolve(result);
+                });
             }
         });
     });
@@ -428,5 +454,6 @@ module.exports = {
     getFavouriteFoodLunch,
     UpdateProfile,
     comparePasswords,
-    getUserById
+    getUserById,
+    UpdatePassword
 };
