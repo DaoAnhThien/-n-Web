@@ -39,7 +39,7 @@ function load_data(query = '') {
         }
         else {
             html += `                
-                <h3>No Data Found</h3>         
+                <h3 class="NoData">No Data Found</h3>         
             `;
         }
 
