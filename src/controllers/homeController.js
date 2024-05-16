@@ -340,16 +340,20 @@ const getSearch = (request, response) => {
 
   const query = request.query.q;
 
-  var sql = '';
+  // var sql = '';
 
-  if (query != '') {
-    sql = `SELECT DISTINCT * FROM meo, mon_an WHERE meo.NAME LIKE '%${query}%' OR mon_an.NAME LIKE '%${query}%'`;
-  }
-  else {
-    sql = `SELECT * FROM mon_an ORDER BY ID`;
-  }
+  // if (query != '') {
+  //   sql = `SELECT NAME, NOI_DUNG, LINK, IMAGE FROM meo WHERE meo.NAME LIKE '%${query}%'
+  //   UNION ALL
+  //   SELECT NAME, NOI_DUNG, LINK, IMAGE FROM mon_an WHERE mon_an.NAME LIKE '%${query}%';`;
+  // }
+  // else {
+  //   sql = `SELECT * FROM mon_an ORDER BY ID`;
+  // }
 
-  connection.query(sql, (error, results) => {
+  connection.query(`SELECT NAME, NOI_DUNG, LINK, IMAGE FROM meo WHERE meo.NAME LIKE '%${query}%'
+  UNION ALL
+  SELECT NAME, NOI_DUNG, LINK, IMAGE FROM mon_an WHERE mon_an.NAME LIKE '%${query}%';`, (error, results) => {
     if (error) throw error;
     response.send(results);
   });

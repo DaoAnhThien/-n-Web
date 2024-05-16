@@ -22,7 +22,6 @@ function load_data(query = '') {
 
         if (results.length > 0) {
             results.forEach(result => {
-
                 html += `
                     <div class="newsItem" href="`+ result.LINK + `">
                         <div class="newsImage">
@@ -40,7 +39,7 @@ function load_data(query = '') {
         }
         else {
             html += `                
-                <h2>No Data Found</h2>         
+                <h3>No Data Found</h3>         
             `;
         }
 
