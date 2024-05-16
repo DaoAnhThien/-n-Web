@@ -63,6 +63,8 @@ router.get('/MeoVat/Nau-an-voi-ngu-coc', getNauanvoingucoc);
 // Trang meo
 router.get('/MeoVat',getMeoVat);
 router.get('/MeoVat/:SLUG',getMeo);
+router.get('/MeoVat/navigate/:page',getMeoVat);
+
 // Trang mon an
 router.get('/BuaSang',getBuaSang);
 router.get('/BuaTrua',getBuaTrua);
@@ -76,7 +78,8 @@ router.get('/BuaSang/yen-mach-sua-chua', getyenmachsuachua);
 
 router.get('/BuaSang/:SLUG',getMonansang);
 router.get('/BuaTrua/:SLUG',getMonantrua);
-
+router.get('/BuaSang/navigate/:page',getBuaSang);
+router.get('/BuaTrua/navigate/:page',getBuaTrua);
 router.get('/search', getSearch); 
 
 

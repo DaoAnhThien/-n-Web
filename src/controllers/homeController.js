@@ -21,6 +21,9 @@ const getForgotPassword = (req,res) => {
 }
 const getMeoVat = (req,res,next) => {
   const loggedIn = req.session.user ? true : false;
+  let page = parseInt(req.params.page);
+  let limit=9;
+  let offset= (!page||page<1)?0:(page-1)*limit;
   let user = [];
   connection.connect((err) => {
       if (err) {
@@ -30,7 +33,7 @@ const getMeoVat = (req,res,next) => {
       console.log('Connected to MySQL database!');
       //Thực hiện truy vấn sau khi kết nối đã thành công
       connection.query(
-        'SELECT * From meo',
+        `SELECT * From meo LIMIT ${limit} OFFSET ${offset}`,
         function (err, result, fields) {
           user = result;
           if (err) {
@@ -50,38 +53,38 @@ const getMeoVat = (req,res,next) => {
     })
    
 }
-const getMeo = (req,res,next) => {
+const getMeo = (req, res, next) => {
   const loggedIn = req.session.user ? true : false;
-  const slug=req.params.SLUG;
+  const slug = req.params.SLUG;
   let user = [];
   let img = [];
-  connection.connect((err)=>{
-    if(err){
-      console.error('Error connecting to MySQL database' +err.stack)
+  connection.connect((err) => {
+    if (err) {
+      console.error('Error connecting to MySQL database' + err.stack)
       return;
     }
     console.log('Connect to database succesfully!');
     connection.query(
-    'SELECT * from chi_tiet_meo Where SLUG=?', [slug],
-    function (err,result,fields){
-      let id=result.ID;
-      'SELECT * from image_ctmeo where ID_CTMEO=?',[id],
-      function (err,result,fields){
-            img=result;
+      'SELECT * from chi_tiet_meo Where SLUG=?', [slug],
+      function (err, result, fields) {
+        let id = result.ID;
+        'SELECT * from image_ctmeo where ID_CTMEO=?', [id],
+          function (err, result, fields) {
+            img = result;
+          }
+        user = result;
+        if (err) {
+          console.error('Error executing query: ' + err.stack);
+          return;
+        }
+        console.log(">>>result= ", user)
+        if (loggedIn) {
+          const username = req.session.user.username
+          res.render('chitietmeo.handlebars', { user, loggedIn: true, username: username });
+        } else {
+          res.render('chitietmeo.handlebars', { user, loggedIn: false, username: null });
+        }
       }
-      user=result;
-      if (err) {
-        console.error('Error executing query: ' + err.stack);
-        return;
-      }
-      console.log(">>>result= ", user)
-      if (loggedIn) {
-        const username = req.session.user.username
-        res.render('chitietmeo.handlebars', {user, loggedIn: true, username: username });
-    } else {
-        res.render('chitietmeo.handlebars',{user,loggedIn: false,username: null });
-    }
-    }
     );
   })
 }
@@ -150,6 +153,7 @@ const getNauanvoingucoc = (req,res) => {
 }
 const getBuaSang = (req,res) => {
   const loggedIn = req.session.user ? true : false;
+  let page = parseInt(req.params.page);
   let user = [];
   let img = [];
   connection.connect((err)=>{
@@ -158,15 +162,18 @@ const getBuaSang = (req,res) => {
       return;
     }
     console.log('Connect to database succesfully!');
+    const limit=6;
+    //const offset=1;
+    const offset=(!page||page<=1)?0:(page-1)*6;
     connection.query(
-    'SELECT * from bua_sang',
+    `SELECT * from bua_sang LIMIT ${limit} OFFSET ${offset}`,
     function (err,result,fields){
       user=result;
       if (err) {
         console.error('Error executing query: ' + err.stack);
         return;
       }
-      console.log(">>>result= ", img);
+      console.log(">>>result= ", page);
       if (loggedIn) {
         const username = req.session.user.username
         res.render('buasang.handlebars', {user, loggedIn: true, username: username });
@@ -214,7 +221,7 @@ const getMonansang = (req,res,next) => {
 }
 const getBuaTrua = (req,res) => {
   const loggedIn = req.session.user ? true : false;
-
+  let page= parseInt(req.params.page);
   let user = [];
   let img = [];
   connection.connect((err)=>{
@@ -223,8 +230,10 @@ const getBuaTrua = (req,res) => {
       return;
     }
     console.log('Connect to database succesfully!');
+    let limit=6;
+    let offset=(!page||page<1)?0:(page-1)*6
     connection.query(
-    'SELECT * from bua_trua',
+    `SELECT * from bua_trua LIMIT ${limit} OFFSET ${offset}`,
     function (err,result,fields){
       user=result;
       if (err) {
