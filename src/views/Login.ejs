@@ -20,7 +20,8 @@
             <div class="inputbox">
                 <input type="password" placeholder="Password" id="Password" name="Password" required>
                 <i class='bx bxs-lock-alt'></i>
-                <div id="login-error-message" style="color: yellow; display: none;">Tên người dùng hoặc mật khẩu không chính xác.</div>
+                <div id="login-error-message" style="color: yellow; display: none;">Tên người dùng hoặc mật khẩu không
+                    chính xác.</div>
             </div>
             <div class="remember-forgot">
                 <label>
@@ -36,13 +37,13 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
-        document.getElementById('loginForm').addEventListener('submit', async function(event) {
+        document.getElementById('loginForm').addEventListener('submit', async function (event) {
             event.preventDefault(); // Ngăn chặn submit mặc định của form
             const password = document.getElementById('Password').value;
             const username = document.getElementById('Username').value;
             try {
                 // Gửi yêu cầu đăng nhập tới API /v1/Login
-                const LoginResponse = await axios.post('http://localhost:8886/v1/Login', { Username: username, Password: password });
+                const LoginResponse = await axios.post('http://localhost:3000/v1/Login', { Username: username, Password: password });
                 // Kiểm tra mã trạng thái của phản hồi từ API
                 if (LoginResponse.status === 200) {
                     window.location.href = '/';
