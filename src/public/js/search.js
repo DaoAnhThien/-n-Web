@@ -40,7 +40,7 @@ function load_data(query = '') {
         }
         else {
             html += `                
-                <h2>No Data Found</h2>         
+                <h3>No Data Found</h3>         
             `;
         }
 
