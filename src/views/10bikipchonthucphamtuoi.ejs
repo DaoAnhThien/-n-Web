@@ -11,6 +11,12 @@
     <link rel="stylesheet" href="/css/Homepage.css">
     <link rel="stylesheet" href="/css/10bikipchonthucphamtuoi.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/css/search.css">
+    <style>
+        #results {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -105,15 +111,15 @@
                     </ul>
                     <div class="site-menu-btns d-flex">
                         <div class="search-box">
-                            <input class="search-input" type="text" placeholder="Search...">
+                            <input class="search-input" type="text" placeholder="Search..." id="search">
                             <i class='bx bx-search-alt-2'></i>
                             <% if (username) { %>
                                 <!-- Nếu đã đăng nhập, hiển thị username -->
                                 <div class="site-menu-wrapper ml-auto collapse navbar-collapse">
                                     <ul class="navbar-nav ml-auto">
                                         <li class="nav-item dropdown position-relative" style="margin: 0 0;">
-                                            <a class="nav-link" href="javascript:void(0)" role="button" data-bs-toggle="dropdown"
-                                                aria-expanded="false">
+                                            <a class="nav-link" href="javascript:void(0)" role="button"
+                                                data-bs-toggle="dropdown" aria-expanded="false">
                                                 <%= username %>!
                                             </a>
                                             <ul class="dropdown-menu dropdown-menu-dark">
@@ -123,180 +129,205 @@
                                         </li>
                                     </ul>
                                 </div>
-                            <% } else { %>
-                                <!-- Nếu chưa đăng nhập, hiển thị nút login -->
-                                <div><a class="theme-btn-secondary" href="/Login" title="">Login</a>
-                                </div>
-                            <% } %>
+                                <% } else { %>
+                                    <!-- Nếu chưa đăng nhập, hiển thị nút login -->
+                                    <div><a class="theme-btn-secondary" href="/Login" title="">Login</a>
+                                    </div>
+                                    <% } %>
                         </div>
 
                     </div>
             </nav>
         </div>
     </div>
-    <div class="container-skills">
-        <div class="container-skills-2">
-            <div class="container-skills-2-block1">
-                <div class="container-skills-2-block1-1">
-                    <div class="container-skills-2-block1-1-header">
-                        <div class="navigation">
-                            <ul>
-                                <li><a href="/">Trang chủ</a></li>
-                                <li><span>></span></li>
-                                <li><a href="/MeoVat">Mẹo Vặt</a></li>
-                            </ul>
+    <div id="wr">
+        <div class="container-skills">
+            <div class="container-skills-2">
+                <div class="container-skills-2-block1">
+                    <div class="container-skills-2-block1-1">
+                        <div class="container-skills-2-block1-1-header">
+                            <div class="navigation">
+                                <ul>
+                                    <li><a href="/">Trang chủ</a></li>
+                                    <li><span>></span></li>
+                                    <li><a href="/MeoVat">Mẹo Vặt</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <h1 style="margin-top: 0;">10 bí kíp chọn thực phẩm tươi ngon </h1>
+                        <p>
+                            Với 10 mẹo nhận biết dưới đây, bạn dễ dàng loại bỏ những loại thực phẩm không an toàn.
+                        </p>
+                        <h2>1. Thịt gà</h2>
+                        <p>
+                            Trên miếng ức gà, nên chú ý đến những sọc trắng và mỡ dày. Nếu có nhiều sọc và mỡ tức là gà
+                            đã
+                            được tiêm hormone tăng trưởng. Miếng thịt gà như vậy không tốt cho sức khỏe con người.
+                        </p>
+                        <img class="image" src="/image/10bikipchonthucphamtuoi/thitga.jpg" alt="Ức gà">
+                        <p>
+                            Khi chọn thịt gà nên nhìn vào màu sắc miếng thịt. Nếu có dấu hiệu chuyển sang màu vàng, thịt
+                            chắc chắn không còn tươi.
+                        </p>
+                        <p>
+                            Nên chọn những miếng ức gà có màu hồng nhạt, sờ không nhũn tay.
+                        </p>
+                        <h2>2. Thịt lợn, thịt bò</h2>
+                        <p>Dùng ngón tay ấn vào thịt, nếu thịt tươi, đủ độ đàn hồi thì dấu tay bạn sẽ biến mất. Thịt
+                            chất
+                            lượng có màu đỏ tươi, sờ vào không quá mềm hay cứng, không quá khô hoặc ướt và không có mùi
+                            lạ.
+                        </p>
+                        <img class="image" src="/image/10bikipchonthucphamtuoi/thitbo_heo.jpg" alt="Thịt heo - bò">
+                        <p>Cách nữa để kiểm tra thịt tươi là cắt đôi miếng thịt. Nếu thịt màu sẫm nhưng đường viền
+                            trắng, có
+                            nghĩa thời hạn sử dụng đã được kéo dài bằng chất phụ gia. Lau khô bằng khăn giấy, thịt tươi
+                            không để lại quá nhiều ẩm và vết máu trên khăn.</p>
+                        <h2>3. Cá</h2>
+                        <p>Cá tươi mắt sẽ không đục và mang có màu đỏ tươi. Vảy cá tươi có màu ánh bạc tự nhiên, gắn
+                            chặt
+                            trên thân.</p>
+                        <img class="image" src="/image/10bikipchonthucphamtuoi/ca.jpg" alt="Cá sống">
+                        <p>Một số người bán có thể che giấu việc cá không còn tươi bằng cách cạo vảy hoặc bỏ đầu, lúc
+                            này
+                            nên chú ý đến thịt cá. Thịt cá phải có màu đỏ hồng chứ không chuyển sang tái nhạt, thậm chí
+                            là
+                            nâu.</p>
+                        <h2>4. Trứng</h2>
+                        <p>Để kiểm tra trứng còn tươi không, lấy một cốc nước lạnh rồi cho trứng vào. Trứng nằm theo
+                            chiều
+                            ngang là trứng tươi, trứng hơi nổi trong nước nghĩa là không quá tươi nhưng vẫn có thể dùng
+                            được. Nếu trứng nổi hẳn lên trên mặt nước, chắc chắn đã hỏng.</p>
+                        <img class="image" src="/image/10bikipchonthucphamtuoi/trungga.jpg" alt="Trứng gà">
+                        <p>Khi chọn trứng, nên chọn những quả có lớp vỏ ngoài sáng bóng, mịn và không bị nứt.</p>
+                        <h2>5. Cà chua</h2>
+                        <p>Chọn cà chua, nên tránh những quả có đốm ở phần vỏ và quả bị dập, úng. Bóp nhẹ cà chua, nếu
+                            thấy
+                            quả vẫn cứng thì nên đưa lên mũi ngửi. Những quả gần như không có mùi thì không nên chọn.
+                        </p>
+                        <img class="image" src="/image/10bikipchonthucphamtuoi/cachua.jpg" alt="Cà chua">
+                        <p>Cà chua chín có màu đỏ tươi, vỏ căng, hơi mềm và có mùi thơm đặc trưng.</p>
+                        <h2>6. Rau thơm</h2>
+                        <p>Khi mua nên dựng cọng rau theo chiều thẳng đứng, thân và lá rủ xuống hai bên nghĩa là rau đã
+                            héo.
+                        </p>
+                        <img class="image" src="/image/10bikipchonthucphamtuoi/rauthom.jpg" alt="Rau thơm">
+                        <p>Cũng không nên chọn rau có màu xanh quá đậm và thân quá dài, bởi thường chứa nitrat, không có
+                            lợi
+                            cho sức khỏe. Rau tươi luôn có màu xanh tự nhiên.</p>
+                        <h2>7. Dứa</h2>
+                        <p>Để chọn được dứa ngon, ngọt, nên chọn những trái có màu vàng tươi từ cuống đến phần đuôi.
+                            Trái
+                            dứa càng vàng thì độ ngọt càng cao.</p>
+                        <img class="image" src="/image/10bikipchonthucphamtuoi/dua.jpg" alt="Dứa">
+                        <p>Nên chọn những quả dứa mắt càng lớn, càng thưa sẽ càng ngon. Những quả này sau khi cắt bỏ
+                            phần
+                            mắt, phần thịt thường dày. Còn mắt dứa lớn, thưa chứng tỏ dứa già và chín tự nhiên, không
+                            phải
+                            chín do thuốc.</p>
+                        <h2>8. Dâu tây</h2>
+                        <p>Tránh chọn những quả có đốm trắng hoặc xanh lá cây vì dâu sẽ không tiếp tục chín sau hái. Nên
+                            chọn quả đỏ, bóng vì dâu đã chín. Khi chọn nên ấn vào thân quả, nếu không mềm nhũn, không có
+                            vết
+                            thâm, đặc biệt phần thịt gần cuống thì đó là dâu ngon. Dâu tây chín thường có màu đỏ tươi,
+                            mùi
+                            thơm nhẹ.</p>
+                        <img class="image" src="/image/10bikipchonthucphamtuoi/dautay.jpg" alt="Dâu tây">
+                        <p>Để kiểm tra dâu có ngâm hóa chất hay không, nghiền nhỏ và trộn với đường. Quả tươi, không có
+                            thuốc sẽ nhiều nước.</p>
+                        <h2>9. Sữa</h2>
+                        <p>Để chứng minh chất lượng sữa, hãy cho vào bình sữa hai thìa muối. Nếu sữa chuyển sang màu
+                            xanh
+                            thì chứng tỏ kém chất lượng vì có thêm hóa chất.</p>
+                        <img class="image" src="/image/10bikipchonthucphamtuoi/sua.jpg" alt="Sữa">
+                        <p>Hoặc có thể pha sữa với tinh bột nghệ theo tỷ lệ 1:2. Nếu chất lượng tốt, các bông cặn sẽ
+                            xuất
+                            hiện trong sữa sau 5-7 giây, nếu sữa giả thì quá trình này tốn nhiều thời gian hơn.</p>
+                        <h2>10. Mật ong</h2>
+                        <p>Sử dụng thìa múc mật ong rồi đưa lên cao. Mật ong giả kém chất lượng nhỏ giọt và ngay lập tức
+                            lan
+                            rộng trên bề mặt. Mật ong chất lượng cao thường đặc và chảy thành dòng loãng.</p>
+                        <img class="image" src="/image/10bikipchonthucphamtuoi/rauthom.jpg" alt="Rau thơm">
+                        <p>Cách khác để kiểm tra chất lượng mật ong là cho một thìa vào cốc nước, khuấy đều lên. Mật ong
+                            giả
+                            được làm từ đường sẽ hòa tan nhanh vào nước. Mật ong tốt sẽ lâu tan hơn.</p>
+                        <div class="tacgia">
+                            <h2>Vy Trang</h2>
+                            <p>(Theo <span><i>Brightside</i></span>)</p>
                         </div>
                     </div>
-                    <h1 style="margin-top: 0;">10 bí kíp chọn thực phẩm tươi ngon </h1>
-                    <p>
-                        Với 10 mẹo nhận biết dưới đây, bạn dễ dàng loại bỏ những loại thực phẩm không an toàn.
-                    </p>
-                    <h2>1. Thịt gà</h2>
-                    <p>
-                        Trên miếng ức gà, nên chú ý đến những sọc trắng và mỡ dày. Nếu có nhiều sọc và mỡ tức là gà đã
-                        được tiêm hormone tăng trưởng. Miếng thịt gà như vậy không tốt cho sức khỏe con người.
-                    </p>
-                    <img class="image" src="/image/10bikipchonthucphamtuoi/thitga.jpg" alt="Ức gà">
-                    <p>
-                        Khi chọn thịt gà nên nhìn vào màu sắc miếng thịt. Nếu có dấu hiệu chuyển sang màu vàng, thịt
-                        chắc chắn không còn tươi.
-                    </p>
-                    <p>
-                        Nên chọn những miếng ức gà có màu hồng nhạt, sờ không nhũn tay.
-                    </p>
-                    <h2>2. Thịt lợn, thịt bò</h2>
-                    <p>Dùng ngón tay ấn vào thịt, nếu thịt tươi, đủ độ đàn hồi thì dấu tay bạn sẽ biến mất. Thịt chất
-                        lượng có màu đỏ tươi, sờ vào không quá mềm hay cứng, không quá khô hoặc ướt và không có mùi lạ.
-                    </p>
-                    <img class="image" src="/image/10bikipchonthucphamtuoi/thitbo_heo.jpg" alt="Thịt heo - bò">
-                    <p>Cách nữa để kiểm tra thịt tươi là cắt đôi miếng thịt. Nếu thịt màu sẫm nhưng đường viền trắng, có
-                        nghĩa thời hạn sử dụng đã được kéo dài bằng chất phụ gia. Lau khô bằng khăn giấy, thịt tươi
-                        không để lại quá nhiều ẩm và vết máu trên khăn.</p>
-                    <h2>3. Cá</h2>
-                    <p>Cá tươi mắt sẽ không đục và mang có màu đỏ tươi. Vảy cá tươi có màu ánh bạc tự nhiên, gắn chặt
-                        trên thân.</p>
-                    <img class="image" src="/image/10bikipchonthucphamtuoi/ca.jpg" alt="Cá sống">
-                    <p>Một số người bán có thể che giấu việc cá không còn tươi bằng cách cạo vảy hoặc bỏ đầu, lúc này
-                        nên chú ý đến thịt cá. Thịt cá phải có màu đỏ hồng chứ không chuyển sang tái nhạt, thậm chí là
-                        nâu.</p>
-                    <h2>4. Trứng</h2>
-                    <p>Để kiểm tra trứng còn tươi không, lấy một cốc nước lạnh rồi cho trứng vào. Trứng nằm theo chiều
-                        ngang là trứng tươi, trứng hơi nổi trong nước nghĩa là không quá tươi nhưng vẫn có thể dùng
-                        được. Nếu trứng nổi hẳn lên trên mặt nước, chắc chắn đã hỏng.</p>
-                    <img class="image" src="/image/10bikipchonthucphamtuoi/trungga.jpg" alt="Trứng gà">
-                    <p>Khi chọn trứng, nên chọn những quả có lớp vỏ ngoài sáng bóng, mịn và không bị nứt.</p>
-                    <h2>5. Cà chua</h2>
-                    <p>Chọn cà chua, nên tránh những quả có đốm ở phần vỏ và quả bị dập, úng. Bóp nhẹ cà chua, nếu thấy
-                        quả vẫn cứng thì nên đưa lên mũi ngửi. Những quả gần như không có mùi thì không nên chọn.</p>
-                    <img class="image" src="/image/10bikipchonthucphamtuoi/cachua.jpg" alt="Cà chua">
-                    <p>Cà chua chín có màu đỏ tươi, vỏ căng, hơi mềm và có mùi thơm đặc trưng.</p>
-                    <h2>6. Rau thơm</h2>
-                    <p>Khi mua nên dựng cọng rau theo chiều thẳng đứng, thân và lá rủ xuống hai bên nghĩa là rau đã héo.
-                    </p>
-                    <img class="image" src="/image/10bikipchonthucphamtuoi/rauthom.jpg" alt="Rau thơm">
-                    <p>Cũng không nên chọn rau có màu xanh quá đậm và thân quá dài, bởi thường chứa nitrat, không có lợi
-                        cho sức khỏe. Rau tươi luôn có màu xanh tự nhiên.</p>
-                    <h2>7. Dứa</h2>
-                    <p>Để chọn được dứa ngon, ngọt, nên chọn những trái có màu vàng tươi từ cuống đến phần đuôi. Trái
-                        dứa càng vàng thì độ ngọt càng cao.</p>
-                    <img class="image" src="/image/10bikipchonthucphamtuoi/dua.jpg" alt="Dứa">
-                    <p>Nên chọn những quả dứa mắt càng lớn, càng thưa sẽ càng ngon. Những quả này sau khi cắt bỏ phần
-                        mắt, phần thịt thường dày. Còn mắt dứa lớn, thưa chứng tỏ dứa già và chín tự nhiên, không phải
-                        chín do thuốc.</p>
-                    <h2>8. Dâu tây</h2>
-                    <p>Tránh chọn những quả có đốm trắng hoặc xanh lá cây vì dâu sẽ không tiếp tục chín sau hái. Nên
-                        chọn quả đỏ, bóng vì dâu đã chín. Khi chọn nên ấn vào thân quả, nếu không mềm nhũn, không có vết
-                        thâm, đặc biệt phần thịt gần cuống thì đó là dâu ngon. Dâu tây chín thường có màu đỏ tươi, mùi
-                        thơm nhẹ.</p>
-                    <img class="image" src="/image/10bikipchonthucphamtuoi/dautay.jpg" alt="Dâu tây">
-                    <p>Để kiểm tra dâu có ngâm hóa chất hay không, nghiền nhỏ và trộn với đường. Quả tươi, không có
-                        thuốc sẽ nhiều nước.</p>
-                    <h2>9. Sữa</h2>
-                    <p>Để chứng minh chất lượng sữa, hãy cho vào bình sữa hai thìa muối. Nếu sữa chuyển sang màu xanh
-                        thì chứng tỏ kém chất lượng vì có thêm hóa chất.</p>
-                    <img class="image" src="/image/10bikipchonthucphamtuoi/sua.jpg" alt="Sữa">
-                    <p>Hoặc có thể pha sữa với tinh bột nghệ theo tỷ lệ 1:2. Nếu chất lượng tốt, các bông cặn sẽ xuất
-                        hiện trong sữa sau 5-7 giây, nếu sữa giả thì quá trình này tốn nhiều thời gian hơn.</p>
-                    <h2>10. Mật ong</h2>
-                    <p>Sử dụng thìa múc mật ong rồi đưa lên cao. Mật ong giả kém chất lượng nhỏ giọt và ngay lập tức lan
-                        rộng trên bề mặt. Mật ong chất lượng cao thường đặc và chảy thành dòng loãng.</p>
-                    <img class="image" src="/image/10bikipchonthucphamtuoi/rauthom.jpg" alt="Rau thơm">
-                    <p>Cách khác để kiểm tra chất lượng mật ong là cho một thìa vào cốc nước, khuấy đều lên. Mật ong giả
-                        được làm từ đường sẽ hòa tan nhanh vào nước. Mật ong tốt sẽ lâu tan hơn.</p>
-                    <div class="tacgia">
-                        <h2>Vy Trang</h2>
-                        <p>(Theo <span><i>Brightside</i></span>)</p>
-                    </div>
                 </div>
-            </div>
-            <div class="container-skills-2-block2">
-                <div class="scrolling-block">
-                    <div>
-                        <h2>Xem nhiều nhất </h2>
-                    </div>
-                    <div class="container-skills-2-block2-1">
-                        <a href="/MeoVat/6-Skills-lam-bep"><img class="image"
-                                src="/image/6skillslambep/bokho.png" alt="Bò kho" style="height: 130px;"></a>
-                    </div>
-                    <div class="container-skills-2-block2-1">
-                        <a href="/MeoVat/6-Skills-lam-bep">
-                            <div>
-                                <h3>6 Skills để làm món ngon</h3>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="container-skills-2-block2-1">
-                        <a href="/MeoVat/Cach-lam-sang-am-dun-nuoc-dien"><img class="image"
-                                src="/image/lamsachamdunnuoc/1.jpg " alt="Các công cụ để vệ sinh ấm đun nước"
-                                style="height: 130px;"></a>
-                    </div>
-                    <div class="container-skills-2-block2-1">
-                        <a href="/MeoVat/Cach-lam-sang-am-dun-nuoc-dien">
-                            <div>
-                                <h3>Cách làm sạch ấm đun nước điện</h3>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="container-skills-2-block2-1">
-                        <a href="/MeoVat/4-meo-bien-thit-dai-thanh-thit-mem"><img class="image"
-                                src="/image/4meobienthitdaithanhthitmem/1.jpg" alt="Thịt ngâm rượu sake"
-                                style="height: 130px;"></a>
-                    </div>
-                    <div class="container-skills-2-block2-1">
-                        <a href="/MeoVat/4-meo-bien-thit-dai-thanh-thit-mem">
-                            <div>
-                                <h3>Bốn mẹo biến thịt dai thành mềm mại</h3>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="container-skills-2-block2-1">
-                        <a href="/MeoVat/6-luu-y-cho-nguoi-moi-bat-dau"><img class="image" class="image"
-                                src="/image/6luuychonguoimoibatdau/MCIM02007674_FR10-KL-L1-6CookingTips-Prep.webp"
-                                alt="Recipes" style="height: 130px;"></a>
-                    </div>
-                    <div class="container-skills-2-block2-1">
-                        <a href="/MeoVat/6-luu-y-cho-nguoi-moi-bat-dau">
-                            <div>
-                                <h3>6 lưu ý nấu ăn đơn giản </h3>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="container-skills-2-block2-1">
-                        <a href="/MeoVat/Nau-an-voi-ngu-coc"><img class="image"
-                                src="/image/Nauanvoingucoc/MCIM02007768_FR14-KL-R2-CookingWithGrains-Spelt.webp"
-                                alt="Lúa mì nâu (spelt)" style="height: 130px;"></a>
-                    </div>
-                    <div class="container-skills-2-block2-1">
-                        <a href="/MeoVat/Nau-an-voi-ngu-coc">
-                            <div>
-                                <h3>Hướng dẫn nấu ăn cùng các loại ngũ cốc</h3>
-                            </div>
-                        </a>
+                <div class="container-skills-2-block2">
+                    <div class="scrolling-block">
+                        <div>
+                            <h2>Xem nhiều nhất </h2>
+                        </div>
+                        <div class="container-skills-2-block2-1">
+                            <a href="/MeoVat/6-Skills-lam-bep"><img class="image" src="/image/6skillslambep/bokho.png"
+                                    alt="Bò kho" style="height: 130px;"></a>
+                        </div>
+                        <div class="container-skills-2-block2-1">
+                            <a href="/MeoVat/6-Skills-lam-bep">
+                                <div>
+                                    <h3>6 Skills để làm món ngon</h3>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="container-skills-2-block2-1">
+                            <a href="/MeoVat/Cach-lam-sang-am-dun-nuoc-dien"><img class="image"
+                                    src="/image/lamsachamdunnuoc/1.jpg " alt="Các công cụ để vệ sinh ấm đun nước"
+                                    style="height: 130px;"></a>
+                        </div>
+                        <div class="container-skills-2-block2-1">
+                            <a href="/MeoVat/Cach-lam-sang-am-dun-nuoc-dien">
+                                <div>
+                                    <h3>Cách làm sạch ấm đun nước điện</h3>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="container-skills-2-block2-1">
+                            <a href="/MeoVat/4-meo-bien-thit-dai-thanh-thit-mem"><img class="image"
+                                    src="/image/4meobienthitdaithanhthitmem/1.jpg" alt="Thịt ngâm rượu sake"
+                                    style="height: 130px;"></a>
+                        </div>
+                        <div class="container-skills-2-block2-1">
+                            <a href="/MeoVat/4-meo-bien-thit-dai-thanh-thit-mem">
+                                <div>
+                                    <h3>Bốn mẹo biến thịt dai thành mềm mại</h3>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="container-skills-2-block2-1">
+                            <a href="/MeoVat/6-luu-y-cho-nguoi-moi-bat-dau"><img class="image" class="image"
+                                    src="/image/6luuychonguoimoibatdau/MCIM02007674_FR10-KL-L1-6CookingTips-Prep.webp"
+                                    alt="Recipes" style="height: 130px;"></a>
+                        </div>
+                        <div class="container-skills-2-block2-1">
+                            <a href="/MeoVat/6-luu-y-cho-nguoi-moi-bat-dau">
+                                <div>
+                                    <h3>6 lưu ý nấu ăn đơn giản </h3>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="container-skills-2-block2-1">
+                            <a href="/MeoVat/Nau-an-voi-ngu-coc"><img class="image"
+                                    src="/image/Nauanvoingucoc/MCIM02007768_FR14-KL-R2-CookingWithGrains-Spelt.webp"
+                                    alt="Lúa mì nâu (spelt)" style="height: 130px;"></a>
+                        </div>
+                        <div class="container-skills-2-block2-1">
+                            <a href="/MeoVat/Nau-an-voi-ngu-coc">
+                                <div>
+                                    <h3>Hướng dẫn nấu ăn cùng các loại ngũ cốc</h3>
+                                </div>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <div id="results"></div>
+    <script src="/js/search.js"></script>
     <div class="footer">
         <div class="address">
             <h2>Contact</h2>

@@ -11,6 +11,12 @@
     <link rel="stylesheet" href="/css/Homepage.css">
     <link rel="stylesheet" href="/css/burntchesecakememchay.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/css/search.css">
+    <style>
+        #results {
+            display: none;
+        }
+    </style>
 </head>
 
 <body>
@@ -105,15 +111,15 @@
                     </ul>
                     <div class="site-menu-btns d-flex">
                         <div class="search-box">
-                            <input class="search-input" type="text" placeholder="Search...">
+                            <input class="search-input" type="text" placeholder="Search..." id="search">
                             <i class='bx bx-search-alt-2'></i>
                             <% if (username) { %>
                                 <!-- Nếu đã đăng nhập, hiển thị username -->
                                 <div class="site-menu-wrapper ml-auto collapse navbar-collapse">
                                     <ul class="navbar-nav ml-auto">
                                         <li class="nav-item dropdown position-relative" style="margin: 0 0;">
-                                            <a class="nav-link" href="javascript:void(0)" role="button" data-bs-toggle="dropdown"
-                                                aria-expanded="false">
+                                            <a class="nav-link" href="javascript:void(0)" role="button"
+                                                data-bs-toggle="dropdown" aria-expanded="false">
                                                 <%= username %>!
                                             </a>
                                             <ul class="dropdown-menu dropdown-menu-dark">
@@ -123,145 +129,159 @@
                                         </li>
                                     </ul>
                                 </div>
-                            <% } else { %>
-                                <!-- Nếu chưa đăng nhập, hiển thị nút login -->
-                                <div><a class="theme-btn-secondary" href="/Login" title="">Login</a>
-                                </div>
-                            <% } %>
+                                <% } else { %>
+                                    <!-- Nếu chưa đăng nhập, hiển thị nút login -->
+                                    <div><a class="theme-btn-secondary" href="/Login" title="">Login</a>
+                                    </div>
+                                    <% } %>
                         </div>
 
                     </div>
             </nav>
         </div>
     </div>
-    <div class="container-food">
-        <div class="container-food-2">
-            <div class="container-food-2-block1">
-                <div class="container-food-2-block1-1">
-                    <div class="container-food-2-block1-1-header">
-                        <div class="navigation">
-                            <ul>
-                                <li><a href="/">Trang chủ</a></li>
-                                <li><span>></span></li>
-                                <li><a href="/MonAn/Bua-sang">Công thức</a></li>
-                            </ul>
+    <div id="wr">
+        <div class="container-food">
+            <div class="container-food-2">
+                <div class="container-food-2-block1">
+                    <div class="container-food-2-block1-1">
+                        <div class="container-food-2-block1-1-header">
+                            <div class="navigation">
+                                <ul>
+                                    <li><a href="/">Trang chủ</a></li>
+                                    <li><span>></span></li>
+                                    <li><a href="/MonAn/Bua-sang">Công thức</a></li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    <h1 style="margin-top: 0;">Burnt CheeseCake mềm chảy </h1>
-                    <img class="image" src="/image/cakememchay.jpg">
-                    <p>
-                        Một loại bánh có thể dễ tới mức nào? Đó là cho tất cả nguyên liệu vào máy xay sinh tố, xay mịn,
-                        đổ vào khuôn rồi cho vào lò Bạn không đọc nhầm đâu ạ, món cheesecake nướng cháy
-                        trứ danh này thực sự có thể làm đơn giản như vậy đấy, nhà bạn nào chỉ có NCKD cũng bon chen
-                        thoải mái nha.
-                        Công thức burnt cheesecake thì mình đã có rồi, nhưng phiên bản hôm nay là kiểu bên ngoài thì
-                        mềm, ở giữa thì hơi chảy, ăn vào tan ngay trong miệng, cực kì hợp cho những ai thích vị
-                        phomai nhưng không ăn được các món quá ngấy.
-                    </p>
-                    <h2>Cách làm BUNRT CHEESECAKE MỀM CHẢY</h2>
-                    <h3>Nguyên liệu</h3>
-                    <ul>
-                        <li>200 gram kem phomai (cream cheese), để mềm ở nhiệt độ phòng</li>
-                        <li>1 thìa cafe nước cốt chanh tươi (không bắt buộc)</li>
-                        <li>20 gram sữa đặc </li>
-                        <li>40 gram đường xay + 1 nhúm muối nhỏ</li>
-                        <li>250 gram kem tươi</li>
-                        <li>5 lòng đỏ trứng gà</li>
-                        <li>1 thìa cafe tinh chất vani</li>
-                    </ul>
+                        <h1 style="margin-top: 0;">Burnt CheeseCake mềm chảy </h1>
+                        <img class="image" src="/image/cakememchay.jpg">
+                        <p>
+                            Một loại bánh có thể dễ tới mức nào? Đó là cho tất cả nguyên liệu vào máy xay sinh tố, xay
+                            mịn,
+                            đổ vào khuôn rồi cho vào lò Bạn không đọc nhầm đâu ạ, món cheesecake nướng cháy
+                            trứ danh này thực sự có thể làm đơn giản như vậy đấy, nhà bạn nào chỉ có NCKD cũng bon chen
+                            thoải mái nha.
+                            Công thức burnt cheesecake thì mình đã có rồi, nhưng phiên bản hôm nay là kiểu bên ngoài thì
+                            mềm, ở giữa thì hơi chảy, ăn vào tan ngay trong miệng, cực kì hợp cho những ai thích vị
+                            phomai nhưng không ăn được các món quá ngấy.
+                        </p>
+                        <h2>Cách làm BUNRT CHEESECAKE MỀM CHẢY</h2>
+                        <h3>Nguyên liệu</h3>
+                        <ul>
+                            <li>200 gram kem phomai (cream cheese), để mềm ở nhiệt độ phòng</li>
+                            <li>1 thìa cafe nước cốt chanh tươi (không bắt buộc)</li>
+                            <li>20 gram sữa đặc </li>
+                            <li>40 gram đường xay + 1 nhúm muối nhỏ</li>
+                            <li>250 gram kem tươi</li>
+                            <li>5 lòng đỏ trứng gà</li>
+                            <li>1 thìa cafe tinh chất vani</li>
+                        </ul>
 
-                    <h3> Cách làm</h3>
-                    <p>1. Chuẩn bị:</p>
-                    <p>- Làm nóng NCKD ở 190 độ C trước 10 phút. Nếu bạn dùng lò thì làm nóng ở khoảng 210 - 220 độ C
-                    </p>
-                    <p>- Lót giấy nến vào khuôn tròn 16cm.</p>
-                    <p>2. Cho toàn bộ nguyên liệu vào máy xay sinh tố, xay nhuyễn mịn (sau khi xay xong có thể lọc qua
-                        rây nếu chưa chắc chắn).</p>
-                    <p>3. Nướng</p>
-                    <p>- Với NCKD: Nướng 190 - 200 độ C trong 7 - 10 phút, tới khi thấy mặt bánh đã cháy xém thì dùng
-                        giấy bạc che mặt và nướng thêm khoảng 15 - 18 phút.</p>
-                    <p>- Với lò nướng: Nướng 210 - 220 độ C ở rack giữa trong khoảng 18 - 20 phút.</p>
-                    <p>- Kiểm tra bánh chín: Bánh nướng càng lâu sẽ càng khô hơn. Nếu bạn muốn ăn ở giữ bánh mềm chảy
-                        thì như video thì kiểm tra bằng cách lắc khuôn bánh, nếu viền xung quanh đã khô không di chuyển,
-                        còn khoảng giữa bánh vẫn rung rinh là được (phần còn rung rinh này sẽ cóđường kính khoảng 5cm
-                        chính giữa bánh). Không nên nướng bánh non quá, khi nguội bánh sẽ
-                        không định hình được và chảy lỏng.</p>
-                    <p>- Nếu bạn muốn ăn bánh chín hẳn và khô ráo thì nướng khoảng 25 - 28 phút, tới khi lắc thấy bánh
-                        không còn rung rinh.</p>
-                    <p>4. Sau khi nướng, để bánh nguội hoàn toàn rồi để lạnh tối thiểu 4 giờ trước khi ăn. Bảo quản bánh
-                        trong ngăn mát và dùng trong 3 - 4 ngày.</p>
-                    <img class="image" src="/image/cakemem.jpg">
+                        <h3> Cách làm</h3>
+                        <p>1. Chuẩn bị:</p>
+                        <p>- Làm nóng NCKD ở 190 độ C trước 10 phút. Nếu bạn dùng lò thì làm nóng ở khoảng 210 - 220 độ
+                            C
+                        </p>
+                        <p>- Lót giấy nến vào khuôn tròn 16cm.</p>
+                        <p>2. Cho toàn bộ nguyên liệu vào máy xay sinh tố, xay nhuyễn mịn (sau khi xay xong có thể lọc
+                            qua
+                            rây nếu chưa chắc chắn).</p>
+                        <p>3. Nướng</p>
+                        <p>- Với NCKD: Nướng 190 - 200 độ C trong 7 - 10 phút, tới khi thấy mặt bánh đã cháy xém thì
+                            dùng
+                            giấy bạc che mặt và nướng thêm khoảng 15 - 18 phút.</p>
+                        <p>- Với lò nướng: Nướng 210 - 220 độ C ở rack giữa trong khoảng 18 - 20 phút.</p>
+                        <p>- Kiểm tra bánh chín: Bánh nướng càng lâu sẽ càng khô hơn. Nếu bạn muốn ăn ở giữ bánh mềm
+                            chảy
+                            thì như video thì kiểm tra bằng cách lắc khuôn bánh, nếu viền xung quanh đã khô không di
+                            chuyển,
+                            còn khoảng giữa bánh vẫn rung rinh là được (phần còn rung rinh này sẽ cóđường kính khoảng
+                            5cm
+                            chính giữa bánh). Không nên nướng bánh non quá, khi nguội bánh sẽ
+                            không định hình được và chảy lỏng.</p>
+                        <p>- Nếu bạn muốn ăn bánh chín hẳn và khô ráo thì nướng khoảng 25 - 28 phút, tới khi lắc thấy
+                            bánh
+                            không còn rung rinh.</p>
+                        <p>4. Sau khi nướng, để bánh nguội hoàn toàn rồi để lạnh tối thiểu 4 giờ trước khi ăn. Bảo quản
+                            bánh
+                            trong ngăn mát và dùng trong 3 - 4 ngày.</p>
+                        <img class="image" src="/image/cakemem.jpg">
+                    </div>
                 </div>
-            </div>
-            <div class="container-food-2-block2">
-                <div class="scrolling-block">
-                    <div>
-                        <h2>Món ăn nổi bật </h2>
-                    </div>
-                    <div class="container-food-2-block2-1">
-                        <a href="/MonAn/Banh-bao"><img class="image"
-                                src="https://cdn.tgdd.vn/Files/2019/09/28/1202682/cach-lam-banh-bao-nhan-thit-thom-ngon-bang-bot-mi-tai-nha-202206041025434861.jpg"
-                                alt="bánh bao" style="height: 130px;"></a>
-                    </div>
-                    <div class="container-food-2-block2-1">
-                        <a href="/MonAn/Banh-bao">
-                            <div>
-                                <h3>Bánh Bao nhân thịt chuẩn vị.</h3>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="container-food-2-block2-1">
-                        <a href="/MonAn/Banh-trung-thu"><img class="image"
-                                src="https://static.vinwonders.com/production/nguyen-lieu-lam-banh-trung-thu-1.jpg"
-                                alt="Các công cụ để vệ sinh ấm đun nước" style="height: 130px;"></a>
-                    </div>
-                    <div class="container-food-2-block2-1">
-                        <a href="/MonAn/Banh-trung-thu">
-                            <div>
-                                <h3>Bánh trung thu trứng muối, phá cỗ cùng cùng bé vui </h3>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="container-food-2-block2-1">
-                        <a href="/MonAn/Bun-ca"><img class="image"
-                                src="https://static.vinwonders.com/production/bun-ca-ha-noi-banner.jpg" alt="chesecake"
-                                style="height: 130px;"></a>
-                    </div>
-                    <div class="container-food-2-block2-1">
-                        <a href="/MonAn/Bun-ca">
-                            <div>
-                                <h3>Bún cá Hà Nội</h3>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="container-food-2-block2-1">
-                        <a href="/MonAn/yen-mach-sua-chua"><img class="image" class="image"
-                                src="https://cdn-img.thethao247.vn/storage/files/linhseo/2022/01/11/hoa-qua-dam-yen-mach-2-1-1641910509.jpg"
-                                alt="Recipes" style="height: 130px;"></a>
-                    </div>
-                    <div class="container-food-2-block2-1">
-                        <a href="/MonAn/yen-mach-sua-chua">
-                            <div>
-                                <h3>Yến mạch sữa chưa healthy </h3>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="container-food-2-block2-1">
-                        <a href="/MonAn/chan-ga-sa-ot"><img class="image"
-                                src="https://cdn.mediamart.vn/images/news/chia-s-cach-lam-chan-ga-st-thai-chua-cay-ngon-bt-bi_6c5c7afe.jpg"
-                                alt="Lúa mì nâu (spelt)" style="height: 130px;"></a>
-                    </div>
-                    <div class="container-food-2-block2-1">
-                        <a href="/MonAn/chan-ga-sa-ot">
-                            <div>
-                                <h3>Chân gà sả ớt</h3>
-                            </div>
-                        </a>
+                <div class="container-food-2-block2">
+                    <div class="scrolling-block">
+                        <div>
+                            <h2>Món ăn nổi bật </h2>
+                        </div>
+                        <div class="container-food-2-block2-1">
+                            <a href="/MonAn/Banh-bao"><img class="image"
+                                    src="https://cdn.tgdd.vn/Files/2019/09/28/1202682/cach-lam-banh-bao-nhan-thit-thom-ngon-bang-bot-mi-tai-nha-202206041025434861.jpg"
+                                    alt="bánh bao" style="height: 130px;"></a>
+                        </div>
+                        <div class="container-food-2-block2-1">
+                            <a href="/MonAn/Banh-bao">
+                                <div>
+                                    <h3>Bánh Bao nhân thịt chuẩn vị.</h3>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="container-food-2-block2-1">
+                            <a href="/MonAn/Banh-trung-thu"><img class="image"
+                                    src="https://static.vinwonders.com/production/nguyen-lieu-lam-banh-trung-thu-1.jpg"
+                                    alt="Các công cụ để vệ sinh ấm đun nước" style="height: 130px;"></a>
+                        </div>
+                        <div class="container-food-2-block2-1">
+                            <a href="/MonAn/Banh-trung-thu">
+                                <div>
+                                    <h3>Bánh trung thu trứng muối, phá cỗ cùng cùng bé vui </h3>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="container-food-2-block2-1">
+                            <a href="/MonAn/Bun-ca"><img class="image"
+                                    src="https://static.vinwonders.com/production/bun-ca-ha-noi-banner.jpg"
+                                    alt="chesecake" style="height: 130px;"></a>
+                        </div>
+                        <div class="container-food-2-block2-1">
+                            <a href="/MonAn/Bun-ca">
+                                <div>
+                                    <h3>Bún cá Hà Nội</h3>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="container-food-2-block2-1">
+                            <a href="/MonAn/yen-mach-sua-chua"><img class="image" class="image"
+                                    src="https://cdn-img.thethao247.vn/storage/files/linhseo/2022/01/11/hoa-qua-dam-yen-mach-2-1-1641910509.jpg"
+                                    alt="Recipes" style="height: 130px;"></a>
+                        </div>
+                        <div class="container-food-2-block2-1">
+                            <a href="/MonAn/yen-mach-sua-chua">
+                                <div>
+                                    <h3>Yến mạch sữa chưa healthy </h3>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="container-food-2-block2-1">
+                            <a href="/MonAn/chan-ga-sa-ot"><img class="image"
+                                    src="https://cdn.mediamart.vn/images/news/chia-s-cach-lam-chan-ga-st-thai-chua-cay-ngon-bt-bi_6c5c7afe.jpg"
+                                    alt="Lúa mì nâu (spelt)" style="height: 130px;"></a>
+                        </div>
+                        <div class="container-food-2-block2-1">
+                            <a href="/MonAn/chan-ga-sa-ot">
+                                <div>
+                                    <h3>Chân gà sả ớt</h3>
+                                </div>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <div id="results"></div>
+    <script src="/js/search.js"></script>
+
     <div class="footer">
         <div class="address">
             <h2>Contact</h2>

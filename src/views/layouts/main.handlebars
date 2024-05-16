@@ -2,30 +2,41 @@
 <html lang="en">
 
 <head>
-	<title>14Cooking</title>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- Stylesheets -->
-	<link rel="stylesheet" href="/css/bootstrap.minMeo.css">
+    <title>14Cooking</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/css/bootstrap.minMeo.css">
     <link rel="stylesheet" href="/css/colorMeo.css">
-	<link rel="stylesheet" href="/css/styleMeo.css">
+    <link rel="stylesheet" href="/css/styleMeo.css">
     <link rel="stylesheet" href="/css/6Skillslambep.css">
     <link rel="stylesheet" href="/css/burntchesecakememchay.css">
     <script src="https://kit.fontawesome.com/f6dcf461c1.js" crossorigin="use-credentials"></script>
+    <link rel="stylesheet" href="/css/search.css">
+    <style>
+        #results {
+            display: none;
+        }
+    </style>
     <!--<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>-->
 </head>
+
 <body>
     <div>
-    
-    {{>header}}
-        <div>
-          {{{body}}}
-        </div>
-        
 
-     {{>footer}}
+        {{>header}}
+        <div id="wr">
+            <div>
+                {{{body}}}
+            </div>
+        </div>
+        <div id="results"></div>
+        <script src="/js/search.js"></script>
+
+        {{>footer}}
     </div>
- 
-    
+
+
 </body>
+
 </html>
