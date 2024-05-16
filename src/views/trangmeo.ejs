@@ -228,59 +228,59 @@
 				</a>
 			</div>
 		</section>
-	</div>
-	<div id="results"></div>
-	<script src="/js/search.js"></script>
 
-	<div className="App" style="font-family: sans-serif;
+
+		<div className="App" style="font-family: sans-serif;
     text-align: center;">
-        <h1>Contact Me Here</h1>
-        
-        <div>
-          <form className="form" style="display: flex;
+			<h1>Contact Me Here</h1>
+
+			<div>
+				<form className="form" style="display: flex;
           flex-direction: column;
-          padding-left: 25%;" action ="https://sheetdb.io/api/v1/ihsyigi3s3hjt" method="POST" id="sheetdb-form">
-            <input placeholder="Your Name" name="data[Name]" type="text" style="height: 50px; width: 75%;
-            margin-top: 20px;
-            border-radius: 10px;
-            padding: 5px;"/>
-            <input placeholder="Your Email" name="data[Email]" type="text" style="height: 50px; width: 75%;
+          padding-left: 25%;" action="https://sheetdb.io/api/v1/ihsyigi3s3hjt" method="POST" id="sheetdb-form">
+					<input placeholder="Your Name" name="data[Name]" type="text" style="height: 50px; width: 75%;
             margin-top: 20px;
             border-radius: 10px;
             padding: 5px;" />
-            <input placeholder="Your Message" name="data[Message]" type="text" style="height: 50px; width: 75%;
+					<input placeholder="Your Email" name="data[Email]" type="text" style="height: 50px; width: 75%;
             margin-top: 20px;
             border-radius: 10px;
             padding: 5px;" />
-          </form>
-          <button name="btnSubmit" type="submit" style="height: 50px; width: 30%;
+					<input placeholder="Your Message" name="data[Message]" type="text" style="height: 50px; width: 75%;
+            margin-top: 20px;
+            border-radius: 10px;
+            padding: 5px;" />
+				</form>
+				<button name="btnSubmit" type="submit" style="height: 50px; width: 30%;
             margin-top: 20px;
             border-radius: 10px;
             padding: 5px;">Submit</button>
-          <script>
-            var form = document.getElementById('sheetdb-form');
-            form.addEventListener("submit", e => {
-              e.preventDefault();
-              fetch(form.action, {
-                  method : "POST",
-                  body: new FormData(document.getElementById("sheetdb-form")),
-              }).then(
-                  response => response.json()
-              ).then((html) => {
-                // you can put any JS code here
-              });
-            });
-          </script>
-        </div>
-      </div>
-
+				<script>
+					var form = document.getElementById('sheetdb-form');
+					form.addEventListener("submit", e => {
+						e.preventDefault();
+						fetch(form.action, {
+							method: "POST",
+							body: new FormData(document.getElementById("sheetdb-form")),
+						}).then(
+							response => response.json()
+						).then((html) => {
+							// you can put any JS code here
+						});
+					});
+				</script>
+			</div>
+		</div>
+	</div>
+	<div id="results"></div>
+	<script src="/js/search.js"></script>
 	<div class="footer">
 		<div class="address">
 			<h2>Contact</h2>
 			<p>Trường Đại học Công nghệ Thông tin</p><br>
 			<p>Địa chỉ: Đường Hàn Thuyên, khu phố 6 P, Thủ Đức, Thành phố Hồ Chí Minh</p><br>
 			<p>Số điện thoại: 028 3725 2002</p><br>
-			
+
 		</div>
 		<div class="aboutus">
 
