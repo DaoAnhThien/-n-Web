@@ -367,6 +367,51 @@ const getFavouriteFoodLunch = (ID_USER) => {
         });
     });
 };
+const UpdateProfile = async (userId, name, email, phone, newPassword) => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            let query = 'UPDATE user SET NAME = ?, EMAIL = ?, SDT = ?';
+            let values = [name, email, phone];
+
+            if (newPassword) {
+                const hashedPassword = await bcrypt.hash(newPassword, 10);
+                query += ', PASSWORD = ?';
+                values.push(hashedPassword);
+            }
+
+            query += ' WHERE ID = ?';
+            values.push(userId);
+
+            connection.query(query, values, (err, result) => {
+                if (err) {
+                    return reject(err);
+                }
+                resolve(result);
+            });
+        } catch (error) {
+            reject(error);
+        }
+    });
+};
+const comparePasswords = async (password, hashedPassword) => {
+    return await bcrypt.compare(password, hashedPassword);
+};
+const getUserById = (userId) => {
+    return new Promise((resolve, reject) => {
+        const selectUserByIdQuery = 'SELECT * FROM user WHERE ID = ?';
+        connection.query(selectUserByIdQuery, [userId], (error, results) => {
+            if (error) {
+                reject(error);
+            } else {
+                if (results.length === 0) {
+                    resolve(null); 
+                } else {
+                    resolve(results[0]); 
+                }
+            }
+        });
+    });
+};
 module.exports = {
     createUser,
     findUserByUsernameAndPassword,
@@ -380,5 +425,8 @@ module.exports = {
     FavouriteFoodLunch,
     getFavouriteTrick,
     getFavouriteFoodBreak,
-    getFavouriteFoodLunch
+    getFavouriteFoodLunch,
+    UpdateProfile,
+    comparePasswords,
+    getUserById
 };
