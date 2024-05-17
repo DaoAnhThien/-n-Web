@@ -1,8 +1,8 @@
 <div>
-<header class="style1">
+	<header class="style1">
 		<div class="search">
 			<form action="" class="search-box">
-				<input type="text" placeholder="Tìm công thức ...." name="q">
+				<input type="text" placeholder="Tìm công thức ...." name="q" id="search">
 				<button type="submit"><img src="/image/search.png"></button>
 			</form>
 		</div>
@@ -22,38 +22,28 @@
 						<div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
 					</div>
 					<!-- main menu -->
-                    <nav class="main-menu">
-                        <ul>
-                            <li class="home-drop" onclick="submenu(0)"><a href="javascript:void(0)"
-                                    id="home-click">Trang Chủ </a>
-                            <li class="home-drop" onclick="submenu(1)"><a href="javascript:void(0)"
-                                    class="home-click">Công thức</a>
-                                <ul class="home-page-2">
-                                    <li><a href="">Khai vị
-                                        </a></li>
-                                    <li><a href="/BuaSang">Đồ ăn sáng
-                                        </a></li>
-                                    <li><a href="">Thức uống </a></li>
-                                    <li><a href="/BuaTrua"> Đồ ăn trưa</a></li>
-                                    <li><a href="">Tráng miệng</a></li>
-                                </ul>
-                            </li>
-                            <li class="home-drop" onclick="submenu(2)"><a href="javascript:void(0)"
-                                    class="home-click">Kĩ thuật chế biếns</a>
-                                <ul class="home-page-2">
-                                    <li><a href="kho.html"> Kho</a></li>
-                                    <li><a href="nuong.html"> Nướng</a></li>
-                                    <li><a href="hap.html"> Hấp </a></li>
-                                    <li><a href="xao.html"> Xào </a></li>
-                                    <li><a href="chien.html"> Chiên</a></li>
-                                </ul>
-                            </li>
+					<nav class="main-menu">
+						<ul>
+							<li class="home-drop" onclick="submenu(0)"><a href="javascript:void(0)"
+									id="home-click">Trang Chủ </a>
+							<li class="home-drop" onclick="submenu(1)"><a href="javascript:void(0)"
+									class="home-click">Công thức</a>
+								<ul class="home-page-2">
+									<li><a href="">Khai vị
+										</a></li>
+									<li><a href="/BuaSang">Đồ ăn sáng
+										</a></li>
+									<li><a href="">Thức uống </a></li>
+									<li><a href="/BuaTrua"> Đồ ăn trưa</a></li>
+									<li><a href="">Tráng miệng</a></li>
+								</ul>
+							</li>
 
-                            <li><a href="/MeoVat">Mẹo vặt</a></li>
-                            <li><a href="about_us.html">About Us</a></li>
-                        </ul>
+							<li><a href="/MeoVat">Mẹo vặt</a></li>
+							<li><a href="about_us.html">About Us</a></li>
+						</ul>
 
-                    </nav>
+					</nav>
 				</div>
 				<div class="site-menu-wrapper ml-auto collapse navbar-collapse">
 					<ul class="navbar-nav ml-auto">
@@ -73,47 +63,31 @@
 								<li><a class="dropdown-item" href="trang_mieng.html">Tráng miệng</a></li>
 							</ul>
 						</li>
-						<li class="nav-item dropdown position-relative">
-							<a class="nav-link" href="javascript:void(0)" role="button" data-bs-toggle="dropdown"
-								aria-expanded="false">
-								Kĩ thuật chế biến
-							</a>
-							<ul class="dropdown-menu dropdown-menu-dark">
-								<li><a class="dropdown-item" href="kho.html"> Kho</a></li>
-								<li><a class="dropdown-item" href="nuong.html">Nướng</a></li>
-								<li><a class="dropdown-item" href="hap.html"> Hấp</a>
-								</li>
-								<li><a class="dropdown-item" href="xao.html"> Xào</a>
-								</li>
-								<li><a class="dropdown-item" href="chien.html"> Chiên</a>
-								</li>
-							</ul>
-						</li>
 
 						<li><a href="/MeoVat" title="">Mẹo vặt</a></li>
 						<li><a href="about_us.html" title="">About Us</a></li>
 
 					</ul>
-					{{#if username  }}
-						<!-- Nếu đã đăng nhập, hiển thị username -->
-						<div class="site-menu-wrapper ml-auto collapse navbar-collapse">
-							<ul class="navbar-nav ml-auto">
-								<li class="nav-item dropdown position-relative" style="margin: 0 0;">
-									<a class="nav-link" href="javascript:void(0)" role="button" data-bs-toggle="dropdown"
-										aria-expanded="false">
-										{{ username }}!
-									</a>
-									<ul class="dropdown-menu dropdown-menu-dark">
-										<li><a class="dropdown-item" href="/Profile"> Profile</a></li>
-										<li><a class="dropdown-item" href="/Logout">Logout</a></li>
-									</ul>
-								</li>
-							</ul>
-						</div>
+					{{#if username }}
+					<!-- Nếu đã đăng nhập, hiển thị username -->
+					<div class="site-menu-wrapper ml-auto collapse navbar-collapse">
+						<ul class="navbar-nav ml-auto">
+							<li class="nav-item dropdown position-relative" style="margin: 0 0;">
+								<a class="nav-link" href="javascript:void(0)" role="button" data-bs-toggle="dropdown"
+									aria-expanded="false">
+									{{ username }}!
+								</a>
+								<ul class="dropdown-menu dropdown-menu-dark">
+									<li><a class="dropdown-item" href="/Profile"> Profile</a></li>
+									<li><a class="dropdown-item" href="/Logout">Logout</a></li>
+								</ul>
+							</li>
+						</ul>
+					</div>
 					{{else}}
-						<!-- Nếu chưa đăng nhập, hiển thị nút login -->
-						<div><a class="theme-btn-secondary" href="/Login" title="">Login</a>
-						</div>
+					<!-- Nếu chưa đăng nhập, hiển thị nút login -->
+					<div><a class="theme-btn-secondary" href="/Login" title="">Login</a>
+					</div>
 					{{/if}}
 			</nav>
 		</div>
@@ -121,12 +95,11 @@
     <section class="position-relative top-banner bg-gray">
 		<div class="top-banner-content text-center">
 			<div class="baner-name">
-				<h2 class="fs-50 text-uppercase">Mẹo vặt</h2>
+				<h2 class="fs-50 text-uppercase">{{ currentTitle }}</h2>
 				<nav aria-label="breadcrumb">
 					<ol class="breadcrumb justify-content-center p-0 mb-0">
 						<li class="breadcrumb-item text-gray fs-18 fm-arimo"><a href="/">Trang chủ</a></li>
-						<li class="breadcrumb-item active text-theme fs-18 fm-arimo"><a href="javascript:void(0)">Mẹo
-								vặt</a></li>
+						<li class="breadcrumb-item active text-theme fs-18 fm-arimo"><a href="javascript:void(0)">{{ currentTitle }}</a></li>
 					</ol>
 				</nav>
 			</div>

@@ -13,7 +13,7 @@ const app = express()
 const PORT = process.env.PORT || 8888;
 const HOST_NAME = process.env.HOST_NAME;
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 // Cấu hình express-session
 app.use(session({
     secret: process.env.SESSION_SECRET, // Chuỗi bí mật để ký và mã hóa cookie, có thể thay đổi

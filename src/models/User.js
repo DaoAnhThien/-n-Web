@@ -244,18 +244,18 @@ const findUserByIdInConfirmationCode = (UserID) => {
         });
     });
 }
-const FavouriteTrick = (ID_USER, ID_CTMEO, SLUG, IMAGE) => {
+const FavouriteTrick = (ID_USER, NAME, SLUG, IMAGE) => {
     return new Promise((resolve, reject) => {
         // Kiểm tra trick đã tồn tại trong yêu thích hay chưa
-        const existQuery = "SELECT * FROM yeu_thich_meo WHERE ID_USER = ? AND ID_CTMEO = ? AND SLUG = ? AND IMAGE = ?";
-        connection.query(existQuery, [ID_USER, ID_CTMEO, SLUG, IMAGE], (existErr, existResults) => {
+        const existQuery = "SELECT * FROM yeu_thich_meo WHERE ID_USER = ? AND NAME = ? AND SLUG = ? AND IMAGE = ?";
+        connection.query(existQuery, [ID_USER, NAME, SLUG, IMAGE], (existErr, existResults) => {
             if (existErr) {
                 return reject(existErr); 
             }
             // Nếu trick đã tồn tại, xóa nó ra khỏi yêu thích
             if (existResults.length > 0) {
-                const deleteQuery = "DELETE FROM yeu_thich_meo WHERE ID_USER = ? AND ID_CTMEO = ? AND SLUG = ? AND IMAGE = ?";
-                connection.query(deleteQuery, [ID_USER, ID_CTMEO, SLUG, IMAGE], (deleteErr, deleteResults) => {
+                const deleteQuery = "DELETE FROM yeu_thich_meo WHERE ID_USER = ? AND NAME = ? AND SLUG = ? AND IMAGE = ?";
+                connection.query(deleteQuery, [ID_USER, NAME, SLUG, IMAGE], (deleteErr, deleteResults) => {
                     if (deleteErr) {
                         return reject(deleteErr);
                     }
@@ -263,8 +263,8 @@ const FavouriteTrick = (ID_USER, ID_CTMEO, SLUG, IMAGE) => {
                 });
             } else {
                 // Nếu trick chưa tồn tại, thêm vào yêu thích
-                const insertQuery = "INSERT INTO yeu_thich_meo (ID_USER, ID_CTMEO, SLUG, IMAGE) VALUES (?, ?, ?, ?)";
-                connection.query(insertQuery, [ID_USER, ID_CTMEO, SLUG, IMAGE], (insertErr, insertResults) => {
+                const insertQuery = "INSERT INTO yeu_thich_meo (ID_USER, NAME, SLUG, IMAGE) VALUES (?, ?, ?, ?)";
+                connection.query(insertQuery, [ID_USER, NAME, SLUG, IMAGE], (insertErr, insertResults) => {
                     if (insertErr) {
                         return reject(insertErr);
                     }
@@ -274,18 +274,18 @@ const FavouriteTrick = (ID_USER, ID_CTMEO, SLUG, IMAGE) => {
         });
     });
 };
-const FavouriteFood = (ID_USER, ID_CTMA, SLUG, IMAGE) => {
+const FavouriteFoodBreak = (ID_USER, NAME, SLUG, IMAGE) => {
     return new Promise((resolve, reject) => {
         // Kiểm tra món ăn đã tồn tại trong yêu thích hay chưa
-        const existQuery = "SELECT * FROM yeu_thich_mon_an WHERE ID_USER = ? AND ID_CTMA = ? AND SLUG = ? AND IMAGE = ?";
-        connection.query(existQuery, [ID_USER, ID_CTMA, SLUG, IMAGE], (existErr, existResults) => {
+        const existQuery = "SELECT * FROM yeu_thich_mon_an_buoi_sang WHERE ID_USER = ? AND NAME = ? AND SLUG = ? AND IMAGE = ?";
+        connection.query(existQuery, [ID_USER, NAME, SLUG, IMAGE], (existErr, existResults) => {
             if (existErr) {
                 return reject(existErr); 
             }
             // Nếu món ăn đã tồn tại, xóa nó ra khỏi yêu thích
             if (existResults.length > 0) {
-                const deleteQuery = "DELETE FROM yeu_thich_mon_an WHERE ID_USER = ? AND ID_CTMA = ? AND SLUG = ? AND IMAGE = ?";
-                connection.query(deleteQuery, [ID_USER, ID_CTMA, SLUG, IMAGE], (deleteErr, deleteResults) => {
+                const deleteQuery = "DELETE FROM yeu_thich_mon_an_buoi_sang WHERE ID_USER = ? AND NAME = ? AND SLUG = ? AND IMAGE = ?";
+                connection.query(deleteQuery, [ID_USER, NAME, SLUG, IMAGE], (deleteErr, deleteResults) => {
                     if (deleteErr) {
                         return reject(deleteErr);
                     }
@@ -293,12 +293,146 @@ const FavouriteFood = (ID_USER, ID_CTMA, SLUG, IMAGE) => {
                 });
             } else {
                 // Nếu món ăn chưa tồn tại, thêm vào yêu thích
-                const insertQuery = "INSERT INTO yeu_thich_mon_an (ID_USER, ID_CTMA, SLUG, IMAGE) VALUES (?, ?, ?, ?)";
-                connection.query(insertQuery, [ID_USER, ID_CTMA, SLUG, IMAGE], (insertErr, insertResults) => {
+                const insertQuery = "INSERT INTO yeu_thich_mon_an_buoi_sang (ID_USER, NAME, SLUG, IMAGE) VALUES (?, ?, ?, ?)";
+                connection.query(insertQuery, [ID_USER, NAME, SLUG, IMAGE], (insertErr, insertResults) => {
                     if (insertErr) {
                         return reject(insertErr);
                     }
                     resolve({ result: insertResults });
+                });
+            }
+        });
+    });
+};
+const FavouriteFoodLunch = (ID_USER, NAME, SLUG, IMAGE) => {
+    return new Promise((resolve, reject) => {
+        // Kiểm tra món ăn đã tồn tại trong yêu thích hay chưa
+        const existQuery = "SELECT * FROM yeu_thich_mon_an_buoi_trua WHERE ID_USER = ? AND NAME = ? AND SLUG = ? AND IMAGE = ?";
+        connection.query(existQuery, [ID_USER, NAME, SLUG, IMAGE], (existErr, existResults) => {
+            if (existErr) {
+                return reject(existErr); 
+            }
+            // Nếu món ăn đã tồn tại, xóa nó ra khỏi yêu thích
+            if (existResults.length > 0) {
+                const deleteQuery = "DELETE FROM yeu_thich_mon_an_buoi_trua WHERE ID_USER = ? AND NAME = ? AND SLUG = ? AND IMAGE = ?";
+                connection.query(deleteQuery, [ID_USER, NAME, SLUG, IMAGE], (deleteErr, deleteResults) => {
+                    if (deleteErr) {
+                        return reject(deleteErr);
+                    }
+                    resolve({ result: deleteResults });
+                });
+            } else {
+                // Nếu món ăn chưa tồn tại, thêm vào yêu thích
+                const insertQuery = "INSERT INTO yeu_thich_mon_an_buoi_trua (ID_USER, NAME, SLUG, IMAGE) VALUES (?, ?, ?, ?)";
+                connection.query(insertQuery, [ID_USER, NAME, SLUG, IMAGE], (insertErr, insertResults) => {
+                    if (insertErr) {
+                        return reject(insertErr);
+                    }
+                    resolve({ result: insertResults });
+                });
+            }
+        });
+    });
+};
+const getFavouriteTrick = (ID_USER) => {
+    return new Promise((resolve, reject) => {
+        const selectQuery = "SELECT * FROM yeu_thich_meo WHERE ID_USER = ?";
+        connection.query(selectQuery, [ID_USER], (error, results) => {
+            if (error) {
+                return reject(error);
+            }
+            resolve(results);
+        });
+    });
+};
+const getFavouriteFoodBreak = (ID_USER) => {
+    return new Promise((resolve, reject) => {
+        const selectQuery = "SELECT * FROM yeu_thich_mon_an_buoi_sang WHERE ID_USER = ?";
+        connection.query(selectQuery, [ID_USER], (error, results) => {
+            if (error) {
+                return reject(error);
+            }
+            resolve(results);
+        });
+    });
+};
+const getFavouriteFoodLunch = (ID_USER) => {
+    return new Promise((resolve, reject) => {
+        const selectQuery = "SELECT * FROM yeu_thich_mon_an_buoi_trua WHERE ID_USER = ?";
+        connection.query(selectQuery, [ID_USER], (error, results) => {
+            if (error) {
+                return reject(error);
+            }
+            resolve(results);
+        });
+    });
+};
+const UpdateProfile = async (userId, name, email, phone) => {
+    return new Promise((resolve, reject) => {
+        try {
+            const query = 'UPDATE user SET NAME = ?, EMAIL = ?, SDT = ? WHERE ID = ?';
+            const values = [name, email, phone, userId];
+
+            connection.query(query, values, (err, result) => {
+                if (err) {
+                    return reject(err); 
+                }
+                resolve(result); 
+            });
+        } catch (error) {
+            reject(error); 
+        }
+    });
+};
+
+const comparePasswords = async (password, hashedPassword) => {
+    return await bcrypt.compare(password, hashedPassword);
+};
+const updatePassword = async (userId, newPassword) => {
+    return new Promise((resolve, reject) => {
+        bcrypt.hash(newPassword, salt, (err, hashedPassword) => {
+            if (err) {
+                reject(err);
+            } else {
+                const query = 'UPDATE user SET PASSWORD = ? WHERE ID = ?';
+                connection.query(query, [hashedPassword, userId], (error, result) => {
+                    if (error) {
+                        reject(error);
+                    }
+                    resolve(result);
+                });
+            }
+        });
+    });
+};
+const getUserById = (userId) => {
+    return new Promise((resolve, reject) => {
+        const selectUserByIdQuery = 'SELECT * FROM user WHERE ID = ?';
+        connection.query(selectUserByIdQuery, [userId], (error, results) => {
+            if (error) {
+                reject(error);
+            } else {
+                if (results.length === 0) {
+                    resolve(null); 
+                } else {
+                    resolve(results[0]); 
+                }
+            }
+        });
+    });
+};
+const UpdatePassword = async (userId, newPassword) => {
+    return new Promise((resolve, reject) => {
+        bcrypt.hash(newPassword, salt, (err, hashedPassword) => {
+            if (err) {
+                reject(err);
+            } else {
+                const query = 'UPDATE user SET PASSWORD = ? WHERE ID = ?';
+                connection.query(query, [hashedPassword, userId], (error, result) => {
+                    if (error) {
+                        reject(error);
+                    }
+                    resolve(result);
                 });
             }
         });
@@ -313,5 +447,13 @@ module.exports = {
     findUserByEmail,saveConfirmationCode,sendConfirmationEmail,findUserByIdInConfirmationCode,
     updateUserPassword,
     FavouriteTrick,
-    FavouriteFood
+    FavouriteFoodBreak,
+    FavouriteFoodLunch,
+    getFavouriteTrick,
+    getFavouriteFoodBreak,
+    getFavouriteFoodLunch,
+    UpdateProfile,
+    comparePasswords,
+    getUserById,
+    UpdatePassword
 };

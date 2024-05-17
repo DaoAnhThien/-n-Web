@@ -35,165 +35,226 @@ const getHomepage = async (req, res) => {
     res.render('Homepage.ejs', { loggedIn: false, username: null });
   }
 }
-
-
-
-const getLogin = (req,res) => {
+const getLogin = (req, res) => {
   res.render('Login.ejs');
 }
-const getRegister = (req,res) => {
+const getRegister = (req, res) => {
   res.render('SignUp.ejs');
 }
-const getForgotPassword = (req,res) => {
+const getForgotPassword = (req, res) => {
   res.render('Forgotpassword.ejs')
 }
-const getMeoVat = (req,res,next) => {
+const getMeoVat = (req, res, next) => {
+  const currentTitle = 'Mẹo Vặt';
   const loggedIn = req.session && (req.session.user || req.session.passport);
+  let page = parseInt(req.params.page);
+  let limit = 9;
+  let offset = (!page || page < 1) ? 0 : (page - 1) * limit;
   let user = [];
   connection.connect((err) => {
-      if (err) {
-        console.error('Error connecting to MySQL database: ' + err.stack);
-        return;
-      }
-      console.log('Connected to MySQL database!');
-      //Thực hiện truy vấn sau khi kết nối đã thành công
-      connection.query(
-        'SELECT * From meo',
-        function (err, result, fields) {
-          user = result;
-          if (err) {
-            console.error('Error executing query: ' + err.stack);
-            return;
+    if (err) {
+      console.error('Error connecting to MySQL database: ' + err.stack);
+      return;
+    }
+    console.log('Connected to MySQL database!');
+    //Thực hiện truy vấn sau khi kết nối đã thành công
+    connection.query(
+      `SELECT * From meo LIMIT ${limit} OFFSET ${offset}`,
+      function (err, result, fields) {
+        user = result;
+        if (err) {
+          console.error('Error executing query: ' + err.stack);
+          return;
+        }
+        console.log(">>>result= ", user);
+        //res.render('meovat.handlebars',{user})
+        if (loggedIn) {
+          const userId = req.session.user ? req.session.user.userId : req.session.passport.user.userId;
+          try {
+            // Truy vấn để lấy tên người dùng từ cơ sở dữ liệu
+            connection.query('SELECT * FROM user WHERE ID = ?', [userId], (err, rows) => {
+              if (err) {
+                console.error('Lỗi khi thực hiện truy vấn:', error);
+                res.status(500).send('Lỗi Server Nội bộ');
+                return;
+              }
+              
+              let username = null;
+              if (rows.length > 0 && rows[0].NAME) {
+                username = rows[0].NAME;
+              } else if (req.session.user) {
+                username = req.session.user.username;
+              } else {
+                username = req.session.passport.user.username;
+              }
+              
+              // Sau khi nhận được kết quả từ truy vấn, render trang
+              res.render('meovat.handlebars',{user,loggedIn: true,username: username , currentTitle});
+            });
+          } catch (error) {
+            console.error('Lỗi khi thực hiện truy vấn:', error);
+            res.status(500).send('Lỗi Server Nội bộ');
           }
-          console.log(">>>result= ", user);
-          //res.render('meovat.handlebars',{user})
-          if (loggedIn) {
-            const userId = req.session.user ? req.session.user.userId : req.session.passport.user.userId;
-            try {
-              // Truy vấn để lấy tên người dùng từ cơ sở dữ liệu
-              connection.query('SELECT * FROM user WHERE ID = ?', [userId], (err, rows) => {
-                if (err) {
-                  console.error('Lỗi khi thực hiện truy vấn:', error);
-                  res.status(500).send('Lỗi Server Nội bộ');
-                  return;
-                }
-                
-                let username = null;
-                if (rows.length > 0 && rows[0].NAME) {
-                  username = rows[0].NAME;
-                } else if (req.session.user) {
-                  username = req.session.user.username;
-                } else {
-                  username = req.session.passport.user.username;
-                }
-                
-                // Sau khi nhận được kết quả từ truy vấn, render trang
-                res.render('meovat.handlebars',{user,loggedIn: true,username: username });
-              });
-            } catch (error) {
-              console.error('Lỗi khi thực hiện truy vấn:', error);
-              res.status(500).send('Lỗi Server Nội bộ');
-            }
         } else {
-            res.render('meovat.handlebars',{user,loggedIn: false,username: null });
+          res.render('meovat.handlebars', { user, loggedIn: false, username: null , currentTitle});
         }
-        }
-      );
-    })
-   
+      }
+    );
+  })
+
 }
 const getMeo = (req,res,next) => {
   const loggedIn = req.session && (req.session.user || req.session.passport);
   const slug=req.params.SLUG;
   let user = [];
   let img = [];
-  connection.connect((err)=>{
-    if(err){
-      console.error('Error connecting to MySQL database' +err.stack)
+  connection.connect((err) => {
+    if (err) {
+      console.error('Error connecting to MySQL database' + err.stack)
       return;
     }
     console.log('Connect to database succesfully!');
     connection.query(
-    'SELECT * from chi_tiet_meo Where SLUG=?', [slug],
-    function (err,result,fields){
-      let id=result.ID;
-      'SELECT * from image_ctmeo where ID_CTMEO=?',[id],
-      function (err,result,fields){
-            img=result;
-      }
-      user=result;
-      if (err) {
-        console.error('Error executing query: ' + err.stack);
-        return;
-      }
-      console.log(">>>result= ", user)
-      if (loggedIn) {
-        const userId = req.session.user ? req.session.user.userId : req.session.passport.user.userId;
-        try {
-          // Truy vấn để lấy tên người dùng từ cơ sở dữ liệu
-          connection.query('SELECT * FROM user WHERE ID = ?', [userId], (err, rows) => {
-            if (err) {
-              console.error('Lỗi khi thực hiện truy vấn:', error);
-              res.status(500).send('Lỗi Server Nội bộ');
-              return;
-            }
-            
-            let username = null;
-            if (rows.length > 0 && rows[0].NAME) {
-              username = rows[0].NAME;
-            } else if (req.session.user) {
-              username = req.session.user.username;
-            } else {
-              username = req.session.passport.user.username;
-            }
-            
-            // Sau khi nhận được kết quả từ truy vấn, render trang
-            res.render('chitietmeo.handlebars',{user,loggedIn: true,username: username });
-          });
-        } catch (error) {
-          console.error('Lỗi khi thực hiện truy vấn:', error);
-          res.status(500).send('Lỗi Server Nội bộ');
+      'SELECT * from chi_tiet_meo Where SLUG=?', [slug],
+      function (err, result, fields) {
+        let id = result.ID;
+        'SELECT * from image_ctmeo where ID_CTMEO=?', [id],
+          function (err, result, fields) {
+            img = result;
+          }
+        user = result;
+        if (err) {
+          console.error('Error executing query: ' + err.stack);
+          return;
         }
-    } else {
-        res.render('chitietmeo.handlebars',{user,loggedIn: false,username: null });
-    }
-    }
+        console.log(">>>result= ", user)
+        if (loggedIn) {
+          const userId = req.session.user ? req.session.user.userId : req.session.passport.user.userId;
+          try {
+            // Truy vấn để lấy tên người dùng từ cơ sở dữ liệu
+            connection.query('SELECT * FROM user WHERE ID = ?', [userId], (err, rows) => {
+              if (err) {
+                console.error('Lỗi khi thực hiện truy vấn:', error);
+                res.status(500).send('Lỗi Server Nội bộ');
+                return;
+              }
+              
+              let username = null;
+              if (rows.length > 0 && rows[0].NAME) {
+                username = rows[0].NAME;
+              } else if (req.session.user) {
+                username = req.session.user.username;
+              } else {
+                username = req.session.passport.user.username;
+              }
+              
+              // Sau khi nhận được kết quả từ truy vấn, render trang
+              res.render('chitietmeo.handlebars',{user,loggedIn: true,username: username });
+            });
+          } catch (error) {
+            console.error('Lỗi khi thực hiện truy vấn:', error);
+            res.status(500).send('Lỗi Server Nội bộ');
+          }
+        } else {
+          res.render('chitietmeo.handlebars', { user, loggedIn: false, username: null });
+        }
+      }
     );
   })
 }
-const getProfile = (req,res) => {
+const getProfile = (req, res) => {
+  const currentTitle = 'Trang Cá Nhân';
   const loggedIn = req.session && (req.session.user || req.session.passport);
   if (loggedIn) {
     const userId = req.session.user ? req.session.user.userId : req.session.passport.user.userId;
-    try {
-      // Truy vấn để lấy tên người dùng từ cơ sở dữ liệu
-      connection.query('SELECT * FROM user WHERE ID = ?', [userId], (err, rows) => {
+    const username = req.session.user ? req.session.user.username : req.session.passport.user.username;
+    connection.connect((err) => {
+      if (err) {
+        console.error('Error connecting to database: ' + err.stack);
+        return;
+      }
+      console.log('Connect to database successfully!');
+
+      let userData = {};
+      let userFavouriteMeo = [];
+      let userFavouriteMonAnBuoiSang = [];
+      let userFavouriteMonAnBuoiTrua = [];
+      let loveCount = 0;
+
+      connection.query('SELECT * FROM user WHERE USERNAME = ?', [username], (err, result) => {
         if (err) {
-          console.error('Lỗi khi thực hiện truy vấn:', error);
-          res.status(500).send('Lỗi Server Nội bộ');
+          console.error('Error executing query: ' + err.stack);
           return;
         }
-        
-        let username = null;
-        if (rows.length > 0 && rows[0].NAME) {
-          username = rows[0].NAME;
-        } else if (req.session.user) {
-          username = req.session.user.username;
-        } else {
-          username = req.session.passport.user.username;
-        }
-        
-        // Sau khi nhận được kết quả từ truy vấn, render trang
-        res.render('Userpage.ejs',{loggedIn: true,username: username });
+
+        userData = result;
+        connection.query('SELECT * FROM yeu_thich_meo WHERE ID_USER = ?', [userId], (err, result) => {
+          if (err) {
+            console.error('Error executing query: ' + err.stack);
+            return;
+          }
+          userFavouriteMeo = result;
+          loveCount += result.length;
+
+          connection.query('SELECT * FROM yeu_thich_mon_an_buoi_sang WHERE ID_USER = ?', [userId], (err, result) => {
+            if (err) {
+              console.error('Error executing query: ' + err.stack);
+              return;
+            }
+            userFavouriteMonAnBuoiSang = result;
+            loveCount += result.length;
+
+            connection.query('SELECT * FROM yeu_thich_mon_an_buoi_trua WHERE ID_USER = ?', [userId], (err, result) => {
+              if (err) {
+                console.error('Error executing query: ' + err.stack);
+                return;
+              }
+              userFavouriteMonAnBuoiTrua = result;
+              loveCount += result.length;
+              if (loggedIn) {
+                res.render('Userpage.handlebars', {
+                  userData,
+                  userFavouriteMeo,
+                  userFavouriteMonAnBuoiSang,
+                  userFavouriteMonAnBuoiTrua,
+                  loggedIn: true,
+                  username,
+                  currentTitle,
+                  love: loveCount
+                });
+              } else {
+                res.render('Userpage.handlebars', {
+                  userData,
+                  userFavouriteMeo,
+                  userFavouriteMonAnBuoiSang,
+                  userFavouriteMonAnBuoiTrua,
+                  loggedIn: false,
+                  username: null,
+                  currentTitle,
+                  love: 0
+                });
+              }
+            });
+          });
+        });
       });
-    } catch (error) {
-      console.error('Lỗi khi thực hiện truy vấn:', error);
-      res.status(500).send('Lỗi Server Nội bộ');
-    }
-} else {
-    res.render('Userpage.ejs', { loggedIn: false,username: null });
-}
-}
+    });
+  } else {
+    res.render('Userpage.handlebars', {
+      userData: {},
+      userFavouriteMeo: [],
+      userFavouriteMonAnBuoiSang: [],
+      userFavouriteMonAnBuoiTrua: [],
+      loggedIn: false,
+      username: null,
+      currentTitle,
+      love: 0
+    });
+  }
+};
+
+
+
 const get4meobienthitdaithanhthitmem = (req,res) => {
   const loggedIn = req.session && (req.session.user || req.session.passport);
   if (loggedIn) {
@@ -393,222 +454,230 @@ const getNauanvoingucoc = (req,res) => {
 }
 }
 const getBuaSang = (req,res) => {
+  const currentTitle = 'Đồ Ăn Sáng';
   const loggedIn = req.session && (req.session.user || req.session.passport);
+  let page = parseInt(req.params.page);
   let user = [];
   let img = [];
-  connection.connect((err)=>{
-    if(err){
-      console.error('Error connecting to MySQL database' +err.stack)
+  connection.connect((err) => {
+    if (err) {
+      console.error('Error connecting to MySQL database' + err.stack)
+      return;
+    }
+    console.log('Connect to database succesfully!');
+    const limit = 6;
+    //const offset=1;
+    const offset = (!page || page <= 1) ? 0 : (page - 1) * 6;
+    connection.query(
+      `SELECT * from bua_sang LIMIT ${limit} OFFSET ${offset}`,
+      function (err, result, fields) {
+        user = result;
+        if (err) {
+          console.error('Error executing query: ' + err.stack);
+          return;
+        }
+        console.log(">>>result= ", page);
+        if (loggedIn) {
+          const userId = req.session.user ? req.session.user.userId : req.session.passport.user.userId;
+          try {
+            // Truy vấn để lấy tên người dùng từ cơ sở dữ liệu
+            connection.query('SELECT * FROM user WHERE ID = ?', [userId], (err, rows) => {
+              if (err) {
+                console.error('Lỗi khi thực hiện truy vấn:', error);
+                res.status(500).send('Lỗi Server Nội bộ');
+                return;
+              }
+              
+              let username = null;
+              if (rows.length > 0 && rows[0].NAME) {
+                username = rows[0].NAME;
+              } else if (req.session.user) {
+                username = req.session.user.username;
+              } else {
+                username = req.session.passport.user.username;
+              }
+              
+              // Sau khi nhận được kết quả từ truy vấn, render trang
+              res.render('buasang.handlebars',{user, loggedIn: true,username: username ,currentTitle});
+            });
+          } catch (error) {
+            console.error('Lỗi khi thực hiện truy vấn:', error);
+            res.status(500).send('Lỗi Server Nội bộ');
+          }
+        } else {
+          res.render('buasang.handlebars', { user, loggedIn: false, username: null ,currentTitle});
+        }
+      }
+    );
+  })
+}
+const getMonansang = (req, res, next) => {
+  const loggedIn = req.session && (req.session.user || req.session.passport);
+  const slug = req.params.SLUG;
+  let user = [];
+  let img = [];
+  connection.connect((err) => {
+    if (err) {
+      console.error('Error connecting to MySQL database' + err.stack)
       return;
     }
     console.log('Connect to database succesfully!');
     connection.query(
-    'SELECT * from bua_sang',
-    function (err,result,fields){
-      user=result;
-      if (err) {
-        console.error('Error executing query: ' + err.stack);
-        return;
-      }
-      console.log(">>>result= ", img);
-      if (loggedIn) {
-        const userId = req.session.user ? req.session.user.userId : req.session.passport.user.userId;
-        try {
-          // Truy vấn để lấy tên người dùng từ cơ sở dữ liệu
-          connection.query('SELECT * FROM user WHERE ID = ?', [userId], (err, rows) => {
-            if (err) {
-              console.error('Lỗi khi thực hiện truy vấn:', error);
-              res.status(500).send('Lỗi Server Nội bộ');
-              return;
-            }
-            
-            let username = null;
-            if (rows.length > 0 && rows[0].NAME) {
-              username = rows[0].NAME;
-            } else if (req.session.user) {
-              username = req.session.user.username;
-            } else {
-              username = req.session.passport.user.username;
-            }
-            
-            // Sau khi nhận được kết quả từ truy vấn, render trang
-            res.render('buasang.handlebars',{user,loggedIn: true,username: username });
-          });
-        } catch (error) {
-          console.error('Lỗi khi thực hiện truy vấn:', error);
-          res.status(500).send('Lỗi Server Nội bộ');
+      'SELECT * from bua_sang Where SLUG=?', [slug],
+      function (err, result, fields) {
+        let id = result.ID;
+        'SELECT * from image_ctmeo where ID_CTMEO=?', [id],
+          function (err, result, fields) {
+            img = result;
+          }
+        user = result;
+        if (err) {
+          console.error('Error executing query: ' + err.stack);
+          return;
         }
-    } else {
-        res.render('buasang.handlebars',{user,loggedIn: false,username: null });
-    }
-    }
+        console.log(">>>result= ", user)
+        if (loggedIn) {
+          const userId = req.session.user ? req.session.user.userId : req.session.passport.user.userId;
+          try {
+            // Truy vấn để lấy tên người dùng từ cơ sở dữ liệu
+            connection.query('SELECT * FROM user WHERE ID = ?', [userId], (err, rows) => {
+              if (err) {
+                console.error('Lỗi khi thực hiện truy vấn:', error);
+                res.status(500).send('Lỗi Server Nội bộ');
+                return;
+              }
+              
+              let username = null;
+              if (rows.length > 0 && rows[0].NAME) {
+                username = rows[0].NAME;
+              } else if (req.session.user) {
+                username = req.session.user.username;
+              } else {
+                username = req.session.passport.user.username;
+              }
+              
+              // Sau khi nhận được kết quả từ truy vấn, render trang
+              res.render('chitietmonan.handlebars',{loggedIn: true,username: username });
+            });
+          } catch (error) {
+            console.error('Lỗi khi thực hiện truy vấn:', error);
+            res.status(500).send('Lỗi Server Nội bộ');
+          }
+        } else {
+          res.render('chitietmonan.handlebars', { user, loggedIn: false, username: null });
+        }
+      }
     );
   })
 }
-const getMonansang = (req,res,next) => {
+const getBuaTrua = (req, res) => {
+  const currentTitle = 'Đồ Ăn Trưa';
   const loggedIn = req.session && (req.session.user || req.session.passport);
-  const slug=req.params.SLUG;
+  let page = parseInt(req.params.page);
   let user = [];
   let img = [];
-  connection.connect((err)=>{
-    if(err){
-      console.error('Error connecting to MySQL database' +err.stack)
+  connection.connect((err) => {
+    if (err) {
+      console.error('Error connecting to MySQL database' + err.stack)
       return;
     }
     console.log('Connect to database succesfully!');
+    let limit = 6;
+    let offset = (!page || page < 1) ? 0 : (page - 1) * 6
     connection.query(
-    'SELECT * from bua_sang Where SLUG=?', [slug],
-    function (err,result,fields){
-      let id=result.ID;
-      'SELECT * from image_ctmeo where ID_CTMEO=?',[id],
-      function (err,result,fields){
-            img=result;
-      }
-      user=result;
-      if (err) {
-        console.error('Error executing query: ' + err.stack);
-        return;
-      }
-      console.log(">>>result= ", user)
-      if (loggedIn) {
-        const userId = req.session.user ? req.session.user.userId : req.session.passport.user.userId;
-        try {
-          // Truy vấn để lấy tên người dùng từ cơ sở dữ liệu
-          connection.query('SELECT * FROM user WHERE ID = ?', [userId], (err, rows) => {
-            if (err) {
-              console.error('Lỗi khi thực hiện truy vấn:', error);
-              res.status(500).send('Lỗi Server Nội bộ');
-              return;
-            }
-            
-            let username = null;
-            if (rows.length > 0 && rows[0].NAME) {
-              username = rows[0].NAME;
-            } else if (req.session.user) {
-              username = req.session.user.username;
-            } else {
-              username = req.session.passport.user.username;
-            }
-            
-            // Sau khi nhận được kết quả từ truy vấn, render trang
-            res.render('chitietmonan.handlebars',{user,loggedIn: true,username: username });
-          });
-        } catch (error) {
-          console.error('Lỗi khi thực hiện truy vấn:', error);
-          res.status(500).send('Lỗi Server Nội bộ');
+      `SELECT * from bua_trua LIMIT ${limit} OFFSET ${offset}`,
+      function (err, result, fields) {
+        user = result;
+        if (err) {
+          console.error('Error executing query: ' + err.stack);
+          return;
         }
-    } else {
-        res.render('chitietmonan.handlebars',{user,loggedIn: false,username: null });
-    }
-    }
+        console.log(">>>result= ", img);
+        if (loggedIn) {
+          const userId = req.session.user ? req.session.user.userId : req.session.passport.user.userId;
+          try {
+            // Truy vấn để lấy tên người dùng từ cơ sở dữ liệu
+            connection.query('SELECT * FROM user WHERE ID = ?', [userId], (err, rows) => {
+              if (err) {
+                console.error('Lỗi khi thực hiện truy vấn:', error);
+                res.status(500).send('Lỗi Server Nội bộ');
+                return;
+              }
+              
+              let username = null;
+              if (rows.length > 0 && rows[0].NAME) {
+                username = rows[0].NAME;
+              } else if (req.session.user) {
+                username = req.session.user.username;
+              } else {
+                username = req.session.passport.user.username;
+              }
+              
+              // Sau khi nhận được kết quả từ truy vấn, render trang
+              res.render('buatrua.handlebars',{user, loggedIn: true,username: username ,currentTitle});
+            });
+          } catch (error) {
+            console.error('Lỗi khi thực hiện truy vấn:', error);
+            res.status(500).send('Lỗi Server Nội bộ');
+          }
+        } else {
+          res.render('buatrua.handlebars', { user, loggedIn: false, username: null ,currentTitle});
+        }
+      }
     );
   })
 }
-const getBuaTrua = (req,res) => {
-  const loggedIn = req.session && (req.session.user || req.session.passport);
 
-  let user = [];
-  let img = [];
-  connection.connect((err)=>{
-    if(err){
-      console.error('Error connecting to MySQL database' +err.stack)
-      return;
-    }
-    console.log('Connect to database succesfully!');
-    connection.query(
-    'SELECT * from bua_trua',
-    function (err,result,fields){
-      user=result;
-      if (err) {
-        console.error('Error executing query: ' + err.stack);
-        return;
-      }
-      console.log(">>>result= ", img);
-      const loggedIn = req.session && (req.session.user || req.session.passport);
-      if (loggedIn) {
-        const userId = req.session.user ? req.session.user.userId : req.session.passport.user.userId;
-        try {
-          // Truy vấn để lấy tên người dùng từ cơ sở dữ liệu
-          connection.query('SELECT * FROM user WHERE ID = ?', [userId], (err, rows) => {
-            if (err) {
-              console.error('Lỗi khi thực hiện truy vấn:', error);
-              res.status(500).send('Lỗi Server Nội bộ');
-              return;
-            }
-            
-            let username = null;
-            if (rows.length > 0 && rows[0].NAME) {
-              username = rows[0].NAME;
-            } else if (req.session.user) {
-              username = req.session.user.username;
-            } else {
-              username = req.session.passport.user.username;
-            }
-            
-            // Sau khi nhận được kết quả từ truy vấn, render trang
-            res.render('buatrua.handlebars',{user,loggedIn: true,username: username });
-          });
-        } catch (error) {
-          console.error('Lỗi khi thực hiện truy vấn:', error);
-          res.status(500).send('Lỗi Server Nội bộ');
-        }
-    } else {
-        res.render('buatrua.handlebars', {user, loggedIn: false,username: null });
-    }
-    }
-    );
-  })
-}
-const getMonantrua = (req,res) =>{
+const getMonantrua = (req, res) => {
+  const currentTitle = 'Đồ Ăn Trưa';
   const loggedIn = req.session && (req.session.user || req.session.passport);
-  const slug=req.params.SLUG;
+  const slug = req.params.SLUG;
   let user = [];
-  connection.connect((err)=>{
-    if(err){
-      console.error('Error connecting to MySQL database' +err.stack)
+  connection.connect((err) => {
+    if (err) {
+      console.error('Error connecting to MySQL database' + err.stack)
       return;
     }
     console.log('Connect to database succesfully!');
     connection.query(
-    'SELECT * from bua_trua Where SLUG=?', [slug],
-    function (err,result,fields){
-      user = result;
-      console.log(">>>result= ", user);
-      if (loggedIn) {
-        const username = req.session.user.username
-        const userId = req.session.user ? req.session.user.userId : req.session.passport.user.userId;
-        try {
-          // Truy vấn để lấy tên người dùng từ cơ sở dữ liệu
-          connection.query('SELECT * FROM user WHERE ID = ?', [userId], (err, rows) => {
-            if (err) {
-              console.error('Lỗi khi thực hiện truy vấn:', error);
-              res.status(500).send('Lỗi Server Nội bộ');
-              return;
-            }
-            
-            let username = null;
-            if (rows.length > 0 && rows[0].NAME) {
-              username = rows[0].NAME;
-            } else if (req.session.user) {
-              username = req.session.user.username;
-            } else {
-              username = req.session.passport.user.username;
-            }
-            
-            // Sau khi nhận được kết quả từ truy vấn, render trang
-            res.render('chitietmonan.handlebars',{user,loggedIn: true,username: username });
-          });
-        } catch (error) {
-          console.error('Lỗi khi thực hiện truy vấn:', error);
-          res.status(500).send('Lỗi Server Nội bộ');
+      'SELECT * from bua_trua Where SLUG=?', [slug],
+      function (err, result, fields) {
+        user = result;
+        console.log(">>>result= ", user);
+        if (loggedIn) {
+          const userId = req.session.user ? req.session.user.userId : req.session.passport.user.userId;
+          try {
+            // Truy vấn để lấy tên người dùng từ cơ sở dữ liệu
+            connection.query('SELECT * FROM user WHERE ID = ?', [userId], (err, rows) => {
+              if (err) {
+                console.error('Lỗi khi thực hiện truy vấn:', error);
+                res.status(500).send('Lỗi Server Nội bộ');
+                return;
+              }
+              
+              let username = null;
+              if (rows.length > 0 && rows[0].NAME) {
+                username = rows[0].NAME;
+              } else if (req.session.user) {
+                username = req.session.user.username;
+              } else {
+                username = req.session.passport.user.username;
+              }
+              
+              // Sau khi nhận được kết quả từ truy vấn, render trang
+              res.render('chitietmonan.handlebars',{loggedIn: true,username: username, currentTitle });
+            });
+          } catch (error) {
+            console.error('Lỗi khi thực hiện truy vấn:', error);
+            res.status(500).send('Lỗi Server Nội bộ');
+          }
+        } else {
+          res.render('chitietmonan.handlebars', { user, loggedIn: false, username: null , currentTitle});
         }
-    } else {
-        res.render('chitietmonan.handlebars', {user, loggedIn: false,username: null });
-    }
-    }
+      }
     );
   })
-     
+
 }
 
 const getbanhbao = (req,res) => {
@@ -834,24 +903,17 @@ const getSearch = (request, response) => {
 
   const query = request.query.q;
 
-  var sql = '';
-
-  if (query != '') {
-      sql = `SELECT * FROM meo WHERE NAME LIKE '%${query}%'`;
-  }
-  else {
-      sql = `SELECT * FROM meo ORDER BY ID`;
-  }
-
-  connection.query(sql, (error, results) => {
-      if (error) throw error;
-      response.send(results);
+  connection.query(`SELECT NAME, NOI_DUNG, LINK, IMAGE FROM meo WHERE meo.NAME LIKE '%${query}%'
+  UNION ALL
+  SELECT NAME, NOI_DUNG, LINK, IMAGE FROM mon_an WHERE mon_an.NAME LIKE '%${query}%';`, (error, results) => {
+    if (error) throw error;
+    response.send(results);
   });
+}
 
-};
 module.exports = {
-    getHomepage,getLogin,getMeoVat,getMeo,getMonansang,getMonantrua,
-    get4meobienthitdaithanhthitmem,get6luuychonguoimoibatdau,get6Skillslambep,get10bikipchonthucphamtuoi,getCachlamsangamdunnuocdien,getNauanvoingucoc,
-    getBuaSang,getBuaTrua,getbanhbao,getbanhtrungthu,getbunca,getburntcheesecakememchay,getchangasaot,getyenmachsuachua,getRegister,getProfile,
-     getLogout, getForgotPassword, getSearch
+  getHomepage, getLogin, getMeoVat, getMeo, getMonansang, getMonantrua,
+  get4meobienthitdaithanhthitmem, get6luuychonguoimoibatdau, get6Skillslambep, get10bikipchonthucphamtuoi, getCachlamsangamdunnuocdien, getNauanvoingucoc,
+  getBuaSang, getBuaTrua, getbanhbao, getbanhtrungthu, getbunca, getburntcheesecakememchay, getchangasaot, getyenmachsuachua, getRegister, getProfile,
+  getLogout, getForgotPassword, getSearch
 }

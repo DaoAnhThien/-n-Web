@@ -6,11 +6,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Stylesheets -->
+
     <link rel="stylesheet" href="/css/bootstrap.min.css">
     <link rel="stylesheet" href="/css/color.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     <link rel="stylesheet" href="/css/Homepage.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="/css/search.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/image/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/image/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/image/favicon-16x16.png">
+    <link rel="manifest" href="/image/site.webmanifest">
     <style>
         #results {
             display: none;
@@ -52,16 +58,7 @@
                                     <li><a href="">Tráng miệng</a></li>
                                 </ul>
                             </li>
-                            <li class="home-drop" onclick="submenu(2)"><a href="javascript:void(0)"
-                                    class="home-click">Kĩ thuật chế biếns</a>
-                                <ul class="home-page-2">
-                                    <li><a href="kho.html"> Kho</a></li>
-                                    <li><a href="nuong.html"> Nướng</a></li>
-                                    <li><a href="hap.html"> Hấp </a></li>
-                                    <li><a href="xao.html"> Xào </a></li>
-                                    <li><a href="chien.html"> Chiên</a></li>
-                                </ul>
-                            </li>
+
 
                             <li><a href="/MeoVat">Mẹo vặt</a></li>
                             <li><a href="about_us.html">About Us</a></li>
@@ -85,22 +82,6 @@
                                     </a></li>
                                 <li><a class="dropdown-item" href="/BuaTrua">Đồ ăn trưa</a></li>
                                 <li><a class="dropdown-item" href="trang_mieng.html">Tráng miệng</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown position-relative">
-                            <a class="nav-link" href="javascript:void(0)" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Kĩ thuật chế biến
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-dark">
-                                <li><a class="dropdown-item" href="kho.html"> Kho</a></li>
-                                <li><a class="dropdown-item" href="nuong.html">Nướng</a></li>
-                                <li><a class="dropdown-item" href="hap.html"> Hấp</a>
-                                </li>
-                                <li><a class="dropdown-item" href="xao.html"> Xào</a>
-                                </li>
-                                <li><a class="dropdown-item" href="chien.html"> Chiên</a>
-                                </li>
                             </ul>
                         </li>
 
@@ -128,11 +109,11 @@
                                         </li>
                                     </ul>
                                 </div>
-                            <% } else { %>
-                                <!-- Nếu chưa đăng nhập, hiển thị nút login -->
-                                <div><a class="theme-btn-secondary" href="/Login" title="">Login</a>
-                                </div>
-                            <% } %>
+                                <% } else { %>
+                                    <!-- Nếu chưa đăng nhập, hiển thị nút login -->
+                                    <div><a class="theme-btn-secondary" href="/Login" title="">Login</a>
+                                    </div>
+                                    <% } %>
                         </div>
 
                     </div>
@@ -149,275 +130,273 @@
     <div class="dropdown0" id="myLinks">
         <div class="dropdown">
             <button class="dropbtn3">
-              <a href="/"> </a>Trang chủ</button>
+                <a href="/"> </a>Trang chủ</button>
         </div>
         <div class="dropdown">
-          <button class="dropbtn">Công thức</button>
-          <div class="dropdown-content">
-          <a href="/MonAn/Bua-Sang">Đồ ăn sáng</a>
-          <a href="/MonAn/Bua-Trua">Đồ ăn trưa</a>
-          <a href="#">Tráng miệng</a>
-          </div>
+            <button class="dropbtn">Công thức</button>
+            <div class="dropdown-content">
+                <a href="/BuaSang">Đồ ăn sáng</a>
+                <a href="/BuaTrua">Đồ ăn trưa</a>
+                <a href="#">Tráng miệng</a>
+            </div>
         </div>
+
         <div class="dropdown">
-          <button class="dropbtn1">Kỹ thuật chế biến</button>
-          <div class="dropdown-content">
-          <a href="kho.html">Kho</a>
-          <a href="nuong.html">Nướng</a>
-          <a href="xao.html">Xào</a>
-          </div>
-        </div>
-        <div class="dropdown">
-          <button class="dropbtn2"> <a  href="/MeoVat"> </a>Mẹo vặt</button>
+            <button class="dropbtn2"> <a href="/MeoVat"> </a>Mẹo vặt</button>
         </div>
         <div class="dropdown">
             <button class="dropbtn3">
-              <a href="/Login"> </a>Login</button>
+                <a href="/Login"> </a>Login</button>
         </div>
         <div class="dropdown">
-            <input type="text" placeholder="Search.." name="search">
+            <input type="text" placeholder="Search.." name="search" id="search">
             <button type="submit" class="searchbtn" style="width: 200px; height: 50px;">Search</button>
         </div>
         <div class="dropdown">
-            <button class="dropbtn3" onclick="myFunction1()" >X</button>
+            <button class="dropbtn3" onclick="myFunction1()">X</button>
         </div>
     </div>
 
 
     <script>
         function myFunction() {
-          var x = document.getElementById("myLinks");
-          if (x.style.display = "none") {
-            x.style.display = "block";
-          } 
-          else {
-            x.style.display = "none";
-          }
-        }  
+            var x = document.getElementById("myLinks");
+            if (x.style.display = "none") {
+                x.style.display = "block";
+            }
+            else {
+                x.style.display = "none";
+            }
+        }
         function myFunction1() {
-          var x = document.getElementById("myLinks");
-          if (x.style.display = "block") {
-            x.style.display = "none";
-          } 
+            var x = document.getElementById("myLinks");
+            if (x.style.display = "block") {
+                x.style.display = "none";
+            }
         }   
     </script>
     <div id="wr">
-    <div class="slideshow-container">
-
-        <div class="mySlides">
-            <img src="https://image.cooky.vn/recipe/g5/48168/s640/recipe48168-cook-step5-636966598039294676.jpg" style="width:100%">
+        <div class="vd">
+            <video autoplay muted loop id="myVideo">
+                <source src="/image/vdfoodfin.mp4" type="video/mp4">
+            </video>
+        </div>
+        <div class="card-container">
+            <div class="card">
+                <img src="https://cdn.tgdd.vn/2021/01/CookRecipe/Avatar/banhhoichaolong.jpg">
+                <div class="card-content">
+                    <h3>Bánh hỏi cháo lòng</h3>
+                    <p>
+                        Bánh hỏi cháo lòng Quy Nhơn là món ăn thơm ngon được kết hợp từ bánh hỏi, lòng heo và ăn kèm
+                        với bát cháo nóng hổi.
+                    </p>
+                    <a href="/BuaSang/banh-hoi" class="btn">Đọc thêm</a>
+                </div>
+            </div>
+            <div class="card1">
+                <img style="height: 300px ; width: 100%;"
+                    src="https://image.cooky.vn/recipe/g6/51958/s640/cooky-recipe-637139307702525491.jpg">
+                <div class="card-content">
+                    <h3>Kimbap Hoa Đậu Biếc </h3>
+                    <p>
+                        Kimbap vốn là món ăn đặc sắc của Hàn Quốc, đây là sự kết hợp hài hòa giữa cơm và các nguyên
+                        liệu như rong biển, rau củ, thịt, trứng...
+                    </p>
+                    <a href="/BuaSang/kimbap-hoa-dau-biec" class="btn">Đọc thêm</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://image.cooky.vn/recipe/g1/9402/s640/cooky-recipe-cover-r9402.jpg">
+                <div class="card-content">
+                    <h3>Thịt gà nướng sốt tương ớt Hàn Quốc</h3>
+                    <p>
+                        Thịt gà nướng sốt tương ớt Hàn Quốc là món ăn tưởng khó, cầu kỳ nhưng thật ra rất đơn giản
+                        và dễ làm.
+                    </p>
+                    <a href="/BuaTrua/thit-ga-nuong-sot-tuong-ot-han-quoc" class="btn">Đọc thêm</a>
+                </div>
+            </div>
+            <div class="card">
+                <img
+                    src="https://assets.bonappetit.com/photos/5c5b6d2dd7da442cb562476c/16:9/w_640,c_limit/BA030119korean01.jpg">
+                <div class="card-content">
+                    <h3>Canh kim chi Hàn Quốc</h3>
+                    <p>
+                        Canh kim chi Hàn Quốc (hay còn gọi là Kimchi Jjigae) là một món ăn truyền thống phổ biến
+                        trong ẩm thực Hàn Quốc, được yêu thích bởi hương vị đậm đà, cay nồng và chua thanh đặc
+                        trưng.
+                    </p>
+                    <a href="/BuaTrua/canh-kim-chi" class="btn">Đọc thêm</a>
+                </div>
+            </div>
+            <div class="card1">
+                <img style="height: 300px ; width: 100%;"
+                    src="https://i1-giadinh.vnecdn.net/2023/10/05/Thanh-pham-3-3-1690-1696489497.jpg?w=1020&h=0&q=100&dpr=1&fit=crop&s=RQZQKab-Dm9HK2Ny2avLBA">
+                <div class="card-content">
+                    <h3>Bún riêu cua Nam Bộ</h3>
+                    <p>
+                        Bún riêu Nam Bộ hấp dẫn với topping đa dạng như chả cua, huyết lợn, móng giò, chả lụa, tàu
+                        hủ chiên.
+                    </p>
+                    <a href="/BuaTrua/bun-rieu-cua-nam-bo" class="btn">Đọc thêm</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://image.cooky.vn/recipe/g4/35480/s640/cooky-recipe-cover-r35480.JPG">
+                <div class="card-content">
+                    <h3>Ba Chỉ Rim Tôm Khô</h3>
+                    <p>
+                        Thịt ba chỉ rim tôm khô là món ngon từ thịt ba chỉ và tôm khô, đặc trưng hương vị của món
+                        Việt.
+                    </p>
+                    <a href="/BuaTrua/ba-chi-rim-tom-kho" class="btn">Đọc thêm</a>
+                </div>
+            </div>
         </div>
 
-        <div class="mySlides">
-            <img src="/image/tradition-2148092_1920.jpg" style="width:100% ;">
+        <div class="container-meovat">
+            <div class="container-meovat-title">
+                <h2>COONGKING TIPS & TECHIQUES</h2>
+                <p style="text-align: center;">Level up your kitchen skills</p>
+            </div>
+            <div class="container-meovat-list">
+                <div class="container-meovat-1">
+                    <div class="container-meovat-2">
+                        <a href="/MeoVat/6-Skills-lam-bep"><img class="image" src="/image/6skillslambep/bokho.png"
+                                alt="Bò kho"></a>
+                    </div>
+                    <div>
+                        <a href="/MeoVat/6-Skills-lam-bep">
+                            <div>
+                                <h3>6 skills để làm món ngon </h3>
+                                <p>Chỉ cần nắm vững những kỹ năng này, trình nấu nướng của bạn sẽ được nâng cấp, dù
+                                    thực tế
+                                    bạn không quá thích vào bếp hay nấu ăn giỏi.</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="container-meovat-1">
+                    <div class="container-meovat-2">
+                        <a href="/MeoVat/10-bi-kip-chon-thuc-pham-tuoi"><img class="image"
+                                src="/image/10bikipchonthucphamtuoi/trungga.jpg" alt="Trừng gà"></a>
+                    </div>
+                    <div>
+                        <a href="/MeoVat/10-bi-kip-chon-thuc-pham-tuoi">
+                            <div>
+                                <h3>10 bí kíp chọn thực phẩm tươi ngon</h3>
+                                <p>Với 10 mẹo nhận biết dưới đây, bạn dễ dàng loại bỏ những loại thực phẩm không an
+                                    toàn.
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="container-meovat-1">
+                    <div class="container-meovat-2">
+                        <a href="/MeoVat/Cach-lam-sang-am-dun-nuoc-dien"><img class="image"
+                                src="/image/lamsachamdunnuoc/1.jpg " alt="Các công cụ để vệ sinh ấm đun nước"></a>
+                    </div>
+                    <div>
+                        <a href="/MeoVat/Cach-lam-sang-am-dun-nuoc-dien">
+                            <div>
+                                <h3>Cách làm sạch ấm đun nước điện</h3>
+                                <p>Tần suất làm sạch sẽ phụ thuộc vào tần suất sử dụng ấm đun nước của bạn. Bên
+                                    ngoài nên
+                                    được lau để loại bỏ các vết ố và bắn tung tóe ít nhất một lần một tuần. </p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="container-meovat-1">
+                    <div class="container-meovat-2">
+                        <a href="/MeoVat/6-meo-don-gian"><img class="image"
+                                src="/image/9meocooking/meo3-6308-1506331373.jpg" alt="Chanh vàng"></a>
+                    </div>
+                    <div>
+                        <a href="/MeoVat/6-meo-don-gian">
+                            <div>
+                                <h3>6 mẹo nấu ăn hữu ích bạn có thể học lỏm từ đầu bếp nhà hàng</h3>
+                                <p>Cắt lát chanh càng mỏng, bạn sẽ được lát chanh càng chua. </p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="container-meovat-1">
+                    <div class="container-meovat-2">
+                        <a href="/MeoVat/6-luu-y-cho-nguoi-moi-bat-dau"><img class="image"
+                                src="/image/6luuychonguoimoibatdau/MCIM02007674_FR10-KL-L1-6CookingTips-Prep.webp"
+                                alt="Recipes"></a>
+                    </div>
+                    <div>
+                        <a href="/MeoVat/6-luu-y-cho-nguoi-moi-bat-dau">
+                            <div>
+                                <h3>6 lưu ý nấu ăn đơn giản </h3>
+                                <p>Cho người đầu bếp mới bắt đầu, 6 sai lầm nấu ăn phổ biến mà mọi người thường mắc
+                                    phải và
+                                    cách mà bạn có thể tránh chúng. </p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="container-meovat-1">
+                    <div class="container-meovat-2">
+                        <a href="/MeoVat/Nau-an-voi-ngu-coc"><img class="image"
+                                src="/image/Nauanvoingucoc/MCIM02007768_FR14-KL-R2-CookingWithGrains-Spelt.webp"
+                                alt="Lúa mì nâu (spelt)"></a>
+                    </div>
+                    <div>
+                        <a href="/MeoVat/Nau-an-voi-ngu-coc">
+                            <div>
+                                <h3>Hướng dẫn nấu ăn cùng các loại ngũ cốc</h3>
+                                <p>Nếu bạn đang muốn bổ sung thêm nhiều ngũ cốc nguyên cám vào chế độ ăn uống thì
+                                    bạn có thể
+                                    tìm hiểu hướng dẫn nấu ăn với ngũ cốc đơn giản này </p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="container-meovat-1">
+                    <div class="container-meovat-2">
+                        <a href="/MeoVat/4-meo-bien-thit-dai-thanh-thit-mem"><img class="image"
+                                src="/image/4meobienthitdaithanhthitmem/1.jpg" alt="Thịt ngâm rượu sake"></a>
+                    </div>
+                    <div>
+                        <a href="/MeoVat/4-meo-bien-thit-dai-thanh-thit-mem">
+                            <div>
+                                <h3>Bốn mẹo biến thịt dai thành mềm mại</h3>
+                                <p>Những thủ thuật này được các đầu bếp có thâm niên đúc kết ra, có thể chữa thịt
+                                    dai trở
+                                    nên mềm mại, ngon tuyệt. </p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="container-meovat-1">
+                    <div class="container-meovat-2">
+                        <a href="/MeoVat/chao-ech-singapore"><img class="image" src="/image/MeonaucomvachaoSGP/3.jpg"
+                                alt="Cháo"></a>
+                    </div>
+                    <div>
+                        <a href="/MeoVat/chao-ech-singapore">
+                            <div>
+                                <h3>Công thức nấu cơm và cháo ngon của đầu bếp Singapore</h3>
+                                <p>Cho gạo đã vo sạch vào tủ lạnh để qua đêm sẽ giúp nấu cơm hoặc cháo đỡ dính và
+                                    nhanh hơn.
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="mySlides">
-            <img src="https://www3.nhk.or.jp/nhkworld/en/radio/cooking/update/meal_180126_l.jpg" style="width:100%">
-        </div>
-
-        <a class="prev" onclick="plusSlides(-1)">❮</a>
-        <a class="next" onclick="plusSlides(1)">❯</a>
 
     </div>
-    <script src="/js/monan.js"></script>
 
+    <div id="results"></div>
 
-    <div class="card-container">
-        <div class="card">
-            <img src="https://cdn.tgdd.vn/2021/01/CookRecipe/Avatar/banhhoichaolong.jpg">
-            <div class="card-content">
-                <h3>Bánh hỏi cháo lòng</h3>
-                <p>
-                    Bánh hỏi cháo lòng Quy Nhơn là món ăn thơm ngon được kết hợp từ bánh hỏi, lòng heo và ăn kèm với bát cháo nóng hổi.
-                </p>
-                <a href="/BuaSang/banh-hoi" class="btn">Đọc thêm</a>
-            </div>
-        </div>
-        <div class="card1">
-            <img style="height: 300px ; width: 100%;"
-                src="https://image.cooky.vn/recipe/g6/51958/s640/cooky-recipe-637139307702525491.jpg">
-            <div class="card-content">
-                <h3>Kimbap Hoa Đậu Biếc </h3>
-                <p>
-                    Kimbap vốn là món ăn đặc sắc của Hàn Quốc, đây là sự kết hợp hài hòa giữa cơm và các nguyên liệu như rong biển, rau củ, thịt, trứng...
-                </p>
-                <a href="/BuaSang/kimbap-hoa-dau-biec" class="btn">Đọc thêm</a>
-            </div>
-        </div>
-        <div class="card">
-            <img
-                src="https://image.cooky.vn/recipe/g1/9402/s640/cooky-recipe-cover-r9402.jpg">
-            <div class="card-content">
-                <h3>Thịt gà nướng sốt tương ớt Hàn Quốc</h3>
-                <p>
-                    Thịt gà nướng sốt tương ớt Hàn Quốc là món ăn tưởng khó, cầu kỳ nhưng thật ra rất đơn giản và dễ làm.
-                </p>
-                <a href="/BuaTrua/thit-ga-nuong-sot-tuong-ot-han-quoc" class="btn">Đọc thêm</a>
-            </div>
-        </div>
-        <div class="card">
-            <img
-                src="https://assets.bonappetit.com/photos/5c5b6d2dd7da442cb562476c/16:9/w_640,c_limit/BA030119korean01.jpg">
-            <div class="card-content">
-                <h3>Canh kim chi Hàn Quốc</h3>
-                <p>
-                    Canh kim chi Hàn Quốc (hay còn gọi là Kimchi Jjigae) là một món ăn truyền thống phổ biến trong ẩm thực Hàn Quốc, được yêu thích bởi hương vị đậm đà, cay nồng và chua thanh đặc trưng.
-                </p>
-                <a href="/BuaTrua/canh-kim-chi" class="btn">Đọc thêm</a>
-            </div>
-        </div>
-        <div class="card1">
-            <img style="height: 300px ; width: 100%;"
-                src="https://i1-giadinh.vnecdn.net/2023/10/05/Thanh-pham-3-3-1690-1696489497.jpg?w=1020&h=0&q=100&dpr=1&fit=crop&s=RQZQKab-Dm9HK2Ny2avLBA">
-            <div class="card-content">
-                <h3>Bún riêu cua Nam Bộ</h3>
-                <p>
-                    Bún riêu Nam Bộ hấp dẫn với topping đa dạng như chả cua, huyết lợn, móng giò, chả lụa, tàu hủ chiên.
-                </p>
-                <a href="/BuaTrua/bun-rieu-cua-nam-bo" class="btn">Đọc thêm</a>
-            </div>
-        </div>
-        <div class="card">
-            <img
-                src="https://image.cooky.vn/recipe/g4/35480/s640/cooky-recipe-cover-r35480.JPG">
-            <div class="card-content">
-                <h3>Ba Chỉ Rim Tôm Khô</h3>
-                <p>
-                    Thịt ba chỉ rim tôm khô là món ngon từ thịt ba chỉ và tôm khô, đặc trưng hương vị của món Việt.
-                </p>
-                <a href="/BuaTrua/ba-chi-rim-tom-kho" class="btn">Đọc thêm</a>
-            </div>
-        </div>
-    </div>
+    <script src="/js/search.js"></script>
 
-    <div class="container-meovat">
-        <div class="container-meovat-title">
-            <h2>COONGKING TIPS & TECHIQUES</h2>
-            <p style="text-align: center;">Level up your kitchen skills</p>
-        </div>
-        <div class="container-meovat-list">
-            <div class="container-meovat-1">
-                <div class="container-meovat-2">
-                    <a href="/MeoVat/6-Skills-lam-bep"><img class="image"
-                            src="/image/6skillslambep/bokho.png" alt="Bò kho"></a>
-                </div>
-                <div>
-                    <a href="/MeoVat/6-Skills-lam-bep">
-                        <div>
-                            <h3>6 skills để làm món ngon </h3>
-                            <p>Chỉ cần nắm vững những kỹ năng này, trình nấu nướng của bạn sẽ được nâng cấp, dù thực tế
-                                bạn không quá thích vào bếp hay nấu ăn giỏi.</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="container-meovat-1">
-                <div class="container-meovat-2">
-                    <a href="/MeoVat/10-bi-kip-chon-thuc-pham-tuoi"><img class="image"
-                            src="/image/10bikipchonthucphamtuoi/trungga.jpg" alt="Trừng gà"></a>
-                </div>
-                <div>
-                    <a href="/MeoVat/10-bi-kip-chon-thuc-pham-tuoi">
-                        <div>
-                            <h3>10 bí kíp chọn thực phẩm tươi ngon</h3>
-                            <p>Với 10 mẹo nhận biết dưới đây, bạn dễ dàng loại bỏ những loại thực phẩm không an toàn.
-                            </p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="container-meovat-1">
-                <div class="container-meovat-2">
-                    <a href="/MeoVat/Cach-lam-sang-am-dun-nuoc-dien"><img class="image"
-                            src="/image/lamsachamdunnuoc/1.jpg " alt="Các công cụ để vệ sinh ấm đun nước"></a>
-                </div>
-                <div>
-                    <a href="/MeoVat/Cach-lam-sang-am-dun-nuoc-dien">
-                        <div>
-                            <h3>Cách làm sạch ấm đun nước điện</h3>
-                            <p>Tần suất làm sạch sẽ phụ thuộc vào tần suất sử dụng ấm đun nước của bạn. Bên ngoài nên
-                                được lau để loại bỏ các vết ố và bắn tung tóe ít nhất một lần một tuần. </p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="container-meovat-1">
-                <div class="container-meovat-2">
-                    <a href="/MeoVat/6-meo-don-gian"><img class="image" src="/image/9meocooking/meo3-6308-1506331373.jpg" alt="Chanh vàng"></a>
-                </div>
-                <div>
-                    <a href="/MeoVat/6-meo-don-gian">
-                        <div>
-                            <h3>6 mẹo nấu ăn hữu ích bạn có thể học lỏm từ đầu bếp nhà hàng</h3>
-                            <p>Cắt lát chanh càng mỏng, bạn sẽ được lát chanh càng chua. </p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="container-meovat-1">
-                <div class="container-meovat-2">
-                    <a href="/MeoVat/6-luu-y-cho-nguoi-moi-bat-dau"><img class="image"
-                            src="/image/6luuychonguoimoibatdau/MCIM02007674_FR10-KL-L1-6CookingTips-Prep.webp"
-                            alt="Recipes"></a>
-                </div>
-                <div>
-                    <a href="/MeoVat/6-luu-y-cho-nguoi-moi-bat-dau">
-                        <div>
-                            <h3>6 lưu ý nấu ăn đơn giản </h3>
-                            <p>Cho người đầu bếp mới bắt đầu, 6 sai lầm nấu ăn phổ biến mà mọi người thường mắc phải và
-                                cách mà bạn có thể tránh chúng. </p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="container-meovat-1">
-                <div class="container-meovat-2">
-                    <a href="/MeoVat/Nau-an-voi-ngu-coc"><img class="image"
-                            src="/image/Nauanvoingucoc/MCIM02007768_FR14-KL-R2-CookingWithGrains-Spelt.webp"
-                            alt="Lúa mì nâu (spelt)"></a>
-                </div>
-                <div>
-                    <a href="/MeoVat/Nau-an-voi-ngu-coc">
-                        <div>
-                            <h3>Hướng dẫn nấu ăn cùng các loại ngũ cốc</h3>
-                            <p>Nếu bạn đang muốn bổ sung thêm nhiều ngũ cốc nguyên cám vào chế độ ăn uống thì bạn có thể
-                                tìm hiểu hướng dẫn nấu ăn với ngũ cốc đơn giản này </p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="container-meovat-1">
-                <div class="container-meovat-2">
-                    <a href="/MeoVat/4-meo-bien-thit-dai-thanh-thit-mem"><img class="image"
-                            src="/image/4meobienthitdaithanhthitmem/1.jpg" alt="Thịt ngâm rượu sake"></a>
-                </div>
-                <div>
-                    <a href="/MeoVat/4-meo-bien-thit-dai-thanh-thit-mem">
-                        <div>
-                            <h3>Bốn mẹo biến thịt dai thành mềm mại</h3>
-                            <p>Những thủ thuật này được các đầu bếp có thâm niên đúc kết ra, có thể chữa thịt dai trở
-                                nên mềm mại, ngon tuyệt. </p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="container-meovat-1">
-                <div class="container-meovat-2">
-                    <a href="/MeoVat/chao-ech-singapore"><img class="image" src="/image/MeonaucomvachaoSGP/3.jpg" alt="Cháo"></a>
-                </div>
-                <div>
-                    <a href="/MeoVat/chao-ech-singapore">
-                        <div>
-                            <h3>Công thức nấu cơm và cháo ngon của đầu bếp Singapore</h3>
-                            <p>Cho gạo đã vo sạch vào tủ lạnh để qua đêm sẽ giúp nấu cơm hoặc cháo đỡ dính và nhanh hơn.
-                            </p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="block1">
         <h2>HÔM NAY ĂN GÌ!</h2>
         <div class="scroll-container">
@@ -442,13 +421,8 @@
             </div>
             <div class="image-items">
                 <div class="imageslick">
-                    <a href="/BuaTrua/muc-chien-nuoc-mam"><img src="https://i1-giadinh.vnecdn.net/2022/12/11/Thanh-pham-1-1-7715-1670752738.jpg?w=1020&h=0&q=100&dpr=1&fit=crop&s=pQVueUpzy6IhN8szXuuFvQ" alt="abc"></a>
-                </div>
-            </div>
-            <div class="image-items">
-                <div class="imageslick">
-                    <a href="/BuaTrua/sup-miso"><img
-                            src="https://www3.nhk.or.jp/nhkworld/en/radio/cooking/update/meal_180126_l.jpg"
+                    <a href="/BuaTrua/muc-chien-nuoc-mam"><img
+                            src="https://i1-giadinh.vnecdn.net/2022/12/11/Thanh-pham-1-1-7715-1670752738.jpg?w=1020&h=0&q=100&dpr=1&fit=crop&s=pQVueUpzy6IhN8szXuuFvQ"
                             alt="abc"></a>
                 </div>
             </div>
@@ -468,73 +442,33 @@
             </div>
             <div class="image-items">
                 <div class="imageslick">
+                    <a href="/BuaTrua/sup-miso"><img
+                            src="https://www3.nhk.or.jp/nhkworld/en/radio/cooking/update/meal_180126_l.jpg"
+                            alt="abc"></a>
+                </div>
+            </div>
+            <div class="image-items">
+                <div class="imageslick">
                     <a href="/BuaSang/Pho-bo"><img src="/image/beef-noodle-soup-6729018_1920.jpg" alt="abc"></a>
                 </div>
             </div>
             <div class="image-items">
                 <div class="imageslick">
-                    <a href="/BuaTrua/muc-chien-nuoc-mam"><img src="https://i1-giadinh.vnecdn.net/2022/12/11/Thanh-pham-1-1-7715-1670752738.jpg?w=1020&h=0&q=100&dpr=1&fit=crop&s=pQVueUpzy6IhN8szXuuFvQ" alt="abc"></a>
+                    <a href="/BuaTrua/muc-chien-nuoc-mam"><img
+                            src="https://i1-giadinh.vnecdn.net/2022/12/11/Thanh-pham-1-1-7715-1670752738.jpg?w=1020&h=0&q=100&dpr=1&fit=crop&s=pQVueUpzy6IhN8szXuuFvQ"
+                            alt="abc"></a>
                 </div>
             </div>
             <div class="image-items">
                 <div class="imageslick">
-                    <a href="/BuaTrua/ca-ri-ga"><img src="https://assets.bonappetit.com/photos/57ae0a62f1c801a1038bcf17/16:9/w_640,c_limit/thai-chicken-curry.jpg" alt="abc"></a>
+                    <a href="/BuaTrua/ca-ri-ga"><img
+                            src="https://assets.bonappetit.com/photos/57ae0a62f1c801a1038bcf17/16:9/w_640,c_limit/thai-chicken-curry.jpg"
+                            alt="abc"></a>
                 </div>
             </div>
         </div>
         <div style="clear: both;"></div>
     </div>
-</div>
-    
-    <div id="results"></div>
-    <script type="text/javascript">
-        const searchInput = document.querySelector('#search');
-        const results_body = document.querySelector('#results');
-        document.getElementById('search').addEventListener('input', () => {
-            document.getElementById('wr').style.display = 'none';
-            document.getElementById('results').style.display = 'block';
-        });
-        load_data();
-        function load_data(query = '') {
-            const request = new XMLHttpRequest();
-            request.open('GET', `/search?q=${query}`);
-            request.onload = () => {
-                const results = JSON.parse(request.responseText);
-                let html = '';
-                if (results.length > 0) {
-                    results.forEach(result => {
-                        html += `
-                        <div class="newsItem">
-                            <div class="newsImage">
-                                <img src="`+ result.IMAGE + `" alt="">
-                            </div>
-                            <div class="newsContent">
-                    
-                                <h2>`+ result.NAME + `</h2>
-                                <p>`+ result.NOI_DUNG + `</p>
-                                <a href="`+ result.LINK + `" target="_blank">Read More</a>
-                            </div>
-                        </div>
-                    `;
-                    });
-                }
-                else {
-                    html += `                
-                    <h2>No Data Found</h2>         
-                `;
-                }
-                results_body.innerHTML = html;
-            };
-            request.send();
-        }
-        searchInput.addEventListener('input', () => {
-            const query = searchInput.value;
-            load_data(query);
-        });
-    </script>
-
-
-
     <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
