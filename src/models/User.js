@@ -81,7 +81,7 @@ const findUserByUsernameAndPassword = (username, password) => {
     });
 };
 const isLogging = async (req) => {
-    if (req.session && req.session.user) {
+    if (req.session && req.session.user &&req.session.passport.user) {
       return true;
     } else {
       return false;

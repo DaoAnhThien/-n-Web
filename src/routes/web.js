@@ -29,17 +29,7 @@ const {getSearch} = require('../controllers/homeController');
 const route = require('color-convert/route');
 const router = express.Router();
 
-// Middleware kiểm tra xem người dùng đã đăng nhập hay chưa
-const checkLoggedIn = (req, res, next) => {
-    // Kiểm tra xem người dùng đã đăng nhập hay chưa
-    if (req.session.loggedIn) {
-        // Nếu đã đăng nhập, gán thông tin người dùng vào req.locals để truy cập trong file view
-        req.locals.username = req.session.username;
-    }
-    // Tiếp tục xử lý các yêu cầu tiếp theo
-    next();
-  };
-router.get('/',checkLoggedIn,getHomepage);
+router.get('/',getHomepage);
 
 router.get('/Login',getLogin);
 

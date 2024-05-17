@@ -15,7 +15,7 @@
   }
   .wrapper {
     width: 500px;
-    height: auto;
+    height: 700px;
     color: #0000;
     background-color: transparent;
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -78,6 +78,8 @@
     text-decoration: underline;
   }
   .wrapper .btn {
+    text-align: center;
+    align-items: center;
     width: 100%;
     height: 45px;
     background: #fff;
