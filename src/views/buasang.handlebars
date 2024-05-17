@@ -1,40 +1,43 @@
 <body>
-    <div class="section-title">
-        <h2>Bữa sáng</h2>
-    </div>
-
-    <div class="mt-4">
-        <div class="row">
-
-            {{#each user}}
-            <div class="col-sm-6 col-lg-4" style="margin: 10px 0px;">
-                <div class="card card-course-item" style="height: 600px;">
-                    <a href="/BuaSang/{{this.SLUG}}">
-                        <img class="card-img-top" style="height: 300px;" src="{{this.IMAGE}}" alt="{{this.name}}">
-
-                    </a>
-                    <div class="card-body">
-                        <a href="/BuaSang/{{this.SLUG}}">
-                            <h5 class="card-title">{{this.NAME}}</h5>
-                        </a>
-                        <p class="card-text">{{this.INTRODUCE}}.</p>
-                        <div class="heart"></div>
-                        <div class="animation-heart"></div>
-                        <script src="/src/public/js/app.js"></script>
-                    </div>
-                </div>
+  <div class="section-title">
+    <h2>Bữa sáng</h2>
+  </div>
+  
+  <div class="mt-4">
+    <div class="row">
+      {{#each user}}
+      <div class="col-sm-6 col-lg-4" style="margin: 10px 0px;">
+        <div class="card card-course-item" data-slug="{{this.SLUG}}" data-name="{{this.NAME}}" data-image="{{this.IMAGE}}" data-introduce="{{this.INTRODUCE}}" data-id="{{this.ID}}" style="height: 600px;">
+          <a href="/BuaSang/{{this.SLUG}}">
+            <img class="card-img-top" style="height: 300px;" src="{{this.IMAGE}}" alt="{{this.NAME}}">
+          </a>
+          <div class="card-body">
+            <a href="/BuaSang/{{this.SLUG}}">
+              <h5 class="card-title">{{this.NAME}}</h5>
+            </a>
+            <p class="card-text">{{this.INTRODUCE}}.</p>
+            <div class="blockheart" data-slug="{{this.SLUG}}" data-name="{{this.NAME}}" data-image="{{this.IMAGE}}" data-introduce="{{this.INTRODUCE}}" data-id="{{this.ID}}">
+              <div class="heart" id="{{this.ID}}"></div>
+              <div class="animation-heart" id=""></div>
             </div>
-            {{/each}}
-
+            <div class="heart"></div>
+            <div class="animation-heart"></div>
+          </div>
         </div>
+      </div>
+      {{/each}}
     </div>
-</body>
-<ul class="block-navigate">
+  </div>
+  
+  <ul class="block-navigate">
     <li class="item-navigate item-navigate--active">
-        <a href="/BuaSang/navigate/1" class="item-navigate_link">1</a>
+      <a href="/BuaSang/navigate/1" class="item-navigate_link">1</a>
     </li>
     <li class="item-navigate">
-        <a href="/BuaSang/navigate/2" class="item-navigate_link">2</a>
+      <a href="/BuaSang/navigate/2" class="item-navigate_link">2</a>
     </li>
-</ul>
+  </ul>
+
+  <script src="/js/favourite-food-break.js"></script>
+  <script src="/src/public/js/app.js"></script>
 </body>

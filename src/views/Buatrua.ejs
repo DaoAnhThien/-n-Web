@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bữa trưa</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/css/bootstrap.minMonan.css">
+    <link rel="stylesheet" href="/css/colorMonan.css">
+    <link rel="stylesheet" href="/css/HomepageMonan.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <div class="header">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg">
+                <div class="logo">
+                    <a class="navbar-brand" href="javascript:void(0)">
+                        <img src="/image/logo1.png" alt="">
+                    </a>
+                </div>
+                <div class="navbar-toggler active">
+                    <span></span><span></span><span></span>
+                </div>
+                <div class="nav-menu active">
+
+                    <div class="navbar-close">
+                        <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                    </div>
+
+                    <nav class="main-menu">
+                        <ul>
+                            <li class="home-drop" onclick="submenu(0)"><a href="javascript:void(0)"
+                                    id="home-click">Trang Chủ </a>
+                            <li class="home-drop" onclick="submenu(1)"><a href="javascript:void(0)"
+                                    class="home-click">Công thức</a>
+                                <ul class="home-page-2">
+                                    <li><a href="">Khai vị
+                                        </a></li>
+                                    <li><a href="/MonAn/Bua-Sang">Đồ ăn sáng
+                                        </a></li>
+                                    <li><a href="">Thức uống </a></li>
+                                    <li><a href="/MonAn/Bua-Trua"> Đồ ăn trưa</a></li>
+                                    <li><a href="">Tráng miệng</a></li>
+                                </ul>
+                            </li>
+                            <li class="home-drop" onclick="submenu(2)"><a href="javascript:void(0)"
+                                    class="home-click">Kĩ thuật chế biếns</a>
+                                <ul class="home-page-2">
+                                    <li><a href="kho.html"> Kho</a></li>
+                                    <li><a href="nuong.html"> Nướng</a></li>
+                                    <li><a href="hap.html"> Hấp </a></li>
+                                    <li><a href="xao.html"> Xào </a></li>
+                                    <li><a href="chien.html"> Chiên</a></li>
+                                </ul>
+                            </li>
+
+                            <li><a href="/MeoVat">Mẹo vặt</a></li>
+                            <li><a href="about_us.html">About Us</a></li>
+                        </ul>
+
+                    </nav>
+                </div>
+                <div class="site-menu-wrapper ml-auto collapse navbar-collapse">
+                    <ul class="navbar-nav ml-auto">
+                        <li><a href="/">Trang chủ</a></li>
+                        <li class="nav-item dropdown position-relative">
+                            <a class="nav-link" href="javascript:void(0)" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Công thức
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="khai_vi.html">Khai vị
+                                    </a></li>
+                                <li><a class="dropdown-item" href="/MonAn/Bua-Sang">Đồ ăn sáng</a></li>
+                                <li><a class="dropdown-item" href="thuc_uong.html">Thức uống
+                                    </a></li>
+                                <li><a class="dropdown-item" href="/MonAn/Bua-Trua">Đồ ăn trưa</a></li>
+                                <li><a class="dropdown-item" href="trang_mieng.html">Tráng miệng</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown position-relative">
+                            <a class="nav-link" href="javascript:void(0)" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Kĩ thuật chế biến
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-dark">
+                                <li><a class="dropdown-item" href="kho.html"> Kho</a></li>
+                                <li><a class="dropdown-item" href="nuong.html">Nướng</a></li>
+                                <li><a class="dropdown-item" href="hap.html"> Hấp</a>
+                                </li>
+                                <li><a class="dropdown-item" href="xao.html"> Xào</a>
+                                </li>
+                                <li><a class="dropdown-item" href="chien.html"> Chiên</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li><a href="/MeoVat" title="">Mẹo vặt</a></li>
+                        <li><a href="about_us.html" title="">About Us</a></li>
+
+                    </ul>
+                    <div class="site-menu-btns d-flex">
+                        <div class="search-box">
+                            <input class="search-input" type="text" placeholder="Search...">
+                            <i class='bx bx-search-alt-2'></i>
+                            <% if (username) { %>
+                                <!-- Nếu đã đăng nhập, hiển thị username -->
+                                <div class="site-menu-wrapper ml-auto collapse navbar-collapse">
+                                    <ul class="navbar-nav ml-auto">
+                                        <li class="nav-item dropdown position-relative" style="margin: 0 0;">
+                                            <a class="nav-link" href="javascript:void(0)" role="button" data-bs-toggle="dropdown"
+                                                aria-expanded="false">
+                                                <%= username %>!
+                                            </a>
+                                            <ul class="dropdown-menu dropdown-menu-dark">
+                                                <li><a class="dropdown-item" href="/Profile"> Profile</a></li>
+                                                <li><a class="dropdown-item" href="/Logout">Logout</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                            <% } else { %>
+                                <!-- Nếu chưa đăng nhập, hiển thị nút login -->
+                                <div><a class="theme-btn-secondary" href="/Login" title="">Login</a>
+                                </div>
+                            <% } %>
+                        </div>
+
+                    </div>
+            </nav>
+        </div>
+    </div>
+    <div class="slideshow-container">
+
+        <div class="mySlides">
+            <img src="/image/spring-roll-6760871_1920.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <img src="/image/tradition-2148092_1920.jpg" style="width:100%">
+        </div>
+
+        <div class="mySlides">
+            <img src="/image/salmon-518032.jpg" style="width:100%">
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">❮</a>
+        <a class="next" onclick="plusSlides(1)">❯</a>
+
+    </div>
+    <script src="/js/monan.js"></script>
+    <h1>
+        Bữa trưa cho bạn!
+    </h1>
+    <div class="card-container">
+        <div class="card">
+            <img
+                src="https://assets.bonappetit.com/photos/63a1e0b3c37a58ec105a304e/16:9/w_640,c_limit/1220-smoothie-blueberry-lede.jpg">
+            <div class="card-content">
+                <h3>Blueberry xay</h3>
+                <p>
+                    Ngọt mát cho buổi trưa oi bức.
+                </p>
+                <a href="" class="btn">Đọc thêm</a>
+            </div>
+        </div>
+        <div class="card">
+            <img
+                src="https://assets.bonappetit.com/photos/58a6240fa9bc8a7a3f1cfada/16:9/w_640,c_limit/classic-miso-soup.jpg">
+            <div class="card-content">
+                <h3>Súp miso Nhật Bản </h3>
+                <p>
+                    Đơn giản nhưng không tầm thường.
+                </p>
+                <a href="" class="btn">Đọc thêm</a>
+            </div>
+        </div>
+        <div class="card">
+            <img
+                src="https://assets.bonappetit.com/photos/644819df047251c7e5ee250b/16:9/w_640,c_limit/042523-green-papaya-salad-lede.jpg">
+            <div class="card-content">
+                <h3>Som tum Thai</h3>
+                <p>
+                    Món gỏi đu đủ kiểu Thái thích hợp cho mùa hè.
+                </p>
+                <a href="" class="btn">Đọc thêm</a>
+            </div>
+        </div>
+        <div class="card">
+            <img
+                src="https://assets.bonappetit.com/photos/5c5b6d2dd7da442cb562476c/16:9/w_640,c_limit/BA030119korean01.jpg">
+            <div class="card-content">
+                <h3>Canh kim chi Hàn Quốc</h3>
+                <p>
+                    Đậm đà và cay nồng!
+                </p>
+                <a href="" class="btn">Đọc thêm</a>
+            </div>
+        </div>
+        <div class="card">
+            <img
+                src="https://assets.bonappetit.com/photos/5d4ddd5feed18100091d2a56/16:9/w_640,c_limit/BA-0919-Coconut-Milk-Chicken-Playbook.jpg">
+            <div class="card-content">
+                <h3>Gà nướng kèm nước cốt dừa</h3>
+                <p>
+
+                </p>
+                <a href="" class="btn">Đọc thêm</a>
+            </div>
+        </div>
+        <div class="card">
+            <img
+                src="https://assets.bonappetit.com/photos/57ae0a62f1c801a1038bcf17/16:9/w_640,c_limit/thai-chicken-curry.jpg">
+            <div class="card-content">
+                <h3>Cà ri gà kiểu Thái</h3>
+                <p>
+                    Dễ dàng, ngon lành.
+
+                </p>
+                <a href="" class="btn">Đọc thêm</a>
+            </div>
+        </div>
+        <div class="card">
+            <img
+                src="https://assets.bonappetit.com/photos/601185e9e0a941bb1291e9e2/16:9/w_640,c_limit/GoLive-Beef-Pho.jpg">
+            <div class="card-content">
+                <h3>Phở bò nóng hổi</h3>
+                <p>
+                    Sự kết hợp giữa nước phở đậm đà và thịt bò mềm mại.
+                </p>
+                <a href="" class="btn">Đọc thêm</a>
+            </div>
+        </div>
+        <div class="card">
+            <img
+                src="https://assets.bonappetit.com/photos/57b0d8631b334044149764a5/16:9/w_640,c_limit/thai-green-chicken-curry-940.jpg">
+            <div class="card-content">
+                <h3>Cà ri gà xanh</h3>
+                <p>
+                    Cay nồng, chua ngọt.
+                </p>
+                <a href="" class="btn">Đọc thêm</a>
+            </div>
+        </div>
+        <div class="card">
+            <img
+                src="https://assets.bonappetit.com/photos/5b1981ee9731de29fe912023/16:9/w_640,c_limit/easiest-ever-grilled-veggie-burgers.jpg">
+            <div class="card-content">
+                <h3>Burger chay</h3>
+                <p>
+
+                </p>
+                <a href="" class="btn">Đọc thêm</a>
+            </div>
+        </div>
+        <div class="card">
+            <img
+                src="https://assets.bonappetit.com/photos/6437281f4c497b684ece7ff3/16:9/w_640,c_limit/Recipe_Beauty_Gingery_Chicken_Ramen_0350.jpg">
+            <div class="card-content">
+                <h3>Ramen gà</h3>
+                <p>
+
+                </p>
+                <a href="" class="btn">Đọc thêm</a>
+            </div>
+        </div>
+        <div class="card">
+            <img
+                src="https://assets.bonappetit.com/photos/6488c77dee399ec121b43195/16:9/w_640,c_limit/20230530-ITS-24599-LEDE.jpg">
+            <div class="card-content">
+                <h3>A Better Aperol Cocktail</h3>
+                <p>
+                    What’s the Naked and Famous? A Better Aperol Cocktail
+                </p>
+                <a href="" class="btn">Read More</a>
+            </div>
+
+        </div>
+        <div class="card">
+            <img
+                src="https://assets.bonappetit.com/photos/644819df047251c7e5ee250b/16:9/w_640,c_limit/042523-green-papaya-salad-lede.jpg">
+            <div class="card-content">
+                <h3>Som tum Thai</h3>
+                <p>
+                    Món gỏi đu đủ kiểu Thái thích hợp cho mùa hè.
+                </p>
+                <a href="" class="btn">Đọc thêm</a>
+            </div>
+        </div>
+
+    </div>
+    <div class="footer">
+        <div class="address">
+            <h2>Contact</h2>
+            <p>Trường Đại học Công nghệ Thông tin</p><br>
+            <p>Địa chỉ: Đường Hàn Thuyên, khu phố 6 P, Thủ Đức, Thành phố Hồ Chí Minh</p><br>
+            <p>Số điện thoại: 028 3725 2002</p><br>
+            <p>Email: Nhom14cooking@gmail.com</p><br>
+        </div>
+        <div class="aboutus">
+
+            <h2>About us</h2>
+            <p1>Chào mừng đến với nhóm 14 Cooking!</p1>
+            <p>Nhóm 14 Cooking là một đội ngũ đam mê ẩm thực, nơi chúng tôi chia sẻ và khám phá nhiều hương vị mới
+                mẻ từ
+                khắp nơi trên thế giới. Chúng tôi tin rằng việc nấu ăn không chỉ là một cách để thư giãn và tạo ra
+                những
+                món ngon, mà còn là một hành trình văn hóa, kết nối con người và tạo ra những kỷ niệm đáng nhớ.</p>
+        </div>
+        <div class="social">
+            <h2>Follow us</h2><br>
+            <h3>Lớp NT208.O23</h3><br>
+            <i class='bx bxl-facebook-circle'></i>
+            <i class='bx bxl-github'></i>
+            <i class='bx bxl-gmail'></i>
+        </div>
+    </div>
+</body>
+
+</html>

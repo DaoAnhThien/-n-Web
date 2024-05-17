@@ -20,6 +20,7 @@ const getForgotPassword = (req, res) => {
   res.render('Forgotpassword.ejs')
 }
 const getMeoVat = (req, res, next) => {
+  const currentTitle = 'Mẹo Vặt';
   const loggedIn = req.session.user ? true : false;
   let page = parseInt(req.params.page);
   let limit = 9;
@@ -44,9 +45,9 @@ const getMeoVat = (req, res, next) => {
         //res.render('meovat.handlebars',{user})
         if (loggedIn) {
           const username = req.session.user.username
-          res.render('meovat.handlebars', { user, loggedIn: true, username: username });
+          res.render('meovat.handlebars', { user, loggedIn: true, username: username, currentTitle});
         } else {
-          res.render('meovat.handlebars', { user, loggedIn: false, username: null });
+          res.render('meovat.handlebars', { user, loggedIn: false, username: null , currentTitle});
         }
       }
     );
@@ -89,15 +90,99 @@ const getMeo = (req, res, next) => {
   })
 }
 const getProfile = (req, res) => {
+  const currentTitle = 'Trang Cá Nhân';
   const loggedIn = req.session.user ? true : false;
   if (loggedIn) {
-    const username = req.session.user.username
-    res.render('Userpage.ejs', { loggedIn: true, username: username });
+    const username = req.session.user.username;
+
+    connection.connect((err) => {
+      if (err) {
+        console.error('Error connecting to database: ' + err.stack);
+        return;
+      }
+      console.log('Connect to database successfully!');
+
+      let userData = {};
+      let userFavouriteMeo = [];
+      let userFavouriteMonAnBuoiSang = [];
+      let userFavouriteMonAnBuoiTrua = [];
+      let loveCount = 0;
+
+      connection.query('SELECT * FROM user WHERE USERNAME = ?', [username], (err, result) => {
+        if (err) {
+          console.error('Error executing query: ' + err.stack);
+          return;
+        }
+
+        userData = result;
+        connection.query('SELECT * FROM yeu_thich_meo WHERE ID_USER = ?', [req.session.user.userId], (err, result) => {
+          if (err) {
+            console.error('Error executing query: ' + err.stack);
+            return;
+          }
+          userFavouriteMeo = result;
+          loveCount += result.length;
+
+          connection.query('SELECT * FROM yeu_thich_mon_an_buoi_sang WHERE ID_USER = ?', [req.session.user.userId], (err, result) => {
+            if (err) {
+              console.error('Error executing query: ' + err.stack);
+              return;
+            }
+            userFavouriteMonAnBuoiSang = result;
+            loveCount += result.length;
+
+            connection.query('SELECT * FROM yeu_thich_mon_an_buoi_trua WHERE ID_USER = ?', [req.session.user.userId], (err, result) => {
+              if (err) {
+                console.error('Error executing query: ' + err.stack);
+                return;
+              }
+              userFavouriteMonAnBuoiTrua = result;
+              loveCount += result.length;
+              if (loggedIn) {
+                res.render('Userpage.handlebars', {
+                  userData,
+                  userFavouriteMeo,
+                  userFavouriteMonAnBuoiSang,
+                  userFavouriteMonAnBuoiTrua,
+                  loggedIn: true,
+                  username,
+                  currentTitle,
+                  love: loveCount
+                });
+              } else {
+                res.render('Userpage.handlebars', {
+                  userData,
+                  userFavouriteMeo,
+                  userFavouriteMonAnBuoiSang,
+                  userFavouriteMonAnBuoiTrua,
+                  loggedIn: false,
+                  username: null,
+                  currentTitle,
+                  love: 0
+                });
+              }
+            });
+          });
+        });
+      });
+    });
   } else {
-    res.render('Userpage.ejs', { loggedIn: false, username: null });
+    res.render('Userpage.handlebars', {
+      userData: {},
+      userFavouriteMeo: [],
+      userFavouriteMonAnBuoiSang: [],
+      userFavouriteMonAnBuoiTrua: [],
+      loggedIn: false,
+      username: null,
+      currentTitle,
+      love: 0
+    });
   }
-}
-const get4meobienthitdaithanhthitmem = (req, res) => {
+};
+
+
+
+const get4meobienthitdaithanhthitmem = (req,res) => {
   const loggedIn = req.session.user ? true : false;
   if (loggedIn) {
     const username = req.session.user.username
@@ -152,6 +237,7 @@ const getNauanvoingucoc = (req, res) => {
   }
 }
 const getBuaSang = (req, res) => {
+  const currentTitle = 'Đồ Ăn Sáng';
   const loggedIn = req.session.user ? true : false;
   let page = parseInt(req.params.page);
   let user = [];
@@ -176,9 +262,9 @@ const getBuaSang = (req, res) => {
         console.log(">>>result= ", page);
         if (loggedIn) {
           const username = req.session.user.username
-          res.render('buasang.handlebars', { user, loggedIn: true, username: username });
+          res.render('buasang.handlebars', { user, loggedIn: true, username: username,currentTitle });
         } else {
-          res.render('buasang.handlebars', { user, loggedIn: false, username: null });
+          res.render('buasang.handlebars', { user, loggedIn: false, username: null ,currentTitle});
         }
       }
     );
@@ -254,6 +340,7 @@ const getBuaTrua = (req, res) => {
 }
 
 const getMonantrua = (req, res) => {
+  const currentTitle = 'Đồ Ăn Trưa';
   const loggedIn = req.session.user ? true : false;
   const slug = req.params.SLUG;
   let user = [];
@@ -270,9 +357,9 @@ const getMonantrua = (req, res) => {
         console.log(">>>result= ", user);
         if (loggedIn) {
           const username = req.session.user.username
-          res.render('chitietmonan.handlebars', { user, loggedIn: true, username: username });
+          res.render('chitietmonan.handlebars', { user, loggedIn: true, username: username, currentTitle});
         } else {
-          res.render('chitietmonan.handlebars', { user, loggedIn: false, username: null });
+          res.render('chitietmonan.handlebars', { user, loggedIn: false, username: null , currentTitle});
         }
       }
     );

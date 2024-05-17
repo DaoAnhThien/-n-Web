@@ -92,12 +92,15 @@
 			</nav>
 		</div>
 	</header>
-	<section class="position-relative top-banner bg-gray">
+    <section class="position-relative top-banner bg-gray">
 		<div class="top-banner-content text-center">
 			<div class="baner-name">
-
+				<h2 class="fs-50 text-uppercase">{{ currentTitle }}</h2>
 				<nav aria-label="breadcrumb">
-
+					<ol class="breadcrumb justify-content-center p-0 mb-0">
+						<li class="breadcrumb-item text-gray fs-18 fm-arimo"><a href="/">Trang chủ</a></li>
+						<li class="breadcrumb-item active text-theme fs-18 fm-arimo"><a href="javascript:void(0)">{{ currentTitle }}</a></li>
+					</ol>
 				</nav>
 			</div>
 		</div>
