@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: web
+-- Host: 127.0.0.1    Database: web_cooking
 -- ------------------------------------------------------
 -- Server version	8.3.0
 
@@ -24,21 +24,21 @@ DROP TABLE IF EXISTS `bua_sang`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `bua_sang` (
   `ID` int NOT NULL,
-  `NAME` varchar(45) NOT NULL,
-  `INTRODUCE` varchar(500) NOT NULL,
-  `IMAGE` varchar(500) NOT NULL,
-  `SLUG` varchar(500) DEFAULT NULL,
-  `NL` longtext,
-  `CL` longtext,
-  `BQ` longtext,
-  `IMAGE1` varchar(500) DEFAULT NULL,
-  `IMAGE2` varchar(500) DEFAULT NULL,
-  `IMAGE3` varchar(500) DEFAULT NULL,
-  `nguyenlieu` longtext,
-  `cachlam` longtext,
-  `baoquan` longtext,
+  `NAME` varchar(45) COLLATE utf8mb4_general_ci NOT NULL,
+  `INTRODUCE` varchar(500) COLLATE utf8mb4_general_ci NOT NULL,
+  `IMAGE` varchar(500) COLLATE utf8mb4_general_ci NOT NULL,
+  `SLUG` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `NL` longtext COLLATE utf8mb4_general_ci,
+  `CL` longtext COLLATE utf8mb4_general_ci,
+  `BQ` longtext COLLATE utf8mb4_general_ci,
+  `IMAGE1` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `IMAGE2` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `IMAGE3` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `nguyenlieu` longtext COLLATE utf8mb4_general_ci,
+  `cachlam` longtext COLLATE utf8mb4_general_ci,
+  `baoquan` longtext COLLATE utf8mb4_general_ci,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -60,19 +60,19 @@ DROP TABLE IF EXISTS `bua_trua`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `bua_trua` (
   `idbua_trua` int NOT NULL,
-  `NAME` varchar(45) NOT NULL,
-  `IMAGE` varchar(500) NOT NULL,
-  `INTRODUCE` longtext NOT NULL,
-  `SLUG` varchar(45) NOT NULL,
-  `TITLE` varchar(500) DEFAULT NULL,
-  `IMAGE1` varchar(500) DEFAULT NULL,
-  `IMAGE2` varchar(500) DEFAULT NULL,
-  `IMAGE3` varchar(500) DEFAULT NULL,
-  `nguyenlieu` longtext,
-  `cachlam` longtext,
-  `baoquan` longtext,
+  `NAME` varchar(45) COLLATE utf8mb4_general_ci NOT NULL,
+  `IMAGE` varchar(500) COLLATE utf8mb4_general_ci NOT NULL,
+  `INTRODUCE` longtext COLLATE utf8mb4_general_ci NOT NULL,
+  `SLUG` varchar(45) COLLATE utf8mb4_general_ci NOT NULL,
+  `TITLE` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `IMAGE1` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `IMAGE2` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `IMAGE3` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `nguyenlieu` longtext COLLATE utf8mb4_general_ci,
+  `cachlam` longtext COLLATE utf8mb4_general_ci,
+  `baoquan` longtext COLLATE utf8mb4_general_ci,
   PRIMARY KEY (`idbua_trua`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -94,33 +94,33 @@ DROP TABLE IF EXISTS `chi_tiet_meo`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `chi_tiet_meo` (
   `ID` int NOT NULL AUTO_INCREMENT,
-  `TITLE` varchar(150) DEFAULT NULL,
-  `NOI_DUNG` longtext,
+  `TITLE` varchar(150) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `NOI_DUNG` longtext COLLATE utf8mb4_general_ci,
   `ID_MEO` int DEFAULT NULL,
-  `SLUG` varchar(150) DEFAULT NULL,
-  `INTRODUCE` longtext,
-  `IMAGE1` varchar(500) DEFAULT NULL,
-  `IMAGE2` varchar(500) DEFAULT NULL,
-  `IMAGE3` varchar(500) DEFAULT NULL,
-  `IMAGE4` varchar(500) DEFAULT NULL,
-  `IMAGE5` varchar(500) DEFAULT NULL,
-  `IMAGE6` varchar(500) DEFAULT NULL,
-  `muc1` varchar(500) DEFAULT NULL,
-  `muc2` varchar(500) DEFAULT NULL,
-  `muc3` varchar(500) DEFAULT NULL,
-  `muc4` varchar(500) DEFAULT NULL,
-  `muc5` varchar(500) DEFAULT NULL,
-  `muc6` varchar(500) DEFAULT NULL,
-  `ct1` longtext,
-  `ct2` longtext,
-  `ct3` longtext,
-  `ct4` longtext,
-  `ct5` longtext,
-  `ct6` longtext,
+  `SLUG` varchar(150) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `INTRODUCE` longtext COLLATE utf8mb4_general_ci,
+  `IMAGE1` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `IMAGE2` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `IMAGE3` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `IMAGE4` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `IMAGE5` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `IMAGE6` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `muc1` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `muc2` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `muc3` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `muc4` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `muc5` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `muc6` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `ct1` longtext COLLATE utf8mb4_general_ci,
+  `ct2` longtext COLLATE utf8mb4_general_ci,
+  `ct3` longtext COLLATE utf8mb4_general_ci,
+  `ct4` longtext COLLATE utf8mb4_general_ci,
+  `ct5` longtext COLLATE utf8mb4_general_ci,
+  `ct6` longtext COLLATE utf8mb4_general_ci,
   PRIMARY KEY (`ID`),
   KEY `ID_MEO` (`ID_MEO`),
   CONSTRAINT `chi_tiet_meo_ibfk_1` FOREIGN KEY (`ID_MEO`) REFERENCES `meo` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -142,16 +142,16 @@ DROP TABLE IF EXISTS `chi_tiet_mon_an`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `chi_tiet_mon_an` (
   `ID` int NOT NULL AUTO_INCREMENT,
-  `TITLE` varchar(150) DEFAULT NULL,
-  `NOI_DUNG` longtext,
+  `TITLE` varchar(150) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `NOI_DUNG` longtext COLLATE utf8mb4_general_ci,
   `ID_MON_AN` int DEFAULT NULL,
   `DATE_CREATE` datetime DEFAULT NULL,
   `DATE_UPDATE` datetime DEFAULT NULL,
-  `SLUG` varchar(50) DEFAULT NULL,
+  `SLUG` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`ID`),
   KEY `ID_MON_AN` (`ID_MON_AN`),
   CONSTRAINT `chi_tiet_mon_an_ibfk_1` FOREIGN KEY (`ID_MON_AN`) REFERENCES `mon_an` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -174,12 +174,11 @@ DROP TABLE IF EXISTS `confirmationcode`;
 CREATE TABLE `confirmationcode` (
   `ID` int NOT NULL AUTO_INCREMENT,
   `UserID` int DEFAULT NULL,
-  `code` varchar(255) DEFAULT NULL,
+  `code` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `createdAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`ID`),
-  KEY `UserID` (`UserID`),
-  CONSTRAINT `confirmationcode_ibfk_1` FOREIGN KEY (`UserID`) REFERENCES `user` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `UserID` (`UserID`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -193,6 +192,34 @@ INSERT INTO `confirmationcode` VALUES (3,1,'786735','2024-05-10 20:57:19');
 UNLOCK TABLES;
 
 --
+-- Table structure for table `federated_credentials`
+--
+
+DROP TABLE IF EXISTS `federated_credentials`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `federated_credentials` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `user_id` int NOT NULL,
+  `provider` varchar(255) COLLATE utf8mb4_vietnamese_ci NOT NULL,
+  `subject` varchar(255) COLLATE utf8mb4_vietnamese_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `federated_credentials_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`ID`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_vietnamese_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `federated_credentials`
+--
+
+LOCK TABLES `federated_credentials` WRITE;
+/*!40000 ALTER TABLE `federated_credentials` DISABLE KEYS */;
+INSERT INTO `federated_credentials` VALUES (2,24,'https://accounts.google.com','117728577321427627654');
+/*!40000 ALTER TABLE `federated_credentials` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `image_ctma`
 --
 
@@ -202,11 +229,10 @@ DROP TABLE IF EXISTS `image_ctma`;
 CREATE TABLE `image_ctma` (
   `ID` int NOT NULL AUTO_INCREMENT,
   `ID_CTMA` int DEFAULT NULL,
-  `IMAGE` varchar(500) DEFAULT NULL,
+  `IMAGE` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`ID`),
-  KEY `ID_CTMA` (`ID_CTMA`),
-  CONSTRAINT `image_ctma_ibfk_1` FOREIGN KEY (`ID_CTMA`) REFERENCES `chi_tiet_mon_an` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `ID_CTMA` (`ID_CTMA`)
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -229,11 +255,10 @@ DROP TABLE IF EXISTS `image_ctmeo`;
 CREATE TABLE `image_ctmeo` (
   `ID` int NOT NULL AUTO_INCREMENT,
   `ID_CTMEO` int DEFAULT NULL,
-  `IMAGE` varchar(500) DEFAULT NULL,
+  `IMAGE` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`ID`),
-  KEY `ID_CTMEO` (`ID_CTMEO`),
-  CONSTRAINT `image_ctmeo_ibfk_1` FOREIGN KEY (`ID_CTMEO`) REFERENCES `chi_tiet_meo` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `ID_CTMEO` (`ID_CTMEO`)
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -255,13 +280,13 @@ DROP TABLE IF EXISTS `meo`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `meo` (
   `ID` int NOT NULL AUTO_INCREMENT,
-  `NAME` varchar(150) DEFAULT NULL,
-  `NOI_DUNG` varchar(150) DEFAULT NULL,
-  `IMAGE` varchar(500) DEFAULT NULL,
-  `LINK` varchar(255) DEFAULT NULL,
-  `SLUG` varchar(150) DEFAULT NULL,
+  `NAME` varchar(150) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `NOI_DUNG` varchar(150) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `IMAGE` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `LINK` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `SLUG` varchar(150) COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -283,14 +308,14 @@ DROP TABLE IF EXISTS `mon_an`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `mon_an` (
   `ID` int NOT NULL AUTO_INCREMENT,
-  `NAME` varchar(150) DEFAULT NULL,
-  `NOI_DUNG` varchar(500) DEFAULT NULL,
-  `IMAGE` varchar(500) DEFAULT NULL,
-  `THE_LOAI` varchar(20) DEFAULT NULL,
-  `KT_CHE_BIEN` varchar(20) DEFAULT NULL,
-  `LINK` varchar(255) DEFAULT NULL,
+  `NAME` varchar(150) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `NOI_DUNG` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `IMAGE` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `THE_LOAI` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `KT_CHE_BIEN` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `LINK` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -312,16 +337,15 @@ DROP TABLE IF EXISTS `phan_hoi`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `phan_hoi` (
   `ID` int NOT NULL AUTO_INCREMENT,
-  `TITLE` varchar(150) DEFAULT NULL,
-  `NOI_DUNG` varchar(500) DEFAULT NULL,
+  `TITLE` varchar(150) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `NOI_DUNG` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `DATE_CREATE` datetime DEFAULT NULL,
   `USER_ID` int DEFAULT NULL,
-  `EMAIL` varchar(150) DEFAULT NULL,
-  `SUBJECT` varchar(200) DEFAULT NULL,
+  `EMAIL` varchar(150) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `SUBJECT` varchar(200) COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`ID`),
-  KEY `USER_ID` (`USER_ID`),
-  CONSTRAINT `phan_hoi_ibfk_1` FOREIGN KEY (`USER_ID`) REFERENCES `user` (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `USER_ID` (`USER_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -342,10 +366,10 @@ DROP TABLE IF EXISTS `role`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `role` (
   `ID` int NOT NULL AUTO_INCREMENT,
-  `NAME` varchar(20) DEFAULT NULL,
+  `NAME` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`ID`),
   UNIQUE KEY `unique_name` (`NAME`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -367,11 +391,11 @@ DROP TABLE IF EXISTS `user`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `user` (
   `ID` int NOT NULL AUTO_INCREMENT,
-  `NAME` varchar(50) DEFAULT NULL,
-  `EMAIL` varchar(150) DEFAULT NULL,
-  `SDT` varchar(20) DEFAULT NULL,
-  `USERNAME` varchar(150) NOT NULL,
-  `PASSWORD` varchar(150) NOT NULL,
+  `NAME` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `EMAIL` varchar(150) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `SDT` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `USERNAME` varchar(150) COLLATE utf8mb4_general_ci NOT NULL,
+  `PASSWORD` varchar(150) COLLATE utf8mb4_general_ci NOT NULL,
   `ROLE_ID` int DEFAULT NULL,
   `DATE_CREATE` datetime DEFAULT CURRENT_TIMESTAMP,
   `DATE_UPDATE` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -381,7 +405,7 @@ CREATE TABLE `user` (
   UNIQUE KEY `SDT` (`SDT`),
   KEY `ROLE_ID` (`ROLE_ID`),
   CONSTRAINT `user_ibfk_1` FOREIGN KEY (`ROLE_ID`) REFERENCES `role` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -390,7 +414,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,NULL,'trongthanh0099@gmail.com',NULL,'nttgon','$2a$10$KoCQsWG6MneS8gb4v78WOefZO.s6eeET63SNPPNR2rH4x6CCtZs/W',NULL,NULL,'2024-05-11 03:57:12'),(4,NULL,NULL,NULL,'nttgon123','$2a$10$IDBflkofuMzW7a6hnElxVOC7X42sv5OwLiatsHhMoa.ssuHVaPupS',NULL,NULL,NULL),(5,NULL,NULL,NULL,'nttgon123456','$2a$10$.m8Gp3KKvbJ4GNiLb2If2elzmObgoLJkUXVtVlju0ocTydeSkrX8C',NULL,NULL,NULL),(6,NULL,NULL,NULL,'da87654321','$2a$10$5T2N/GwL4RHYsPMOU1F/LeEWKZPE6J/qVQG.AggMN2Tj7K0ZOCPX.',NULL,'2024-04-30 08:09:35','2024-04-30 08:09:35'),(7,NULL,NULL,NULL,'da876543210','$2a$10$viCHjXwgBgClk2t7UxNQG.JKn5cgUhqiPLpZZjua5OqPT7FeWCHn.',NULL,'2024-04-30 08:33:30','2024-04-30 08:33:30'),(8,NULL,NULL,NULL,'da8765432101','$2a$10$KDPVlCpHE9FHdMKRNsgcLuBBBh3LP0meZDVTvXoS/XtBw3s/NHGki',NULL,'2024-04-30 08:36:23','2024-04-30 08:36:23'),(9,NULL,NULL,NULL,'da987654321','$2a$10$D5oAR3J/2tP3DAX.pyv4XOhQ7pvxIt6TDgWZO0iHhHMKqqKvRMT2y',NULL,'2024-04-30 09:03:59','2024-04-30 09:03:59'),(10,NULL,NULL,NULL,'da8765432111111','$2a$10$EdsSXLCP2KMOUWry6QHmd.Ac1zRGiGQek1Ytzwo15Suo/vRhO/L3e',NULL,'2024-04-30 09:44:59','2024-04-30 09:44:59'),(11,NULL,NULL,NULL,'da9876543210123','$2a$10$pd.YkDRmAmVNYwMXalkLte1mIaor15r.coA4XcNAyCuTdxH5PBGau',NULL,'2024-04-30 09:54:31','2024-04-30 09:54:31'),(12,NULL,NULL,NULL,'da98765432101234','$2a$10$Nv4u78OK.s7IVSKWFR/PPOae1sSHFbIfwE2kGmzG5F4yBhYRmYPo2',NULL,'2024-04-30 09:56:38','2024-04-30 09:56:38'),(13,NULL,NULL,NULL,'da987654321012345','$2a$10$J1eaH/zhlLqfnivnWXTQe.dIyTbe92YtXXBGjKF9pbD3h9apO6NdC',NULL,'2024-04-30 09:57:38','2024-04-30 09:57:38'),(14,NULL,NULL,NULL,'ntt123','$2a$10$uwR7XBXIvzW9puPlrLxyTuaO0MtsYfut/DiPshpeIGkZM0U8GZEbm',NULL,'2024-04-30 11:05:51','2024-04-30 11:05:51'),(15,NULL,NULL,NULL,'ntt123456','$2a$10$IAEpxwA8RyVG296equmz3uajkJI1lM7GB6Ygmbc3gJFV9NjkIog4a',NULL,'2024-04-30 11:06:36','2024-04-30 11:06:36'),(16,NULL,NULL,NULL,'ntt1234567','$2a$10$OiRq05hO91Z7snHms8qs8ehEp7TPaed4ocxDJuKbjDOrs5hY7Muju',NULL,'2024-04-30 11:17:48','2024-04-30 11:17:48'),(17,NULL,NULL,NULL,'ntt12345678','$2a$10$1wA5CFKQGJDB.LQ7MDswgOldxaj9Easx9DXHSY3uNcZ4wIPzLDyt.',NULL,'2024-04-30 11:20:18','2024-04-30 11:20:18'),(18,NULL,NULL,NULL,'ntt123456789','$2a$10$QF8y9z/Co.6H1BN1wiYUbO5y.Y28Oc8BQ9VyZ2IOW7dr06WALbHMC',NULL,'2024-04-30 11:21:42','2024-04-30 11:21:42'),(19,NULL,NULL,NULL,'ntt1234567890','$2a$10$McJ1eLOTqEvd9exqOylxnOAp4DfFxA0CbmVMJTG6BSm7HsEKtf6oa',NULL,'2024-04-30 11:24:04','2024-04-30 11:24:04'),(20,NULL,NULL,NULL,'ntt12345678901','$2a$10$zQwoe5n7rsH9liNYSmmdROTQoH1B76ANTZdrmgpLqOJtppy1F7goq',NULL,'2024-04-30 11:25:28','2024-04-30 11:25:28'),(21,NULL,NULL,NULL,'ntt123456789012','$2a$10$YI1vyJkm/Xk3dNG4TrAUAu/yv3vxOMBnaRtbbZjEmpQbp0m1D2406',NULL,'2024-04-30 11:26:43','2024-04-30 11:26:43');
+INSERT INTO `user` VALUES (4,NULL,NULL,NULL,'nttgon123','$2a$10$IDBflkofuMzW7a6hnElxVOC7X42sv5OwLiatsHhMoa.ssuHVaPupS',NULL,NULL,NULL),(5,NULL,NULL,NULL,'nttgon123456','$2a$10$.m8Gp3KKvbJ4GNiLb2If2elzmObgoLJkUXVtVlju0ocTydeSkrX8C',NULL,NULL,NULL),(6,NULL,NULL,NULL,'da87654321','$2a$10$5T2N/GwL4RHYsPMOU1F/LeEWKZPE6J/qVQG.AggMN2Tj7K0ZOCPX.',NULL,'2024-04-30 08:09:35','2024-04-30 08:09:35'),(7,NULL,NULL,NULL,'da876543210','$2a$10$viCHjXwgBgClk2t7UxNQG.JKn5cgUhqiPLpZZjua5OqPT7FeWCHn.',NULL,'2024-04-30 08:33:30','2024-04-30 08:33:30'),(8,NULL,NULL,NULL,'da8765432101','$2a$10$KDPVlCpHE9FHdMKRNsgcLuBBBh3LP0meZDVTvXoS/XtBw3s/NHGki',NULL,'2024-04-30 08:36:23','2024-04-30 08:36:23'),(9,NULL,NULL,NULL,'da987654321','$2a$10$D5oAR3J/2tP3DAX.pyv4XOhQ7pvxIt6TDgWZO0iHhHMKqqKvRMT2y',NULL,'2024-04-30 09:03:59','2024-04-30 09:03:59'),(10,NULL,NULL,NULL,'da8765432111111','$2a$10$EdsSXLCP2KMOUWry6QHmd.Ac1zRGiGQek1Ytzwo15Suo/vRhO/L3e',NULL,'2024-04-30 09:44:59','2024-04-30 09:44:59'),(11,NULL,NULL,NULL,'da9876543210123','$2a$10$pd.YkDRmAmVNYwMXalkLte1mIaor15r.coA4XcNAyCuTdxH5PBGau',NULL,'2024-04-30 09:54:31','2024-04-30 09:54:31'),(12,NULL,NULL,NULL,'da98765432101234','$2a$10$Nv4u78OK.s7IVSKWFR/PPOae1sSHFbIfwE2kGmzG5F4yBhYRmYPo2',NULL,'2024-04-30 09:56:38','2024-04-30 09:56:38'),(13,NULL,NULL,NULL,'da987654321012345','$2a$10$J1eaH/zhlLqfnivnWXTQe.dIyTbe92YtXXBGjKF9pbD3h9apO6NdC',NULL,'2024-04-30 09:57:38','2024-04-30 09:57:38'),(14,NULL,NULL,NULL,'ntt123','$2a$10$uwR7XBXIvzW9puPlrLxyTuaO0MtsYfut/DiPshpeIGkZM0U8GZEbm',NULL,'2024-04-30 11:05:51','2024-04-30 11:05:51'),(15,NULL,NULL,NULL,'ntt123456','$2a$10$IAEpxwA8RyVG296equmz3uajkJI1lM7GB6Ygmbc3gJFV9NjkIog4a',NULL,'2024-04-30 11:06:36','2024-04-30 11:06:36'),(16,NULL,NULL,NULL,'ntt1234567','$2a$10$OiRq05hO91Z7snHms8qs8ehEp7TPaed4ocxDJuKbjDOrs5hY7Muju',NULL,'2024-04-30 11:17:48','2024-04-30 11:17:48'),(17,NULL,NULL,NULL,'ntt12345678','$2a$10$1wA5CFKQGJDB.LQ7MDswgOldxaj9Easx9DXHSY3uNcZ4wIPzLDyt.',NULL,'2024-04-30 11:20:18','2024-04-30 11:20:18'),(18,NULL,NULL,NULL,'ntt123456789','$2a$10$QF8y9z/Co.6H1BN1wiYUbO5y.Y28Oc8BQ9VyZ2IOW7dr06WALbHMC',NULL,'2024-04-30 11:21:42','2024-04-30 11:21:42'),(19,NULL,NULL,NULL,'ntt1234567890','$2a$10$McJ1eLOTqEvd9exqOylxnOAp4DfFxA0CbmVMJTG6BSm7HsEKtf6oa',NULL,'2024-04-30 11:24:04','2024-04-30 11:24:04'),(20,NULL,NULL,NULL,'ntt12345678901','$2a$10$zQwoe5n7rsH9liNYSmmdROTQoH1B76ANTZdrmgpLqOJtppy1F7goq',NULL,'2024-04-30 11:25:28','2024-04-30 11:25:28'),(21,NULL,NULL,NULL,'ntt123456789012','$2a$10$YI1vyJkm/Xk3dNG4TrAUAu/yv3vxOMBnaRtbbZjEmpQbp0m1D2406',NULL,'2024-04-30 11:26:43','2024-04-30 11:26:43'),(24,'NTT Gon','trongthanh0099@gmail.com',NULL,'trongthanh0099@gmail.com','$2a$10$6aCKhRAjZu5fYRAysbc1KOxqwZfU.BHghINMPLbC14DBJwjZ9QJOm',NULL,'2024-05-16 19:37:41','2024-05-16 19:37:41');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -405,10 +429,8 @@ CREATE TABLE `yeu_thich_meo` (
   `ID_USER` int NOT NULL,
   `ID_CTMEO` int NOT NULL,
   PRIMARY KEY (`ID_USER`,`ID_CTMEO`),
-  KEY `ID_CTMEO` (`ID_CTMEO`),
-  CONSTRAINT `yeu_thich_meo_ibfk_1` FOREIGN KEY (`ID_USER`) REFERENCES `user` (`ID`),
-  CONSTRAINT `yeu_thich_meo_ibfk_2` FOREIGN KEY (`ID_CTMEO`) REFERENCES `chi_tiet_meo` (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `ID_CTMEO` (`ID_CTMEO`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -431,10 +453,8 @@ CREATE TABLE `yeu_thich_mon_an` (
   `ID_USER` int NOT NULL,
   `ID_CTMA` int NOT NULL,
   PRIMARY KEY (`ID_USER`,`ID_CTMA`),
-  KEY `ID_CTMA` (`ID_CTMA`),
-  CONSTRAINT `yeu_thich_mon_an_ibfk_1` FOREIGN KEY (`ID_USER`) REFERENCES `user` (`ID`),
-  CONSTRAINT `yeu_thich_mon_an_ibfk_2` FOREIGN KEY (`ID_CTMA`) REFERENCES `chi_tiet_mon_an` (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+  KEY `ID_CTMA` (`ID_CTMA`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -444,6 +464,58 @@ CREATE TABLE `yeu_thich_mon_an` (
 LOCK TABLES `yeu_thich_mon_an` WRITE;
 /*!40000 ALTER TABLE `yeu_thich_mon_an` DISABLE KEYS */;
 /*!40000 ALTER TABLE `yeu_thich_mon_an` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `yeu_thich_mon_an_buoi_sang`
+--
+
+DROP TABLE IF EXISTS `yeu_thich_mon_an_buoi_sang`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `yeu_thich_mon_an_buoi_sang` (
+  `ID_USER` int NOT NULL,
+  `NAME` varchar(150) COLLATE utf8mb4_general_ci NOT NULL,
+  `SLUG` varchar(150) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `IMAGE` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  PRIMARY KEY (`ID_USER`,`NAME`),
+  KEY `NAME` (`NAME`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `yeu_thich_mon_an_buoi_sang`
+--
+
+LOCK TABLES `yeu_thich_mon_an_buoi_sang` WRITE;
+/*!40000 ALTER TABLE `yeu_thich_mon_an_buoi_sang` DISABLE KEYS */;
+/*!40000 ALTER TABLE `yeu_thich_mon_an_buoi_sang` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `yeu_thich_mon_an_buoi_trua`
+--
+
+DROP TABLE IF EXISTS `yeu_thich_mon_an_buoi_trua`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `yeu_thich_mon_an_buoi_trua` (
+  `ID_USER` int NOT NULL,
+  `NAME` varchar(150) COLLATE utf8mb4_general_ci NOT NULL,
+  `SLUG` varchar(150) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `IMAGE` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  PRIMARY KEY (`ID_USER`,`NAME`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `yeu_thich_mon_an_buoi_trua`
+--
+
+LOCK TABLES `yeu_thich_mon_an_buoi_trua` WRITE;
+/*!40000 ALTER TABLE `yeu_thich_mon_an_buoi_trua` DISABLE KEYS */;
+INSERT INTO `yeu_thich_mon_an_buoi_trua` VALUES (22,'Bánh Trung Thu: bánh nướng và bánh dẻo','Banh-trung-thu','https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2023/9/5/banh-trung-thu-16938859433102065611890.jpg'),(22,'CHÂN GÀ NGÂM SẢ ỚT CHUA CAY, ĐẬM VỊ','chan-ga-sa-ot','https://i.ytimg.com/vi/6sqv4rrUA2g/maxresdefault.jpg');
+/*!40000 ALTER TABLE `yeu_thich_mon_an_buoi_trua` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -455,4 +527,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-05-11  5:47:47
+-- Dump completed on 2024-05-17 12:42:20

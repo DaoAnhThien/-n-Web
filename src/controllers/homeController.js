@@ -306,6 +306,7 @@ const getMonansang = (req, res, next) => {
   })
 }
 const getBuaTrua = (req, res) => {
+  currentTitle = 'Đồ Ăn Trưa';
   const loggedIn = req.session.user ? true : false;
   let page = parseInt(req.params.page);
   let user = [];
@@ -330,9 +331,9 @@ const getBuaTrua = (req, res) => {
         const loggedIn = req.session.user ? true : false;
         if (loggedIn) {
           const username = req.session.user.username
-          res.render('buatrua.handlebars', { user, loggedIn: true, username: username });
+          res.render('buatrua.handlebars', { user, loggedIn: true, username: username,currentTitle });
         } else {
-          res.render('buatrua.handlebars', { user, loggedIn: false, username: null });
+          res.render('buatrua.handlebars', { user, loggedIn: false, username: null, currentTitle});
         }
       }
     );
