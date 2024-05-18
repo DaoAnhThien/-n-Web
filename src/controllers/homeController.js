@@ -81,7 +81,7 @@ const getMeoVat = (req, res, next) => {
               
               let username = null;
               if (rows.length > 0 && rows[0].NAME) {
-                username = rows[0].NAME;
+                username = rows[0].USERNAME;
               } else if (req.session.user) {
                 username = req.session.user.username;
               } else {
@@ -141,7 +141,7 @@ const getMeo = (req,res,next) => {
               
               let username = null;
               if (rows.length > 0 && rows[0].NAME) {
-                username = rows[0].NAME;
+                username = rows[0].USERNAME;
               } else if (req.session.user) {
                 username = req.session.user.username;
               } else {
@@ -270,7 +270,7 @@ const get4meobienthitdaithanhthitmem = (req,res) => {
         
         let username = null;
         if (rows.length > 0 && rows[0].NAME) {
-          username = rows[0].NAME;
+          username = rows[0].USERNAME;
         } else if (req.session.user) {
           username = req.session.user.username;
         } else {
@@ -303,7 +303,7 @@ const get6luuychonguoimoibatdau = (req,res) => {
         
         let username = null;
         if (rows.length > 0 && rows[0].NAME) {
-          username = rows[0].NAME;
+          username = rows[0].USERNAME;
         } else if (req.session.user) {
           username = req.session.user.username;
         } else {
@@ -336,7 +336,7 @@ const get6Skillslambep = (req,res) => {
         
         let username = null;
         if (rows.length > 0 && rows[0].NAME) {
-          username = rows[0].NAME;
+          username = rows[0].USERNAME;
         } else if (req.session.user) {
           username = req.session.user.username;
         } else {
@@ -369,7 +369,7 @@ const get10bikipchonthucphamtuoi = (req,res) => {
         
         let username = null;
         if (rows.length > 0 && rows[0].NAME) {
-          username = rows[0].NAME;
+          username = rows[0].USERNAME;
         } else if (req.session.user) {
           username = req.session.user.username;
         } else {
@@ -402,7 +402,7 @@ const getCachlamsangamdunnuocdien = (req,res) => {
         
         let username = null;
         if (rows.length > 0 && rows[0].NAME) {
-          username = rows[0].NAME;
+          username = rows[0].USERNAME;
         } else if (req.session.user) {
           username = req.session.user.username;
         } else {
@@ -435,7 +435,7 @@ const getNauanvoingucoc = (req,res) => {
         
         let username = null;
         if (rows.length > 0 && rows[0].NAME) {
-          username = rows[0].NAME;
+          username = rows[0].USERNAME;
         } else if (req.session.user) {
           username = req.session.user.username;
         } else {
@@ -490,7 +490,7 @@ const getBuaSang = (req,res) => {
               
               let username = null;
               if (rows.length > 0 && rows[0].NAME) {
-                username = rows[0].NAME;
+                username = rows[0].USERNAME;
               } else if (req.session.user) {
                 username = req.session.user.username;
               } else {
@@ -549,7 +549,7 @@ const getMonansang = (req, res, next) => {
               
               let username = null;
               if (rows.length > 0 && rows[0].NAME) {
-                username = rows[0].NAME;
+                username = rows[0].USERNAME;
               } else if (req.session.user) {
                 username = req.session.user.username;
               } else {
@@ -606,7 +606,7 @@ const getBuaTrua = (req, res) => {
               
               let username = null;
               if (rows.length > 0 && rows[0].NAME) {
-                username = rows[0].NAME;
+                username = rows[0].USERNAME;
               } else if (req.session.user) {
                 username = req.session.user.username;
               } else {
@@ -657,7 +657,7 @@ const getMonantrua = (req, res) => {
               
               let username = null;
               if (rows.length > 0 && rows[0].NAME) {
-                username = rows[0].NAME;
+                username = rows[0].USERNAME;
               } else if (req.session.user) {
                 username = req.session.user.username;
               } else {
@@ -695,7 +695,7 @@ const getbanhbao = (req,res) => {
         
         let username = null;
         if (rows.length > 0 && rows[0].NAME) {
-          username = rows[0].NAME;
+          username = rows[0].USERNAME;
         } else if (req.session.user) {
           username = req.session.user.username;
         } else {
@@ -728,7 +728,7 @@ const getbanhtrungthu = (req,res) => {
         
         let username = null;
         if (rows.length > 0 && rows[0].NAME) {
-          username = rows[0].NAME;
+          username = rows[0].USERNAME;
         } else if (req.session.user) {
           username = req.session.user.username;
         } else {
@@ -761,7 +761,7 @@ const getbunca = (req,res) => {
         
         let username = null;
         if (rows.length > 0 && rows[0].NAME) {
-          username = rows[0].NAME;
+          username = rows[0].USERNAME;
         } else if (req.session.user) {
           username = req.session.user.username;
         } else {
@@ -794,7 +794,7 @@ const getburntcheesecakememchay = (req,res) => {
         
         let username = null;
         if (rows.length > 0 && rows[0].NAME) {
-          username = rows[0].NAME;
+          username = rows[0].USERNAME;
         } else if (req.session.user) {
           username = req.session.user.username;
         } else {
@@ -827,7 +827,7 @@ const getchangasaot = (req,res) => {
         
         let username = null;
         if (rows.length > 0 && rows[0].NAME) {
-          username = rows[0].NAME;
+          username = rows[0].USERNAME;
         } else if (req.session.user) {
           username = req.session.user.username;
         } else {
@@ -860,7 +860,7 @@ const getyenmachsuachua = (req,res) => {
         
         let username = null;
         if (rows.length > 0 && rows[0].NAME) {
-          username = rows[0].NAME;
+          username = rows[0].USERNAME;
         } else if (req.session.user) {
           username = req.session.user.username;
         } else {

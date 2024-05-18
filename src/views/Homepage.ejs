@@ -49,42 +49,43 @@
                     <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
                 </div>
                 <nav class="main-menu">
-                    <ul>
                         <li><a href="/">Trang chủ</a></li>
-                        <li class="home-drop" onclick="submenu(0)"><a href="javascript:void(0)"
-                            class="home-click">Công thức<svg fill="#000" height="15"
-                            viewBox="0 0 330 330" style="enable-background:new 0 0 330 330;"
-                            xml:space="preserve">
-                            <path id="two"
-                                d="M325.607,79.393c-5.857-5.857-15.355-5.858-21.213,0.001l-139.39,139.393L25.607,79.393 c-5.857-5.857-15.355-5.858-21.213,0.001c-5.858,5.858-5.858,15.355,0,21.213l150.004,150c2.813,2.813,6.628,4.393,10.606,4.393 s7.794-1.581,10.606-4.394l149.996-150C331.465,94.749,331.465,85.251,325.607,79.393z">
-                            </path>
-                            <g> </g>    
-                            
-                            <g> </g>
-                            <g> </g>
-                            <g> </g>
-                            <g> </g>
-                            <g> </g>
-                            <g> </g>
-                            <g> </g>
-                            <g> </g>
-                            <g> </g>
-                            <g> </g>
-                            <g> </g>
-                            <g> </g>
-                            <g> </g>
-                            <g> </g>
-                        </svg></a>
-                        <ul class="home-page-2">
-                            <li><a href="/BuaSang">Đồ ăn sáng
-                                </a></li>
-                            <li><a href="/BuaTrua"> Đồ ăn trưa</a></li>
+                        <li class="home-drop" onclick="submenu(0)">
+                            <a href="javascript:void(0)" class="home-click">
+                                Công thức
+                                <svg fill="#000" height="15" viewBox="0 0 330 330" style="enable-background:new 0 0 330 330;" xml:space="preserve">
+                                    <path id="two" d="M325.607,79.393c-5.857-5.857-15.355-5.858-21.213,0.001l-139.39,139.393L25.607,79.393 c-5.857-5.857-15.355-5.858-21.213,0.001c-5.858,5.858-5.858,15.355,0,21.213l150.004,150c2.813,2.813,6.628,4.393,10.606,4.393 s7.794-1.581,10.606-4.394l149.996-150C331.465,94.749,331.465,85.251,325.607,79.393z"></path>
+                                </svg>
+                            </a>
+                            <ul class="home-page-2">
+                                <li><a href="/BuaSang">Đồ ăn sáng</a></li>
+                                <li><a href="/BuaTrua">Đồ ăn trưa</a></li>
                             </ul>
                         </li>
                         <li><a href="/MeoVat">Mẹo vặt</a></li>
                         <li><a href="#footer">About Us</a></li>
-                    </ul>
+                            <% if (username) { %>
+                            <!-- Nếu đã đăng nhập, hiển thị username -->
+                            <li class="home-drop" onclick="submenu(1)">
+                                <a href="javascript:void(0)" class="home-click">
+                                    <%= username %>
+                                    <svg fill="#000" height="15" viewBox="0 0 330 330" style="enable-background:new 0 0 330 330;" xml:space="preserve">
+                                        <path id="two" d="M325.607,79.393c-5.857-5.857-15.355-5.858-21.213,0.001l-139.39,139.393L25.607,79.393 c-5.857-5.857-15.355-5.858-21.213,0.001c-5.858,5.858-5.858,15.355,0,21.213l150.004,150c2.813,2.813,6.628,4.393,10.606,4.393 s7.794-1.581,10.606-4.394l149.996-150C331.465,94.749,331.465,85.251,325.607,79.393z"></path>
+                                    </svg>
+                                </a>
+                                <ul class="home-page-2">
+                                    <li><a href="/Profile">Profile</a></li>
+                                    <li><a href="/Logout">Logout</a></li>
+                                </ul>
+                            </li>
+                            <% } else { %>
+                            <!-- Nếu chưa đăng nhập, hiển thị nút login -->
+                            <div class="site-menu-btns">
+                                <a class="theme-btn-secondary" href="/Login" title="">Login</a>
+                            </div>
+                            <% } %>
                 </nav>
+                
             </div>
             <div class="site-menu-wrapper ml-auto collapse navbar-collapse">
                 <ul class="navbar-nav ml-auto">
@@ -127,23 +128,6 @@
         </nav>
         </div>
     </header>
-    <script>
-        function myFunction() {
-            var x = document.getElementById("myLinks");
-            if (x.style.display = "none") {
-                x.style.display = "block";
-            }
-            else {
-                x.style.display = "none";
-            }
-        }
-        function myFunction1() {
-            var x = document.getElementById("myLinks");
-            if (x.style.display = "block") {
-                x.style.display = "none";
-            }
-        }   
-    </script>
     <div id="wr">
         <div class="vd">
             <video autoplay muted loop id="myVideo">
@@ -225,7 +209,7 @@
 
         <div class="container-meovat">
             <div class="container-meovat-title">
-                <h2>COONGKING TIPS & TECHIQUES</h2>
+                <h2>COOKING TIPS & TECHNIQUES</h2>
                 <p style="text-align: center;">Level up your kitchen skills</p>
             </div>
             <div class="container-meovat-list">

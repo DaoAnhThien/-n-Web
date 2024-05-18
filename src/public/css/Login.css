@@ -110,3 +110,8 @@ body {
 .register-link p a:hover {
   text-decoration: underline;
 }
+.or-text {
+  text-align: center;
+  color: white;
+  margin: 10px 0;
+}
