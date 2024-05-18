@@ -24,23 +24,41 @@
 					<!-- main menu -->
 					<nav class="main-menu">
 						<ul>
-							<li class="home-drop" onclick="submenu(0)"><a href="javascript:void(0)"
+							<li class="home-drop" onclick="/"><a href="javascript:void(0)"
 									id="home-click">Trang Chủ </a>
-							<li class="home-drop" onclick="submenu(1)"><a href="javascript:void(0)"
-									class="home-click">Công thức</a>
-								<ul class="home-page-2">
-									<li><a href="">Khai vị
-										</a></li>
-									<li><a href="/BuaSang">Đồ ăn sáng
-										</a></li>
-									<li><a href="">Thức uống </a></li>
-									<li><a href="/BuaTrua"> Đồ ăn trưa</a></li>
-									<li><a href="">Tráng miệng</a></li>
-								</ul>
-							</li>
-
+							<li class="home-drop" onclick="submenu(0)"><a href="javascript:void(0)"
+                            class="home-click">Công thức<svg fill="#000" height="15"
+                            viewBox="0 0 330 330" style="enable-background:new 0 0 330 330;"
+                            xml:space="preserve">
+                            <path id="two"
+                                d="M325.607,79.393c-5.857-5.857-15.355-5.858-21.213,0.001l-139.39,139.393L25.607,79.393 c-5.857-5.857-15.355-5.858-21.213,0.001c-5.858,5.858-5.858,15.355,0,21.213l150.004,150c2.813,2.813,6.628,4.393,10.606,4.393 s7.794-1.581,10.606-4.394l149.996-150C331.465,94.749,331.465,85.251,325.607,79.393z">
+                            </path>
+                            <g> </g>    
+                            
+                            <g> </g>
+                            <g> </g>
+                            <g> </g>
+                            <g> </g>
+                            <g> </g>
+                            <g> </g>
+                            <g> </g>
+                            <g> </g>
+                            <g> </g>
+                            <g> </g>
+                            <g> </g>
+                            <g> </g>
+                            <g> </g>
+                            <g> </g>
+                        </svg></a>
+                        <ul class="home-page-2">
+                            <li><a href="/BuaSang">Đồ ăn sáng
+                                </a></li>
+                            <li><a href="/BuaTrua"> Đồ ăn trưa</a></li>
+                            </ul>
+                        </li>
+                        
 							<li><a href="/MeoVat">Mẹo vặt</a></li>
-							<li><a href="about_us.html">About Us</a></li>
+							<li><a href="#footer">About Us</a></li>
 						</ul>
 
 					</nav>
@@ -54,20 +72,16 @@
 								Công thức
 							</a>
 							<ul class="dropdown-menu dropdown-menu-dark">
-								<li><a class="dropdown-item" href="khai_vi.html">Khai vị
-									</a></li>
+								
 								<li><a class="dropdown-item" href="/BuaSang">Đồ ăn sáng</a></li>
-								<li><a class="dropdown-item" href="thuc_uong.html">Thức uống
-									</a></li>
 								<li><a class="dropdown-item" href="/BuaTrua">Đồ ăn trưa</a></li>
-								<li><a class="dropdown-item" href="trang_mieng.html">Tráng miệng</a></li>
 							</ul>
 						</li>
-
 						<li><a href="/MeoVat" title="">Mẹo vặt</a></li>
-						<li><a href="about_us.html" title="">About Us</a></li>
+						<li><a href="#footer" title="">About Us</a></li>
 
 					</ul>
+					<div class="site-menu-btns d-flex"> 
 					{{#if username }}
 					<!-- Nếu đã đăng nhập, hiển thị username -->
 					<div class="site-menu-wrapper ml-auto collapse navbar-collapse">
@@ -83,6 +97,7 @@
 								</ul>
 							</li>
 						</ul>
+					</div>
 					</div>
 					{{else}}
 					<!-- Nếu chưa đăng nhập, hiển thị nút login -->

@@ -17,7 +17,7 @@ const getHomepage = async (req, res) => {
         
         let username = null;
         if (rows.length > 0 && rows[0].NAME) {
-          username = rows[0].NAME;
+          username = rows[0].USERNAME;
         } else if (req.session.user) {
           username = req.session.user.username;
         } else {
