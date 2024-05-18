@@ -392,43 +392,6 @@ section {
 /*****************************
 	Header
 ******************************/
-.search-box {
-  position: absolute;
-  top: 15%;
-  right: 200px;
-  transform: translateY(-50%);
-  width: 100px;
-}
-
-.search-box form {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.search-box input[type="text"] {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  outline: none;
-}
-.search-input {
-  font-size: 20px;
-}
-.search-box button {
-  background-color: #4fd675;
-  color: #fff;
-  border: none;
-  padding: 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-left: 5px;
-}
-
-.search-box button {
-  height: 38px;
-}
-
 header.style1 {
   position: absolute;
   top: 10px;
@@ -437,19 +400,53 @@ header.style1 {
   z-index: 3;
   padding: 0;
   margin: 0;
+  background-image: url('image/mazaa-pattern.png');
+  background-size: cover;
+  background-position: center;
+
 }
-.logo.style2 {
-  z-index: 2;
+.search-box{
+  width: 100%;
+  max-width: 700px;
+  background: rgba(255, 255, 255, 0.2);
+  display : flex;
+  align-items: center;
+  border-radius: 60px;
+  padding: 10px 20px;
+  backdrop-filter: blur(4px) saturate(180%);
+  margin: 0 auto;
 }
+.search-box input{
+  background: transparent;
+  flex: 1;
+  border: 0.1;
+  outline: none;
+  padding: 24px 20px;
+  font-size: 20px;
+  color: #4fd675;
+}
+::placeholder{
+  color: #4fd675;
+}
+.search-box button img{
+  width: 25px;
+}
+.search-box button{
+  border: 0;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  background: #4fd675;
+  cursor: pointer;
+}
+.theme-btn,
+.theme-btn-secondary {
+  z-index: 1; 
+}
+
 .navbar-brand {
   padding: 0;
   margin: 0;
-}
-.style2 img {
-  background: #fff;
-  padding: 18px;
-  border-radius: 50%;
-  margin-top: -20px;
 }
 .navbar-nav > li {
   display: inline-block;
@@ -461,252 +458,16 @@ header.style1 {
 }
 
 .navbar {
-  width: 100%;
+  width: 100%; 
   padding-right: 15px;
   padding-left: 15px;
 }
 .site-menu-btns {
   margin-left: 4.25rem;
 }
-.style2 .site-menu-btns {
-  margin-left: 3.25rem;
-}
-.style2 .site-menu-wrapper {
-  padding-bottom: 40px;
-}
-.style2 {
-  top: 0 !important;
-}
-.site-menu-btns a + a {
-  margin-left: 0.45rem;
-}
-.cart-btn-1 {
-  height: 3rem;
-  width: 3rem;
-  line-height: 3rem;
-  border-radius: 50%;
-  background-color: #fff;
-  position: relative;
-  display: inline-block;
-  box-shadow: 0px 0px 29px 0px rgb(0 0 0 / 11%);
-  text-align: center;
-  color: #333333;
-  margin-left: 5px;
-}
-.cart-btn-1 span {
-  height: 1.5625rem;
-  width: 1.5625rem;
-  border-radius: 50%;
-  font-weight: 600;
-  line-height: 1.5625rem;
-  font-size: 0.8125rem;
-  display: inline-block;
-  color: #fff;
-  position: absolute;
-  right: -0.75rem;
-  top: 0;
-  text-align: center;
-  background: #4fd675;
-}
+
 .responsive-header {
   display: none;
-}
-/*****************************
-	Food Category
-******************************/
-.food-cat-box {
-  overflow: hidden;
-}
-.food-cat-inner {
-  border: 4px dashed #ececec;
-  position: relative;
-  padding: 3rem;
-}
-.food-cat-inner > i {
-  font-size: 6.25rem;
-  line-height: 6.25rem;
-  position: relative;
-  z-index: 2;
-}
-.food-cat-inner h4 {
-  position: relative;
-  z-index: 2;
-  margin-top: 16px !important;
-}
-.food-cat-inner h4 a {
-  color: inherit;
-}
-.food-cat-box .go-detail {
-  background-color: #262626;
-  color: #fff;
-  height: 4rem;
-  width: 4rem;
-  line-height: 2.5rem;
-  position: absolute;
-  bottom: -80px;
-  left: 50%;
-  opacity: 0;
-  z-index: 2;
-  visibility: hidden;
-  overflow: hidden;
-  transform: translateX(-50%);
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  transition: all 0.65s;
-  -webkit-transition: all 0.65s;
-  -moz-transition: all 0.65s;
-}
-.cat-hover {
-  top: 0;
-  left: -10%;
-  height: 100%;
-  width: 100%;
-  visibility: hidden;
-  opacity: 0;
-  transition: all 0.28s ease-in-out 0s;
-  -webkit-transition: all 0.28s ease-in-out 0s;
-  -moz-transition: all 0.28s ease-in-out 0s;
-}
-.food-cat-box::before {
-  content: "";
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  z-index: 1;
-  transition: all 0.35s linear;
-  -webkit-transition: all 0.4s linear;
-  -moz-transition: all 0.35s linear;
-}
-.food-cat-box:hover .cat-hover {
-  left: 0;
-  visibility: visible;
-  opacity: 1;
-}
-.food-cat-box:hover::before {
-  opacity: 0.98;
-}
-.food-cat-box:hover .food-cat-inner h4,
-.food-cat-box:hover .food-cat-inner i {
-  color: #fff;
-}
-.food-cat-box:hover .food-cat-inner {
-  border-style: solid;
-}
-.food-cat-box:hover .go-detail {
-  bottom: -30px;
-  visibility: visible;
-  opacity: 1;
-}
-.food-cat-box > a i::before {
-  display: block;
-}
-.food-cat-box > a:hover i::before {
-  -webkit-animation: iconMove 0.4s forwards;
-  -moz-animation: iconMove 0.4s forwards;
-  animation: iconMove 0.4s forwards;
-}
-@-webkit-keyframes iconMove {
-  49% {
-    -webkit-transform: translateX(100%);
-  }
-  50% {
-    opacity: 0;
-    -webkit-transform: translateX(-100%);
-  }
-  51% {
-    opacity: 1;
-  }
-}
-@-moz-keyframes iconMove {
-  49% {
-    -moz-transform: translateX(100%);
-  }
-  50% {
-    opacity: 0;
-    -moz-transform: translateX(-100%);
-  }
-  51% {
-    opacity: 1;
-  }
-}
-@keyframes iconMove {
-  49% {
-    transform: translateX(100%);
-  }
-  50% {
-    opacity: 0;
-    transform: translateX(-100%);
-  }
-  51% {
-    opacity: 1;
-  }
-}
-/*****************************
-	Single Recipe
-******************************/
-.sing-recipe-content {
-  position: relative;
-}
-.single-rec-desc {
-  width: 66%;
-}
-.sing-recipe-img img {
-  width: 100%;
-}
-.single-rec-desc h2 {
-  font-size: 40px;
-  line-height: 40px;
-}
-.single-rec-desc p {
-  line-height: 28px;
-  font-size: 18px;
-}
-.sing-smal-info {
-  background: #293e6b;
-  padding: 15px 30px;
-  position: absolute;
-  top: 0;
-  right: 0;
-  line-height: 20px;
-  color: #fff;
-  font-size: 18px;
-}
-.sing-smal-info::before {
-  content: "";
-  border-top: 18px solid transparent;
-  border-right: 18px solid #293e6b;
-  border-bottom: 18px solid transparent;
-  position: absolute;
-  top: 22px;
-  left: -18px;
-}
-.sing-smal-info::after {
-  content: "";
-  border-top: 15px solid transparent;
-  border-right: 15px solid #293e6b;
-  border-bottom: 15px solid transparent;
-  position: absolute;
-  top: 25px;
-  left: -15px;
-}
-.sing-smal-info li {
-  padding: 6px 0 6px 18px;
-}
-.sing-smal-info li::before {
-  content: "";
-  height: 6.45px;
-  width: 6.45px;
-  border-radius: 50%;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  -webkit-transform: translateY(-50%);
-  -moz-transform: translateY(-50%);
-  left: 0;
-  background-color: #fff;
 }
 /*------dropdown-----*/
 .nav-item:hover .dropdown-menu {
