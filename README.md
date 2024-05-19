@@ -11,3 +11,4 @@ Các chức năng của trang Web:
 - Tạo công thức nấu ăn để làm các món ăn từ nguyên liệu qua hình ảnh có sẵn.
 - Góp ý, đóng góp thông qua form có sẵn từ trang web.
   
+Link sheet góp ý: https://docs.google.com/spreadsheets/d/1Q7Ipr-ituq-qSm5cAGPOEovHy4n4FweQg5NsqBK3Pks/edit?usp=sharing
