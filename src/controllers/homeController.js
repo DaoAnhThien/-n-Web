@@ -104,6 +104,7 @@ const getMeoVat = (req, res, next) => {
 
 }
 const getMeo = (req,res,next) => {
+  const currentTitle = 'Mẹo Vặt';
   const loggedIn = req.session && (req.session.user || req.session.passport);
   const slug=req.params.SLUG;
   let user = [];
@@ -149,14 +150,14 @@ const getMeo = (req,res,next) => {
               }
               
               // Sau khi nhận được kết quả từ truy vấn, render trang
-              res.render('chitietmeo.handlebars',{user,loggedIn: true,username: username });
+              res.render('chitietmeo.handlebars',{user,loggedIn: true,username: username,currentTitle });
             });
           } catch (error) {
             console.error('Lỗi khi thực hiện truy vấn:', error);
             res.status(500).send('Lỗi Server Nội bộ');
           }
         } else {
-          res.render('chitietmeo.handlebars', { user, loggedIn: false, username: null });
+          res.render('chitietmeo.handlebars', { user, loggedIn: false, username: null ,currentTitle});
         }
       }
     );
@@ -253,206 +254,6 @@ const getProfile = (req, res) => {
   }
 };
 
-
-
-const get4meobienthitdaithanhthitmem = (req,res) => {
-  const loggedIn = req.session && (req.session.user || req.session.passport);
-  if (loggedIn) {
-    const userId = req.session.user ? req.session.user.userId : req.session.passport.user.userId;
-    try {
-      // Truy vấn để lấy tên người dùng từ cơ sở dữ liệu
-      connection.query('SELECT * FROM user WHERE ID = ?', [userId], (err, rows) => {
-        if (err) {
-          console.error('Lỗi khi thực hiện truy vấn:', error);
-          res.status(500).send('Lỗi Server Nội bộ');
-          return;
-        }
-        
-        let username = null;
-        if (rows.length > 0 && rows[0].NAME) {
-          username = rows[0].NAME;
-        } else if (req.session.user) {
-          username = req.session.user.username;
-        } else {
-          username = req.session.passport.user.username;
-        }
-        
-        // Sau khi nhận được kết quả từ truy vấn, render trang
-        res.render('4meobienthitdaithanhthitmem.ejs',{loggedIn: true,username: username });
-      });
-    } catch (error) {
-      console.error('Lỗi khi thực hiện truy vấn:', error);
-      res.status(500).send('Lỗi Server Nội bộ');
-    }
-} else {
-    res.render('4meobienthitdaithanhthitmem.ejs', { loggedIn: false,username: null });
-}
-}
-const get6luuychonguoimoibatdau = (req,res) => {
-  const loggedIn = req.session && (req.session.user || req.session.passport);
-  if (loggedIn) {
-    const userId = req.session.user ? req.session.user.userId : req.session.passport.user.userId;
-    try {
-      // Truy vấn để lấy tên người dùng từ cơ sở dữ liệu
-      connection.query('SELECT * FROM user WHERE ID = ?', [userId], (err, rows) => {
-        if (err) {
-          console.error('Lỗi khi thực hiện truy vấn:', error);
-          res.status(500).send('Lỗi Server Nội bộ');
-          return;
-        }
-        
-        let username = null;
-        if (rows.length > 0 && rows[0].NAME) {
-          username = rows[0].NAME;
-        } else if (req.session.user) {
-          username = req.session.user.username;
-        } else {
-          username = req.session.passport.user.username;
-        }
-        
-        // Sau khi nhận được kết quả từ truy vấn, render trang
-        res.render('6luuychonguoimoibatdau.ejs',{loggedIn: true,username: username });
-      });
-    } catch (error) {
-      console.error('Lỗi khi thực hiện truy vấn:', error);
-      res.status(500).send('Lỗi Server Nội bộ');
-    }
-} else {
-    res.render('6luuychonguoimoibatdau.ejs', { loggedIn: false,username: null });
-}
-}
-const get6Skillslambep = (req,res) => {
-  const loggedIn = req.session && (req.session.user || req.session.passport);
-  if (loggedIn) {
-    const userId = req.session.user ? req.session.user.userId : req.session.passport.user.userId;
-    try {
-      // Truy vấn để lấy tên người dùng từ cơ sở dữ liệu
-      connection.query('SELECT * FROM user WHERE ID = ?', [userId], (err, rows) => {
-        if (err) {
-          console.error('Lỗi khi thực hiện truy vấn:', error);
-          res.status(500).send('Lỗi Server Nội bộ');
-          return;
-        }
-        
-        let username = null;
-        if (rows.length > 0 && rows[0].NAME) {
-          username = rows[0].NAME;
-        } else if (req.session.user) {
-          username = req.session.user.username;
-        } else {
-          username = req.session.passport.user.username;
-        }
-        
-        // Sau khi nhận được kết quả từ truy vấn, render trang
-        res.render('6skillslambep.ejs',{loggedIn: true,username: username });
-      });
-    } catch (error) {
-      console.error('Lỗi khi thực hiện truy vấn:', error);
-      res.status(500).send('Lỗi Server Nội bộ');
-    }
-} else {
-    res.render('6Skillslambep.ejs', { loggedIn: false,username: null });
-}
-}
-const get10bikipchonthucphamtuoi = (req,res) => {
-  const loggedIn = req.session && (req.session.user || req.session.passport);
-  if (loggedIn) {
-    const userId = req.session.user ? req.session.user.userId : req.session.passport.user.userId;
-    try {
-      // Truy vấn để lấy tên người dùng từ cơ sở dữ liệu
-      connection.query('SELECT * FROM user WHERE ID = ?', [userId], (err, rows) => {
-        if (err) {
-          console.error('Lỗi khi thực hiện truy vấn:', error);
-          res.status(500).send('Lỗi Server Nội bộ');
-          return;
-        }
-        
-        let username = null;
-        if (rows.length > 0 && rows[0].NAME) {
-          username = rows[0].NAME;
-        } else if (req.session.user) {
-          username = req.session.user.username;
-        } else {
-          username = req.session.passport.user.username;
-        }
-        
-        // Sau khi nhận được kết quả từ truy vấn, render trang
-        res.render('10bikipchonthucphamtuoi.ejs',{loggedIn: true,username: username });
-      });
-    } catch (error) {
-      console.error('Lỗi khi thực hiện truy vấn:', error);
-      res.status(500).send('Lỗi Server Nội bộ');
-    }
-} else {
-    res.render('10bikipchonthucphamtuoi.ejs', { loggedIn: false,username: null });
-}
-}
-const getCachlamsangamdunnuocdien = (req,res) => {
-  const loggedIn = req.session && (req.session.user || req.session.passport);
-  if (loggedIn) {
-    const userId = req.session.user ? req.session.user.userId : req.session.passport.user.userId;
-    try {
-      // Truy vấn để lấy tên người dùng từ cơ sở dữ liệu
-      connection.query('SELECT * FROM user WHERE ID = ?', [userId], (err, rows) => {
-        if (err) {
-          console.error('Lỗi khi thực hiện truy vấn:', error);
-          res.status(500).send('Lỗi Server Nội bộ');
-          return;
-        }
-        
-        let username = null;
-        if (rows.length > 0 && rows[0].NAME) {
-          username = rows[0].NAME;
-        } else if (req.session.user) {
-          username = req.session.user.username;
-        } else {
-          username = req.session.passport.user.username;
-        }
-        
-        // Sau khi nhận được kết quả từ truy vấn, render trang
-        res.render('Cachlamsangamdunnuocdien.ejs',{loggedIn: true,username: username });
-      });
-    } catch (error) {
-      console.error('Lỗi khi thực hiện truy vấn:', error);
-      res.status(500).send('Lỗi Server Nội bộ');
-    }
-} else {
-    res.render('Cachlamsangamdunnuocdien.ejs', { loggedIn: false,username: null });
-}
-}
-const getNauanvoingucoc = (req,res) => {
-  const loggedIn = req.session && (req.session.user || req.session.passport);
-  if (loggedIn) {
-    const userId = req.session.user ? req.session.user.userId : req.session.passport.user.userId;
-    try {
-      // Truy vấn để lấy tên người dùng từ cơ sở dữ liệu
-      connection.query('SELECT * FROM user WHERE ID = ?', [userId], (err, rows) => {
-        if (err) {
-          console.error('Lỗi khi thực hiện truy vấn:', error);
-          res.status(500).send('Lỗi Server Nội bộ');
-          return;
-        }
-        
-        let username = null;
-        if (rows.length > 0 && rows[0].NAME) {
-          username = rows[0].NAME;
-        } else if (req.session.user) {
-          username = req.session.user.username;
-        } else {
-          username = req.session.passport.user.username;
-        }
-        
-        // Sau khi nhận được kết quả từ truy vấn, render trang
-        res.render('Nauanvoingucoc.ejs',{loggedIn: true,username: username });
-      });
-    } catch (error) {
-      console.error('Lỗi khi thực hiện truy vấn:', error);
-      res.status(500).send('Lỗi Server Nội bộ');
-    }
-} else {
-    res.render('Nauanvoingucoc.ejs', { loggedIn: false,username: null });
-}
-}
 const getBuaSang = (req,res) => {
   const currentTitle = 'Đồ Ăn Sáng';
   const loggedIn = req.session && (req.session.user || req.session.passport);
@@ -512,6 +313,7 @@ const getBuaSang = (req,res) => {
   })
 }
 const getMonansang = (req, res, next) => {
+  const currentTitle = 'Đồ Ăn Sáng';
   const loggedIn = req.session && (req.session.user || req.session.passport);
   const slug = req.params.SLUG;
   let user = [];
@@ -557,14 +359,14 @@ const getMonansang = (req, res, next) => {
               }
               
               // Sau khi nhận được kết quả từ truy vấn, render trang
-              res.render('chitietmonan.handlebars',{loggedIn: true,username: username });
+              res.render('chitietmonan.handlebars',{user,loggedIn: true,username: username,currentTitle });
             });
           } catch (error) {
             console.error('Lỗi khi thực hiện truy vấn:', error);
             res.status(500).send('Lỗi Server Nội bộ');
           }
         } else {
-          res.render('chitietmonan.handlebars', { user, loggedIn: false, username: null });
+          res.render('chitietmonan.handlebars', { user, loggedIn: false, username: null,currentTitle });
         }
       }
     );
@@ -665,7 +467,7 @@ const getMonantrua = (req, res) => {
               }
               
               // Sau khi nhận được kết quả từ truy vấn, render trang
-              res.render('chitietmonan.handlebars',{loggedIn: true,username: username, currentTitle });
+              res.render('chitietmonan.handlebars',{user,loggedIn: true,username: username, currentTitle });
             });
           } catch (error) {
             console.error('Lỗi khi thực hiện truy vấn:', error);
@@ -679,206 +481,6 @@ const getMonantrua = (req, res) => {
   })
 
 }
-
-const getbanhbao = (req,res) => {
-  const loggedIn = req.session && (req.session.user || req.session.passport);
-  if (loggedIn) {
-    const userId = req.session.user ? req.session.user.userId : req.session.passport.user.userId;
-    try {
-      // Truy vấn để lấy tên người dùng từ cơ sở dữ liệu
-      connection.query('SELECT * FROM user WHERE ID = ?', [userId], (err, rows) => {
-        if (err) {
-          console.error('Lỗi khi thực hiện truy vấn:', error);
-          res.status(500).send('Lỗi Server Nội bộ');
-          return;
-        }
-        
-        let username = null;
-        if (rows.length > 0 && rows[0].NAME) {
-          username = rows[0].NAME;
-        } else if (req.session.user) {
-          username = req.session.user.username;
-        } else {
-          username = req.session.passport.user.username;
-        }
-        
-        // Sau khi nhận được kết quả từ truy vấn, render trang
-        res.render('banhbao.ejs',{loggedIn: true,username: username });
-      });
-    } catch (error) {
-      console.error('Lỗi khi thực hiện truy vấn:', error);
-      res.status(500).send('Lỗi Server Nội bộ');
-    }
-} else {
-    res.render('banhbao.ejs', { loggedIn: false,username: null });
-}
-}
-const getbanhtrungthu = (req,res) => {
-  const loggedIn = req.session && (req.session.user || req.session.passport);
-  if (loggedIn) {
-    const userId = req.session.user ? req.session.user.userId : req.session.passport.user.userId;
-    try {
-      // Truy vấn để lấy tên người dùng từ cơ sở dữ liệu
-      connection.query('SELECT * FROM user WHERE ID = ?', [userId], (err, rows) => {
-        if (err) {
-          console.error('Lỗi khi thực hiện truy vấn:', error);
-          res.status(500).send('Lỗi Server Nội bộ');
-          return;
-        }
-        
-        let username = null;
-        if (rows.length > 0 && rows[0].NAME) {
-          username = rows[0].NAME;
-        } else if (req.session.user) {
-          username = req.session.user.username;
-        } else {
-          username = req.session.passport.user.username;
-        }
-        
-        // Sau khi nhận được kết quả từ truy vấn, render trang
-        res.render('banhtrungthu.ejs',{loggedIn: true,username: username });
-      });
-    } catch (error) {
-      console.error('Lỗi khi thực hiện truy vấn:', error);
-      res.status(500).send('Lỗi Server Nội bộ');
-    }
-} else {
-    res.render('banhtrungthu.ejs', { loggedIn: false,username: null });
-}
-}
-const getbunca = (req,res) => {
-  const loggedIn = req.session && (req.session.user || req.session.passport);
-  if (loggedIn) {
-    const userId = req.session.user ? req.session.user.userId : req.session.passport.user.userId;
-    try {
-      // Truy vấn để lấy tên người dùng từ cơ sở dữ liệu
-      connection.query('SELECT * FROM user WHERE ID = ?', [userId], (err, rows) => {
-        if (err) {
-          console.error('Lỗi khi thực hiện truy vấn:', error);
-          res.status(500).send('Lỗi Server Nội bộ');
-          return;
-        }
-        
-        let username = null;
-        if (rows.length > 0 && rows[0].NAME) {
-          username = rows[0].NAME;
-        } else if (req.session.user) {
-          username = req.session.user.username;
-        } else {
-          username = req.session.passport.user.username;
-        }
-        
-        // Sau khi nhận được kết quả từ truy vấn, render trang
-        res.render('bunca.ejs',{loggedIn: true,username: username });
-      });
-    } catch (error) {
-      console.error('Lỗi khi thực hiện truy vấn:', error);
-      res.status(500).send('Lỗi Server Nội bộ');
-    }
-} else {
-    res.render('bunca.ejs', { loggedIn: false,username: null });
-}
-}
-const getburntcheesecakememchay = (req,res) => {
-  const loggedIn = req.session && (req.session.user || req.session.passport);
-  if (loggedIn) {
-    const userId = req.session.user ? req.session.user.userId : req.session.passport.user.userId;
-    try {
-      // Truy vấn để lấy tên người dùng từ cơ sở dữ liệu
-      connection.query('SELECT * FROM user WHERE ID = ?', [userId], (err, rows) => {
-        if (err) {
-          console.error('Lỗi khi thực hiện truy vấn:', error);
-          res.status(500).send('Lỗi Server Nội bộ');
-          return;
-        }
-        
-        let username = null;
-        if (rows.length > 0 && rows[0].NAME) {
-          username = rows[0].NAME;
-        } else if (req.session.user) {
-          username = req.session.user.username;
-        } else {
-          username = req.session.passport.user.username;
-        }
-        
-        // Sau khi nhận được kết quả từ truy vấn, render trang
-        res.render('burntcheesecakememchay.ejs',{loggedIn: true,username: username });
-      });
-    } catch (error) {
-      console.error('Lỗi khi thực hiện truy vấn:', error);
-      res.status(500).send('Lỗi Server Nội bộ');
-    }
-} else {
-    res.render('burntcheesecakememchay.ejs', { loggedIn: false,username: null });
-}
-}
-const getchangasaot = (req,res) => {
-  const loggedIn = req.session && (req.session.user || req.session.passport);
-  if (loggedIn) {
-    const userId = req.session.user ? req.session.user.userId : req.session.passport.user.userId;
-    try {
-      // Truy vấn để lấy tên người dùng từ cơ sở dữ liệu
-      connection.query('SELECT * FROM user WHERE ID = ?', [userId], (err, rows) => {
-        if (err) {
-          console.error('Lỗi khi thực hiện truy vấn:', error);
-          res.status(500).send('Lỗi Server Nội bộ');
-          return;
-        }
-        
-        let username = null;
-        if (rows.length > 0 && rows[0].NAME) {
-          username = rows[0].NAME;
-        } else if (req.session.user) {
-          username = req.session.user.username;
-        } else {
-          username = req.session.passport.user.username;
-        }
-        
-        // Sau khi nhận được kết quả từ truy vấn, render trang
-        res.render('changasaoi.ejs',{loggedIn: true,username: username });
-      });
-    } catch (error) {
-      console.error('Lỗi khi thực hiện truy vấn:', error);
-      res.status(500).send('Lỗi Server Nội bộ');
-    }
-} else {
-    res.render('changasaot.ejs', { loggedIn: false,username: null });
-}
-}
-const getyenmachsuachua = (req,res) => {
-  const loggedIn = req.session && (req.session.user || req.session.passport);
-  if (loggedIn) {
-    const userId = req.session.user ? req.session.user.userId : req.session.passport.user.userId;
-    try {
-      // Truy vấn để lấy tên người dùng từ cơ sở dữ liệu
-      connection.query('SELECT * FROM user WHERE ID = ?', [userId], (err, rows) => {
-        if (err) {
-          console.error('Lỗi khi thực hiện truy vấn:', error);
-          res.status(500).send('Lỗi Server Nội bộ');
-          return;
-        }
-        
-        let username = null;
-        if (rows.length > 0 && rows[0].NAME) {
-          username = rows[0].NAME;
-        } else if (req.session.user) {
-          username = req.session.user.username;
-        } else {
-          username = req.session.passport.user.username;
-        }
-        
-        // Sau khi nhận được kết quả từ truy vấn, render trang
-        res.render('yenmachsuachua.ejs',{loggedIn: true,username: username });
-      });
-    } catch (error) {
-      console.error('Lỗi khi thực hiện truy vấn:', error);
-      res.status(500).send('Lỗi Server Nội bộ');
-    }
-} else {
-    res.render('yenmachsuachua.ejs', { loggedIn: false,username: null });
-}
-}
-
 const getLogout = async (req, res) => {
   try {
     console.log(req.session)
@@ -913,7 +515,6 @@ const getSearch = (request, response) => {
 
 module.exports = {
   getHomepage, getLogin, getMeoVat, getMeo, getMonansang, getMonantrua,
-  get4meobienthitdaithanhthitmem, get6luuychonguoimoibatdau, get6Skillslambep, get10bikipchonthucphamtuoi, getCachlamsangamdunnuocdien, getNauanvoingucoc,
-  getBuaSang, getBuaTrua, getbanhbao, getbanhtrungthu, getbunca, getburntcheesecakememchay, getchangasaot, getyenmachsuachua, getRegister, getProfile,
+  getBuaSang, getBuaTrua, getRegister, getProfile,
   getLogout, getForgotPassword, getSearch
 }
