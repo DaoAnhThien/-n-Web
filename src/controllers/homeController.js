@@ -217,7 +217,38 @@ const postMonan = (req, res, next) => {
         return res.status(500).json({ error: 'Failed to insert data' });
       }
       const user = req.body;
-      res.json("succes");
+      const loggedIn = req.session && (req.session.user || req.session.passport);
+      if (loggedIn) {
+        const userId = req.session.user ? req.session.user.userId : req.session.passport.user.userId;
+    
+        try {
+          // Truy vấn để lấy tên người dùng từ cơ sở dữ liệu
+          connection.query('SELECT * FROM user WHERE ID = ?', [userId], (err, rows) => {
+            if (err) {
+              console.error('Lỗi khi thực hiện truy vấn:', error);
+              res.status(500).send('Lỗi Server Nội bộ');
+              return;
+            }
+    
+            let username = null;
+            if (rows.length > 0 && rows[0].NAME) {
+              username = rows[0].USERNAME;
+            } else if (req.session.user) {
+              username = req.session.user.username;
+            } else {
+              username = req.session.passport.user.username;
+            }
+    
+            // Sau khi nhận được kết quả từ truy vấn, render trang
+            res.render('Homepage.ejs', { loggedIn: true, username: username });
+          });
+        } catch (error) {
+          console.error('Lỗi khi thực hiện truy vấn:', error);
+          res.status(500).send('Lỗi Server Nội bộ');
+        }
+      } else {
+        res.render('Homepage.ejs', { loggedIn: false, username: null });
+      }
 
 
     });

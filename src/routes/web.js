@@ -40,13 +40,12 @@ router.get('/MeoVat/navigate/:page', getMeoVat);
 // Trang mon an
 router.get('/BuaSang', getBuaSang);
 router.get('/BuaTrua', getBuaTrua);
+router.get('/BuaSang/create', getMonancreate);
+router.post('/BuaSang/store',postMonan);
 router.get('/BuaSang/:SLUG', getMonansang);
 router.get('/BuaTrua/:SLUG', getMonantrua);
 router.get('/BuaSang/navigate/:page', getBuaSang);
 router.get('/BuaTrua/navigate/:page', getBuaTrua);
 router.get('/search', getSearch);
-
-router.get('/BuaSang/create', getMonancreate);
-router.post('/BuaSang/store',postMonan);
 
 module.exports = router; 
