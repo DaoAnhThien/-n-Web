@@ -23,7 +23,10 @@
   flex-wrap: wrap; /* Cho phép các phần tử con tự động xuống dòng khi không đủ không gian */
   justify-content: space-between;
 }
-@media only screen and (max-width: 46.125em) {
+.container-food-2-block1{
+  width: 60%;
+}
+@media only screen and (max-width: 738px) {
   .container-food-2{
     margin-left: 0;
   }
@@ -33,11 +36,13 @@
   .container-food-2-block1{
     width: 100%;
   }
+  .container-food-2-block2{
+    width: 0%;
+    margin-left: 2%;
+    position: relative;
+  }
+}
 
-}
-.container-food-2-block1{
-  width: 60%;
-}
 .container-food-2-block2{
   width: 38%;
   margin-left: 2%;
