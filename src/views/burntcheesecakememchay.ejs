@@ -20,159 +20,108 @@
 </head>
 
 <body>
-    <div class="header">
+    <header class="style1">
+        <div class="search">
+                <form action="" class ="search-box">
+                    <input class="search-input" type="text" placeholder="Tìm công thức..." id="search">
+                    <i class='bx bx-search-alt-2'></i>
+                </form>
+            </div>
         <div class="container">
             <nav class="navbar navbar-expand-lg">
-                <div class="logo">
-                    <a class="navbar-brand" href="javascript:void(0)">
-                        <img src="/image/logo1.png" alt="">
-                    </a>
+            <div class="logo">
+                <a class="navbar-brand" href="javascript:void(0)">
+                    <img src="/image/logo1.png" alt="">
+                </a>
+            </div>
+            <div class="navbar-toggler active">
+                <span></span><span></span><span></span>
+            </div>
+            <div class="nav-menu active">
+                <!-- navbar-close -->
+                <div class="navbar-close">
+                    <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
                 </div>
-                <div class="navbar-toggler active">
-                    <span></span><span></span><span></span>
-                </div>
-                <div class="nav-menu active">
-
-                    <div class="navbar-close">
-                        <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-                    </div>
-
-                    <nav class="main-menu">
-                        <ul>
-                            <li class="home-drop" onclick="submenu(0)"><a href="javascript:void(0)"
-                                    id="home-click">Trang Chủ </a>
-                            <li class="home-drop" onclick="submenu(1)"><a href="javascript:void(0)"
-                                    class="home-click">Công thức</a>
-                                <ul class="home-page-2">
-                                    <li><a href="">Khai vị
-                                        </a></li>
-                                    <li><a href="/MonAn/Bua-Sang">Đồ ăn sáng
-                                        </a></li>
-                                    <li><a href="">Thức uống </a></li>
-                                    <li><a href="/MonAn/Bua-Trua"> Đồ ăn trưa</a></li>
-                                    <li><a href="">Tráng miệng</a></li>
-                                </ul>
-                            </li>
-
-
-                            <li><a href="/MeoVat">Mẹo vặt</a></li>
-                            <li><a href="about_us.html">About Us</a></li>
-                        </ul>
-
-                    </nav>
-                </div>
-                <div class="site-menu-wrapper ml-auto collapse navbar-collapse">
-                    <ul class="navbar-nav ml-auto">
+                <nav class="main-menu">
                         <li><a href="/">Trang chủ</a></li>
-                        <li class="nav-item dropdown position-relative">
-                            <a class="nav-link" href="javascript:void(0)" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
+                        <li class="home-drop" onclick="submenu(0)">
+                            <a href="javascript:void(0)" class="home-click">
                                 Công thức
+                                <svg fill="#000" height="15" viewBox="0 0 330 330" style="enable-background:new 0 0 330 330;" xml:space="preserve">
+                                    <path id="two" d="M325.607,79.393c-5.857-5.857-15.355-5.858-21.213,0.001l-139.39,139.393L25.607,79.393 c-5.857-5.857-15.355-5.858-21.213,0.001c-5.858,5.858-5.858,15.355,0,21.213l150.004,150c2.813,2.813,6.628,4.393,10.606,4.393 s7.794-1.581,10.606-4.394l149.996-150C331.465,94.749,331.465,85.251,325.607,79.393z"></path>
+                                </svg>
                             </a>
-                            <ul class="dropdown-menu dropdown-menu-dark">
-                                <li><a class="dropdown-item" href="khai_vi.html">Khai vị
-                                    </a></li>
-                                <li><a class="dropdown-item" href="/MonAn/Bua-Sang">Đồ ăn sáng</a></li>
-                                <li><a class="dropdown-item" href="thuc_uong.html">Thức uống
-                                    </a></li>
-                                <li><a class="dropdown-item" href="/MonAn/Bua-Trua">Đồ ăn trưa</a></li>
-                                <li><a class="dropdown-item" href="trang_mieng.html">Tráng miệng</a></li>
+                            <ul class="home-page-2">
+                                <li><a href="/BuaSang">Món Ăn Sáng</a></li>
+                                <li><a href="/BuaTrua">Món Ăn Trưa</a></li>
                             </ul>
                         </li>
-
-
-                        <li><a href="/MeoVat" title="">Mẹo vặt</a></li>
-                        <li><a href="about_us.html" title="">About Us</a></li>
-
-                    </ul>
-                    <div class="site-menu-btns d-flex">
-                        <div class="search-box">
-                            <input class="search-input" type="text" placeholder="Search..." id="search">
-                            <i class='bx bx-search-alt-2'></i>
+                        <li><a href="/MeoVat">Mẹo vặt</a></li>
+                        <li><a href="#footer">About Us</a></li>
                             <% if (username) { %>
-                                <!-- Nếu đã đăng nhập, hiển thị username -->
-                                <div class="site-menu-wrapper ml-auto collapse navbar-collapse">
-                                    <ul class="navbar-nav ml-auto">
-                                        <li class="nav-item dropdown position-relative" style="margin: 0 0;">
-                                            <a class="nav-link" href="javascript:void(0)" role="button"
-                                                data-bs-toggle="dropdown" aria-expanded="false">
-                                                <%= username %>!
-                                            </a>
-                                            <ul class="dropdown-menu dropdown-menu-dark">
-                                                <li><a class="dropdown-item" href="/Profile"> Profile</a></li>
-                                                <li><a class="dropdown-item" href="/Logout">Logout</a></li>
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <% } else { %>
-                                    <!-- Nếu chưa đăng nhập, hiển thị nút login -->
-                                    <div><a class="theme-btn-secondary" href="/Login" title="">Login</a>
-                                    </div>
-                                    <% } %>
-                        </div>
+                            <!-- Nếu đã đăng nhập, hiển thị username -->
+                            <li class="home-drop" onclick="submenu(1)">
+                                <a href="javascript:void(0)" class="home-click">
+                                    <%= username %>
+                                    <svg fill="#000" height="15" viewBox="0 0 330 330" style="enable-background:new 0 0 330 330;" xml:space="preserve">
+                                        <path id="two" d="M325.607,79.393c-5.857-5.857-15.355-5.858-21.213,0.001l-139.39,139.393L25.607,79.393 c-5.857-5.857-15.355-5.858-21.213,0.001c-5.858,5.858-5.858,15.355,0,21.213l150.004,150c2.813,2.813,6.628,4.393,10.606,4.393 s7.794-1.581,10.606-4.394l149.996-150C331.465,94.749,331.465,85.251,325.607,79.393z"></path>
+                                    </svg>
+                                </a>
+                                <ul class="home-page-2">
+                                    <li><a href="/Profile">Profile</a></li>
+                                    <li><a href="/Logout">Logout</a></li>
+                                </ul>
+                            </li>
+                            <% } else { %>
+                            <!-- Nếu chưa đăng nhập, hiển thị nút login -->
+                            <div class="site-menu-btns">
+                                <a class="theme-btn-secondary" href="/Login" title="">Login</a>
+                            </div>
+                            <% } %>
+                </nav>
+                
+            </div>
+            <div class="site-menu-wrapper ml-auto collapse navbar-collapse">
+                <ul class="navbar-nav ml-auto">
+                    <li><a href="/">Trang chủ</a></li>
+                    <li class="nav-item dropdown position-relative">
+                        <a class="nav-link" href="javascript:void(0)" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Công thức
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="/BuaSang">Món Ăn Sáng</a></li>
+                            <li><a class="dropdown-item" href="/BuaTrua">Món Ăn Trưa</a></li>
+                        </ul>
+                    </li>
 
-                    </div>
+                    <li><a href="/MeoVat" title="">Mẹo vặt</a></li>
+                    <li><a href="#footer" title="">About Us</a></li>
+                </ul>
+                <div class="site-menu-btns d-flex">
+                    <% if (username) { %>
+                        <!-- Nếu đã đăng nhập, hiển thị username -->
+                        <div class="site-menu-wrapper ml-auto collapse navbar-collapse">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item dropdown position-relative">
+                                    <a class="nav-link" href="javascript:void(0)" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <%= username %>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-menu-dark">
+                                        <li><a class="dropdown-item" href="/Profile"> Profile</a></li>
+                                        <li><a class="dropdown-item" href="/Logout">Logout</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    <% } else { %>
+                        <!-- Nếu chưa đăng nhập, hiển thị nút login -->
+                        <div><a class="theme-btn-secondary" href="/Login" title="">Login</a></div>
+                    <% } %>
+                </div>
             </nav>
         </div>
-    </div>
-
-    <div class="header1">
-        <a class="active"><img src="/image/logo1.png" alt=""></a>
-        <a href="javascript:void(0);" class="icon" onclick="myFunction()" id="navbtn">
-            <i class="fa fa-bars"></i>
-        </a>
-    </div>
-    <div class="dropdown0" id="myLinks">
-        <div class="dropdown">
-            <button class="dropbtn3">
-                <a href="/"> </a>Trang chủ</button>
-        </div>
-        <div class="dropdown">
-            <button class="dropbtn">Công thức</button>
-            <div class="dropdown-content">
-                <a href="/MonAn/Bua-Sang">Đồ ăn sáng</a>
-                <a href="/MonAn/Bua-Trua">Đồ ăn trưa</a>
-                <a href="#">Tráng miệng</a>
-            </div>
-        </div>
-
-        <div class="dropdown">
-            <button class="dropbtn2"> <a href="/MeoVat"> </a>Mẹo vặt</button>
-        </div>
-        <div class="dropdown">
-            <button class="dropbtn3">
-                <a href="/Login"> </a>Login</button>
-        </div>
-        <div class="dropdown">
-            <input type="text" placeholder="Search.." name="search" id="search">
-            <button type="submit" class="searchbtn" style="width: 200px; height: 50px;">Search</button>
-        </div>
-        <div class="dropdown">
-            <button class="dropbtn3" onclick="myFunction1()">X</button>
-        </div>
-    </div>
-
-
-    <script>
-        function myFunction() {
-            var x = document.getElementById("myLinks");
-            if (x.style.display = "none") {
-                x.style.display = "block";
-            }
-            else {
-                x.style.display = "none";
-            }
-        }
-        function myFunction1() {
-            var x = document.getElementById("myLinks");
-            if (x.style.display = "block") {
-                x.style.display = "none";
-            }
-        }   
-    </script>
-
-
+    </header>
     <div id="wr">
         <div class="container-food">
             <div class="container-food-2">
@@ -357,6 +306,10 @@
     </div>
     <div id="results"></div>
     <script src="/js/search.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+	<script src="/js/script.js"></script>
     <div class="footer">
         <div class="address">
             <h2>Contact</h2>

@@ -104,6 +104,8 @@ const getMeoVat = (req, res, next) => {
 
 }
 const getMeo = (req,res,next) => {
+  const link = '/MeoVat';
+  const currentTitle = 'Mẹo Vặt';
   const loggedIn = req.session && (req.session.user || req.session.passport);
   const slug=req.params.SLUG;
   let user = [];
@@ -149,14 +151,14 @@ const getMeo = (req,res,next) => {
               }
               
               // Sau khi nhận được kết quả từ truy vấn, render trang
-              res.render('chitietmeo.handlebars',{user,loggedIn: true,username: username });
+              res.render('chitietmeo.handlebars',{user,loggedIn: true,username: username ,currentTitle ,link});
             });
           } catch (error) {
             console.error('Lỗi khi thực hiện truy vấn:', error);
             res.status(500).send('Lỗi Server Nội bộ');
           }
         } else {
-          res.render('chitietmeo.handlebars', { user, loggedIn: false, username: null });
+          res.render('chitietmeo.handlebars', { user, loggedIn: false, username: null,currentTitle ,link });
         }
       }
     );
@@ -454,7 +456,7 @@ const getNauanvoingucoc = (req,res) => {
 }
 }
 const getBuaSang = (req,res) => {
-  const currentTitle = 'Đồ Ăn Sáng';
+  const currentTitle = 'Món Ăn Sáng';
   const loggedIn = req.session && (req.session.user || req.session.passport);
   let page = parseInt(req.params.page);
   let user = [];
@@ -512,6 +514,8 @@ const getBuaSang = (req,res) => {
   })
 }
 const getMonansang = (req, res, next) => {
+  const link ='/BuaSang';
+  const currentTitle = 'Món Ăn Sáng';
   const loggedIn = req.session && (req.session.user || req.session.passport);
   const slug = req.params.SLUG;
   let user = [];
@@ -557,21 +561,21 @@ const getMonansang = (req, res, next) => {
               }
               
               // Sau khi nhận được kết quả từ truy vấn, render trang
-              res.render('chitietmonan.handlebars',{loggedIn: true,username: username });
+              res.render('chitietmonan.handlebars',{user,loggedIn: true,username: username,currentTitle,link });
             });
           } catch (error) {
             console.error('Lỗi khi thực hiện truy vấn:', error);
             res.status(500).send('Lỗi Server Nội bộ');
           }
         } else {
-          res.render('chitietmonan.handlebars', { user, loggedIn: false, username: null });
+          res.render('chitietmonan.handlebars', {user,loggedIn: false, username: null ,currentTitle,link});
         }
       }
     );
   })
 }
 const getBuaTrua = (req, res) => {
-  const currentTitle = 'Đồ Ăn Trưa';
+  const currentTitle = 'Món Ăn Trưa';
   const loggedIn = req.session && (req.session.user || req.session.passport);
   let page = parseInt(req.params.page);
   let user = [];
@@ -629,7 +633,8 @@ const getBuaTrua = (req, res) => {
 }
 
 const getMonantrua = (req, res) => {
-  const currentTitle = 'Đồ Ăn Trưa';
+  const link = '/BuaTrua';
+  const currentTitle = 'Món Ăn Trưa';
   const loggedIn = req.session && (req.session.user || req.session.passport);
   const slug = req.params.SLUG;
   let user = [];
@@ -665,14 +670,14 @@ const getMonantrua = (req, res) => {
               }
               
               // Sau khi nhận được kết quả từ truy vấn, render trang
-              res.render('chitietmonan.handlebars',{loggedIn: true,username: username, currentTitle });
+              res.render('chitietmonan.handlebars',{user,loggedIn: true,username: username, currentTitle, link });
             });
           } catch (error) {
             console.error('Lỗi khi thực hiện truy vấn:', error);
             res.status(500).send('Lỗi Server Nội bộ');
           }
         } else {
-          res.render('chitietmonan.handlebars', { user, loggedIn: false, username: null , currentTitle});
+          res.render('chitietmonan.handlebars', { user, loggedIn: false, username: null , currentTitle, link});
         }
       }
     );
@@ -835,7 +840,7 @@ const getchangasaot = (req,res) => {
         }
         
         // Sau khi nhận được kết quả từ truy vấn, render trang
-        res.render('changasaoi.ejs',{loggedIn: true,username: username });
+        res.render('changasaot.ejs',{loggedIn: true,username: username });
       });
     } catch (error) {
       console.error('Lỗi khi thực hiện truy vấn:', error);
