@@ -1146,7 +1146,7 @@ div.scroll-container {
     width: 45%;
     align-items: center;
     text-align: center;
-    border-left: 0px solid #41c466;
+    border-left: 0px;
   }
   .social .i{
     display: inline;
@@ -1154,6 +1154,7 @@ div.scroll-container {
   }
   .address{
     width: 45%;
+    border-right: 3px solid #41c466;
   }
 }
 .search-box1{
