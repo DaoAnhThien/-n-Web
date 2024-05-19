@@ -24,6 +24,8 @@ const { getMeo } = require('../controllers/homeController');
 const { getMonansang } = require('../controllers/homeController');
 const { getMonantrua } = require('../controllers/homeController');
 const { getSearch } = require('../controllers/homeController');
+const { getMonancreate } = require('../controllers/homeController');
+const { postMonan }= require('../controllers/homeController');
 
 
 const route = require('color-convert/route');
@@ -66,6 +68,8 @@ router.get('/BuaTrua/burnt-cheese-cake-mem-chay', getburntcheesecakememchay);
 router.get('/BuaTrua/chan-ga-sa-ot', getchangasaot);
 router.get('/BuaSang/yen-mach-sua-chua', getyenmachsuachua);
 
+router.get('/BuaSang/create', getMonancreate);
+router.post('/BuaSang/store',postMonan);
 router.get('/BuaSang/:SLUG', getMonansang);
 router.get('/BuaTrua/:SLUG', getMonantrua);
 router.get('/BuaSang/navigate/:page', getBuaSang);
