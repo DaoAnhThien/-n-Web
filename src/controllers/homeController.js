@@ -1,6 +1,7 @@
 const { session } = require('passport');
 const connection = require('../config/database');
 connection.connect();
+
 const getHomepage = async (req, res) => {
   const loggedIn = req.session && (req.session.user || req.session.passport);
   if (loggedIn) {
@@ -66,7 +67,6 @@ const getMeoVat = (req, res, next) => {
           console.error('Error executing query: ' + err.stack);
           return;
         }
-        console.log(">>>result= ", user);
         //res.render('meovat.handlebars',{user})
         if (loggedIn) {
           const userId = req.session.user ? req.session.user.userId : req.session.passport.user.userId;
@@ -129,7 +129,6 @@ const getMeo = (req,res,next) => {
           console.error('Error executing query: ' + err.stack);
           return;
         }
-        console.log(">>>result= ", user)
         if (loggedIn) {
           const userId = req.session.user ? req.session.user.userId : req.session.passport.user.userId;
           try {
@@ -164,6 +163,66 @@ const getMeo = (req,res,next) => {
     );
   })
 }
+
+const getMonancreate = (req,res,next) => {
+  const loggedIn = req.session && (req.session.user || req.session.passport);
+  const link = '/BuaSang/create';
+  const currentTitle = 'Bữa sáng';
+  if (loggedIn) {
+    const userId = req.session.user ? req.session.user.userId : req.session.passport.user.userId;
+    try {
+      // Truy vấn để lấy tên người dùng từ cơ sở dữ liệu
+      connection.query('SELECT * FROM user WHERE ID = ?', [userId], (err, rows) => {
+        if (err) {
+          console.error('Lỗi khi thực hiện truy vấn:', error);
+          res.status(500).send('Lỗi Server Nội bộ');
+          return;
+        }
+        
+        let username = null;
+        if (rows.length > 0 && rows[0].NAME) {
+          username = rows[0].USERNAME;
+        } else if (req.session.user) {
+          username = req.session.user.username;
+        } else {
+          username = req.session.passport.user.username;
+        }
+        
+        // Sau khi nhận được kết quả từ truy vấn, render trang
+        res.render('create.handlebars',{loggedIn: true,username: username ,currentTitle ,link});
+      });
+    } catch (error) {
+      console.error('Lỗi khi thực hiện truy vấn:', error);
+      res.status(500).send('Lỗi Server Nội bộ');
+    }
+  } else {
+    res.render('create.handlebars', {  loggedIn: false, username: null,currentTitle ,link });
+  }
+}
+
+
+const postMonan = (req, res, next) => {
+  connection.connect((err) => {
+    if (err) {
+      console.error('Error connecting to database:', err.stack);
+      return res.status(500).json({ error: 'Database connection error' });
+    }
+    console.log('Connected to database successfully');
+    const table = req.body.list;
+    const sql = `INSERT INTO ${table} SET  NAME= ?, INTRODUCE=?, IMAGE=?, SLUG=?, IMAGE1=?, IMAGE2=?, IMAGE3=?, nguyenlieu=?, cachlam=?, baoquan=?`;
+    const values = [req.body.NAME, req.body.INTRODUCE, req.body.IMAGE, req.body.SLUG, req.body.IMAGE1, req.body.IMAGE2, req.body.IMAGE3, req.body.nguyenlieu, req.body.cachlam, req.body.baoquan];
+    connection.query(sql, values, (err, result) => {
+      if (err) {
+        console.error('Error inserting data:', err);
+        return res.status(500).json({ error: 'Failed to insert data' });
+      }
+      const user=req.body;
+      res.json("succes");
+      
+      
+    });
+  });
+};
 const getProfile = (req, res) => {
   const currentTitle = 'Trang Cá Nhân';
   const loggedIn = req.session && (req.session.user || req.session.passport);
@@ -278,6 +337,7 @@ const getBuaSang = (req,res) => {
           console.error('Error executing query: ' + err.stack);
           return;
         }
+        console.log(">>>result= ", page);
         if (loggedIn) {
           const userId = req.session.user ? req.session.user.userId : req.session.passport.user.userId;
           try {
@@ -338,7 +398,6 @@ const getMonansang = (req, res, next) => {
           console.error('Error executing query: ' + err.stack);
           return;
         }
-        console.log(">>>result= ", user)
         if (loggedIn) {
           const userId = req.session.user ? req.session.user.userId : req.session.passport.user.userId;
           try {
@@ -514,7 +573,7 @@ const getSearch = (request, response) => {
 }
 
 module.exports = {
-  getHomepage, getLogin, getMeoVat, getMeo, getMonansang, getMonantrua,
+  getHomepage, getLogin, getMeoVat, getMeo, getMonansang, getMonantrua,getMonancreate, postMonan,
   getBuaSang, getBuaTrua, getRegister, getProfile,
   getLogout, getForgotPassword, getSearch
 }

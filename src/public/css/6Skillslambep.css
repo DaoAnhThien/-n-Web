@@ -72,4 +72,18 @@
   .container-skills-2-block2-1 h3:hover {
     color: #41c466;
   }
+  @media only screen and (max-width: 738px) {
+    .container-skills-2-block1{
+      width: 100%;
+    }
+    .container-skills {
+      margin: 0 0;
+    }
+    .container-skils-2-block1-1{
+      margin: 0 0;
+    }
+    .container-skills-2{
+      margin: 0;
+    }
+  }
   

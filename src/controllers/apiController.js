@@ -71,7 +71,6 @@ const HandleLogin = async (req, res) => {
         
         // Kiểm tra thông tin đăng nhập 
         const user = await findUserByUsernameAndPassword(username, password);
-        console.log(user)
         if (!user) {
             return res.status(401).json({ error: 'Invalid login credentials' });
         }
@@ -153,7 +152,6 @@ const HandleForgotPasswordConfirm = async (req, res) => {
 const HandleFavouriteTrick = async (req, res) => {
     if (req.session && (req.session.user || req.session.passport)) { 
         try {
-            console.log(req.body)
             const userID = req.session.user ? req.session.user.userId : req.session.passport.user.userId;
             let trickNAME = req.body.NAME;
             let slug = req.body.SLUG;

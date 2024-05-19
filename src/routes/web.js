@@ -12,6 +12,8 @@ const { getMeo } = require('../controllers/homeController');
 const { getMonansang } = require('../controllers/homeController');
 const { getMonantrua } = require('../controllers/homeController');
 const { getSearch } = require('../controllers/homeController');
+const { getMonancreate } = require('../controllers/homeController');
+const { postMonan }= require('../controllers/homeController');
 
 
 const route = require('color-convert/route');
@@ -44,5 +46,7 @@ router.get('/BuaSang/navigate/:page', getBuaSang);
 router.get('/BuaTrua/navigate/:page', getBuaTrua);
 router.get('/search', getSearch);
 
+router.get('/BuaSang/create', getMonancreate);
+router.post('/BuaSang/store',postMonan);
 
 module.exports = router; 

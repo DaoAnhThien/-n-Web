@@ -26,6 +26,23 @@
 .container-food-2-block1{
   width: 60%;
 }
+@media only screen and (max-width: 738px) {
+  .container-food-2{
+    margin-left: 0;
+  }
+  .container-food {
+    margin: 0 0;
+  }
+  .container-food-2-block1{
+    width: 100%;
+  }
+  .container-food-2-block2{
+    width: 0%;
+    margin-left: 2%;
+    position: relative;
+  }
+}
+
 .container-food-2-block2{
   width: 38%;
   margin-left: 2%;
