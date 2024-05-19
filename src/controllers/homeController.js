@@ -278,7 +278,6 @@ const getBuaSang = (req,res) => {
           console.error('Error executing query: ' + err.stack);
           return;
         }
-        console.log(">>>result= ", page);
         if (loggedIn) {
           const userId = req.session.user ? req.session.user.userId : req.session.passport.user.userId;
           try {
@@ -396,7 +395,6 @@ const getBuaTrua = (req, res) => {
           console.error('Error executing query: ' + err.stack);
           return;
         }
-        console.log(">>>result= ", img);
         if (loggedIn) {
           const userId = req.session.user ? req.session.user.userId : req.session.passport.user.userId;
           try {
@@ -448,7 +446,6 @@ const getMonantrua = (req, res) => {
       'SELECT * from bua_trua Where SLUG=?', [slug],
       function (err, result, fields) {
         user = result;
-        console.log(">>>result= ", user);
         if (loggedIn) {
           const userId = req.session.user ? req.session.user.userId : req.session.passport.user.userId;
           try {

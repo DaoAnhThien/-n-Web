@@ -60,7 +60,7 @@
   color: #41c466;
 }
 .scrolling-block {
-    position: sticky;
+    position: relative;
     top: 0;
 }
 .container-skills-2-block2-1{

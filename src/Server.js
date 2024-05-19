@@ -36,7 +36,7 @@ app.use('/v1', apiRouters);
 
 function runPythonScript() {
     const activateCommand = 'conda activate recipe && ';
-    const scriptPath = 'E:\\NT208\\Web-NT208\\generator\\Recipe-Generation-from-Food-Image\\run.py';
+    const scriptPath = 'D:\\NT208\\Web-NT208\\generator\\Recipe-Generation-from-Food-Image\\run.py';
     const command = `${activateCommand}python ${scriptPath}`;
 
     const process = exec(command);
@@ -59,7 +59,7 @@ function runPythonScript() {
 runPythonScript();
 
 function runNodeScript() {
-    const command = "E: && cd E:\\NT208\\Web-NT208\\generator\\Calorie-Calculator && npm run dev";
+    const command = "D: && cd D:\\NT208\\Web-NT208\\generator\\Calorie-Calculator && npm run dev";
 
     const process = exec(command);
 
