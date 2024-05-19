@@ -30,7 +30,7 @@ function load_data(query = '') {
                         <div class="newsContent">
                 
                             <h2>`+ result.NAME + `</h2>
-                            <p>`+ result.NOI_DUNG + `</p>
+                            <p>`+ result.INTRODUCE + `</p>
                             <a href="`+ result.LINK + `" target="_blank">Read More</a>
                         </div>
                     </div>
