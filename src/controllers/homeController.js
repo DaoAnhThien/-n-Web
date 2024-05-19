@@ -6,7 +6,7 @@ const getHomepage = async (req, res) => {
   const loggedIn = req.session && (req.session.user || req.session.passport);
   if (loggedIn) {
     const userId = req.session.user ? req.session.user.userId : req.session.passport.user.userId;
-    
+
     try {
       // Truy vấn để lấy tên người dùng từ cơ sở dữ liệu
       connection.query('SELECT * FROM user WHERE ID = ?', [userId], (err, rows) => {
@@ -15,7 +15,7 @@ const getHomepage = async (req, res) => {
           res.status(500).send('Lỗi Server Nội bộ');
           return;
         }
-        
+
         let username = null;
         if (rows.length > 0 && rows[0].NAME) {
           username = rows[0].USERNAME;
@@ -24,7 +24,7 @@ const getHomepage = async (req, res) => {
         } else {
           username = req.session.passport.user.username;
         }
-        
+
         // Sau khi nhận được kết quả từ truy vấn, render trang
         res.render('Homepage.ejs', { loggedIn: true, username: username });
       });
@@ -78,7 +78,7 @@ const getMeoVat = (req, res, next) => {
                 res.status(500).send('Lỗi Server Nội bộ');
                 return;
               }
-              
+
               let username = null;
               if (rows.length > 0 && rows[0].NAME) {
                 username = rows[0].USERNAME;
@@ -87,27 +87,27 @@ const getMeoVat = (req, res, next) => {
               } else {
                 username = req.session.passport.user.username;
               }
-              
+
               // Sau khi nhận được kết quả từ truy vấn, render trang
-              res.render('meovat.handlebars',{user,loggedIn: true,username: username , currentTitle});
+              res.render('meovat.handlebars', { user, loggedIn: true, username: username, currentTitle });
             });
           } catch (error) {
             console.error('Lỗi khi thực hiện truy vấn:', error);
             res.status(500).send('Lỗi Server Nội bộ');
           }
         } else {
-          res.render('meovat.handlebars', { user, loggedIn: false, username: null , currentTitle});
+          res.render('meovat.handlebars', { user, loggedIn: false, username: null, currentTitle });
         }
       }
     );
   })
 
 }
-const getMeo = (req,res,next) => {
+const getMeo = (req, res, next) => {
   const link = '/MeoVat';
   const currentTitle = 'Mẹo Vặt';
   const loggedIn = req.session && (req.session.user || req.session.passport);
-  const slug=req.params.SLUG;
+  const slug = req.params.SLUG;
   let user = [];
   let img = [];
   connection.connect((err) => {
@@ -139,7 +139,7 @@ const getMeo = (req,res,next) => {
                 res.status(500).send('Lỗi Server Nội bộ');
                 return;
               }
-              
+
               let username = null;
               if (rows.length > 0 && rows[0].NAME) {
                 username = rows[0].USERNAME;
@@ -148,23 +148,23 @@ const getMeo = (req,res,next) => {
               } else {
                 username = req.session.passport.user.username;
               }
-              
+
               // Sau khi nhận được kết quả từ truy vấn, render trang
-              res.render('chitietmeo.handlebars',{user,loggedIn: true,username: username ,currentTitle ,link});
+              res.render('chitietmeo.handlebars', { user, loggedIn: true, username: username, currentTitle, link });
             });
           } catch (error) {
             console.error('Lỗi khi thực hiện truy vấn:', error);
             res.status(500).send('Lỗi Server Nội bộ');
           }
         } else {
-          res.render('chitietmeo.handlebars', { user, loggedIn: false, username: null,currentTitle ,link });
+          res.render('chitietmeo.handlebars', { user, loggedIn: false, username: null, currentTitle, link });
         }
       }
     );
   })
 }
 
-const getMonancreate = (req,res,next) => {
+const getMonancreate = (req, res, next) => {
   const loggedIn = req.session && (req.session.user || req.session.passport);
   const link = '/BuaSang/create';
   const currentTitle = 'Bữa sáng';
@@ -178,7 +178,7 @@ const getMonancreate = (req,res,next) => {
           res.status(500).send('Lỗi Server Nội bộ');
           return;
         }
-        
+
         let username = null;
         if (rows.length > 0 && rows[0].NAME) {
           username = rows[0].USERNAME;
@@ -187,16 +187,16 @@ const getMonancreate = (req,res,next) => {
         } else {
           username = req.session.passport.user.username;
         }
-        
+
         // Sau khi nhận được kết quả từ truy vấn, render trang
-        res.render('create.handlebars',{loggedIn: true,username: username ,currentTitle ,link});
+        res.render('create.handlebars', { loggedIn: true, username: username, currentTitle, link });
       });
     } catch (error) {
       console.error('Lỗi khi thực hiện truy vấn:', error);
       res.status(500).send('Lỗi Server Nội bộ');
     }
   } else {
-    res.render('create.handlebars', {  loggedIn: false, username: null,currentTitle ,link });
+    res.render('create.handlebars', { loggedIn: false, username: null, currentTitle, link });
   }
 }
 
@@ -216,10 +216,10 @@ const postMonan = (req, res, next) => {
         console.error('Error inserting data:', err);
         return res.status(500).json({ error: 'Failed to insert data' });
       }
-      const user=req.body;
+      const user = req.body;
       res.json("succes");
-      
-      
+
+
     });
   });
 };
@@ -314,7 +314,7 @@ const getProfile = (req, res) => {
   }
 };
 
-const getBuaSang = (req,res) => {
+const getBuaSang = (req, res) => {
   const currentTitle = 'Món Ăn Sáng';
   const loggedIn = req.session && (req.session.user || req.session.passport);
   let page = parseInt(req.params.page);
@@ -348,7 +348,7 @@ const getBuaSang = (req,res) => {
                 res.status(500).send('Lỗi Server Nội bộ');
                 return;
               }
-              
+
               let username = null;
               if (rows.length > 0 && rows[0].NAME) {
                 username = rows[0].USERNAME;
@@ -357,23 +357,23 @@ const getBuaSang = (req,res) => {
               } else {
                 username = req.session.passport.user.username;
               }
-              
+
               // Sau khi nhận được kết quả từ truy vấn, render trang
-              res.render('buasang.handlebars',{user, loggedIn: true,username: username ,currentTitle});
+              res.render('buasang.handlebars', { user, loggedIn: true, username: username, currentTitle });
             });
           } catch (error) {
             console.error('Lỗi khi thực hiện truy vấn:', error);
             res.status(500).send('Lỗi Server Nội bộ');
           }
         } else {
-          res.render('buasang.handlebars', { user, loggedIn: false, username: null ,currentTitle});
+          res.render('buasang.handlebars', { user, loggedIn: false, username: null, currentTitle });
         }
       }
     );
   })
 }
 const getMonansang = (req, res, next) => {
-  const link ='/BuaSang';
+  const link = '/BuaSang';
   const currentTitle = 'Món Ăn Sáng';
   const loggedIn = req.session && (req.session.user || req.session.passport);
   const slug = req.params.SLUG;
@@ -408,7 +408,7 @@ const getMonansang = (req, res, next) => {
                 res.status(500).send('Lỗi Server Nội bộ');
                 return;
               }
-              
+
               let username = null;
               if (rows.length > 0 && rows[0].NAME) {
                 username = rows[0].USERNAME;
@@ -417,16 +417,16 @@ const getMonansang = (req, res, next) => {
               } else {
                 username = req.session.passport.user.username;
               }
-              
+
               // Sau khi nhận được kết quả từ truy vấn, render trang
-              res.render('chitietmonan.handlebars',{user,loggedIn: true,username: username,currentTitle,link });
+              res.render('chitietmonan.handlebars', { user, loggedIn: true, username: username, currentTitle, link });
             });
           } catch (error) {
             console.error('Lỗi khi thực hiện truy vấn:', error);
             res.status(500).send('Lỗi Server Nội bộ');
           }
         } else {
-          res.render('chitietmonan.handlebars', {user,loggedIn: false, username: null ,currentTitle,link});
+          res.render('chitietmonan.handlebars', { user, loggedIn: false, username: null, currentTitle, link });
         }
       }
     );
@@ -464,7 +464,7 @@ const getBuaTrua = (req, res) => {
                 res.status(500).send('Lỗi Server Nội bộ');
                 return;
               }
-              
+
               let username = null;
               if (rows.length > 0 && rows[0].NAME) {
                 username = rows[0].USERNAME;
@@ -473,16 +473,16 @@ const getBuaTrua = (req, res) => {
               } else {
                 username = req.session.passport.user.username;
               }
-              
+
               // Sau khi nhận được kết quả từ truy vấn, render trang
-              res.render('buatrua.handlebars',{user, loggedIn: true,username: username ,currentTitle});
+              res.render('buatrua.handlebars', { user, loggedIn: true, username: username, currentTitle });
             });
           } catch (error) {
             console.error('Lỗi khi thực hiện truy vấn:', error);
             res.status(500).send('Lỗi Server Nội bộ');
           }
         } else {
-          res.render('buatrua.handlebars', { user, loggedIn: false, username: null ,currentTitle});
+          res.render('buatrua.handlebars', { user, loggedIn: false, username: null, currentTitle });
         }
       }
     );
@@ -515,7 +515,7 @@ const getMonantrua = (req, res) => {
                 res.status(500).send('Lỗi Server Nội bộ');
                 return;
               }
-              
+
               let username = null;
               if (rows.length > 0 && rows[0].NAME) {
                 username = rows[0].USERNAME;
@@ -524,16 +524,16 @@ const getMonantrua = (req, res) => {
               } else {
                 username = req.session.passport.user.username;
               }
-              
+
               // Sau khi nhận được kết quả từ truy vấn, render trang
-              res.render('chitietmonan.handlebars',{user,loggedIn: true,username: username, currentTitle, link });
+              res.render('chitietmonan.handlebars', { user, loggedIn: true, username: username, currentTitle, link });
             });
           } catch (error) {
             console.error('Lỗi khi thực hiện truy vấn:', error);
             res.status(500).send('Lỗi Server Nội bộ');
           }
         } else {
-          res.render('chitietmonan.handlebars', { user, loggedIn: false, username: null , currentTitle, link});
+          res.render('chitietmonan.handlebars', { user, loggedIn: false, username: null, currentTitle, link });
         }
       }
     );
@@ -564,16 +564,19 @@ const getSearch = (request, response) => {
 
   const query = request.query.q;
 
-  connection.query(`SELECT NAME, NOI_DUNG, LINK, IMAGE FROM meo WHERE meo.NAME LIKE '%${query}%'
+
+  connection.query(`SELECT NAME, INTRODUCE, LINK, IMAGE FROM meo WHERE meo.NAME LIKE '%${query}%'
   UNION ALL
-  SELECT NAME, NOI_DUNG, LINK, IMAGE FROM mon_an WHERE mon_an.NAME LIKE '%${query}%';`, (error, results) => {
+  SELECT NAME, INTRODUCE, LINK, IMAGE FROM bua_sang WHERE bua_sang.NAME LIKE '%${query}%'
+  UNION ALL
+  SELECT NAME, INTRODUCE, LINK, IMAGE FROM bua_trua WHERE bua_trua.NAME LIKE '%${query}%';`, (error, results) => {
     if (error) throw error;
     response.send(results);
   });
 }
 
 module.exports = {
-  getHomepage, getLogin, getMeoVat, getMeo, getMonansang, getMonantrua,getMonancreate, postMonan,
+  getHomepage, getLogin, getMeoVat, getMeo, getMonansang, getMonantrua, getMonancreate, postMonan,
   getBuaSang, getBuaTrua, getRegister, getProfile,
   getLogout, getForgotPassword, getSearch
 }
