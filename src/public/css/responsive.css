@@ -133,4 +133,18 @@
 	    transition: .3s all ease-in-out;
 	}
 }
+@media only screen and (max-width: 46.125em) {
+	.container-skills-2-block2{
+		display: none;
+	}
+	.container-food-2-block2{
+		display: none;
 
+	}
+	.container-food-2-block1{
+		width: 100%;
+	  }
+	.container-skills-2-block1{
+		width: 100%;
+	  }
+}

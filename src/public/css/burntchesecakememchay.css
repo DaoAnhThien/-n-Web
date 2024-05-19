@@ -23,6 +23,18 @@
   flex-wrap: wrap; /* Cho phép các phần tử con tự động xuống dòng khi không đủ không gian */
   justify-content: space-between;
 }
+@media only screen and (max-width: 46.125em) {
+  .container-food-2{
+    margin-left: 0;
+  }
+  .container-food {
+    margin: 0 0;
+  }
+  .container-food-2-block1{
+    width: 100%;
+  }
+
+}
 .container-food-2-block1{
   width: 60%;
 }

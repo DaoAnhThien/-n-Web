@@ -703,3 +703,31 @@ ul.inner-dropdown.list-unstyled:before {
 	    transition: .3s all ease-in-out;
 	}
 }
+@media only screen and (max-width: 46.125em) {
+  .aboutus{ 
+    display: none;
+  }
+  .block1 h2 {
+    color: #12372a;
+    margin-left: 15%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 200%;
+    
+  }
+  .social {
+    margin: 10px;
+    width: 45%;
+    align-items: center;
+    text-align: center;
+    border-left: 0px;
+  }
+  .social .i{
+    display: inline;
+    padding: 3px;
+  }
+  .address{
+    width: 45%;
+    border-right: 3px solid #41c466;
+  }
+}
