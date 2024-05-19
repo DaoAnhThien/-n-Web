@@ -37,10 +37,15 @@
     width: 100%;
   }
   .container-food-2-block2{
+    display: none;
     width: 0%;
     margin-left: 2%;
     position: relative;
   }
+  .container-skills-2-block2{
+		display: none;
+
+	}
 }
 
 .container-food-2-block2{
