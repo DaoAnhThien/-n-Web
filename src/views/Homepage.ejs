@@ -106,8 +106,8 @@
                     <li><a href="/BuaSang/create" title="">Đóng góp</a></li>
                     <li><a href="#footer" title="">About Us</a></li>
                 </ul>
-                <div class="site-menu-btns d-flex">
                     <% if (username) { %>
+                    <div class="site-menu-btns d-flex" style="margin: 0px 0px;">
                         <!-- Nếu đã đăng nhập, hiển thị username -->
                         <div class="site-menu-wrapper ml-auto collapse navbar-collapse">
                             <ul class="navbar-nav ml-auto">
@@ -122,9 +122,12 @@
                                 </li>
                             </ul>
                         </div>
+                    </div>
                     <% } else { %>
+                    <div class="site-menu-btns d-flex">
                         <!-- Nếu chưa đăng nhập, hiển thị nút login -->
                         <div><a class="theme-btn-secondary" href="/Login" title="">Login</a></div>
+                    </div>
                     <% } %>
                 </div>
             </nav>
