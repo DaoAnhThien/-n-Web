@@ -81,7 +81,7 @@ const getMeoVat = (req, res, next) => {
               
               let username = null;
               if (rows.length > 0 && rows[0].NAME) {
-                username = rows[0].NAME;
+                username = rows[0].USERNAME;
               } else if (req.session.user) {
                 username = req.session.user.username;
               } else {
@@ -104,6 +104,7 @@ const getMeoVat = (req, res, next) => {
 
 }
 const getMeo = (req,res,next) => {
+  const link = '/MeoVat';
   const currentTitle = 'Mẹo Vặt';
   const loggedIn = req.session && (req.session.user || req.session.passport);
   const slug=req.params.SLUG;
@@ -142,7 +143,7 @@ const getMeo = (req,res,next) => {
               
               let username = null;
               if (rows.length > 0 && rows[0].NAME) {
-                username = rows[0].NAME;
+                username = rows[0].USERNAME;
               } else if (req.session.user) {
                 username = req.session.user.username;
               } else {
@@ -150,14 +151,14 @@ const getMeo = (req,res,next) => {
               }
               
               // Sau khi nhận được kết quả từ truy vấn, render trang
-              res.render('chitietmeo.handlebars',{user,loggedIn: true,username: username,currentTitle });
+              res.render('chitietmeo.handlebars',{user,loggedIn: true,username: username ,currentTitle ,link});
             });
           } catch (error) {
             console.error('Lỗi khi thực hiện truy vấn:', error);
             res.status(500).send('Lỗi Server Nội bộ');
           }
         } else {
-          res.render('chitietmeo.handlebars', { user, loggedIn: false, username: null ,currentTitle});
+          res.render('chitietmeo.handlebars', { user, loggedIn: false, username: null,currentTitle ,link });
         }
       }
     );
@@ -255,7 +256,7 @@ const getProfile = (req, res) => {
 };
 
 const getBuaSang = (req,res) => {
-  const currentTitle = 'Đồ Ăn Sáng';
+  const currentTitle = 'Món Ăn Sáng';
   const loggedIn = req.session && (req.session.user || req.session.passport);
   let page = parseInt(req.params.page);
   let user = [];
@@ -291,7 +292,7 @@ const getBuaSang = (req,res) => {
               
               let username = null;
               if (rows.length > 0 && rows[0].NAME) {
-                username = rows[0].NAME;
+                username = rows[0].USERNAME;
               } else if (req.session.user) {
                 username = req.session.user.username;
               } else {
@@ -313,7 +314,8 @@ const getBuaSang = (req,res) => {
   })
 }
 const getMonansang = (req, res, next) => {
-  const currentTitle = 'Đồ Ăn Sáng';
+  const link ='/BuaSang';
+  const currentTitle = 'Món Ăn Sáng';
   const loggedIn = req.session && (req.session.user || req.session.passport);
   const slug = req.params.SLUG;
   let user = [];
@@ -351,7 +353,7 @@ const getMonansang = (req, res, next) => {
               
               let username = null;
               if (rows.length > 0 && rows[0].NAME) {
-                username = rows[0].NAME;
+                username = rows[0].USERNAME;
               } else if (req.session.user) {
                 username = req.session.user.username;
               } else {
@@ -359,21 +361,21 @@ const getMonansang = (req, res, next) => {
               }
               
               // Sau khi nhận được kết quả từ truy vấn, render trang
-              res.render('chitietmonan.handlebars',{user,loggedIn: true,username: username,currentTitle });
+              res.render('chitietmonan.handlebars',{user,loggedIn: true,username: username,currentTitle,link });
             });
           } catch (error) {
             console.error('Lỗi khi thực hiện truy vấn:', error);
             res.status(500).send('Lỗi Server Nội bộ');
           }
         } else {
-          res.render('chitietmonan.handlebars', { user, loggedIn: false, username: null,currentTitle });
+          res.render('chitietmonan.handlebars', {user,loggedIn: false, username: null ,currentTitle,link});
         }
       }
     );
   })
 }
 const getBuaTrua = (req, res) => {
-  const currentTitle = 'Đồ Ăn Trưa';
+  const currentTitle = 'Món Ăn Trưa';
   const loggedIn = req.session && (req.session.user || req.session.passport);
   let page = parseInt(req.params.page);
   let user = [];
@@ -408,7 +410,7 @@ const getBuaTrua = (req, res) => {
               
               let username = null;
               if (rows.length > 0 && rows[0].NAME) {
-                username = rows[0].NAME;
+                username = rows[0].USERNAME;
               } else if (req.session.user) {
                 username = req.session.user.username;
               } else {
@@ -431,7 +433,8 @@ const getBuaTrua = (req, res) => {
 }
 
 const getMonantrua = (req, res) => {
-  const currentTitle = 'Đồ Ăn Trưa';
+  const link = '/BuaTrua';
+  const currentTitle = 'Món Ăn Trưa';
   const loggedIn = req.session && (req.session.user || req.session.passport);
   const slug = req.params.SLUG;
   let user = [];
@@ -459,7 +462,7 @@ const getMonantrua = (req, res) => {
               
               let username = null;
               if (rows.length > 0 && rows[0].NAME) {
-                username = rows[0].NAME;
+                username = rows[0].USERNAME;
               } else if (req.session.user) {
                 username = req.session.user.username;
               } else {
@@ -467,14 +470,14 @@ const getMonantrua = (req, res) => {
               }
               
               // Sau khi nhận được kết quả từ truy vấn, render trang
-              res.render('chitietmonan.handlebars',{user,loggedIn: true,username: username, currentTitle });
+              res.render('chitietmonan.handlebars',{user,loggedIn: true,username: username, currentTitle, link });
             });
           } catch (error) {
             console.error('Lỗi khi thực hiện truy vấn:', error);
             res.status(500).send('Lỗi Server Nội bộ');
           }
         } else {
-          res.render('chitietmonan.handlebars', { user, loggedIn: false, username: null , currentTitle});
+          res.render('chitietmonan.handlebars', { user, loggedIn: false, username: null , currentTitle, link});
         }
       }
     );
