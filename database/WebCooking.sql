@@ -1,8 +1,8 @@
 -- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
 --
--- Host: localhost    Database: web_cooking
+-- Host: localhost    Database: webcooking
 -- ------------------------------------------------------
--- Server version	8.3.0
+-- Server version	8.4.0
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -24,20 +24,20 @@ DROP TABLE IF EXISTS `bua_sang`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `bua_sang` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `NAME` varchar(45) COLLATE utf8mb4_general_ci NOT NULL,
-  `INTRODUCE` varchar(500) COLLATE utf8mb4_general_ci NOT NULL,
-  `IMAGE` varchar(500) COLLATE utf8mb4_general_ci NOT NULL,
-  `LINK` varchar(255) COLLATE utf8mb4_general_ci DEFAULT '/BuaSang',
-  `SLUG` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `NL` longtext COLLATE utf8mb4_general_ci,
-  `CL` longtext COLLATE utf8mb4_general_ci,
-  `BQ` longtext COLLATE utf8mb4_general_ci,
-  `IMAGE1` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `IMAGE2` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `IMAGE3` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `nguyenlieu` longtext COLLATE utf8mb4_general_ci,
-  `cachlam` longtext COLLATE utf8mb4_general_ci,
-  `baoquan` longtext COLLATE utf8mb4_general_ci,
+  `NAME` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `INTRODUCE` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `IMAGE` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `LINK` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT '/BuaSang',
+  `SLUG` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `NL` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `CL` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `BQ` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `IMAGE1` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `IMAGE2` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `IMAGE3` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `nguyenlieu` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `cachlam` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `baoquan` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -61,18 +61,18 @@ DROP TABLE IF EXISTS `bua_trua`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `bua_trua` (
   `idbua_trua` int NOT NULL AUTO_INCREMENT,
-  `NAME` varchar(45) COLLATE utf8mb4_general_ci NOT NULL,
-  `IMAGE` varchar(500) COLLATE utf8mb4_general_ci NOT NULL,
-  `INTRODUCE` longtext COLLATE utf8mb4_general_ci NOT NULL,
-  `LINK` varchar(255) COLLATE utf8mb4_general_ci NOT NULL DEFAULT '/BuaTrua/',
-  `SLUG` varchar(45) COLLATE utf8mb4_general_ci NOT NULL,
-  `TITLE` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `IMAGE1` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `IMAGE2` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `IMAGE3` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `nguyenlieu` longtext COLLATE utf8mb4_general_ci,
-  `cachlam` longtext COLLATE utf8mb4_general_ci,
-  `baoquan` longtext COLLATE utf8mb4_general_ci,
+  `NAME` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `IMAGE` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `INTRODUCE` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `LINK` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL DEFAULT '/BuaTrua/',
+  `SLUG` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `TITLE` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `IMAGE1` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `IMAGE2` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `IMAGE3` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `nguyenlieu` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `cachlam` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `baoquan` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
   PRIMARY KEY (`idbua_trua`)
 ) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -96,29 +96,29 @@ DROP TABLE IF EXISTS `chi_tiet_meo`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `chi_tiet_meo` (
   `ID` int NOT NULL AUTO_INCREMENT,
-  `TITLE` varchar(150) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `NOI_DUNG` longtext COLLATE utf8mb4_general_ci,
+  `TITLE` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `NOI_DUNG` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
   `ID_MEO` int DEFAULT NULL,
-  `SLUG` varchar(150) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `INTRODUCE` longtext COLLATE utf8mb4_general_ci,
-  `IMAGE1` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `IMAGE2` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `IMAGE3` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `IMAGE4` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `IMAGE5` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `IMAGE6` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `muc1` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `muc2` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `muc3` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `muc4` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `muc5` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `muc6` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `ct1` longtext COLLATE utf8mb4_general_ci,
-  `ct2` longtext COLLATE utf8mb4_general_ci,
-  `ct3` longtext COLLATE utf8mb4_general_ci,
-  `ct4` longtext COLLATE utf8mb4_general_ci,
-  `ct5` longtext COLLATE utf8mb4_general_ci,
-  `ct6` longtext COLLATE utf8mb4_general_ci,
+  `SLUG` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `INTRODUCE` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `IMAGE1` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `IMAGE2` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `IMAGE3` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `IMAGE4` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `IMAGE5` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `IMAGE6` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `muc1` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `muc2` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `muc3` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `muc4` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `muc5` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `muc6` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `ct1` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `ct2` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `ct3` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `ct4` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `ct5` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
+  `ct6` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
   PRIMARY KEY (`ID`),
   KEY `ID_MEO` (`ID_MEO`),
   CONSTRAINT `chi_tiet_meo_ibfk_1` FOREIGN KEY (`ID_MEO`) REFERENCES `meo` (`ID`)
@@ -144,12 +144,12 @@ DROP TABLE IF EXISTS `chi_tiet_mon_an`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `chi_tiet_mon_an` (
   `ID` int NOT NULL AUTO_INCREMENT,
-  `TITLE` varchar(150) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `NOI_DUNG` longtext COLLATE utf8mb4_general_ci,
+  `TITLE` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `NOI_DUNG` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci,
   `ID_MON_AN` int DEFAULT NULL,
   `DATE_CREATE` datetime DEFAULT NULL,
   `DATE_UPDATE` datetime DEFAULT NULL,
-  `SLUG` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `SLUG` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`ID`),
   KEY `ID_MON_AN` (`ID_MON_AN`),
   CONSTRAINT `chi_tiet_mon_an_ibfk_1` FOREIGN KEY (`ID_MON_AN`) REFERENCES `mon_an` (`ID`)
@@ -176,7 +176,7 @@ DROP TABLE IF EXISTS `confirmationcode`;
 CREATE TABLE `confirmationcode` (
   `ID` int NOT NULL AUTO_INCREMENT,
   `UserID` int DEFAULT NULL,
-  `code` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `code` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `createdAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`ID`),
   KEY `UserID` (`UserID`)
@@ -203,8 +203,8 @@ DROP TABLE IF EXISTS `federated_credentials`;
 CREATE TABLE `federated_credentials` (
   `id` int NOT NULL AUTO_INCREMENT,
   `user_id` int NOT NULL,
-  `provider` varchar(255) COLLATE utf8mb4_vietnamese_ci NOT NULL,
-  `subject` varchar(255) COLLATE utf8mb4_vietnamese_ci NOT NULL,
+  `provider` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL,
+  `subject` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_vietnamese_ci NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `federated_credentials_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`ID`)
@@ -231,7 +231,7 @@ DROP TABLE IF EXISTS `image_ctma`;
 CREATE TABLE `image_ctma` (
   `ID` int NOT NULL AUTO_INCREMENT,
   `ID_CTMA` int DEFAULT NULL,
-  `IMAGE` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `IMAGE` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`ID`),
   KEY `ID_CTMA` (`ID_CTMA`)
 ) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -257,7 +257,7 @@ DROP TABLE IF EXISTS `image_ctmeo`;
 CREATE TABLE `image_ctmeo` (
   `ID` int NOT NULL AUTO_INCREMENT,
   `ID_CTMEO` int DEFAULT NULL,
-  `IMAGE` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `IMAGE` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`ID`),
   KEY `ID_CTMEO` (`ID_CTMEO`)
 ) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -282,11 +282,11 @@ DROP TABLE IF EXISTS `meo`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `meo` (
   `ID` int NOT NULL AUTO_INCREMENT,
-  `NAME` varchar(150) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `INTRODUCE` varchar(150) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `IMAGE` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `LINK` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `SLUG` varchar(150) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `NAME` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `INTRODUCE` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `IMAGE` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `LINK` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `SLUG` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -297,7 +297,7 @@ CREATE TABLE `meo` (
 
 LOCK TABLES `meo` WRITE;
 /*!40000 ALTER TABLE `meo` DISABLE KEYS */;
-INSERT INTO `meo` VALUES (1,'6 skills trong căn bếp bữa ăn ngon','Chỉ cần nắm vững những kỹ năng này, trình nấu nướng của bạn sẽ được nâng cấp, dù thực tế bạn không quá thích vào bếp hay nấu ăn giỏi.','/image/6skillslambep/bokho.png','/MeoVat/6-Skills-lam-bep','6-Skills-lam-bep'),(2,'6 bí kíp chọn thực phẩm tươi ngon','Với 10 mẹo nhận biết dưới đây, bạn dễ dàng loại bỏ những loại thực phẩm không an toàn. Đảm bào sức khỏe cho bản thân và gia đình.','/image/10bikipchonthucphamtuoi/trungga.jpg','/MeoVat/10-bi-kip-chon-thuc-pham-tuoi','10-bi-kip-chon-thuc-pham-tuoi'),(3,'Cách làm sạch ấm đun nước điện','Tần suất làm sạch sẽ phụ thuộc vào tần suất sử dụng ấm nước của bạn.Bên ngoài nên được lau loại bỏ các vết ố và bẩn tung tóe ít nhất một lần một tuần','/image/lamsachamdunnuoc/1.jpg','/MeoVat/Cach-lam-sang-am-dun-nuoc-dien','Cach-lam-sang-am-dun-nuoc-dien'),(4,'6 mẹo nấu ăn hữu ích bạn có thể học lỏm từ đầu bếp nhà hàng','Cắt lát chanh càng mỏng, bạn sẽ cắt được lát chanh càng chua','/image/9meocooking/meo3-6308-1506331373.jpg','/MeoVat/9-meo-nau-an-huu-ich','6-meo-don-gian'),(5,'6 lưu ý nấu ăn đơn giản','Cho người đầu bếp mới bắt đầu, 6 sai lầm nấu ăn phổ biến mà mọi người thường mắc phải và cách mà bạn có thể tránh chúng','https://hotelcareers.vn/wp-content/uploads/2022/07/meo-vat-nau-an.jpg','/MeoVat/6-luu-y-cho-nguoi-moi-bat-dau','6-luu-y-cho-nguoi-moi-bat-dau'),(6,'Hướng dẫn nấu ăn cùng các loại ngũ cốc','Nếu bạn muốn bổ sung thêm nhiều ngũ cốc nguyên cám vào chế độ ăn uống thì bạn có thể tìm hiểu hướng dẫn nấu ăn với ngũ cốc đơn giản này','https://cdn.tgdd.vn/2020/12/CookProduct/thumb1-1200x676-11.jpg','/MeoVat/Nau-an-voi-ngu-coc','Nau-an-voi-ngu-coc'),(7,'4 mẹo biến thịt dai thành mềm mại','Những thủ thuật này được các đầu bếp có thâm niên đúc kết ra, có thể chữa thịt dai trở nên mềm mại, ngon tuyệt','https://s1.media.ngoisao.vn/news/2023/04/06/heo-dai-3-ngoisaovn-w1200-h675.jpg','/MeoVat/4-meo-bien-thit-dai-thanh-thit-mem','4-meo-bien-thit-dai-thanh-thit-mem'),(8,'Công thức nấu ăn và cháo ngon của đầu bếp Singapore','Cho gạo đã vo sạch để qua đêm sẽ giúp nấu cơm hoặc cháo đỡ dính và nhanh hơn','https://img-global.cpcdn.com/recipes/466d4da831efb91b/1200x630cq70/photo.jpg','/MeoVat/chao-ech-singapore','chao-ech-singapore'),(9,'Mẹo khử mùi tanh của cá','Mùi tanh là một trong những vấn đề cực kì phổ biến trong các món ăn có chứa cá, hãy cùng 14cooking giải quyết vấn đề này','https://media-cdn-v2.laodong.vn/Storage/NewsPortal/2021/5/13/909026/186107386_1937994386.jpg','MeoVat/meo-khu-mui-tan-cua-ca','meo-khu-mui-tan-cua-ca'),(10,'5 công thức sáng tạo với máy xay cầm tay','Dưới đây là một vài công thức tuyệt vời để bạn làm với máy xay cầm tay và những phụ kiện tiện dụng của nó!','https://media3.bosch-home.com/Images/600x/MCIM02008190_FR09-KL-R1-5WaysHandBlender-Hollandaise.webp',NULL,'5-creative-recipes-with-a-hand-blender'),(11,'6 bí quyết để loại bỏ các tác nhân gây dị ứng tại nhà của bạn','Những tác nhân gây dị ứng này có thể ít ảnh hưởng đến người khác, nhưng lại khiến bạn khò khè và ngứa ngáy toàn thân.','https://media3.bosch-home.com/Images/1600x/MCIM02007500_FR03-SC-B2-7HacksAllergy-Sunshine.webp',NULL,'6-hacks-to-allergy-proof-your-home'),(12,'6 cách bếp từ Bosch nâng cao trải nghiệm nấu nướng của bạn','6 cách bếp từ Bosch nâng cao trải nghiệm nấu nướng của bạn','https://media3.bosch-home.com/Images/1600x/12492931_RAP_FR_InductionHobEnhanceHead_master.webp',NULL,'6-ways-bosch-induction'),(13,'6 bí quyết đơn giản giữ cho tủ lạnh gọn gàng, ngăn nắp','Bạn có biết rằng việc giữ cho tủ lạnh gọn gàng, ngăn nắp là cách đơn giản giúp tiết kiệm thời gian và tiền bạc cho những lần đi siêu thị?','https://media3.bosch-home.com/Images/1600x/MCIM02007223_FR33-SC-7SimpleHacksFridges.webp',NULL,'keep-your-fridge-fresh-and-organised'),(14,'6 loại thực phẩm không nên giữ trong tủ lạnh','Tủ lạnh có thể kéo dài thời gian sử dụng của thực phẩm nhưng cũng có thể gây hại cho chúng.','https://media3.bosch-home.com/Images/1600x/MCIM02007216_FR26-KLSC-10ThingsNeverKeepInFridge.webp',NULL,'6-types-of-food-you-should-never-keep-in-the-fridge'),(15,'Làm chủ các phương pháp nấu ăn nhiệt ẩm','Hãy khám phá và làm chủ 5 phương pháp nấu ăn nhiệt ẩm dưới đây để có những bữa ăn ngon miệng và đầy dinh dưỡng cho gia đình bạn.','https://media3.bosch-home.com/Images/1600x/MCIM02007220_FR30-KL-MasterMoistHeatCooking.webp',NULL,'master-moist-heat-cooking-methods'),(16,'Làm thế nào để nấu thịt đúng cách?','Mỗi loại thịt đều có những thách thức của riêng chúng và có thể quyết định một món ăn ngon hay dở.','https://media3.bosch-home.com/Images/1600x/MCIM02007202_FR12-KL-CookingMeatRight.webp',NULL,'how-to-cook-meat-right'),(17,'5 ý tưởng lưu trữ thông minh và hiệu quả cho căn bếp nhà bạn','Dưới đây là 5 mẹo hàng đầu của chúng tôi để giúp bạn bắt đầu sắp xếp gian bếp của mình.','https://media3.bosch-home.com/Images/1600x/MCIM02007209_FR19-SC-5EffecientStorage.webp',NULL,'5-smart-efficient-storage-ideas-for-your-kitchen'),(18,'7 mẹo nấu ăn dễ dàng cho những người lười biếng','Chỉ riêng suy nghĩ về việc phải lên kế hoạch, chuẩn bị nguyên liệu và dọn dẹp sau khi nấu đã quá đủ để khiến nhiều người bỏ đi ý tưởng tự nấu ăn.','https://media3.bosch-home.com/Images/1600x/MCIM02240086_FR42-KL-Stage-7CookingTipsLazyPeople.webp',NULL,'7-easy-recipes-for-lazy-people');
+INSERT INTO `meo` VALUES (1,'6 skills trong căn bếp bữa ăn ngon','Chỉ cần nắm vững những kỹ năng này, trình nấu nướng của bạn sẽ được nâng cấp, dù thực tế bạn không quá thích vào bếp hay nấu ăn giỏi.','/image/6skillslambep/bokho.png','/MeoVat/6-Skills-lam-bep','6-Skills-lam-bep'),(2,'6 bí kíp chọn thực phẩm tươi ngon','Với 10 mẹo nhận biết dưới đây, bạn dễ dàng loại bỏ những loại thực phẩm không an toàn. Đảm bào sức khỏe cho bản thân và gia đình.','/image/10bikipchonthucphamtuoi/trungga.jpg','/MeoVat/10-bi-kip-chon-thuc-pham-tuoi','10-bi-kip-chon-thuc-pham-tuoi'),(3,'Cách làm sạch ấm đun nước điện','Tần suất làm sạch sẽ phụ thuộc vào tần suất sử dụng ấm nước của bạn.Bên ngoài nên được lau loại bỏ các vết ố và bẩn tung tóe ít nhất một lần một tuần','/image/lamsachamdunnuoc/1.jpg','/MeoVat/Cach-lam-sang-am-dun-nuoc-dien','Cach-lam-sang-am-dun-nuoc-dien'),(4,'6 mẹo nấu ăn hữu ích bạn có thể học lỏm từ đầu bếp nhà hàng','Cắt lát chanh càng mỏng, bạn sẽ cắt được lát chanh càng chua','/image/9meocooking/meo3-6308-1506331373.jpg','/MeoVat/9-meo-nau-an-huu-ich','6-meo-don-gian'),(5,'6 lưu ý nấu ăn đơn giản','Cho người đầu bếp mới bắt đầu, 6 sai lầm nấu ăn phổ biến mà mọi người thường mắc phải và cách mà bạn có thể tránh chúng','https://hotelcareers.vn/wp-content/uploads/2022/07/meo-vat-nau-an.jpg','/MeoVat/6-luu-y-cho-nguoi-moi-bat-dau','6-luu-y-cho-nguoi-moi-bat-dau'),(6,'Hướng dẫn nấu ăn cùng các loại ngũ cốc','Nếu bạn muốn bổ sung thêm nhiều ngũ cốc nguyên cám vào chế độ ăn uống thì bạn có thể tìm hiểu hướng dẫn nấu ăn với ngũ cốc đơn giản này','https://cdn.tgdd.vn/2020/12/CookProduct/thumb1-1200x676-11.jpg','/MeoVat/Nau-an-voi-ngu-coc','Nau-an-voi-ngu-coc'),(7,'4 mẹo biến thịt dai thành mềm mại','Những thủ thuật này được các đầu bếp có thâm niên đúc kết ra, có thể chữa thịt dai trở nên mềm mại, ngon tuyệt','https://s1.media.ngoisao.vn/news/2023/04/06/heo-dai-3-ngoisaovn-w1200-h675.jpg','/MeoVat/4-meo-bien-thit-dai-thanh-thit-mem','4-meo-bien-thit-dai-thanh-thit-mem'),(8,'Công thức nấu ăn và cháo ngon của đầu bếp Singapore','Cho gạo đã vo sạch để qua đêm sẽ giúp nấu cơm hoặc cháo đỡ dính và nhanh hơn','https://img-global.cpcdn.com/recipes/466d4da831efb91b/1200x630cq70/photo.jpg','/MeoVat/chao-ech-singapore','chao-ech-singapore'),(9,'Mẹo khử mùi tanh của cá','Mùi tanh là một trong những vấn đề cực kì phổ biến trong các món ăn có chứa cá, hãy cùng 14cooking giải quyết vấn đề này','https://media-cdn-v2.laodong.vn/Storage/NewsPortal/2021/5/13/909026/186107386_1937994386.jpg','/MeoVat/catanh','catanh'),(10,'5 công thức sáng tạo với máy xay cầm tay','Dưới đây là một vài công thức tuyệt vời để bạn làm với máy xay cầm tay và những phụ kiện tiện dụng của nó!','https://media3.bosch-home.com/Images/600x/MCIM02008190_FR09-KL-R1-5WaysHandBlender-Hollandaise.webp',NULL,'5-creative-recipes-with-a-hand-blender'),(11,'6 bí quyết để loại bỏ các tác nhân gây dị ứng tại nhà của bạn','Những tác nhân gây dị ứng này có thể ít ảnh hưởng đến người khác, nhưng lại khiến bạn khò khè và ngứa ngáy toàn thân.','https://media3.bosch-home.com/Images/1600x/MCIM02007500_FR03-SC-B2-7HacksAllergy-Sunshine.webp',NULL,'6-hacks-to-allergy-proof-your-home'),(12,'6 cách bếp từ Bosch nâng cao trải nghiệm nấu nướng của bạn','6 cách bếp từ Bosch nâng cao trải nghiệm nấu nướng của bạn','https://media3.bosch-home.com/Images/1600x/12492931_RAP_FR_InductionHobEnhanceHead_master.webp',NULL,'6-ways-bosch-induction'),(13,'6 bí quyết đơn giản giữ cho tủ lạnh gọn gàng, ngăn nắp','Bạn có biết rằng việc giữ cho tủ lạnh gọn gàng, ngăn nắp là cách đơn giản giúp tiết kiệm thời gian và tiền bạc cho những lần đi siêu thị?','https://media3.bosch-home.com/Images/1600x/MCIM02007223_FR33-SC-7SimpleHacksFridges.webp',NULL,'keep-your-fridge-fresh-and-organised'),(14,'6 loại thực phẩm không nên giữ trong tủ lạnh','Tủ lạnh có thể kéo dài thời gian sử dụng của thực phẩm nhưng cũng có thể gây hại cho chúng.','https://media3.bosch-home.com/Images/1600x/MCIM02007216_FR26-KLSC-10ThingsNeverKeepInFridge.webp',NULL,'6-types-of-food-you-should-never-keep-in-the-fridge'),(15,'Làm chủ các phương pháp nấu ăn nhiệt ẩm','Hãy khám phá và làm chủ 5 phương pháp nấu ăn nhiệt ẩm dưới đây để có những bữa ăn ngon miệng và đầy dinh dưỡng cho gia đình bạn.','https://media3.bosch-home.com/Images/1600x/MCIM02007220_FR30-KL-MasterMoistHeatCooking.webp',NULL,'master-moist-heat-cooking-methods'),(16,'Làm thế nào để nấu thịt đúng cách?','Mỗi loại thịt đều có những thách thức của riêng chúng và có thể quyết định một món ăn ngon hay dở.','https://media3.bosch-home.com/Images/1600x/MCIM02007202_FR12-KL-CookingMeatRight.webp',NULL,'how-to-cook-meat-right'),(17,'5 ý tưởng lưu trữ thông minh và hiệu quả cho căn bếp nhà bạn','Dưới đây là 5 mẹo hàng đầu của chúng tôi để giúp bạn bắt đầu sắp xếp gian bếp của mình.','https://media3.bosch-home.com/Images/1600x/MCIM02007209_FR19-SC-5EffecientStorage.webp',NULL,'5-smart-efficient-storage-ideas-for-your-kitchen'),(18,'7 mẹo nấu ăn dễ dàng cho những người lười biếng','Chỉ riêng suy nghĩ về việc phải lên kế hoạch, chuẩn bị nguyên liệu và dọn dẹp sau khi nấu đã quá đủ để khiến nhiều người bỏ đi ý tưởng tự nấu ăn.','https://media3.bosch-home.com/Images/1600x/MCIM02240086_FR42-KL-Stage-7CookingTipsLazyPeople.webp',NULL,'7-easy-recipes-for-lazy-people');
 /*!40000 ALTER TABLE `meo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -310,12 +310,12 @@ DROP TABLE IF EXISTS `mon_an`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `mon_an` (
   `ID` int NOT NULL AUTO_INCREMENT,
-  `NAME` varchar(150) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `NOI_DUNG` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `IMAGE` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `THE_LOAI` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `KT_CHE_BIEN` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `LINK` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `NAME` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `NOI_DUNG` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `IMAGE` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `THE_LOAI` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `KT_CHE_BIEN` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `LINK` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=101 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -339,12 +339,12 @@ DROP TABLE IF EXISTS `phan_hoi`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `phan_hoi` (
   `ID` int NOT NULL AUTO_INCREMENT,
-  `TITLE` varchar(150) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `NOI_DUNG` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `TITLE` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `NOI_DUNG` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   `DATE_CREATE` datetime DEFAULT NULL,
   `USER_ID` int DEFAULT NULL,
-  `EMAIL` varchar(150) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `SUBJECT` varchar(200) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `EMAIL` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `SUBJECT` varchar(200) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`ID`),
   KEY `USER_ID` (`USER_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -368,7 +368,7 @@ DROP TABLE IF EXISTS `role`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `role` (
   `ID` int NOT NULL AUTO_INCREMENT,
-  `NAME` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `NAME` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`ID`),
   UNIQUE KEY `unique_name` (`NAME`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -393,11 +393,11 @@ DROP TABLE IF EXISTS `user`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `user` (
   `ID` int NOT NULL AUTO_INCREMENT,
-  `NAME` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `EMAIL` varchar(150) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `SDT` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `USERNAME` varchar(150) COLLATE utf8mb4_general_ci NOT NULL,
-  `PASSWORD` varchar(150) COLLATE utf8mb4_general_ci NOT NULL,
+  `NAME` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `EMAIL` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `SDT` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `USERNAME` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `PASSWORD` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `ROLE_ID` int DEFAULT NULL,
   `DATE_CREATE` datetime DEFAULT CURRENT_TIMESTAMP,
   `DATE_UPDATE` datetime DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -407,7 +407,7 @@ CREATE TABLE `user` (
   UNIQUE KEY `SDT` (`SDT`),
   KEY `ROLE_ID` (`ROLE_ID`),
   CONSTRAINT `user_ibfk_1` FOREIGN KEY (`ROLE_ID`) REFERENCES `role` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -416,7 +416,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (4,NULL,NULL,NULL,'nttgon123','$2a$10$IDBflkofuMzW7a6hnElxVOC7X42sv5OwLiatsHhMoa.ssuHVaPupS',NULL,NULL,NULL),(5,NULL,NULL,NULL,'nttgon123456','$2a$10$.m8Gp3KKvbJ4GNiLb2If2elzmObgoLJkUXVtVlju0ocTydeSkrX8C',NULL,NULL,NULL),(6,NULL,NULL,NULL,'da87654321','$2a$10$5T2N/GwL4RHYsPMOU1F/LeEWKZPE6J/qVQG.AggMN2Tj7K0ZOCPX.',NULL,'2024-04-30 08:09:35','2024-04-30 08:09:35'),(7,NULL,NULL,NULL,'da876543210','$2a$10$viCHjXwgBgClk2t7UxNQG.JKn5cgUhqiPLpZZjua5OqPT7FeWCHn.',NULL,'2024-04-30 08:33:30','2024-04-30 08:33:30'),(8,NULL,NULL,NULL,'da8765432101','$2a$10$KDPVlCpHE9FHdMKRNsgcLuBBBh3LP0meZDVTvXoS/XtBw3s/NHGki',NULL,'2024-04-30 08:36:23','2024-04-30 08:36:23'),(9,NULL,NULL,NULL,'da987654321','$2a$10$D5oAR3J/2tP3DAX.pyv4XOhQ7pvxIt6TDgWZO0iHhHMKqqKvRMT2y',NULL,'2024-04-30 09:03:59','2024-04-30 09:03:59'),(10,NULL,NULL,NULL,'da8765432111111','$2a$10$EdsSXLCP2KMOUWry6QHmd.Ac1zRGiGQek1Ytzwo15Suo/vRhO/L3e',NULL,'2024-04-30 09:44:59','2024-04-30 09:44:59'),(11,NULL,NULL,NULL,'da9876543210123','$2a$10$pd.YkDRmAmVNYwMXalkLte1mIaor15r.coA4XcNAyCuTdxH5PBGau',NULL,'2024-04-30 09:54:31','2024-04-30 09:54:31'),(12,NULL,NULL,NULL,'da98765432101234','$2a$10$Nv4u78OK.s7IVSKWFR/PPOae1sSHFbIfwE2kGmzG5F4yBhYRmYPo2',NULL,'2024-04-30 09:56:38','2024-04-30 09:56:38'),(13,NULL,NULL,NULL,'da987654321012345','$2a$10$J1eaH/zhlLqfnivnWXTQe.dIyTbe92YtXXBGjKF9pbD3h9apO6NdC',NULL,'2024-04-30 09:57:38','2024-04-30 09:57:38'),(14,NULL,NULL,NULL,'ntt123','$2a$10$uwR7XBXIvzW9puPlrLxyTuaO0MtsYfut/DiPshpeIGkZM0U8GZEbm',NULL,'2024-04-30 11:05:51','2024-04-30 11:05:51'),(15,NULL,NULL,NULL,'ntt123456','$2a$10$IAEpxwA8RyVG296equmz3uajkJI1lM7GB6Ygmbc3gJFV9NjkIog4a',NULL,'2024-04-30 11:06:36','2024-04-30 11:06:36'),(16,NULL,NULL,NULL,'ntt1234567','$2a$10$OiRq05hO91Z7snHms8qs8ehEp7TPaed4ocxDJuKbjDOrs5hY7Muju',NULL,'2024-04-30 11:17:48','2024-04-30 11:17:48'),(17,NULL,NULL,NULL,'ntt12345678','$2a$10$1wA5CFKQGJDB.LQ7MDswgOldxaj9Easx9DXHSY3uNcZ4wIPzLDyt.',NULL,'2024-04-30 11:20:18','2024-04-30 11:20:18'),(18,NULL,NULL,NULL,'ntt123456789','$2a$10$QF8y9z/Co.6H1BN1wiYUbO5y.Y28Oc8BQ9VyZ2IOW7dr06WALbHMC',NULL,'2024-04-30 11:21:42','2024-04-30 11:21:42'),(19,NULL,NULL,NULL,'ntt1234567890','$2a$10$McJ1eLOTqEvd9exqOylxnOAp4DfFxA0CbmVMJTG6BSm7HsEKtf6oa',NULL,'2024-04-30 11:24:04','2024-04-30 11:24:04'),(20,NULL,NULL,NULL,'ntt12345678901','$2a$10$zQwoe5n7rsH9liNYSmmdROTQoH1B76ANTZdrmgpLqOJtppy1F7goq',NULL,'2024-04-30 11:25:28','2024-04-30 11:25:28'),(21,NULL,NULL,NULL,'ntt123456789012','$2a$10$YI1vyJkm/Xk3dNG4TrAUAu/yv3vxOMBnaRtbbZjEmpQbp0m1D2406',NULL,'2024-04-30 11:26:43','2024-04-30 11:26:43'),(24,'NTT Gon','trongthanh0099@gmail.com',NULL,'trongthanh0099@gmail.com','$2a$10$6aCKhRAjZu5fYRAysbc1KOxqwZfU.BHghINMPLbC14DBJwjZ9QJOm',NULL,'2024-05-16 19:37:41','2024-05-16 19:37:41');
+INSERT INTO `user` VALUES (4,NULL,NULL,NULL,'nttgon123','$2a$10$IDBflkofuMzW7a6hnElxVOC7X42sv5OwLiatsHhMoa.ssuHVaPupS',NULL,NULL,NULL),(5,NULL,NULL,NULL,'nttgon123456','$2a$10$.m8Gp3KKvbJ4GNiLb2If2elzmObgoLJkUXVtVlju0ocTydeSkrX8C',NULL,NULL,NULL),(6,NULL,NULL,NULL,'da87654321','$2a$10$5T2N/GwL4RHYsPMOU1F/LeEWKZPE6J/qVQG.AggMN2Tj7K0ZOCPX.',NULL,'2024-04-30 08:09:35','2024-04-30 08:09:35'),(7,NULL,NULL,NULL,'da876543210','$2a$10$viCHjXwgBgClk2t7UxNQG.JKn5cgUhqiPLpZZjua5OqPT7FeWCHn.',NULL,'2024-04-30 08:33:30','2024-04-30 08:33:30'),(8,NULL,NULL,NULL,'da8765432101','$2a$10$KDPVlCpHE9FHdMKRNsgcLuBBBh3LP0meZDVTvXoS/XtBw3s/NHGki',NULL,'2024-04-30 08:36:23','2024-04-30 08:36:23'),(9,NULL,NULL,NULL,'da987654321','$2a$10$D5oAR3J/2tP3DAX.pyv4XOhQ7pvxIt6TDgWZO0iHhHMKqqKvRMT2y',NULL,'2024-04-30 09:03:59','2024-04-30 09:03:59'),(10,NULL,NULL,NULL,'da8765432111111','$2a$10$EdsSXLCP2KMOUWry6QHmd.Ac1zRGiGQek1Ytzwo15Suo/vRhO/L3e',NULL,'2024-04-30 09:44:59','2024-04-30 09:44:59'),(11,NULL,NULL,NULL,'da9876543210123','$2a$10$pd.YkDRmAmVNYwMXalkLte1mIaor15r.coA4XcNAyCuTdxH5PBGau',NULL,'2024-04-30 09:54:31','2024-04-30 09:54:31'),(12,NULL,NULL,NULL,'da98765432101234','$2a$10$Nv4u78OK.s7IVSKWFR/PPOae1sSHFbIfwE2kGmzG5F4yBhYRmYPo2',NULL,'2024-04-30 09:56:38','2024-04-30 09:56:38'),(13,NULL,NULL,NULL,'da987654321012345','$2a$10$J1eaH/zhlLqfnivnWXTQe.dIyTbe92YtXXBGjKF9pbD3h9apO6NdC',NULL,'2024-04-30 09:57:38','2024-04-30 09:57:38'),(14,NULL,NULL,NULL,'ntt123','$2a$10$uwR7XBXIvzW9puPlrLxyTuaO0MtsYfut/DiPshpeIGkZM0U8GZEbm',NULL,'2024-04-30 11:05:51','2024-04-30 11:05:51'),(15,NULL,NULL,NULL,'ntt123456','$2a$10$IAEpxwA8RyVG296equmz3uajkJI1lM7GB6Ygmbc3gJFV9NjkIog4a',NULL,'2024-04-30 11:06:36','2024-04-30 11:06:36'),(16,NULL,NULL,NULL,'ntt1234567','$2a$10$OiRq05hO91Z7snHms8qs8ehEp7TPaed4ocxDJuKbjDOrs5hY7Muju',NULL,'2024-04-30 11:17:48','2024-04-30 11:17:48'),(17,NULL,NULL,NULL,'ntt12345678','$2a$10$1wA5CFKQGJDB.LQ7MDswgOldxaj9Easx9DXHSY3uNcZ4wIPzLDyt.',NULL,'2024-04-30 11:20:18','2024-04-30 11:20:18'),(18,NULL,NULL,NULL,'ntt123456789','$2a$10$QF8y9z/Co.6H1BN1wiYUbO5y.Y28Oc8BQ9VyZ2IOW7dr06WALbHMC',NULL,'2024-04-30 11:21:42','2024-04-30 11:21:42'),(19,NULL,NULL,NULL,'ntt1234567890','$2a$10$McJ1eLOTqEvd9exqOylxnOAp4DfFxA0CbmVMJTG6BSm7HsEKtf6oa',NULL,'2024-04-30 11:24:04','2024-04-30 11:24:04'),(20,NULL,NULL,NULL,'ntt12345678901','$2a$10$zQwoe5n7rsH9liNYSmmdROTQoH1B76ANTZdrmgpLqOJtppy1F7goq',NULL,'2024-04-30 11:25:28','2024-04-30 11:25:28'),(21,NULL,NULL,NULL,'ntt123456789012','$2a$10$YI1vyJkm/Xk3dNG4TrAUAu/yv3vxOMBnaRtbbZjEmpQbp0m1D2406',NULL,'2024-04-30 11:26:43','2024-04-30 11:26:43'),(24,'NTT Gon','trongthanh0099@gmail.com',NULL,'trongthanh0099@gmail.com','$2a$10$6aCKhRAjZu5fYRAysbc1KOxqwZfU.BHghINMPLbC14DBJwjZ9QJOm',NULL,'2024-05-16 19:37:41','2024-05-16 19:37:41'),(25,NULL,NULL,NULL,'a123bc','$2a$10$lnNwIWtA2scmSBFNkMYg7u9/zzo5vcxWaAgR9TMBKQVBi8r28xf4m',NULL,'2024-05-20 02:06:49','2024-05-20 02:06:49');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -429,10 +429,10 @@ DROP TABLE IF EXISTS `yeu_thich_meo`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `yeu_thich_meo` (
   `ID_USER` int NOT NULL,
-  `NAME` varchar(250) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `SLUG` varchar(250) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `IMAGE` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  PRIMARY KEY (`ID_USER`)
+  `NAME` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `SLUG` varchar(250) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `IMAGE` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  PRIMARY KEY (`ID_USER`,`NAME`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -442,7 +442,7 @@ CREATE TABLE `yeu_thich_meo` (
 
 LOCK TABLES `yeu_thich_meo` WRITE;
 /*!40000 ALTER TABLE `yeu_thich_meo` DISABLE KEYS */;
-INSERT INTO `yeu_thich_meo` VALUES (26,'6 bí kíp chọn thực phẩm tươi ngon','10-bi-kip-chon-thuc-pham-tuoi','/image/10bikipchonthucphamtuoi/trungga.jpg');
+INSERT INTO `yeu_thich_meo` VALUES (25,'6 lưu ý nấu ăn đơn giản','6-luu-y-cho-nguoi-moi-bat-dau','https://hotelcareers.vn/wp-content/uploads/2022/07/meo-vat-nau-an.jpg'),(25,'Công thức nấu ăn và cháo ngon của đầu bếp Singapore','chao-ech-singapore','https://img-global.cpcdn.com/recipes/466d4da831efb91b/1200x630cq70/photo.jpg'),(25,'Hướng dẫn nấu ăn cùng các loại ngũ cốc','Nau-an-voi-ngu-coc','https://cdn.tgdd.vn/2020/12/CookProduct/thumb1-1200x676-11.jpg'),(25,'Mẹo khử mùi tanh của cá','catanh','https://media-cdn-v2.laodong.vn/Storage/NewsPortal/2021/5/13/909026/186107386_1937994386.jpg'),(26,'6 bí kíp chọn thực phẩm tươi ngon','10-bi-kip-chon-thuc-pham-tuoi','/image/10bikipchonthucphamtuoi/trungga.jpg');
 /*!40000 ALTER TABLE `yeu_thich_meo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -479,9 +479,9 @@ DROP TABLE IF EXISTS `yeu_thich_mon_an_buoi_sang`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `yeu_thich_mon_an_buoi_sang` (
   `ID_USER` int NOT NULL,
-  `NAME` varchar(150) COLLATE utf8mb4_general_ci NOT NULL,
-  `SLUG` varchar(150) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `IMAGE` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `NAME` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `SLUG` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `IMAGE` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`ID_USER`,`NAME`),
   KEY `NAME` (`NAME`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -493,7 +493,7 @@ CREATE TABLE `yeu_thich_mon_an_buoi_sang` (
 
 LOCK TABLES `yeu_thich_mon_an_buoi_sang` WRITE;
 /*!40000 ALTER TABLE `yeu_thich_mon_an_buoi_sang` DISABLE KEYS */;
-INSERT INTO `yeu_thich_mon_an_buoi_sang` VALUES (26,'Bánh Bao','Banh-bao','https://cdn.tgdd.vn/2020/10/CookProduct/thumb-1200x676-3.jpg');
+INSERT INTO `yeu_thich_mon_an_buoi_sang` VALUES (25,'Bánh Bao','Banh-bao','https://cdn.tgdd.vn/2020/10/CookProduct/thumb-1200x676-3.jpg'),(25,'Bánh hỏi cháo lòng','banh-hoi','https://cdn.tgdd.vn/2021/01/CookRecipe/Avatar/banhhoichaolong.jpg'),(25,'Bún cá ','Bun-ca','https://cdn.tgdd.vn/2020/07/CookProduct/8-1200x676-3.jpg'),(25,'Cơm tấm sài gòn','com-tam','https://cafebiz.cafebizcdn.vn/162123310254002176/2022/12/7/com-tam-suon-bi-cha-trung-anh-hoa-quynh-nguyen-1670317945936565526419-1670385940206-16703859407121546487016-1670395722685-16703957227611562343004.jpg'),(25,'Phở Bò','Pho-bo','https://tiki.vn/blog/wp-content/uploads/2023/07/thumb-12.jpg'),(25,'Yến mạch sữa chua','yen-mach-sua-chua','https://thanhnien.mediacdn.vn/uploaded/minhnguyet/2017_02_06/lamdep6_ESKS.jpg?width=500'),(26,'Bánh Bao','Banh-bao','https://cdn.tgdd.vn/2020/10/CookProduct/thumb-1200x676-3.jpg');
 /*!40000 ALTER TABLE `yeu_thich_mon_an_buoi_sang` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -506,9 +506,9 @@ DROP TABLE IF EXISTS `yeu_thich_mon_an_buoi_trua`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `yeu_thich_mon_an_buoi_trua` (
   `ID_USER` int NOT NULL,
-  `NAME` varchar(150) COLLATE utf8mb4_general_ci NOT NULL,
-  `SLUG` varchar(150) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `IMAGE` varchar(500) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `NAME` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `SLUG` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `IMAGE` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
   PRIMARY KEY (`ID_USER`,`NAME`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -519,7 +519,7 @@ CREATE TABLE `yeu_thich_mon_an_buoi_trua` (
 
 LOCK TABLES `yeu_thich_mon_an_buoi_trua` WRITE;
 /*!40000 ALTER TABLE `yeu_thich_mon_an_buoi_trua` DISABLE KEYS */;
-INSERT INTO `yeu_thich_mon_an_buoi_trua` VALUES (9,'Burnt chese cake mềm chảy','burnt-cheese-cake-mem-chay','https://cdn.tgdd.vn/2021/03/CookRecipe/Avatar/banh-pho-mai-nuong-dua-thumbnail.jpg'),(22,'Bánh Trung Thu: bánh nướng và bánh dẻo','Banh-trung-thu','https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2023/9/5/banh-trung-thu-16938859433102065611890.jpg'),(22,'CHÂN GÀ NGÂM SẢ ỚT CHUA CAY, ĐẬM VỊ','chan-ga-sa-ot','https://i.ytimg.com/vi/6sqv4rrUA2g/maxresdefault.jpg');
+INSERT INTO `yeu_thich_mon_an_buoi_trua` VALUES (9,'Burnt chese cake mềm chảy','burnt-cheese-cake-mem-chay','https://cdn.tgdd.vn/2021/03/CookRecipe/Avatar/banh-pho-mai-nuong-dua-thumbnail.jpg'),(22,'Bánh Trung Thu: bánh nướng và bánh dẻo','Banh-trung-thu','https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2023/9/5/banh-trung-thu-16938859433102065611890.jpg'),(22,'CHÂN GÀ NGÂM SẢ ỚT CHUA CAY, ĐẬM VỊ','chan-ga-sa-ot','https://i.ytimg.com/vi/6sqv4rrUA2g/maxresdefault.jpg'),(25,'Bánh Trung Thu: bánh nướng và bánh dẻo','Banh-trung-thu','https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2023/9/5/banh-trung-thu-16938859433102065611890.jpg'),(25,'Bò Sốt Me','bo-sot-me','https://image.cooky.vn/recipe/g3/22435/s640/recipe22435-636437674468604554.jpg'),(25,'Burnt chese cake mềm chảy','burnt-cheese-cake-mem-chay','https://cdn.tgdd.vn/2021/03/CookRecipe/Avatar/banh-pho-mai-nuong-dua-thumbnail.jpg'),(25,'Cà ri gà kiểu Thái','ca-ri-ga','https://assets.bonappetit.com/photos/57ae0a62f1c801a1038bcf17/16:9/w_640,c_limit/thai-chicken-curry.jpg'),(25,'CHÂN GÀ NGÂM SẢ ỚT CHUA CAY, ĐẬM VỊ','chan-ga-sa-ot','https://i.ytimg.com/vi/6sqv4rrUA2g/maxresdefault.jpg');
 /*!40000 ALTER TABLE `yeu_thich_mon_an_buoi_trua` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -532,4 +532,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-05-20  0:20:38
+-- Dump completed on 2024-05-20  3:00:56
