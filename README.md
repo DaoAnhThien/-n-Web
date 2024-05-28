@@ -52,7 +52,7 @@ Youtube: https://youtu.be/BZTZ9PDlbrQ?si=ZFb-BB88J8c3BU5b
 - Chạy project với express.
   + npm run dev
 
-# Khi muốn sử dụng 2 chức năng generator, bạn vui lòng tham khảo 2 file README bên dưới : 
+### Khi muốn sử dụng 2 chức năng generator, bạn vui lòng tham khảo 2 file README bên dưới : 
 [Calorie Calculator](https://github.com/DaoAnhThien/Web-NT208/blob/master/generator/Calorie-Calculator/README.md)
 
 [Recipe Generator from Food Image](https://github.com/DaoAnhThien/Web-NT208/blob/master/generator/Recipe-Generation-from-Food-Image/README.md)
