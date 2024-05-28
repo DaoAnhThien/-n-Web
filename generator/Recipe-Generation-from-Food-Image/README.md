@@ -12,3 +12,5 @@ Download to data  directory
 
 
 Source code model : https://github.com/facebookresearch/inversecooking.git
+
+The models can be used with python 3.7 
