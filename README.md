@@ -45,3 +45,10 @@ Youtube: https://youtu.be/BZTZ9PDlbrQ?si=ZFb-BB88J8c3BU5b
 - Trang tính năng tính toán calorie từ hình ảnh.
 - Trang tính năng phân tích cách nấu từ hình ảnh.
 
+### Hướng dẫn set up 
+- Cài package cần thiết cho project.
+  + npm install yarn
+  + yarn install
+- Chạy project với express.
+  + npm run dev
+
