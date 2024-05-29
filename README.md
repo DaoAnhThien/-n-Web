@@ -34,7 +34,7 @@ Youtube: https://youtu.be/BZTZ9PDlbrQ?si=ZFb-BB88J8c3BU5b
 - Trang tính năng phân tích cách nấu từ hình ảnh
 ### Thiết kế giao diện 
 - Trang chủ: Hiển thị tổng quan về trang web, các tính năng và thông tin.
- ![image](https://github.com/DaoAnhThien/Web-NT208/assets/117579985/0a6856c0-2ab8-49fe-9606-23334061dd4e)
+![image](https://github.com/DaoAnhThien/Web-NT208/assets/117579985/8c8a0f2c-a94c-4aae-9567-91747c3492c4)
 - Trang món ăn: Hiển thị hướng dẫn cho các món ăn có trên trang web.
   ![image](https://github.com/DaoAnhThien/Web-NT208/assets/117579985/1eda7324-bf18-45ab-8375-5ce1b4553e32)
 - Trang mẹo vặt: Hiển thị các mẹo vặt có trên trang web.
