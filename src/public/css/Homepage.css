@@ -393,12 +393,13 @@ section {
 	Header
 ******************************/
 header.style1 {
-  top: 10px;
+  top: 0px;
   left: 0;
   width: 100%;
   z-index: 3;
   padding: 0;
   position: relative;
+  height: 300px;
 }
 .logo.style2 {
   z-index: 2;
@@ -1028,6 +1029,7 @@ div.scroll-container {
   width: 23%; /* Điều chỉnh lại kích thước để có ít đường biên hơn */
   margin: 10px 0; /* Điều chỉnh lề để không cần lề bên trái và phải */
 }
+
 .container-meovat-1 a {
   text-decoration: none;
   color: black;
@@ -1054,11 +1056,11 @@ div.scroll-container {
     width: 100%;
   }
   .container-meovat-1 {
-    width: 50%;
-    margin: 10px 0; 
+    width: 90%;
+    margin-right: 10px; 
   }
   .container-meovat-list{
-    margin-right: 0px;
+    margin-right: 10px;
   }
   .image{
     height: 150px;
