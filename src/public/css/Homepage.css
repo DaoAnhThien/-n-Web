@@ -399,7 +399,7 @@ header.style1 {
   z-index: 3;
   padding: 0;
   position: relative;
-  height: 300px;
+  height: 260px;
 }
 .logo.style2 {
   z-index: 2;
@@ -449,6 +449,7 @@ header.style1 {
   padding: 10px 20px;
   backdrop-filter: blur(4px) saturate(180%);
   margin: 0 auto;
+  height: 60px;
 }
 .search-box input{
   background: transparent;
@@ -482,6 +483,7 @@ header.style1 {
   width: 100%; 
   padding-right: 15px;
   padding-left: 15px;
+  
 }
 .site-menu-btns {
   margin-left: 4.25rem;
@@ -546,7 +548,7 @@ ul.inner-dropdown.list-unstyled:before {
 }
 .navbar-close .cross-wrap {
   width: 34px;
-  height: 34px;
+  height: 30px;
   cursor: pointer;
   position: relative;
 }
