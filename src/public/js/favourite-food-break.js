@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 heart.classList.add('fill-color');
             });
 
-            await postData('http://localhost:3000/v1/FavouriteFoodBreak', { SLUG, NAME, IMAGE });
+            await postData('/v1/FavouriteFoodBreak', { SLUG, NAME, IMAGE });
         });
     });
 
@@ -35,14 +35,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 heart.classList.remove('fill-color');
             });
 
-            await postData('http://localhost:3000/v1/FavouriteFoodBreak', { SLUG, NAME, IMAGE });
+            await postData('/v1/FavouriteFoodBreak', { SLUG, NAME, IMAGE });
         });
     });
 });
 
 async function markFavouriteFoods() {
     try {
-        const response = await fetch('http://localhost:3000/v1/GetFavouriteFoodBreak');
+        const response = await fetch('/v1/GetFavouriteFoodBreak');
         const favouriteFoods = await response.json();
 
         hearts.forEach((heart, index) => {

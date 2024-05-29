@@ -7,7 +7,7 @@ const animations = document.querySelectorAll('.animation-heart');
 
 async function markFavouriteTricks() {
     try {
-        const response = await fetch('http://localhost:3000/v1/GetFavouriteTrick');
+        const response = await fetch('/v1/GetFavouriteTrick');
         const favouriteTricks = await response.json(); 
 
         hearts.forEach((heart, index) => {
@@ -48,7 +48,7 @@ hearts.forEach((heart, index) => {
             heart.classList.add('fill-color');
         });
 
-        await postData('http://localhost:3000/v1/FavouriteTrick', { SLUG, NAME, IMAGE });
+        await postData('/v1/FavouriteTrick', { SLUG, NAME, IMAGE });
     });
 });
 
@@ -65,7 +65,7 @@ animations.forEach((animation, index) => {
             heart.classList.remove('fill-color');
         });
 
-        await postData('http://localhost:3000/v1/FavouriteTrick', { SLUG, NAME, IMAGE });
+        await postData('/v1/FavouriteTrick', { SLUG, NAME, IMAGE });
     });
 });
 

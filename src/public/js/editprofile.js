@@ -21,7 +21,7 @@ function updateProfile(username) {
 
   const data = { name, email, phone };
 
-  fetch('http://localhost:3000/v1/UpdateProfile', {  // Ensure the endpoint matches the server setup
+  fetch('/v1/UpdateProfile', {  // Ensure the endpoint matches the server setup
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
@@ -57,7 +57,7 @@ function updatePassword(username) {
 
   const data = { username, currentPassword, newPassword };
 
-  fetch('http://localhost:3000/v1/UpdatePassword', {
+  fetch('/v1/UpdatePassword', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
