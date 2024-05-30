@@ -13,7 +13,7 @@ Youtube: https://youtu.be/BZTZ9PDlbrQ?si=ZFb-BB88J8c3BU5b
 
 # Sơ đồ trang Web nấu ăn.
 ![image](https://github.com/DaoAnhThien/Web-NT208/assets/117579985/953cb414-d172-4c96-a7d6-68b58617cfa9)
-
+# Domain deploy : 14cooking.site
 ## Các chức năng của trang Web:
 ### Chức năng cơ bản : 
 - Search công thức các món ăn.
