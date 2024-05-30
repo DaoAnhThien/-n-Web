@@ -15,13 +15,15 @@ Youtube: https://youtu.be/BZTZ9PDlbrQ?si=ZFb-BB88J8c3BU5b
 ![image](https://github.com/DaoAnhThien/Web-NT208/assets/117579985/953cb414-d172-4c96-a7d6-68b58617cfa9)
 
 ## Các chức năng của trang Web:
+### Chức năng cơ bản : 
 - Search công thức các món ăn.
 - Tìm kiếm các mẹo làm bếp bằng searchbox.
 - Đăng nhập để có thể lưu các công thức, mẹo bếp yêu thích.
 - Các trang menu chứa các món ăn được chia theo từng chủ đề.
+- Góp ý, đóng góp thông qua form có sẵn từ trang web.
+### Chức năng nâng cao : 
 - Tạo công thức nấu ăn để làm các món ăn từ nguyên liệu qua hình ảnh có sẵn.
 - Tính toán calorie từ hình ảnh.
-- Góp ý, đóng góp thông qua form có sẵn từ trang web.
 ## Giao Diện Chương Trình Ứng Dụng
 ### Bố Cục Trang Web
 - Trang chủ
