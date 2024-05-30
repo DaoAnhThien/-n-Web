@@ -5,7 +5,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 `npm install`
 
-## Set up Environment Variables 
+# Set up Environment Variables 
 
 Create a .env file in the root directory of your project and add the following configurations for Google Gemini API Key:
 
